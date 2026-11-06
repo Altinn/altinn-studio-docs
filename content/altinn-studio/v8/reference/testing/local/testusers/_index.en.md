@@ -21,7 +21,7 @@ Additionally, she is a health expert and has started her own consulting firm for
 
 She is also a board member of the housing cooperative where she resides, named "Oslos Vakreste Borettslag" ("Oslo's Most Beautiful Housing Cooperative"). Sophie holds the role of MEDL (Member) along with associated roles for "Oslos Vakreste Borettslag".
 
-The roles DAGL and LEDE give Sophie most of the access packages for DDG Fitness AS, EAS Health Consulting and their sub-units, such as **Lønn** (`lonn`). If the authorisation rules of the app give access through access packages, Sophie will therefore often have access on behalf of these organisations.
+The roles DAGL and LEDE give Sophie most of the access packages for DDG Fitness AS, EAS Health Consulting and their sub-units, such as **Lønn** (`lonn`). If the authorization rules of the app give access through access packages, Sophie will therefore often have access on behalf of these organisations.
 
 #### Submitters (avgivere)
 
@@ -103,7 +103,7 @@ different from those assigned to the default users.
 
 ### Give test users access packages
 
-Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorisation rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the access packages their roles give in Altinn, as well as those you add in `accessPackages`. Access packages that come through client delegation or other delegations are not available locally. Access packages in localtest need studioctl v0.1.0-preview.31 or newer.
+Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorization rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the access packages their roles give in Altinn, as well as those you add in `accessPackages`. Access packages that come through client delegation or other delegations are not available locally. Access packages in localtest need studioctl v0.1.0-preview.31 or newer.
 
 This is how test users get access packages:
 
@@ -124,32 +124,33 @@ App/wwwroot/testData.json
   "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
   "persons": [
     {
-      "partyId": 512345,
-      "userId": 12345,
-      "ssn": "01017512345",
-      "lastName": "Nordmann",
+      "partyId": 512999,
+      "userId": 12999,
+      "ssn": "01019012345",
+      "firstName": "Kari",
+      "lastName": "Eksempel",
       "partyRoles": {},
       "accessPackages": {
-        "500000": ["lonn", "urn:altinn:accesspackage:skattegrunnlag"]
+        "500999": ["lonn", "urn:altinn:accesspackage:skattegrunnlag"]
       }
     }
   ],
   "orgs": [
     {
-      "partyId": 500000,
-      "orgNumber": "897069650",
-      "name": "DDG Fitness",
+      "partyId": 500999,
+      "orgNumber": "310123456",
+      "name": "Eksempel AS",
       "unitType": "AS"
     }
   ],
   "systems": [
     {
-      "id": "897069650_lonnssystem",
+      "id": "310123456_lonnssystem",
       "name": "Lønnssystem",
       "systemUsers": [
         {
           "id": "67eff800-7835-434a-a21a-39bf41c753f2",
-          "orgNumber": "897069650",
+          "orgNumber": "310123456",
           "accessPackages": ["lonn"]
         }
       ]
@@ -158,7 +159,7 @@ App/wwwroot/testData.json
 }
 ```
 
-System users can also have an `actions` list. It exists only in localtest: when the authorisation rules of the app give no answer, it lets the system user perform the listed actions in every app. In Altinn, system users get access through access packages and single rights, so use `accessPackages` instead.
+System users can also have an `actions` list. It exists only in localtest: when the authorization rules of the app give no answer, it lets the system user perform the listed actions in every app. In Altinn, system users get access through access packages and single rights, so use `accessPackages` instead.
 
 ### Json Structure
 

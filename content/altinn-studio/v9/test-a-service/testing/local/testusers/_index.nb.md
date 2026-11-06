@@ -132,32 +132,33 @@ App/wwwroot/testData.json
   "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
   "persons": [
     {
-      "partyId": 512345,
-      "userId": 12345,
-      "ssn": "01017512345",
-      "lastName": "Nordmann",
+      "partyId": 512999,
+      "userId": 12999,
+      "ssn": "01019012345",
+      "firstName": "Kari",
+      "lastName": "Eksempel",
       "partyRoles": {},
       "accessPackages": {
-        "500000": ["lonn", "urn:altinn:accesspackage:skattegrunnlag"]
+        "500999": ["lonn", "urn:altinn:accesspackage:skattegrunnlag"]
       }
     }
   ],
   "orgs": [
     {
-      "partyId": 500000,
-      "orgNumber": "897069650",
-      "name": "DDG Fitness",
+      "partyId": 500999,
+      "orgNumber": "310123456",
+      "name": "Eksempel AS",
       "unitType": "AS"
     }
   ],
   "systems": [
     {
-      "id": "897069650_lonnssystem",
+      "id": "310123456_lonnssystem",
       "name": "Lønnssystem",
       "systemUsers": [
         {
           "id": "67eff800-7835-434a-a21a-39bf41c753f2",
-          "orgNumber": "897069650",
+          "orgNumber": "310123456",
           "accessPackages": ["lonn"]
         }
       ]
