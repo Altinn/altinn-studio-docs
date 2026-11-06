@@ -1,6 +1,6 @@
 ---
 title: "Beslutningstre for systembruker"
-description: "Vedtatte regler for opprettelse, forespørsel og delegering, med avklaringer til og med 19. oktober 2026."
+description: "Vedtatte regler for opprettelse, forespørsel og delegering, med avklaringer til og med 5. november 2026."
 hidden: true
 disablePagefind: true
 toc: true
@@ -9,7 +9,7 @@ build:
   list: never
   render: always
 ---
-Dette beslutningstreet er oppdatert 19. oktober 2026 etter møtet 16. oktober. [Åpne presentasjonen med UI-illustrasjoner](../diskusjonsgrunnlag/).
+Dette beslutningstreet er oppdatert 5. november 2026. [Åpne presentasjonen med UI-illustrasjoner](../diskusjonsgrunnlag/).
 
 Trærne under «Vedtatt» viser regler, ikke åpne alternativer. Punktene under «Fortsatt åpent» er ikke besluttet. Tidligere valg om implisitt deteksjon er erstattet av et eksplisitt flagg.
 
@@ -18,13 +18,13 @@ Trærne under «Vedtatt» viser regler, ikke åpne alternativer. Punktene under 
 {{< mermaid >}}
 graph TD
   START["Opprette systembruker"] --> FLOW{"Hvordan starter opprettelsen?"}
-  FLOW -->|Leverandørforespørsel| REQUESTLISTS["Bruk forespørselens fire lister for egen virksomhet og klienter"]
+  FLOW -->|Leverandørforespørsel| REQUESTLISTS["Bruk forespørselens lister for egen virksomhet og rettighetssett for klienter"]
   REQUESTLISTS --> INDEPENDENT["Ingen utfylling eller begrensning fra systemets rettighetskrav"]
   FLOW -->|Brukeren oppretter selv| VISIBLE["Velg et synlig system i systemregisteret"]
   VISIBLE --> REGISTERLISTS["Bruk rettighetskravene på det valgte systemet"]
 {{< /mermaid >}}
 
-Listene på systemet i systemregisteret gjelder bare når brukeren selv oppretter systembruker for et synlig system. I forespørselsflyten angir leverandøren alle fire lister uavhengig av systemets lister. Forespørselens lister trenger ikke være en delmengde av disse.
+Listene på systemet i systemregisteret gjelder bare når brukeren selv oppretter systembruker for et synlig system. I forespørselsflyten angir leverandøren listene og rettighetssettene uavhengig av systemets lister. Forespørselens krav trenger ikke være en delmengde av disse.
 
 Ved aksept og senere delegering gjelder de lagrede kravene fra forespørselen, også hvis systemets lister er tomme eller endres. Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder fortsatt. Systemregisteret er fortsatt kilde til systemets identitet og annen relevant metadata.
 
@@ -34,17 +34,17 @@ Synlig system i opprettelsesvalget er et annet begrep enn synlighet for opprette
 
 Vi utvider `POST /authentication/api/v1/systemuser/request/vendor` og kaller brukeren systembruker. Autentisering ligger nå i `altinn-auth`.
 
-Forespørselen har fire lister: pakker og enkeltrettigheter for egen virksomhet, og pakker og enkeltrettigheter for klienter. Navnene på de nye klientfeltene er ikke endelig fastsatt.
+Forespørselen har to lister for egen virksomhet, pakker og enkeltrettigheter, og en prioritert liste med rettighetssett for klienter. Navnet på det nye klientfeltet er ikke endelig fastsatt.
 
-Systembruker for eget system uten systemregisteret skal være uten forhåndsdefinerte rettigheter, og kunne brukes for både egen virksomhet og klienter. Den skal dermed ha flagget `ownerControlledAccess` satt, typisk med fire tomme lister. Direkte Maskinporten-tilknytning er fortsatt et eget teknisk arbeidspunkt.
+Systembruker for eget system uten systemregisteret skal være uten forhåndsdefinerte rettigheter, og kunne brukes for både egen virksomhet og klienter. Den skal dermed ha flagget `ownerControlledAccess` satt, typisk uten krav i forespørselen. Direkte Maskinporten-tilknytning er fortsatt et eget teknisk arbeidspunkt.
 
 {{< mermaid >}}
 graph TD
-  REQUEST["Forespørsel om systembruker: fire lister over påkrevde rettigheter"] --> FLAG{"ownerControlledAccess satt?"}
-  FLAG -->|Ja| EMPTY{"Er alle fire lister tomme?"}
+  REQUEST["Forespørsel om systembruker: lister og rettighetssett"] --> FLAG{"ownerControlledAccess satt?"}
+  FLAG -->|Ja| EMPTY{"Er forespørselen uten krav?"}
   EMPTY -->|Ja| FREE["Gyldig: Virksomheten bestemmer, ingen tilganger ved aksept"]
   EMPTY -->|Nei| PROPOSAL["Gyldig: Virksomheten bestemmer, listene er initialt forslag og delegeres ved aksept"]
-  FLAG -->|Nei| CONTENT{"Minst én pakke eller rettighet på minst én liste?"}
+  FLAG -->|Nei| CONTENT{"Minst én pakke, rettighet eller ett rettighetssett?"}
   CONTENT -->|Ja| PRESET["Gyldig: Leverandøren bestemmer, bindende krav"]
   CONTENT -->|Nei| ERROR2["Valideringsfeil: mangler tilganger"]
 {{< /mermaid >}}
@@ -57,10 +57,10 @@ Gyldig kombinasjon betyr at reglene for flagg og lister er oppfylt. Øvrig valid
 graph TD
   APPROVE["Forespørselen aksepteres"] --> CREATE["Systembrukeren opprettes"]
   CREATE --> OWN["Forespurte tilganger for egen virksomhet delegeres"]
-  CREATE --> CLIENTCONFIG["Klientlistene lagres som ramme for senere delegering"]
+  CREATE --> CLIENTCONFIG["Rettighetssettene lagres på systembrukeren som ramme for senere delegering"]
   CLIENTCONFIG --> LINK["En klient knyttes til systembrukeren"]
-  LINK --> CHECK["Kontroller fullmakter for klienten"]
-  CHECK --> DELEGATE["Deleger klienttilgangene innenfor oppsettet"]
+  LINK --> CHECK["Finn det første rettighetssettet klienten oppfyller fullt ut"]
+  CHECK --> DELEGATE["Deleger hele settet samlet"]
 {{< /mermaid >}}
 
 Ved `ownerControlledAccess=true` delegeres eventuelle lister ved aksept som initialt forslag. Aksept er alt eller ingenting på listene. Den som godkjenner, må alltid være tilgangsstyrer, uansett flagg. Er listene for egen virksomhet tomme, er det eneste Altinn kontrollerer ved aksept. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
@@ -74,16 +74,27 @@ graph TD
   OPEN["Åpne systembrukeren på vanlig bruker- eller klientflate"] --> MODE{"ownerControlledAccess?"}
   MODE -->|Ja| CHOOSE["Velg pakker og enkeltrettigheter innenfor virksomhetens fullmakter"]
   MODE -->|Nei| CONTEXT{"Hvilke forhåndsdefinerte tilganger håndteres?"}
-  CONTEXT -->|Klient| SET["Hele klientsettet er forhåndsvalgt på vanlig klientdelegeringsside"]
+  CONTEXT -->|Klient| SET["Det første oppfylte rettighetssettet er forhåndsvalgt på vanlig klientdelegeringsside"]
   SET --> ALL["Deleger hele settet samlet"]
   SET --> NONE["Velg ingen av tilgangene"]
   CONTEXT -->|Egen virksomhet| VIEW["Se forhåndsdefinerte tilganger på vanlig brukerside"]
   VIEW --> DELETE["Eneste endringshandling her: slett bruker og rettigheter samlet"]
 {{< /mermaid >}}
 
-Klientsettet omfatter både pakker og enkeltrettigheter. Det kan ikke deles opp eller utvides. Den særskilte klientdelegeringssiden for disse systembrukerne fjernes, slik at delegeringen håndteres ett sted.
+Et rettighetssett kan inneholde både pakker og enkeltrettigheter. Det kan ikke deles opp eller utvides, og brukeren kan ikke velge et annet sett. `action` støttes ikke i rettighetssett i første versjon. Den særskilte klientdelegeringssiden for disse systembrukerne fjernes, slik at delegeringen håndteres ett sted.
 
 For forhåndsdefinerte tilganger for egen virksomhet kan enkeltpakker eller enkeltrettigheter ikke fjernes separat på brukersiden.
+
+## Vedtatt: Leverandøren oppdaterer rettighetssettene
+
+{{< mermaid >}}
+graph TD
+  UPDATE["Leverandøren oppdaterer rettighetssettene med eget endepunkt"] --> STORED["De nye settene lagres på systembrukeren"]
+  STORED --> UNCHANGED["Det som er delegert, endres ikke"]
+  UNCHANGED --> VISIBLE["Brukerflaten viser at settet ikke er komplett"]
+{{< /mermaid >}}
+
+Eksisterende klientkoblinger flyttes ikke automatisk til nye systembrukere. Klientene må knyttes til de nye systembrukerne som opprettes med rettighetssett. En klient kan være knyttet til mange systembrukere samtidig.
 
 ## Vedtatt: Tilbakekalling følger rettighetsgrunnlaget
 
@@ -102,7 +113,10 @@ Dette gjelder både enkeltrettigheter og tilgangspakker, uavhengig av systembruk
 |---|---|
 | Kombinasjoner på samme system | Tillate eller avvise samtidig bruk med og uten forhåndsdefinerte rettigheter |
 | Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Åpent: hvem kan bytte, og hva skjer med tillagte rettigheter ved bytte til `false` |
-| Eksisterende Agent-brukere | Videreføre med kompatibilitet eller overføre til utvidet modell |
+| Eksisterende Agent-brukere | Intern representasjon: videreføre med kompatibilitet eller overføre til utvidet modell. Klientene flyttes ikke automatisk |
+| Oppdatering av rettighetssett | Om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når leverandøren fjerner en tilgang |
+| Delvis tilbakekalling | Fjerne hele klienttilknytningen, beholde resten, eller bytte til et annet sett |
+| Flaggnavn | `ownerControlledAccess` med default `false` eller `vendorLocked` med default `true` |
 | Bytte Maskinporten-klient | Tillate bytte eller kreve ny bruker |
 
 Presentasjonen har ett åpent valg per lysbilde. Ingen av disse alternativene er markert som vedtatt.
@@ -110,9 +124,9 @@ Presentasjonen har ett åpent valg per lysbilde. Ingen av disse alternativene er
 ## Tekniske detaljer som må beskrives videre
 
 - Behandling av utelatte lister og `null`, og endrede forespørsler med samme eksterne referanse.
-- Innholdsvalidering av egen- og klientlister ved forespørsel og aksept, uten sammenligning mot systemets rettighetskrav.
+- Innholdsvalidering av lister og rettighetssett ved forespørsel og aksept, uten sammenligning mot systemets rettighetskrav.
 - Lagring, svarmodeller, godkjenningsbilde og kobling til standard bruker- og klientflater.
 - Direkte Maskinporten-tilknytning, tokeninnhold og sporing av rettighetsgrunnlaget.
 - Intern enum og kompatibilitet: betegnelsen systembruker avgjør ikke alene den tekniske migreringen.
 
-Vedtak: avklaringer med RUNLAR etter møtet 16. oktober og oppfølgingen 19. oktober 2026. Oppdatert med Codex; teamet skal gjennomgå innholdet. UI-detaljene i presentasjonen er illustrasjoner, ikke dokumentasjon av implementert produkt.
+Vedtak: avklaringer med RUNLAR etter møtet 16. oktober og oppfølgingen 19. oktober 2026. Oppdatert med Codex og Claude Code; teamet skal gjennomgå innholdet. UI-detaljene i presentasjonen er illustrasjoner, ikke dokumentasjon av implementert produkt.

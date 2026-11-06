@@ -83,6 +83,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`linkToPage`](#func-linkToPage)               | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
 | [`linkToComponent`](#func-linkToComponent)     | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
 | [`optionLabel`](#func-optionLabel)             | Streng, Streng                   | Streng                     | ✅       | ❌      |
+| [`externalApi`](#func-externalApi)             | Streng, Streng                   | Streng                     | ✅       | ❌      |
 
 ### Spesialfunksjoner
 
@@ -759,6 +760,18 @@ Funksjonen tar to argumenter. Det første argumentet er kodeliste-ID-en, og det 
 Sørg for at kodeliste-ID-en er en ren streng, og ikke et uttrykk. Kodeverdien derimot, kan være et uttrykk, for eksempel oppslag fra en sti i datamodellen.
 
 Hvis kodeliste-verdien ikke finnes i kodelisten, returnerer funksjonen `null`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-externalApi" header="externalApi" %}}
+Funksjonen henter en verdi fra et [eksternt API]({{< relref "/altinn-studio/v9/develop-a-service/integration/external-api" >}}). Det første argumentet er navnet på klienten (`Id` i `IExternalApiClient`). Det andre er stien til verdien, med punktum mellom nivåene og hakeparenteser for plassen i en liste.
+
+```json
+["externalApi", "dokumenter", "dokumenter[0].navn"]
+```
+
+Funksjonen returnerer tekst eller `null`. Lister, objekter, `0`, `false`, tom tekst og stier som ikke finnes, gir `null`.
+
+Backend kjenner ikke funksjonen ennå og gir en feil når den møter den. Bruk den derfor bare til å vise tekst, ikke i `hidden`, `required`, validering, beregninger eller i prosessen. Se [Altinn/altinn-studio#21350](https://github.com/Altinn/altinn-studio/issues/21350).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-argv" header="argv" %}}
