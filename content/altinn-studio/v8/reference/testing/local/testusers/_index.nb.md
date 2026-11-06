@@ -100,7 +100,7 @@ appene er avhengig av skal virke, eller testing av autorisasjonsreglene med andr
 
 ### Gi testbrukere tilgangspakker
 
-Tilgangspakker samler rettigheter til tjenester som hører sammen, for eksempel alt som har med lønn å gjøre. Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, kan du teste reglene lokalt. Localtest gir testbrukerne tilgangspakkene som rollene deres gir i Altinn, i tillegg til dem du legger inn i `accessPackages`. Tilgangspakker som kommer gjennom klientdelegering eller andre delegeringer, får du ikke lokalt. Tilgangspakker i localtest krever en nyere versjon av studioctl enn v0.1.0-preview.30.
+Tilgangspakker samler rettigheter til tjenester som hører sammen, for eksempel alt som har med lønn å gjøre. Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, kan du teste reglene lokalt. Localtest gir testbrukerne tilgangspakkene som rollene deres gir i Altinn, i tillegg til dem du legger inn i `accessPackages`. Tilgangspakker som kommer gjennom klientdelegering eller andre delegeringer, får du ikke lokalt. Tilgangspakker i localtest krever studioctl v0.1.0-preview.31 eller nyere.
 
 Slik får testbrukerne tilgangspakker:
 

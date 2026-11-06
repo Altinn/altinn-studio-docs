@@ -103,7 +103,7 @@ different from those assigned to the default users.
 
 ### Give test users access packages
 
-Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorisation rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the access packages their roles give in Altinn, as well as those you add in `accessPackages`. Access packages that come through client delegation or other delegations are not available locally. Access packages in localtest need a studioctl version newer than v0.1.0-preview.30.
+Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorisation rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the access packages their roles give in Altinn, as well as those you add in `accessPackages`. Access packages that come through client delegation or other delegations are not available locally. Access packages in localtest need studioctl v0.1.0-preview.31 or newer.
 
 This is how test users get access packages:
 
