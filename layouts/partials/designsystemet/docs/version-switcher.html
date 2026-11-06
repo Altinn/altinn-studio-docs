@@ -1,0 +1,28 @@
+{{- /*
+  Versjonsvelger: Dropdown fra Designsystemet med en lenke til hver versjon.
+  Vi bruker lenker, ikke en select som bytter side ved valg. Da kan tastaturbrukere bla i valgene uten å bli sendt videre.
+  Versjonene heter det samme som ellers på nettstedet (breadcrumbText på forsiden til versjonen).
+  Tar imot dict med productRoot og versionRoot.
+*/ -}}
+{{- $versionRoot := .versionRoot -}}
+{{- $versions := where .productRoot.Sections "Params.breadcrumbText" "!=" nil -}}
+{{- if gt (len $versions) 1 }}
+<div class="docs-version">
+  <span class="ds-label" id="docs-version-label">{{ T "docs-version" }}</span>
+  <button type="button" class="ds-button docs-version-button" data-variant="secondary" data-size="sm"
+    id="docs-version-button" popovertarget="docs-version-menu" aria-labelledby="docs-version-label docs-version-button">
+    {{ $versionRoot.Params.breadcrumbText }}
+    {{ partial "designsystemet/icon.html" "ChevronDown" }}
+  </button>
+  <div class="ds-dropdown" popover id="docs-version-menu" data-placement="bottom-start">
+    <ul>
+      {{- range sort $versions "Path" "desc" }}
+      <li>
+        <a class="ds-button" data-variant="tertiary" href="{{ .RelPermalink }}"
+          {{- if eq . $versionRoot }} aria-current="page"{{ end }}>{{ .Params.breadcrumbText }}</a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+</div>
+{{- end }}
