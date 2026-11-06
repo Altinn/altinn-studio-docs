@@ -10,7 +10,7 @@ En gruppe med felter ser ut som enkeltfelter rent visuelt, men du kan behandle h
 når du bruker [dynamikk for å vise eller skjule felter](/nb/altinn-studio/v9/develop-a-service/expressions/), og når du lager en
 [oppsummeringsvisning](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/summary/) kan du referere til hele gruppen med felter i stedet for hvert enkelt felt.
 
-Gruppering av felter blir veldig nyttig når du konfigurerer en gruppe til å bli [repeterende](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/). Da
+Gruppering av felter blir veldig nyttig når du konfigurerer en gruppe til å bli [repeterende]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}}). Da
 kan du repetere en gruppe med felter flere ganger i et skjema — for eksempel ved å la brukeren legge til og fjerne
 flere adresser.
 
