@@ -12,7 +12,7 @@ Du kan også knytte vedlegg utenfor en repeterende gruppe til datamodellen. Da f
 
 ![Vedlegg i en repeterende gruppe med tilhørende datamodell](attachments-demo.gif "Vedlegg i en repeterende gruppe med tilhørende datamodell")
 
-## Sett opp vedlegg i Altinn Studio Designer
+## Sette opp vedlegg i Altinn Studio Designer
 
 1. Legg til et felt i datamodellen for hvert element i listen. Feltet skal inneholde ID-en til vedlegget, og typen er tekst.
 2. Legg til komponenten **Vedlegg** i den repeterende gruppen.
