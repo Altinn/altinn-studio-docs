@@ -85,7 +85,7 @@ To lister for påkrevde og ikke-påkrevde enkelt rettigheter (Rights), to lister
 }
 ```
 
-Det er viktig å merke seg at det bare skal legges inn en resource pr Right, det er pr tid ikke støtte for sub-ressurser. Dersom det skal legges inn flere Rights er riktig syntax oppgitt over.
+Hver rettighet (Right) gjelder én ressurs, så `resource`-listen har ett element. Det er ikke støtte for subressurser. Trenger du flere ressurser, legger du inn én rettighet per ressurs, som i eksempelet over. API-et svarer med `400 Bad Request` hvis en rettighet har flere elementer, både i `requiredRights` og `unwantedRights`.
 
 Alle endringer er Idempotente, dvs det er helt ok å prøve å legge til en ressurs som allerede er delegert, eller å prøve å fjerne en ressurs som ikke er delegert. Da vil det ikke skje noen.
 

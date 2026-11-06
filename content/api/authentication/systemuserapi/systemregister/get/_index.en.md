@@ -134,7 +134,7 @@ The id should be in the format of {systemvendororgno}\_{name chosen by the vendo
                     "Resource": [
                         {
                             "id": "urn:altinn:resource",
-                            "value": "vegardtestressurs"
+                            "value": "ske-krav-og-betalinger"
                         }
                     ]
                 }

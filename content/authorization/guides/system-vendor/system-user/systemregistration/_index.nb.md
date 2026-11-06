@@ -42,6 +42,7 @@ Registrering av et sluttbrukersystem gjøres ved å kalle Altinns systemregister
 
      * Angi hvilke tjenester eller tilgangspakker systemet krever tilgang til.
      * Bruk `rights` for å spesifisere individuelle ressurser (f.eks. `urn:altinn:resource`).
+     * Hver rettighet gjelder **én** ressurs: `resource`-listen har ett element, med `"id": "urn:altinn:resource"`. Trenger systemet flere ressurser, legger du til én rettighet per ressurs, som i eksempelet nedenfor. API-et svarer med `400 Bad Request` hvis en rettighet har flere elementer.
      * Bruk `accessPackages` for å spesifisere forhåndsdefinerte tilgangspakker (f.eks. `urn:altinn:accesspackage:skattegrunnlag`).
      * **Merk:** Disse rettighetene **må** være definert korrekt *før* en systembruker kan opprettes for dette systemet.
 
