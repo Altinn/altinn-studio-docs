@@ -72,7 +72,7 @@ App/ui/{taskId}/layouts/{page}.json
 
 ### Flere filer i samme komponent
 
-Kan brukeren laste opp flere filer i samme vedleggskomponent, må feltet i datamodellen være en liste. Da bruker du bindingen `list`:
+Hvis brukeren kan laste opp flere filer i samme vedleggskomponent, må feltet i datamodellen være en liste. Da bruker du bindingen `list`:
 
 {{< code-title >}}
 App/models/{model}.xsd
