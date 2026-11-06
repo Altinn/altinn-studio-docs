@@ -103,11 +103,11 @@ different from those assigned to the default users.
 
 ### Give test users access packages
 
-Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorisation rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the access packages their roles give in Altinn, as well as those you add in `accessPackages`. Access packages that come through client delegation or other delegations are not available locally. Localtest supports access packages from version [[FIX BEFORE MERGE: first studioctl version whose localtest supports access packages]].
+Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorisation rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the access packages their roles give in Altinn, as well as those you add in `accessPackages`. Access packages that come through client delegation or other delegations are not available locally. Access packages in localtest need a studioctl version newer than v0.1.0-preview.30.
 
 This is how test users get access packages:
 
-- A role gives the same access packages as the role gives in Altinn. For example, a general manager (DAGL) gets most of the access packages for the organisation, and a private person (PRIV) gets the citizen access packages for themselves.
+- A role gives the same access packages as the role gives in Altinn. For example, a general manager (DAGL) gets most of the access packages for the organisation, and every person gets the citizen access packages for themselves through the private person role (PRIV), also when `partyRoles` does not list it.
 - You can give a person more access packages in `accessPackages`. The key is the `partyId` of the party the person holds the access packages for.
 - A sub-unit gets the same access packages as the person holds for the main unit.
 - Some roles give access packages only for certain kinds of organisation, such as a business manager (FFØR) for a securities fund. Localtest uses the organisation's `unitType` in the test data to decide.

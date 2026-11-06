@@ -111,11 +111,11 @@ Vil du bruke flere testpersoner eller virksomheter, for eksempel de samme som i 
 
 ### Gi testbrukere tilgangspakker
 
-Tilgangspakker samler rettigheter til tjenester som hører sammen, for eksempel alt som har med lønn å gjøre. Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, kan du teste reglene lokalt. Localtest gir testbrukerne tilgangspakkene som rollene deres gir i Altinn, i tillegg til dem du legger inn i `accessPackages`. Tilgangspakker som kommer gjennom klientdelegering eller andre delegeringer, får du ikke lokalt. Localtest støtter tilgangspakker fra versjon [[FIX BEFORE MERGE: første versjon av studioctl der localtest støtter tilgangspakker]].
+Tilgangspakker samler rettigheter til tjenester som hører sammen, for eksempel alt som har med lønn å gjøre. Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, kan du teste reglene lokalt. Localtest gir testbrukerne tilgangspakkene som rollene deres gir i Altinn, i tillegg til dem du legger inn i `accessPackages`. Tilgangspakker som kommer gjennom klientdelegering eller andre delegeringer, får du ikke lokalt. Tilgangspakker i localtest krever en nyere versjon av studioctl enn v0.1.0-preview.30.
 
 Slik får testbrukerne tilgangspakker:
 
-- En rolle gir de samme tilgangspakkene som rollen gir i Altinn. Daglig leder (DAGL) får for eksempel de fleste tilgangspakkene for virksomheten, og en privatperson (PRIV) får tilgangspakkene for innbyggere for seg selv.
+- En rolle gir de samme tilgangspakkene som rollen gir i Altinn. Daglig leder (DAGL) får for eksempel de fleste tilgangspakkene for virksomheten, og alle personer får tilgangspakkene for innbyggere for seg selv gjennom rollen privatperson (PRIV), også når den ikke står i `partyRoles`.
 - Du kan gi en person flere tilgangspakker i `accessPackages`. Nøkkelen er `partyId` til aktøren personen har tilgangspakkene for.
 - En underenhet får de samme tilgangspakkene som personen har for hovedenheten.
 - Noen roller gir tilgangspakker bare for bestemte typer virksomheter, for eksempel forretningsfører (FFØR) for verdipapirfond. Localtest bruker `unitType` på virksomheten i testdataene til å avgjøre det.
