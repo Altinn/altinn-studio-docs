@@ -293,7 +293,7 @@ App/ui/{taskId}/layouts/{page}.json
 
 ### Slå sammen celler og skjule kolonner i de faste radene
 
-En celle i en fast rad kan strekke seg over flere kolonner. Det gjør du med `cellStyle.colSpan`. Cellene som den sammenslåtte cellen dekker, må du fjerne fra listen. Hvis du setter dem til `null`, blir de tomme celler i en ekstra kolonne.
+En celle i en fast rad kan strekke seg over flere kolonner. Det gjør du med `cellStyle.colSpan`. Du må fjerne cellene som den sammenslåtte cellen dekker fra listen. Hvis du setter dem til `null`, blir de tomme celler i en ekstra kolonne.
 
 Hvis du vil skjule en kolonne bare i de faste radene, setter du `columnOptions.hidden` på cellen i den første overskriftsraden (`"header": true`) i `rowsBefore` eller `rowsAfter`. Innstillingen gjelder bare radene i samme liste. Du kan bruke `true` eller et uttrykk.
 
