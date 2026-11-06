@@ -1,25 +1,25 @@
 ---
 title: Innstillinger for felt
 linktitle: Innstillinger
-description: Slik viser du at et felt er valgfritt, setter en tegngrense og styrer autolagring
-tags: [needsReview]
+description: Slik skjuler du etiketten for valgfrie felt, setter en tegngrense og tilpasser automatisk lagring
+tags: [Reviewed]
 ---
 
-Du setter opp disse innstillingene manuelt i layoutfilen for feltet.
+Du kan sette disse innstillingene i Altinn Studio Designer, under **Innhold** i innstillingene for komponenten, eller direkte i layoutfilen. Eksemplene under viser layoutfilen.
 
-## Indikere at felt er valgfritt
+## Skjule etiketten for valgfrie felt
 
-{{% notice info %}}
-Denne delen oppdateres. Vi vurderer å følge designsystemet.no sin praksis med etikettene **Må fylles ut** og **Valgfritt** i stedet for markeringen beskrevet under.
-{{% /notice %}}
+Appen merker alle felt som enten påkrevde eller valgfrie, slik at det er tydelig for brukerne hva de må fylle ut og hva de kan hoppe over:
 
-Du kan styre om et felt ser valgfritt ut eller ikke. Vanlig oppførsel er at påkrevde felt får en markering med `*`, mens valgfrie felt ikke får noen markering.
+- Påkrevde felt får etiketten **Må fylles ut**.
+- Felt som ikke er påkrevde, får etiketten **Valgfritt**.
+- Skrivebeskyttede felt får ikke etiketten **Valgfritt**.
 
-![Optional default](optional-default.png "Vanlig oppførsel for valgfritt felt (ingen markering).")
+![Fødselsnummer med etiketten Må fylles ut](./required.png "Påkrevd felt")
 
-![Required default](required.png "Vanlig oppførsel for påkrevd felt (markert med *).")
+![Fødselsnummer med etiketten Valgfritt](./optional-default.png "Valgfritt felt")
 
-Du kan overstyre denne oppførselen for valgfrie felt med `labelSettings` på en komponent i layoutfilen.
+Vil du skjule etiketten **Valgfritt** på et felt, setter du `optionalIndicator` til `false` i `labelSettings` på komponenten i layoutfilen:
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -30,16 +30,14 @@ App/ui/{taskId}/layouts/{page}.json
   "id": "input-felt1",
   "type": "Input",
   "labelSettings": {
-    "optionalIndicator": true
+    "optionalIndicator": false
   }
 }
 ```
 
-Når du setter `optionalIndicator` til `true`, viser appen teksten `(Valgfri)` etter ledeteksten til feltet.
+![Fødselsnummer uten etikett](./optional-hidden.png "Valgfritt felt der etiketten er skjult")
 
-![Valgfritt](optional.png "Markering av valgfritt felt.")
-
-Du kan ikke tvinge frem `(Valgfri)`-teksten på et felt som er obligatorisk. Denne innstillingen styrer bare visningen, ikke om feltet faktisk er påkrevd.
+Du kan ikke skjule **Må fylles ut** på et påkrevd felt.
 
 ## Aktivere tegngrense
 
@@ -57,14 +55,16 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
+![Kallenavn med teksten Kari og telleren Du har 6 tegn igjen](./maxlength.png "Felt med tegngrense på 10 tegn")
+
 _Merk_: `maxLength` i layoutfilen viser bare hvor mange tegn som gjenstår. Den kontrollerer ikke antallet tegn, så brukeren kan fortsatt sende inn skjemaet selv om teksten er lengre enn grensen.
-Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egenskapen i datamodellen til skjemaet. Se [validering](/nb/altinn-studio/v9/develop-a-service/data/validation/) for mer informasjon.
+Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egenskapen i datamodellen til skjemaet. Se [validering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}) for mer informasjon.
 
-## Konfigurere automatisk lagring
+## Tilpasse automatisk lagring
 
-`Input`, `TextArea` og `Address` oppdaterer skjemadataene mens brukeren skriver. Som standard skjer dette 400 millisekunder etter at brukeren sist skrev noe. Med standardinnstillingen `autoSaveBehavior: "onChangeFormData"` lagrer appen endringene på serveren. Med `onChangePage` lagres de ved sideskifte. Se [innstillinger for automatisk lagring](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/#automatisk-lagring).
+`Input`, `TextArea` og `Address` lagrer automatisk mens brukeren skriver, som standard 400 millisekunder etter at brukeren sist skrev noe. Hvis appen er [satt opp til å lagre først ved sideskifte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings#automatisk-lagring" >}}), venter den til da.
 
-Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen. I eksempelet under oppdaterer feltet skjemadataene to sekunder etter at brukeren slutter å skrive i feltet.
+Du endrer hvor lenge appen venter, med `saveWhileTyping`. I eksempelet under lagres skjemadataene to sekunder etter at brukeren slutter å skrive i feltet.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -78,4 +78,4 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-`saveWhileTyping` er en forsinkelse i millisekunder og kan ikke slå av automatisk lagring. En høy verdi er heller ikke en pålitelig måte å unngå lagring på. Andre felt og navigasjon kan føre til at appen lagrer dataene.
+`saveWhileTyping` kan ikke slå av automatisk lagring. En høy verdi er heller ikke en pålitelig måte å unngå lagring på, fordi andre felt og navigasjon kan føre til at appen lagrer dataene.

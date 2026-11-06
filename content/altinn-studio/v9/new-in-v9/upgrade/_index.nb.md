@@ -293,6 +293,8 @@ Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det
 - Komponenten `OrganisationLookup` heter nå `OrganizationLookup`.
 - Komponenten `Header` heter nå `Heading`.
 - Knappetekstene i `RepeatingGroup` har fått nye navn i camelCase under `textResourceBindings`, for eksempel `addButton` i stedet for `add_button`. Det gjelder `addButton`, `addButtonFull`, `saveButton`, `saveAndNextButton`, `editButtonOpen`, `editButtonClose`, `paginationNextButton`, `paginationBackButton`, `multipageNextButton` og `multipageBackButton`.
+- Appen merker nå alle felt som enten påkrevde eller valgfrie (se [Skjemaene er lettere å lese og fylle ut]({{< relref "/altinn-studio/v9/new-in-v9#skjemaene-er-lettere-å-lese-og-fylle-ut" >}})). Appen viser **Valgfritt** som standard, så oppgraderingen fjerner `"optionalIndicator": true` fra `labelSettings` i layoutfilene.
+- Oppgraderingen fjerner teksten `form_filler.required_description` fra tekstfilene, fordi appen ikke lenger viser banneret om påkrevde felt. Den fjerner også `form_filler.required_label` hvis verdien er `*`. Har dere skrevet en annen tekst der, beholder oppgraderingen den og gir en advarsel, slik at dere kan vurdere ordlyden.
 - Datamodellkoblingene i `PersonLookup` og `OrganizationLookup` har fått nye navn i camelCase, uten prefiksene `person_lookup_`, `organization_lookup_` og `organisation_lookup_`. I `PersonLookup` heter de nå `ssn`, `fullName`, `firstName`, `middleName` og `lastName`. Legg merke til at `person_lookup_name` har blitt til `fullName`. I `OrganizationLookup` heter de `orgnr` og `name`.
 
 ## Neste steg
