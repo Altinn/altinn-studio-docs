@@ -46,7 +46,7 @@ App/ui/{taskId}/layouts/{page}.json
 | [`openByDefault`](#openbydefault) | `false` | Nei            | Om appen skal åpne en rad automatisk når brukeren kommer til siden.                                     |
 | [`multiPage`](#multipage) | `false`    | Nei                 | Om brukeren skal fylle ut en rad over flere sider.                                                      |
 
-Når en innstilling kan være et uttrykk, kan du bruke et [dynamisk uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) i stedet for `true` eller `false`. Appen vurderer uttrykket for hver rad for alle disse innstillingene unntatt `addButton`. Du kan altså for eksempel skjule **Slett**-knappen på bare noen av radene.
+Når en innstilling kan være et uttrykk, kan du bruke et [dynamisk uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) i stedet for `true` eller `false`. Appen vurderer uttrykket for hver rad for alle disse innstillingene unntatt `addButton`. Du kan for eksempel skjule **Slett**-knappen på bare noen av radene.
 
 ## mode
 
