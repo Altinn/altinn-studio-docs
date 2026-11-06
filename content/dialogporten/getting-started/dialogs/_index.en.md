@@ -53,6 +53,47 @@ Attachments can be used on both transmission and dialog level.
 
 - {{<link "../../reference/entities/attachment">}}
 
+## Actor
+
+Actor identifies who performed an action in Dialogporten.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| actorType | enum, required | `ServiceOwner` or `PartyRepresentative` |
+| actorId | string, optional | Identifier for the actor, given as a URN |
+| actorName | string, optional | Display name for the actor |
+
+### Choosing the correct actorType
+
+When you, as the service owner, perform the action, use actorType `ServiceOwner`. In that case, you must set neither actorId nor actorName.
+
+When you use actorType `PartyRepresentative`, you must set exactly one of actorId and actorName:
+
+- If you set actorId, Dialogporten looks up the name automatically.
+- If you set actorName, the name is stored as free text.
+
+You cannot set both fields, and you cannot omit both.
+
+### How actorId is validated
+
+Dialogporten does not verify that the person or organization you specify in actorId actually exists. Only the syntax is validated: 
+the value must be in a valid URN format, and for Norwegian national identity numbers and organization numbers, the control digits are also verified (modulus 11). 
+You are responsible for ensuring that the identifier you provide is correct.
+
+Because the name lookup can fail, clients that read actor data must handle actorName being absent.
+
+### Recommendation
+
+Use actorId when you know the actor's identity. Use actorName only when you do not have a valid identifier.
+
+### Example actorId
+| Format | Example | How name is set |
+|---|---|---|
+| `urn:altinn:person:identifier-no:{fnr/dnr}` | `urn:altinn:person:identifier-no:12018212345` | Looked up in the party register |
+| `urn:altinn:organization:identifier-no:{orgnr}` | `urn:altinn:organization:identifier-no:991825827` | Looked up in the party register |
+| `urn:altinn:person:legacy-selfidentified:{username}` | | The username is used as the name |
+| `urn:altinn:person:idporten-email:{email}` | | The email address is used as the name |
+
 ## Actions
 
 An _action_ describes an interaction that users can perform with or related to a dialog. Examples of actions are "Open", "Start signing", "Pay", "Confirm", "Learn more", "Cancel", etc. The list of relevant actions is part of the structured description of a dialog and can be changed at any time by the service provider through the API.
