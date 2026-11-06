@@ -1,76 +1,67 @@
 ---
 title: applicationmetadata.json
-description: Description of format for application metadata.
-tags: [app-structure, todo, needstranslation]
+description: Formatet til applikasjonsmetadataene i appen.
+tags: [app-structure]
 ---
 
-## Overview
+## Oversikt
 
-`applicationmetadata.json` describes meta information of an application. This is automatically generated on creation of a new application.
-This is located at `/App/config/applicationmetadata.json` in the app repo.
+`applicationmetadata.json` beskriver appen: hvem som eier den, hvilke data den lagrer, og hvem som kan starte den. Altinn Studio lager filen når du oppretter appen, og oppdaterer den når du for eksempel legger til en datamodell eller en komponent for vedlegg. Filen ligger i `App/config/applicationmetadata.json` i app-repoet.
 
-## Format
+Når du publiserer appen til et miljø, leser plattformen filen og lagrer metadataene i Altinn Storage.
 
-'applicationmetadata.json' has the application information such as application id, version information, organisation that owns the application, workflow information, form and attachment information.
+## Eksempel
 
-## Application Metadata Format
+Slik ser filen ut i en ny app med én datamodell:
 
-Below is an example of application metadata in json format
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 {
-	"id": "Brreg-testappmetaattachment",
-	"versionId": "1.0",
-	"applicationOwnerId": "Brreg",
-	"createdDateTime": "2019-05-23T20:26:29.2001617Z",
-	"createdBy": "user",
-	"lastChangedDateTime": "2019-05-23T20:26:29.2002739Z",
-	"lastChangedBy": "user",
-	"title": {
-		"nb-no": "RF-1134 Test form title"
-	},
-	"validFrom": "2019-05-23T20:26:29.2001617Z",
-	"validTo": "2020-05-23T20:26:29.2001617Z",
-	"WorkflowId": null,
-	"maxSize": 0,
-	"forms": [
-		{
-			"id": "default",
-			"description": null,
-			"allowedContentType": [
-				"application/xml"
-			],
-			"maxSize": 0,
-			"maxCount": 0,
-			"shouldSign": false,
-			"shouldEncrypt": true
-		},
-		{
-			"id": "74696338-540e-47e3-8f04-0996cc2bb239",
-			"description": null,
-			"allowedContentType": [
-				"application/octet-stream"
-			],
-			"maxSize": 3,
-			"maxCount": 3,
-			"shouldSign": false,
-			"shouldEncrypt": false
-		},
-		{
-			"id": "0cc6ee16-7fbf-45b3-9e00-2fda8668ab31",
-			"description": null,
-			"allowedContentType": [
-				"application/pdf",
-				"text/plain",
-				"text/css"
-			],
-			"maxSize": 5,
-			"maxCount": 2,
-			"shouldSign": false,
-			"shouldEncrypt": false
-		}
-	]
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/application/application-metadata.schema.v1.json",
+  "id": "ttd/min-app",
+  "org": "ttd",
+  "title": { "nb": "Min app" },
+  "dataTypes": [
+    {
+      "id": "ref-data-as-pdf",
+      "allowedContentTypes": ["application/pdf"],
+      "maxCount": 0,
+      "minCount": 0
+    },
+    {
+      "id": "model",
+      "allowedContentTypes": ["application/xml"],
+      "appLogic": {
+        "autoCreate": true,
+        "classRef": "Altinn.App.Models.model.model"
+      },
+      "taskId": "Task_1",
+      "maxCount": 1,
+      "minCount": 1
+    }
+  ],
+  "partyTypesAllowed": {
+    "bankruptcyEstate": true,
+    "organisation": true,
+    "person": true,
+    "subUnit": true
+  },
+  "autoDeleteOnProcessEnd": false
 }
 ```
 
-The meta data for attachment is updated in the application metadata when a fileupload component is dragged in the ui editor. When an application is deployed to a selected environment, the application metadata is read from the applicationmetadata.json and populated in the cosmos database.
+## Egenskaper
+
+| Egenskap | Beskrivelse |
+| --- | --- |
+| `id` | ID-en til appen, på formen `{org}/{app}`. |
+| `org` | Organisasjonen som eier appen. |
+| `title` | Navnet på appen, for hvert språk. |
+| `dataTypes` | Dataene appen lagrer: skjemadata, vedlegg og PDF-er. Hver datatype sier hvilke filtyper den tar imot (`allowedContentTypes`), hvor mange elementer en instans kan ha (`minCount` og `maxCount`), og hvilken oppgave i prosessen den hører til (`taskId`). Skjemadata har `appLogic` med klassen for datamodellen i `classRef`. Se [vedlegg](/nb/altinn-studio/v8/reference/data/attachments/). |
+| `partyTypesAllowed` | Hvilke aktørtyper som kan starte appen. Se [aktørtyper](/nb/altinn-studio/v8/reference/configuration/partytype/). |
+| `onEntry` | Hva brukeren ser når appen starter. Se [oppstart](/nb/altinn-studio/v8/reference/configuration/startup/). |
+| `autoDeleteOnProcessEnd` | Om plattformen sletter instansen når prosessen er ferdig. Se [automatisk sletting](/nb/altinn-studio/v8/reference/configuration/process/auto-delete/). |
+| `presentationFields` og `messageBoxConfig` | Hva meldingsboksen viser om instansen. Se [meldingsboks](/nb/altinn-studio/v8/reference/configuration/messagebox/). |

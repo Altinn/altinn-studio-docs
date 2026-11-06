@@ -48,13 +48,18 @@ Følgende kodelister er tilgjengelige fra ulike kilder:
 Apper på v9 må bruke versjon 9 av Altinn.Codelists, som bygger på versjon 9 av Altinn-pakkene (`Altinn.App.Core`). Apper på v8 skal bruke versjon 8. Oppgraderingen til v9 oppdaterer ikke Altinn.Codelists, så du må oppdatere pakken selv.
 {{% /notice %}}
 
-Åpne kommandolinjen til repoet for applikasjonen din og naviger til App-mappen der App.csproj-filen ligger, og kjør følgende kommando:
+Versjonen av Altinn.Codelists må passe til versjonen av `Altinn.App.Core` i appen. I `Altinn.App.Core` 9.0.0-preview.8 fikk metodene for kodelister nye navn uten `Async` på slutten. En versjon av Altinn.Codelists som er laget før det, virker ikke med senere versjoner av `Altinn.App.Core`. Appen starter da ikke, og feilen er en `TypeLoadException` som sier at `GetAppOptions` mangler en implementasjon.
+
+- Altinn.Codelists 9.0.0-preview.1 virker med `Altinn.App.Core` fra 9.0.0-preview.5 til og med 9.0.0-preview.7.
+- Bruker appen `Altinn.App.Core` 9.0.0-preview.8 eller nyere, trenger du en nyere versjon av Altinn.Codelists. Se [Altinn.Codelists på NuGet](https://www.nuget.org/packages/Altinn.Codelists). Finnes det ingen versjon som passer ennå, bruker du en kodelistefil, en kodeliste fra organisasjonsbiblioteket eller en egen kodelisteleverandør i stedet.
+
+Åpne kommandolinjen i repoet for applikasjonen din, og gå til App-mappen der App.csproj-filen ligger. Kjør kommandoen under, og bytt ut `{versjon}` med versjonen som passer til appen:
 
 ```shell
-dotnet add package Altinn.Codelists --version 9.0.0-preview.1
+dotnet add package Altinn.Codelists --version {versjon}
 ```
 
-Du må oppgi versjonen, fordi kommandoen ellers henter den nyeste stabile versjonen, som foreløpig er versjon 8. Se [Altinn.Codelists på NuGet](https://www.nuget.org/packages/Altinn.Codelists) for den nyeste versjonen av 9.
+Du må oppgi versjonen, fordi kommandoen ellers henter den nyeste stabile versjonen, som foreløpig er versjon 8.
 
 Som et alternativ kan du redigere applikasjonens App.csproj-fil direkte ved å legge til referansen nedenfor i `<ItemGroup>` der du har pakkereferanser:
 
@@ -63,7 +68,7 @@ App/App.csproj
 {{< /code-title >}}
 
 ```xml
-<PackageReference Include="Altinn.Codelists" Version="9.0.0-preview.1" />
+<PackageReference Include="Altinn.Codelists" Version="{versjon}" />
 ```
 
 ### 2. Registrer kodelistene i appens DI-kontainer

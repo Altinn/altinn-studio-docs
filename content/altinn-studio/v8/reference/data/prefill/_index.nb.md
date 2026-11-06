@@ -98,7 +98,7 @@ Tilgjengelige verdier for prefill inkluderer:
 - Party.SSN
 - Party.UnitType
 - Party.Name
-- Party.isDeleted
+- Party.IsDeleted
 - Party.OnlyHierarchyElementWithNoAccess
 - Party.Person
 - Party.Organization
@@ -106,5 +106,5 @@ Tilgjengelige verdier for prefill inkluderer:
 - UserType
 - ProfileSettingPreference.Language
 - ProfileSettingPreference.PreSelectedPartyId
-- ProfileSettingsPreference.DoNotPromptForParty
+- ProfileSettingPreference.DoNotPromptForParty
 

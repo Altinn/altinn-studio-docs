@@ -189,13 +189,15 @@ Du kan hente verdier fra fire ulike datakilder:
 2. **Innstillinger**  
    Ved å angi `applicationSettings` som datakilde kan du hente verdier fra en egen seksjon i `appsettings.{miljø}.json`-filene, kalt `FrontEndSettings`. Dette er en dynamisk liste du kan utvide uten å endre koden. Dermed kan du ha ulike verdier fra miljø til miljø, ved å sette andre verdier i de ulike `appsettings.{miljø}.json`-filene. Legg merke til at `FrontEndSettings` og `applicationSettings` bruker stor forbokstav forskjellig.
 
+   Skriv `key` i variabelen nøyaktig slik innstillingen står i `FrontEndSettings`, med de samme store og små bokstavene. Appen sender navnene på innstillingene uendret til nettleseren.
+
    {{< code-title >}}
    App/appsettings.json
    {{< /code-title >}}
 
    ```json
    "FrontEndSettings": {
-     "HomeBaseUrl": "https://www.testdirektoratet.no"
+     "homeBaseUrl": "https://www.testdirektoratet.no"
    },
    ```
 3. **Instans**  
@@ -203,6 +205,8 @@ Du kan hente verdier fra fire ulike datakilder:
    1. `instanceOwnerPartyId` inneholder avgiverens party-id.
    2. `instanceId` inneholder id-en til den aktive instansen.
    3. `appId` inneholder id-en til appen instansen hører til.
+   4. `instanceOwnerPartyType` inneholder hva slags avgiver instansen har: `org`, `person`, `selfIdentified` eller `unknown`.
+   5. `instanceOwnerName` inneholder navnet på avgiveren.
 4. **Egendefinerte tekstparametere**  
    Ved å angi `customTextParameters` som datakilde kan du hente egendefinerte verdier, der du selv setter dem. I dag kan du sette `CustomTextParameters` i `ValidationIssue` og `InstantiationValidationResult`. Eksempel:
    ```cs

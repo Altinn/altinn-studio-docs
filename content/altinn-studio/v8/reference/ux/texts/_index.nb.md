@@ -205,6 +205,8 @@ Det er per nå mulig å hente verdier fra 4 ulike datakilder.
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen.
    3. `appId` inneholder id'en til appen instansen er knyttet til.
+   4. `instanceOwnerPartyType` inneholder hva slags avgiver instansen har: `org`, `person`, `selfIdentified` eller `unknown`.
+   5. `instanceOwnerName` inneholder navnet på avgiveren.
 4. Egendefinerte tekstparametere  
    {{<notice info>}}
    Krever versjon >= 8.7.0 av `Altinn.App.*` pakkene.

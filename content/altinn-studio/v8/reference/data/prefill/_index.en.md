@@ -100,7 +100,7 @@ Available values for prefill includes:
 - Party.SSN
 - Party.UnitType
 - Party.Name
-- Party.isDeleted
+- Party.IsDeleted
 - Party.OnlyHierarchyElementWithNoAccess
 - Party.Person
 - Party.Organization
@@ -108,6 +108,6 @@ Available values for prefill includes:
 - UserType
 - ProfileSettingPreference.Language
 - ProfileSettingPreference.PreSelectedPartyId
-- ProfileSettingsPreference.DoNotPromptForParty
+- ProfileSettingPreference.DoNotPromptForParty
 
 

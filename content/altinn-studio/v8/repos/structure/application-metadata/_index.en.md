@@ -1,76 +1,67 @@
 ---
 title: applicationmetadata.json
-description: Description of format for application metadata.
-tags: [app-structure, todo]
+description: The format of the application metadata.
+tags: [app-structure]
 ---
 
 ## Overview
 
-`applicationmetadata.json` describes meta information of an application. This is automatically generated on creation of a new application.
-This is located at `/App/config/applicationmetadata.json` in the app repo.
+`applicationmetadata.json` describes the app: who owns it, which data it stores and who can start it. Altinn Studio creates the file when you create the app, and updates it when you, for example, add a data model or an attachment component. The file is at `App/config/applicationmetadata.json` in the app repository.
 
-## Format
+When you deploy the app to an environment, the platform reads the file and stores the metadata in Altinn Storage.
 
-'applicationmetadata.json' has the application information such as application id, version information, organisation that owns the application, workflow information, form and attachment information.
+## Example
 
-## Application Metadata Format
+This is the file in a new app with one data model:
 
-Below is an example of application metadata in json format
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 {
-	"id": "Brreg-testappmetaattachment",
-	"versionId": "1.0",
-	"applicationOwnerId": "Brreg",
-	"createdDateTime": "2019-05-23T20:26:29.2001617Z",
-	"createdBy": "user",
-	"lastChangedDateTime": "2019-05-23T20:26:29.2002739Z",
-	"lastChangedBy": "user",
-	"title": {
-		"nb-no": "RF-1134 Test form title"
-	},
-	"validFrom": "2019-05-23T20:26:29.2001617Z",
-	"validTo": "2020-05-23T20:26:29.2001617Z",
-	"WorkflowId": null,
-	"maxSize": 0,
-	"forms": [
-		{
-			"id": "default",
-			"description": null,
-			"allowedContentType": [
-				"application/xml"
-			],
-			"maxSize": 0,
-			"maxCount": 0,
-			"shouldSign": false,
-			"shouldEncrypt": true
-		},
-		{
-			"id": "74696338-540e-47e3-8f04-0996cc2bb239",
-			"description": null,
-			"allowedContentType": [
-				"application/octet-stream"
-			],
-			"maxSize": 3,
-			"maxCount": 3,
-			"shouldSign": false,
-			"shouldEncrypt": false
-		},
-		{
-			"id": "0cc6ee16-7fbf-45b3-9e00-2fda8668ab31",
-			"description": null,
-			"allowedContentType": [
-				"application/pdf",
-				"text/plain",
-				"text/css"
-			],
-			"maxSize": 5,
-			"maxCount": 2,
-			"shouldSign": false,
-			"shouldEncrypt": false
-		}
-	]
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/application/application-metadata.schema.v1.json",
+  "id": "ttd/my-app",
+  "org": "ttd",
+  "title": { "nb": "My app" },
+  "dataTypes": [
+    {
+      "id": "ref-data-as-pdf",
+      "allowedContentTypes": ["application/pdf"],
+      "maxCount": 0,
+      "minCount": 0
+    },
+    {
+      "id": "model",
+      "allowedContentTypes": ["application/xml"],
+      "appLogic": {
+        "autoCreate": true,
+        "classRef": "Altinn.App.Models.model.model"
+      },
+      "taskId": "Task_1",
+      "maxCount": 1,
+      "minCount": 1
+    }
+  ],
+  "partyTypesAllowed": {
+    "bankruptcyEstate": true,
+    "organisation": true,
+    "person": true,
+    "subUnit": true
+  },
+  "autoDeleteOnProcessEnd": false
 }
 ```
 
-The meta data for attachment is updated in the application metadata when a fileupload component is dragged in the ui editor. When an application is deployed to a selected environment, the application metadata is read from the applicationmetadata.json and populated in the cosmos database.
+## Properties
+
+| Property | Description |
+| --- | --- |
+| `id` | The ID of the app, in the form `{org}/{app}`. |
+| `org` | The organisation that owns the app. |
+| `title` | The name of the app, for each language. |
+| `dataTypes` | The data the app stores: form data, attachments and PDFs. Each data type says which file types it accepts (`allowedContentTypes`), how many elements an instance can have (`minCount` and `maxCount`), and which task in the process it belongs to (`taskId`). Form data has `appLogic` with the class of the data model in `classRef`. See [attachments](/en/altinn-studio/v8/reference/data/attachments/). |
+| `partyTypesAllowed` | Which party types can start the app. See [party types](/en/altinn-studio/v8/reference/configuration/partytype/). |
+| `onEntry` | What the user sees when the app starts. See [startup](/en/altinn-studio/v8/reference/configuration/startup/). |
+| `autoDeleteOnProcessEnd` | Whether the platform deletes the instance when the process ends. See [automatic deletion](/en/altinn-studio/v8/reference/configuration/process/auto-delete/). |
+| `presentationFields` and `messageBoxConfig` | What the message box shows about the instance. See [message box](/en/altinn-studio/v8/reference/configuration/messagebox/). |

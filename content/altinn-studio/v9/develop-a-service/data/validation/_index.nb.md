@@ -161,7 +161,7 @@ Appen har disse valideringene innebygd:
 
 Nettleseren sjekker også påkrevde felt, validering med uttrykk og datamodellen mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Brukeren ser derfor feil fra dem først når brukeren prøver å sende inn. Unntaket er filtype, filstørrelse og største antall filer (`maxCount`), som appen også sjekker når brukeren laster opp en fil. Minste antall filer (`minCount`) sjekker appen først når brukeren går videre.
 
-Du slår valideringene av og på under `AppSettings` i `App/appsettings.json`:
+Du slår valideringene av og på under `AppSettings` i `App/appsettings.json`. Ta bare med innstillingene du vil endre fra standardverdien. Dette eksempelet slår på XSD-validering:
 
 {{< code-title >}}
 App/appsettings.json
@@ -170,12 +170,12 @@ App/appsettings.json
 ```json
 {
   "AppSettings": {
-    "RequiredValidation": true,
-    "ExpressionValidation": true,
-    "XsdValidation": false
+    "XsdValidation": true
   }
 }
 ```
+
+Setter du `RequiredValidation` eller `ExpressionValidation` til `false`, kjører appen den valideringen bare i nettleseren.
 
 ### Egne validatorer
 

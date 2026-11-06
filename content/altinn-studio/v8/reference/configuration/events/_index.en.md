@@ -23,138 +23,55 @@ In the file `appsettings.json` in the folder _App_ the following should be added
 
 ## Pushing self defined events into your application {#pushing-self-defined-events-into-your-application}
 
-The service `IEvents` is exposed in the application and can be dependency injected
-into the class where you need to generate a self defined event.
+The application can send its own events with the service `IEventsClient` from the namespace `Altinn.App.Core.Internal.Events`. Inject the service into the constructor of the class where the event should happen.
 
-The method _AddEvent_ requires the name of the event type and the instance as input
+The method `AddEvent` takes the name of the event type and the instance the event concerns. The application uses the instance to fill in the rest of the event's metadata.
 
 ### Code example
 
-In this section you can find an example of how to generate a self 
-defined event by instantiation within the application
+The example sends a self defined event when the application creates form data for a new instance. The code is in a class that implements `IInstantiationProcessor`, the same interface you use to [prefill data with custom code](/en/altinn-studio/v8/guides/development/prefill/custom/).
 
-The logic is implemented in `InstantiationHandler.cs`
+{{< code-title >}}
+App/logic/Instantiation/InstantiationEvents.cs
+{{< /code-title >}}
 
 ```cs
-using Altinn.App.Services.Interface;
-using Altinn.App.PlatformServices.Interface;
-using Altinn.App.Services.Models.Validation;
-using Altinn.Platform.Storage.Interface.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-// using Altinn.App.Models; // Uncomment this line to refer to app model(s)
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Internal.Events;
+using Altinn.Platform.Storage.Interface.Models;
 
-namespace Altinn.App.AppLogic
+namespace Altinn.App.Logic.Instantiation;
+
+public class InstantiationEvents : IInstantiationProcessor
 {
-    public class InstantiationHandler
+    private readonly IEventsClient _eventsClient;
+
+    public InstantiationEvents(IEventsClient eventsClient)
     {
-        private IProfile _profileService;
-        private IRegister _registerService;
-        private IEvents _eventsService;
+        _eventsClient = eventsClient;
+    }
 
-        /// <summary>
-        /// Set up access to profile and register services
-        /// </summary>
-        public InstantiationHandler(IProfile profileService, IRegister registerService, IEvents eventsService)
-        {
-            _profileService = profileService;
-            _registerService = registerService;
-            _eventsService = eventsService;
-        }
-
-        /// <summary>
-        /// Run validations related to instantiation
-        /// </summary>
-        /// <example>
-        /// if ([some condition])
-        /// {
-        ///     return new ValidationResult("[error message]");
-        /// }
-        /// return null;
-        /// </example>
-        /// <param name="instance"></param>
-        /// <param name="validationResults"></param>
-        /// <returns>The validation result object (null if no errors) </returns>
-        public async Task<InstantiationValidationResult> RunInstantiationValidation(Instance instance)
-        {
-            return await Task.FromResult((InstantiationValidationResult)null);
-        }
-
-        /// <summary>
-        /// Run events related to instantiation
-        /// </summary>
-        /// <remarks>
-        /// For example custom prefill.
-        /// </remarks>
-        /// <param name="instance">Instance information</param>
-        /// <param name="data">The data object created</param>
-        public async Task DataCreation(Instance instance, object data)
-        {
-            await _eventsService.AddEvent("app.test.event", instance);
-            await Task.CompletedTask;
-        }
+    public async Task DataCreation(Instance instance, object data, Dictionary<string, string>? prefill)
+    {
+        await _eventsClient.AddEvent("app.test.event", instance);
     }
 }
 ```
 
-1. The private variable in the service is included in the class
+The event has the type `app.test.event`. Register the class in `Program.cs`:
 
-    ```cs
-    private IEvents _eventsService;
-    ```
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
-2. Namespace for IEvents must be included in the class. 
-    Add the line below among the other _using_ statements in the top of the file.
+```cs
+services.AddTransient<IInstantiationProcessor, InstantiationEvents>();
+```
 
-    ```cs
-    using Altinn.App.PlatformServices.Interface;
-    ```
+The application runs `DataCreation` every time it creates form data, so it sends one event for each form it creates.
 
-3. The IEvents service is dependency injected into the class. And the private variable is assigned a value.
+The application uses only the last class registered for `IInstantiationProcessor`. If the application already has such a class, for example for prefill, put the code for the event in that class.
 
-    ```cs
-        public InstantiationHandler(IProfile profileService, IRegister registerService, IEvents eventsService)
-        {
-            _profileService = profileService;
-            _registerService = registerService;
-            _eventsService = eventsService;
-        }
-    ```
-
-4. In the method where you need to generate an event you call the service.
-
-    Here the self defined event has received the name `app.test.event`,
-    in addition the instance is sent. This is used to populate remaining metadata about the event
-
-    ```cs
-    await _eventsService.AddEvent("app.test.event", instance);  
-   ```
-
-5. If you try building the solution at this point, it will fail.
-
-    IEvents will be missing the location where the InstantiationHandler is instantiated. 
-    Navigate to `App.cs`and dependency inject the service into App's constructor.
-
-    Further the service must be added into the call where InstantiationHandler is instantiated as shown below.
-
-    ```cs
-    public App(
-        IAppResources appResourcesService,
-        ILogger<App> logger,
-        IData dataService,
-        IProcess processService,
-        IPDF pdfService,
-        IProfile profileService,
-        IRegister registerService,
-        IPrefill prefillService,
-        IEvents eventsService
-        ) : base(appResourcesService, logger, dataService, processService, pdfService, prefillService)
-    {
-        _logger = logger;
-        _validationHandler = new ValidationHandler();
-        _calculationHandler = new CalculationHandler();
-        _instantiationHandler = new InstantiationHandler(profileService, registerService, eventsService);
-    }
-    ```
-
-6. Your application is now ready to generate a self defined event during instantiation.
-You can [test this locally](https://github.com/Altinn/app-localtest/blob/master/README.md) before eventually deploying to a test environment.
+You can [test this locally](https://github.com/Altinn/app-localtest/blob/master/README.md) before you deploy the application to a test environment.

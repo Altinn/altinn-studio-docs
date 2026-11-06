@@ -507,27 +507,31 @@ Eksempel request som vil gå mot backend som man kan mappe over datamodellen man
 
 ```
 
-Denne prefill verdien kan man så benytte seg av i metoden `DataCreation` i `InstantiationHandler.cs` for å mappe mot de feltene man trenger som en del av innsendsingsdelen av applikasjonen under instansieringen. Eksempel:
+Prefill-verdiene kan du bruke i metoden `DataCreation` i en klasse som implementerer `IInstantiationProcessor`. Der fyller du ut feltene i innsendingsdelen av appen når appen oppretter instansen. Se [forhåndsutfylling med egen kode](/nb/altinn-studio/v8/guides/development/prefill/custom/) for hvordan du registrerer klassen. Eksempel:
+
+{{< code-title >}}
+App/logic/Instantiation/MinUtfylling.cs
+{{< /code-title >}}
 
 ```c#
-public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-  {
-      if (data.GetType() == typeof(MessageV1))
-      {
-          string name = "";
-          string id = "";
-          if (prefill.ContainsKey("name")) {
-              name = prefill["name"];
-          }
-          if (prefill.ContainsKey("id")) {
-              id = prefill["id"];
-          }
-          MessageV1 skjema = (MessageV1)data;
-          skjema.Sender = name;
-          skjema.Reference = id;
-      }            
-      await Task.CompletedTask;
-  }
+public class MinUtfylling : IInstantiationProcessor
+{
+    public async Task DataCreation(Instance instance, object data, Dictionary<string, string>? prefill)
+    {
+        if (data is MessageV1 skjema && prefill is not null)
+        {
+            if (prefill.TryGetValue("name", out string? name))
+            {
+                skjema.Sender = name;
+            }
+            if (prefill.TryGetValue("id", out string? id))
+            {
+                skjema.Reference = id;
+            }
+        }
+        await Task.CompletedTask;
+    }
+}
 ```
 
 #### Instansiere fra en repeterende gruppe

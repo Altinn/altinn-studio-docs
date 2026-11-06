@@ -21,7 +21,7 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
 
    ```json
    {
-     "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+     "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layoutSettings.schema.v1.json",
      "defaultDataType": "your-subform-dataType",
      "type": "subform",
      "pages": {

@@ -128,18 +128,17 @@ Du kan også referere til en definert regel og deretter overstyre ett eller fler
 
 ## Kjøre valideringene i backend
 
-Som standard kjører validering med dynamikk bare i appens frontend, men for å sikre at dataen som sendes inn følger reglene du har satt opp, bør du også kjøre valideringene i backend slik at innsendinger via API også blir validert på samme måte.
-Det gjør du ved å sette flagget `"ExpressionValidation": true` under `"AppSettings"` i `App/appsettings.json` som vist nedenfor:
+Appen kjører valideringene både i frontend og i backend. Backend kontrollerer reglene før brukeren får gå videre i prosessen, slik at også data som kommer inn gjennom API-et, følger reglene. Kontrollen i backend er på som standard, så du trenger ikke å legge inn noe i `App/appsettings.json`.
+
+Vil du at reglene bare skal gjelde i nettleseren, setter du `ExpressionValidation` til `false` under `AppSettings`:
 
 {{< code-title >}}
-App/appsettings.*.json
+App/appsettings.json
 {{< /code-title >}}
 ```json
 {
   "AppSettings": {
-    "ExpressionValidation": true
-    ...
-  },
-  ...
+    "ExpressionValidation": false
+  }
 }
 ```

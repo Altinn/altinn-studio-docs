@@ -17,7 +17,9 @@ Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave f
 
 ## Skrive systemoppgaven i C\#
 
-Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `Execute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen og i tilgangsregelen.
+Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `DefineExecute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen og i tilgangsregelen.
+
+I en oppgave som gjør én ting, returnerer `DefineExecute` bare `pipeline.Finally(Execute)`, og selve arbeidet ligger i metoden `Execute`. `Finally` avslutter oppgaven. Skal oppgaven gjøre flere ting etter hverandre, legger du til arbeidssteg foran avslutningen. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
@@ -34,7 +36,9 @@ public class ExampleServiceTask : IServiceTask
 {
     public string Type => "exampleServiceTask";
 
-    public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
+    public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
+
+    private async Task<ServiceTaskResult> Execute(StageContext context)
     {
         Datamodell? skjemadata = await context.InstanceDataMutator.GetFormData<Datamodell>();
 
@@ -227,20 +231,25 @@ Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en meldi
 
 ## Styre tidsbruk og nye forsøk
 
-Trenger oppgaven andre tidsrammer enn standard, overstyrer du `StepOptions`:
+Trenger oppgaven andre tidsrammer enn standard, gir du `Finally` et `ProcessStepOptions`-objekt i `DefineExecute`:
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
 {{< /code-title >}}
 
 ```csharp
-public ProcessStepOptions? StepOptions =>
-    new()
-    {
-        MaxExecutionTime = TimeSpan.FromMinutes(2),
-        WaitBudget = TimeSpan.FromHours(6),
-    };
+public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
+    pipeline.Finally(
+        Execute,
+        new ProcessStepOptions
+        {
+            MaxExecutionTime = TimeSpan.FromMinutes(2),
+            WaitBudget = TimeSpan.FromHours(6),
+        }
+    );
 ```
+
+Innstillingene gjelder bare for steget du gir dem til. Har oppgaven flere arbeidssteg, gir du hvert steg sine egne innstillinger.
 
 Feltene betyr dette:
 

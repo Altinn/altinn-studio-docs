@@ -5,9 +5,9 @@ description: Slik deler du en systemoppgave i flere arbeidssteg, og lar den vent
 tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview]
 ---
 
-En systemoppgave som gjør én ting, skriver du med `IServiceTask`. Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
+Alle systemoppgaver implementerer `IServiceTask`. En oppgave som gjør én ting, har bare én avslutning. Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
 
-Skal oppgaven gjøre flere ting etter hverandre, deler du den i **arbeidssteg** (`Stage` i koden) med `IPipelineServiceTask`. Det gjelder når oppgaven sender noe og venter på svar, eller kaller flere systemer i rekkefølge. Plattformen husker hvert arbeidssteg som er ferdig, slik at en feil sent i oppgaven ikke sender bestillingen din på nytt.
+Skal oppgaven gjøre flere ting etter hverandre, deler du den i **arbeidssteg** (`Stage` i koden) foran avslutningen. Det gjelder når oppgaven sender noe og venter på svar, eller kaller flere systemer i rekkefølge. Plattformen husker hvert arbeidssteg som er ferdig, slik at en feil sent i oppgaven ikke sender bestillingen din på nytt.
 
 {{% notice info %}}
 Denne siden gir oversikten. Utviklerne finner alle detaljene i [`docs/service-task-pipelines.md`](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/docs/service-task-pipelines.md) i kodebasen for app-biblioteket.
@@ -15,7 +15,7 @@ Denne siden gir oversikten. Utviklerne finner alle detaljene i [`docs/service-ta
 
 ## Dele oppgaven i arbeidssteg
 
-Du setter sammen arbeidsstegene i `Define`. Sammensetningen må slutte med én avslutning: `Finally` for arbeid som blir ferdig av seg selv eller ved å spørre igjen, eller `ConcludeOnReplies` for arbeid som en melding svarer på.
+Du setter sammen arbeidsstegene i `DefineExecute`. Sammensetningen må slutte med én avslutning: `Finally` for arbeid som blir ferdig av seg selv eller ved å spørre igjen, eller `ConcludeOnReplies` for arbeid som en melding svarer på.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ArchiveServiceTask.cs
@@ -26,7 +26,7 @@ using Altinn.App.Core.Features.Process;
 
 namespace Altinn.App.Logic.ServiceTasks;
 
-public class ArchiveServiceTask : IPipelineServiceTask
+public class ArchiveServiceTask : IServiceTask
 {
     // IArchiveClient er ditt eget grensesnitt mot arkivet, ikke noe plattformen har.
     private readonly IArchiveClient _archive;
@@ -38,21 +38,21 @@ public class ArchiveServiceTask : IPipelineServiceTask
 
     public string Type => "archive";
 
-    public ServiceTaskPipeline Define(ServiceTaskPipelineBuilder pipeline) =>
+    public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
         pipeline
             .Stage(SendToArchive)
             .Finally(AwaitConfirmation, new ProcessStepOptions { WaitBudget = TimeSpan.FromHours(6) });
 
-    private async Task<ServiceTaskStageResult> SendToArchive(ServiceTaskContext context)
+    private async Task<StageResult> SendToArchive(StageContext context)
     {
         // context.StepId er den samme gjennom alle forsøk på dette arbeidssteget.
         // Bruk den som nøkkel, slik at arkivet kjenner igjen en sending det har fått før.
         await _archive.Send(context.StepId, context.InstanceDataMutator.Instance);
 
-        return ServiceTaskStageResult.Completed();
+        return StageResult.Completed();
     }
 
-    private async Task<ServiceTaskResult> AwaitConfirmation(ServiceTaskContext context)
+    private async Task<ServiceTaskResult> AwaitConfirmation(StageContext context)
     {
         if (await _archive.IsDelivered(context.StepId))
         {
@@ -69,7 +69,7 @@ public class ArchiveServiceTask : IPipelineServiceTask
 }
 ```
 
-Oppgaver med flere arbeidssteg registrerer du på `IPipelineServiceTask`:
+Du registrerer oppgaven på `IServiceTask`, på samme måte som en oppgave med bare én avslutning:
 
 {{< code-title >}}
 App/Program.cs
@@ -77,16 +77,16 @@ App/Program.cs
 
 ```csharp
 services.AddTransient<IArchiveClient, ArchiveClient>();
-services.AddTransient<IPipelineServiceTask, ArchiveServiceTask>();
+services.AddTransient<IServiceTask, ArchiveServiceTask>();
 ```
 
-`Define` kjører hver gang plattformen skal finne ut hva som er neste arbeidssteg, og når appen starter. Den skal derfor være billig og forutsigbar, og ikke gjøre noe arbeid selv. Selve arbeidet hører til inne i arbeidsstegene.
+`DefineExecute` kjører hver gang plattformen skal finne ut hva som er neste arbeidssteg, og når appen starter. Den skal derfor være billig og forutsigbar, og ikke gjøre noe arbeid selv. Selve arbeidet hører til inne i arbeidsstegene.
 
 Setter du sammen noe ugyldig, for eksempel et arbeidssteg uten avslutning eller en postkasse ingen svarer på, feiler appen når den starter. Da får du feilen med en gang, ikke først når en bruker treffer oppgaven.
 
 ## Svare fra et arbeidssteg
 
-Et arbeidssteg svarer med `ServiceTaskStageResult`:
+Et arbeidssteg svarer med `StageResult`:
 
 | Svar | Dette skjer |
 | --- | --- |
@@ -115,13 +115,13 @@ App/logic/ServiceTasks/ArchiveServiceTask.cs
 {{< /code-title >}}
 
 ```csharp
-public ServiceTaskPipeline Define(ServiceTaskPipelineBuilder pipeline) =>
+public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
     pipeline
         .Stage(SendOrder, new MailboxOptions { Timeout = TimeSpan.FromDays(14) }, out MailboxHandle svar)
         .ConcludeOnReplies(svar, onMessage: HandleAnswer, onClosed: HandleClosed);
 
 // _partner, TryLesSvar og Svar er dine egne, på samme måte som IArchiveClient over.
-private async Task<ServiceTaskOpeningStageResult> SendOrder(ServiceTaskContext context, ServiceTaskMailbox mailbox)
+private async Task<ServiceTaskOpeningStageResult> SendOrder(StageContext context, ServiceTaskMailbox mailbox)
 {
     // Send mailbox.Id med bestillingen, i det feltet mottakeren sender tilbake.
     // Uten den finner ikke svaret veien tilbake til oppgaven.
@@ -130,7 +130,7 @@ private async Task<ServiceTaskOpeningStageResult> SendOrder(ServiceTaskContext c
     return ServiceTaskOpeningStageResult.Completed();
 }
 
-private async Task<ServiceTaskExchangeResult> HandleAnswer(ServiceTaskContext context, ServiceTaskReply reply)
+private async Task<ServiceTaskExchangeResult> HandleAnswer(StageContext context, ServiceTaskReply reply)
 {
     // reply.Payload kommer utenfra. Kontroller innholdet før du bruker det.
     if (!TryLesSvar(reply.Payload, out Svar? svar))
@@ -141,7 +141,7 @@ private async Task<ServiceTaskExchangeResult> HandleAnswer(ServiceTaskContext co
     return svar.Ferdig ? ServiceTaskResult.Success() : ServiceTaskExchangeResult.AwaitNextReply();
 }
 
-private Task<ServiceTaskResult> HandleClosed(ServiceTaskContext context, MailboxClosedReason reason) =>
+private Task<ServiceTaskResult> HandleClosed(StageContext context, MailboxClosedReason reason) =>
     // Typeargumentet er nødvendig: uten det blir returtypen Task<FailedServiceTaskResult>, som ikke kompilerer.
     Task.FromResult<ServiceTaskResult>(ServiceTaskResult.FailedPermanent("Fikk aldri svar fra samarbeidspartneren."));
 ```
@@ -162,7 +162,3 @@ Fiks Arkiv er det innebygde eksempelet i plattformen: oppgaven sender id-en til 
 Formen på oppgaven låser seg når prosessen starter overgangen, og plattformen kjenner igjen arbeidsstegene på plasseringen i rekken. Ruller du ut en ny versjon som setter inn, fjerner eller bytter om på arbeidssteg, mister instansene som er underveis sporet. De feiler, eller de hopper over arbeid uten å feile.
 
 Dette er samme problem som å endre en BPMN-fil mens instanser er i gang, og det er utviklerne som må håndtere det: la instansene som er underveis, bli ferdige på koden de startet på, eller avslutt dem bevisst før utrullingen.
-
-## Ikke overstyre `Define` i en enkel oppgave
-
-`IServiceTask` er en oppgave med bare én avslutning: plattformen svarer `Finally(Execute)` for deg. Skriver du din egen `Define` i en klasse som implementerer `IServiceTask`, blir `Execute` død kode, og det får du en byggefeil for. Trenger du flere arbeidssteg, bruker du `IPipelineServiceTask` i stedet.

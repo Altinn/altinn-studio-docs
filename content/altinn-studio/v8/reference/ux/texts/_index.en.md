@@ -210,6 +210,8 @@ It is currently possible to fetch values from 4 different data sources.
    1. `instanceOwnerPartyId` contains the party ID of the instance owner.
    2. `instanceId` contains the ID of the active instance.
    3. `appId` contains the ID of the application, which the active instance belongs to.
+   4. `instanceOwnerPartyType` contains the type of instance owner: `org`, `person`, `selfIdentified` or `unknown`.
+   5. `instanceOwnerName` contains the name of the instance owner.
 4. Custom text parameters  
    {{<notice info>}}
    Requires version >= 8.7.0 of the `Altinn.App.*` packages.

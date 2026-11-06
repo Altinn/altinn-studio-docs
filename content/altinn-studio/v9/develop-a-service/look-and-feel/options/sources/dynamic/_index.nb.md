@@ -18,10 +18,10 @@ For åpne kodelister implementerer du `IAppOptionsProvider`-interfacet, mens for
 Under ser du et eksempel på hvordan du setter opp en åpen kodeliste.
 
 ```C#
-using Altinn.App.Common.Models;
-using Altinn.App.PlatformServices.Options;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models;
 
 namespace Altinn.App.Core
 {
@@ -29,7 +29,7 @@ namespace Altinn.App.Core
     {
         public string Id { get; set; } = "countries";
 
-        public Task<AppOptions> GetAppOptionsAsync(string language, Dictionary<string, string> keyValuePairs)
+        public Task<AppOptions> GetAppOptions(string? language, Dictionary<string, string> keyValuePairs)
         {
             var options = new AppOptions
             {
@@ -92,8 +92,8 @@ Under ser du et eksempel på hvordan du setter opp en sikret kodeliste.
 ```C#
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Altinn.App.Common.Models;
-using Altinn.App.PlatformServices.Models;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models;
 
 namespace Altinn.App.Core
 {
@@ -101,7 +101,7 @@ namespace Altinn.App.Core
     {
         public string Id { get; set; } = "children";
 
-        public Task<AppOptions> GetInstanceAppOptionsAsync(InstanceIdentifier instanceIdentifier, string language, Dictionary<string, string> keyValuePairs)
+        public Task<AppOptions> GetInstanceAppOptions(InstanceIdentifier instanceIdentifier, string? language, Dictionary<string, string> keyValuePairs)
         {
             // ...
             // Some custom code to get the list of children from the instance owner
@@ -238,7 +238,7 @@ For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/
 
 ## Lurt å tenke på
 
-- Metoden `GetAppOptionsAsync` får inn en språkkode i parameteren `language`. Språkkoder bør baseres på ISO 639-1 standarden eller W3C IANA Language Subtag Registry standarden. Sistnevnte bygger på ISO 639-1 standarden men garanterer at alle kodene er unike, noe ISO 639-1 ikke gjør.
+- Metodene `GetAppOptions` og `GetInstanceAppOptions` får inn en språkkode i parameteren `language`. Språkkoder bør baseres på ISO 639-1 standarden eller W3C IANA Language Subtag Registry standarden. Sistnevnte bygger på ISO 639-1 standarden men garanterer at alle kodene er unike, noe ISO 639-1 ikke gjør.
 - En app kan ha mange implementasjoner av disse interfacene, en for hver kodeliste. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste-identifikator det spørres etter, og sammenlignes med `Id`-egenskapen i implementasjonen. Dette er også identifikatoren som brukes i `optionsId`-egenskapen i komponentkonfigurasjonen. Dermed må også `Id`-egenskapen i implementasjonen være unik per app.
 - Det kan være fristende å sette opp en dynamisk og sikret kodeliste hvor du henter ut data fra datamodellen og produserer kodelisten basert på dette. Vi anbefaler ikke dette, da appens frontend bare henter kodelisten én gang for hvert unike sett med spørringsparametre. Det betyr at systemet ikke oppdaterer visningen av kodelisten i tråd med endringene i datamodellen.
     - Et alternativ er å bruke funksjonaliteten for [dynamiske kodelister basert på datamodell](../from-data-model/), i noen tilfeller sammen med tilsvarende kode i [DataProcessor]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing" >}}).

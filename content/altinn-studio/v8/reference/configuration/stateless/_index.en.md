@@ -506,28 +506,32 @@ Example request which will be sent to the backend which can be mapped to the dat
 
 ```
 
-This prefill value can then be used in the method `DataCreation` in `InstantiationHandler.cs` to map against the fields
-that are needed as a part of the submitting part of the application during instantiation. Example:
+This prefill value can then be used in the method `DataCreation` in a class that implements `IInstantiationProcessor`, to map against the fields
+that are needed as a part of the submitting part of the application during instantiation. See [prefill data with custom code](/en/altinn-studio/v8/guides/development/prefill/custom/) for how to register the class. Example:
+
+{{< code-title >}}
+App/logic/Instantiation/MyPrefill.cs
+{{< /code-title >}}
 
 ```c#
-public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-  {
-      if (data.GetType() == typeof(MessageV1))
-      {
-          string name = "";
-          string id = "";
-          if (prefill.ContainsKey("name")) {
-              name = prefill["name"];
-          }
-          if (prefill.ContainsKey("id")) {
-              id = prefill["id"];
-          }
-          MessageV1 skjema = (MessageV1)data;
-          skjema.Sender = name;
-          skjema.Reference = id;
-      }            
-      await Task.CompletedTask;
-  }
+public class MyPrefill : IInstantiationProcessor
+{
+    public async Task DataCreation(Instance instance, object data, Dictionary<string, string>? prefill)
+    {
+        if (data is MessageV1 skjema && prefill is not null)
+        {
+            if (prefill.TryGetValue("name", out string? name))
+            {
+                skjema.Sender = name;
+            }
+            if (prefill.TryGetValue("id", out string? id))
+            {
+                skjema.Reference = id;
+            }
+        }
+        await Task.CompletedTask;
+    }
+}
 ```
 
 #### Instantiating from a repeating group
