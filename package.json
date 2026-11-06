@@ -8,7 +8,7 @@
   "dependencies": {
     "@digdir/designsystemet-css": "1.23.0",
     "@digdir/designsystemet-web": "1.23.0",
-    "@navikt/aksel-icons": "8.19.1"
+    "@navikt/aksel-icons": "8.21.0"
   },
   "devDependencies": {
     "@digdir/designsystemet": "1.23.0"
