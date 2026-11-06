@@ -21,6 +21,8 @@ Additionally, she is a health expert and has started her own consulting firm for
 
 She is also a board member of the housing cooperative where she resides, named "Oslos Vakreste Borettslag" ("Oslo's Most Beautiful Housing Cooperative"). Sophie holds the role of MEDL (Member) along with associated roles for "Oslos Vakreste Borettslag".
 
+The roles DAGL and LEDE give Sophie most of the access packages for DDG Fitness AS, EAS Health Consulting and their sub-units, such as **Lønn** (`lonn`). If the authorisation rules of the app give access through access packages, Sophie will therefore often have access on behalf of these organisations.
+
 #### Submitters (avgivere)
 
 | Submitter                                                                                                                     | Roles                                                                                                                                               |
@@ -101,13 +103,14 @@ different from those assigned to the default users.
 
 ### Give test users access packages
 
-Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorisation rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the same access packages they would have in Altinn. Localtest supports access packages from version [[FIX BEFORE MERGE: first studioctl version whose localtest supports access packages]].
+Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorisation rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the access packages their roles give in Altinn, as well as those you add in `accessPackages`. Access packages that come through client delegation or other delegations are not available locally. Localtest supports access packages from version [[FIX BEFORE MERGE: first studioctl version whose localtest supports access packages]].
 
 This is how test users get access packages:
 
 - A role gives the same access packages as the role gives in Altinn. For example, a general manager (DAGL) gets most of the access packages for the organisation, and a private person (PRIV) gets the citizen access packages for themselves.
 - You can give a person more access packages in `accessPackages`. The key is the `partyId` of the party the person holds the access packages for.
 - A sub-unit gets the same access packages as the person holds for the main unit.
+- Some roles give access packages only for certain kinds of organisation, such as a business manager (FFØR) for a securities fund. Localtest uses the organisation's `unitType` in the test data to decide.
 - You give a system user access packages in `accessPackages`. The system user holds them for the organisation it belongs to (`orgNumber`) and its sub-units.
 
 Write an access package as its name, such as `lonn`, or as its full URN, such as `urn:altinn:accesspackage:lonn`. [Read more about which roles and access packages exist in Altinn]({{< relref "/authorization/what-do-you-get/accesspackages" >}}).
@@ -141,11 +144,11 @@ App/wwwroot/testData.json
   ],
   "systems": [
     {
-      "id": "913312465_sbs",
-      "name": "Sluttbrukersystem",
+      "id": "897069650_lonnssystem",
+      "name": "Lønnssystem",
       "systemUsers": [
         {
-          "id": "d111dbab-d619-4f15-bf29-58fe570a9ae6",
+          "id": "67eff800-7835-434a-a21a-39bf41c753f2",
           "orgNumber": "897069650",
           "accessPackages": ["lonn"]
         }

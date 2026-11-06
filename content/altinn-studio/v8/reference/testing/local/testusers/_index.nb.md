@@ -20,6 +20,8 @@ I tilegg er hun ekspert på helse og har startet eget konsulentfirma for helsetj
 
 Hun er også styremedlem i borettslaget der hun bor. "Oslos Vakreste Borettslag".  Sophie har rollen MEDL + knyttede roller for "Oslos Vakreste Borettslag".
 
+Rollene DAGL og LEDE gir Sophie de fleste tilgangspakkene for DDG Fitness AS, EAS Health Consulting og underenhetene, for eksempel **Lønn** (`lonn`). Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, får Sophie derfor ofte tilgang på vegne av disse virksomhetene.
+
 #### Avgivere
 
 | Avgiver                                                                                                                       | Roller                                                                                                                                        |
@@ -98,13 +100,14 @@ appene er avhengig av skal virke, eller testing av autorisasjonsreglene med andr
 
 ### Gi testbrukere tilgangspakker
 
-Tilgangspakker samler rettigheter til tjenester som hører sammen, for eksempel alt som har med lønn å gjøre. Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, kan du teste reglene lokalt. Localtest gir testbrukerne de samme tilgangspakkene som de ville fått i Altinn. Localtest støtter tilgangspakker fra versjon [[FIX BEFORE MERGE: første versjon av studioctl der localtest støtter tilgangspakker]].
+Tilgangspakker samler rettigheter til tjenester som hører sammen, for eksempel alt som har med lønn å gjøre. Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, kan du teste reglene lokalt. Localtest gir testbrukerne tilgangspakkene som rollene deres gir i Altinn, i tillegg til dem du legger inn i `accessPackages`. Tilgangspakker som kommer gjennom klientdelegering eller andre delegeringer, får du ikke lokalt. Localtest støtter tilgangspakker fra versjon [[FIX BEFORE MERGE: første versjon av studioctl der localtest støtter tilgangspakker]].
 
 Slik får testbrukerne tilgangspakker:
 
 - En rolle gir de samme tilgangspakkene som rollen gir i Altinn. Daglig leder (DAGL) får for eksempel de fleste tilgangspakkene for virksomheten, og en privatperson (PRIV) får tilgangspakkene for innbyggere for seg selv.
 - Du kan gi en person flere tilgangspakker i `accessPackages`. Nøkkelen er `partyId` til aktøren personen har tilgangspakkene for.
 - En underenhet får de samme tilgangspakkene som personen har for hovedenheten.
+- Noen roller gir tilgangspakker bare for bestemte typer virksomheter, for eksempel forretningsfører (FFØR) for verdipapirfond. Localtest bruker `unitType` på virksomheten i testdataene til å avgjøre det.
 - Du gir en systembruker tilgangspakker i `accessPackages`. Systembrukeren har dem for virksomheten den tilhører (`orgNumber`) og underenhetene til virksomheten.
 
 Skriv tilgangspakken med navnet, for eksempel `lonn`, eller med hele URN-en, for eksempel `urn:altinn:accesspackage:lonn`. [Les mer om hvilke roller og tilgangspakker som finnes i Altinn]({{< relref "/authorization/what-do-you-get/accesspackages" >}}).
@@ -138,11 +141,11 @@ App/wwwroot/testData.json
   ],
   "systems": [
     {
-      "id": "913312465_sbs",
-      "name": "Sluttbrukersystem",
+      "id": "897069650_lonnssystem",
+      "name": "Lønnssystem",
       "systemUsers": [
         {
-          "id": "d111dbab-d619-4f15-bf29-58fe570a9ae6",
+          "id": "67eff800-7835-434a-a21a-39bf41c753f2",
           "orgNumber": "897069650",
           "accessPackages": ["lonn"]
         }
