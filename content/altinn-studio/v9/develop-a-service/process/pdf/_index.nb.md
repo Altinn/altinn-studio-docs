@@ -125,7 +125,7 @@ App/ui/
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layoutSettings.schema.v1.json",
   "defaultDataType": "model",
   "pages": {
     "pdfLayoutName": "PdfLayout",
@@ -153,7 +153,7 @@ I denne filen definerer du innholdet i PDF-en. Du bruker typisk Summary2-kompone
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {

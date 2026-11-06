@@ -12,7 +12,7 @@ Appen kan generere PDF som en standard systemoppgave du legger til som et steg i
 {{<notice warning>}}
 Tidligere lå ikke denne funksjonaliteten i en systemoppgave, men var bakt inn i den generelle koden for å endre prosesssteg. Dersom du satte opp appen før versjon 8.9, bør du deaktivere funksjonaliteten som kjører utenfor prosessdefinisjonen.
 
-Det gjør du ved å slå av "enablePdfGeneration" på alle datatyper.
+Det gjør du ved å sette `"enablePdfCreation": false` på alle datatyper i `App/config/applicationmetadata.json`.
 
 <br />
 Fordeler med å migrere til systemoppgave:

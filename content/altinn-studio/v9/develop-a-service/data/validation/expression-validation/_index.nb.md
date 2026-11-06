@@ -24,7 +24,7 @@ template.validation.json
 {{< /code-title >}}
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/validation/validation.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/validation/validation.schema.v1.json",
   "validations": {},
   "definitions": {}
 }
@@ -39,7 +39,7 @@ example.validation.json
 {{< /code-title >}}
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/validation/validation.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/validation/validation.schema.v1.json",
   "validations": {
     "kontaktinfo.epost": [
       {
@@ -81,7 +81,7 @@ example2.validation.json
 {{< /code-title >}}
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/validation/validation.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/validation/validation.schema.v1.json",
   "validations": {
     "kontaktinfo.fornavn": ["tegn-ikke-tillatt"],
     "kontaktinfo.etternavn": [
@@ -108,9 +108,9 @@ example2.validation.json
       "severity": "error",
       "condition": [
         "or",
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "æ"],
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "ø"],
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "å"]
+        ["contains", ["lowerCase", ["dataModel", ["argv", 0]]], "æ"],
+        ["contains", ["lowerCase", ["dataModel", ["argv", 0]]], "ø"],
+        ["contains", ["lowerCase", ["dataModel", ["argv", 0]]], "å"]
       ]
     }
   }

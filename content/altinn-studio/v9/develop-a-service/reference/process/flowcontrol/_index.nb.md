@@ -48,7 +48,9 @@ I eksempelet ovenfor bruker gatewayen skjemadata fra datatypen _Schema_ i uttryk
 Når gatewayen er koblet til en datatype, kan du bruke uttrykksspråket til å avgjøre hvilke flyter ut av gatewayen som er tilgjengelige.
 
 {{% notice warning %}}
-Nøyaktig én flyt må være gyldig når uttrykkene er regnet ut. Hvis ingen eller flere flyter er gyldige, går ikke prosessen videre, og brukeren får en feil. Systemet regner alltid en flyt uten uttrykk som gyldig.
+Nøyaktig én flyt må være gyldig når uttrykkene er regnet ut. Er flere flyter gyldige, går ikke prosessen videre, og brukeren får en feil. Er ingen gyldige, følger prosessen [standardflyten](#standardflyt) hvis gatewayen har en, og ellers får brukeren en feil.
+
+Gi hver flyt ut av gatewayen et uttrykk. Bare standardflyten kan være uten. Har en annen flyt ikke noe uttrykk, starter ikke appen.
 {{% /notice %}}
 
 Nå må du skrive uttrykkene i de utgående flytene fra gatewayen. Eksempelet har to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_.
@@ -72,6 +74,32 @@ App/config/process/process.bpmn
 Hvis brukeren har sendt inn en _Amount_ på 1000, blir uttrykket i sekvensflyten _Flow_g1_end_ usant. Systemet fjerner da denne flyten fra dem det kan velge mellom. Den eneste tilgjengelige flyten er _Flow_g1_t2_, og derfor velger systemet den.
 
 Du finner flere muligheter på siden om [uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}).
+
+### Standardflyt
+
+En gateway kan ha én standardflyt, som prosessen følger når ingen av de andre flytene er gyldige. Du angir den med attributtet `default` på gatewayen. Verdien er ID-en til flyten.
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
+```xml {hl_lines=[1,9]}
+<bpmn:exclusiveGateway id="Gateway_1" default="Flow_g1_end">
+    <bpmn:incoming>Flow_t1_g1</bpmn:incoming>
+    <bpmn:outgoing>Flow_g1_t2</bpmn:outgoing>
+    <bpmn:outgoing>Flow_g1_end</bpmn:outgoing>
+</bpmn:exclusiveGateway>
+<bpmn:sequenceFlow id="Flow_g1_t2" sourceRef="Gateway_1" targetRef="Task_2">
+    <bpmn:conditionExpression>["greaterThanEq", ["dataModel", "Amount"], 1000]</bpmn:conditionExpression>
+</bpmn:sequenceFlow>
+<bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
+```
+
+Her følger prosessen _Flow_g1_t2_ når _Amount_ er 1000 eller mer, og ellers standardflyten _Flow_g1_end_.
+
+- Standardflyten skal ikke ha noe uttrykk. Appen regner aldri ut et uttrykk på standardflyten, og starter ikke hvis den har et.
+- Alle de andre flytene ut av gatewayen må ha et uttrykk.
+- Er flere av de andre flytene gyldige, får brukeren en feil. Standardflyten løser ikke det.
 
 ### Slik styrer du flyten ut av en gateway med brukerhandlingen
 
@@ -204,17 +232,19 @@ Diagrammet viser BPMN-definisjonen:
 
 For at systemet skal velge riktig sekvensflyt ut av den eksklusive gatewayen basert på instansdata, må du opprette en klasse som implementerer `Altinn.App.Core.Features.IProcessExclusiveGateway`. Du må også registrere klassen som en tjeneste i avhengighetsinjeksjonen.
 
-Grensesnittet har en strengegenskap `GatewayId` og en metode `FilterAsync`.
+Grensesnittet har en strengegenskap `GatewayId` og en metode `Filter`.
 
 Du bruker `GatewayId` til å identifisere gatewayen i prosessdefinisjonen den er tilknyttet.
 
 I eksempelet setter du `GatewayId` til `Gateway_1` for den første gatewayen, fordi det er verdien i attributtet `id` på den eksklusive gatewayen i prosessdefinisjonen.
 
-I metoden `FilterAsync` skriver du den tilpassede logikken som filtrerer sekvensflytene ut av gatewayen, basert på instansdataene.
+I metoden `Filter` skriver du den tilpassede logikken som filtrerer sekvensflytene ut av gatewayen, basert på instansdataene. Metoden får alle flytene, også standardflyten. Returnerer den ingen flyt, følger prosessen standardflyten hvis gatewayen har en.
+
+Koden kjører bare for en gateway der ingen av flytene har et betingelsesuttrykk. Har en av flytene et uttrykk, bruker appen uttrykkene i stedet.
 
 Du finner mer om grensesnittet i XML-dokumentasjonen:
 
-https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs
+https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs
 
 Når du har skrevet den tilpassede koden, registrerer du den i `Program.cs`, i metoden `RegisterCustomAppServices`.
 

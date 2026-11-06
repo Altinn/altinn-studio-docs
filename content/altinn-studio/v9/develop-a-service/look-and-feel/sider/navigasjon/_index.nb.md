@@ -215,7 +215,7 @@ App/ui/Task_1/Settings.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layoutSettings.schema.v1.json",
   "pages": {
     "order": ["student-info", "school-work", "well-being"],
     "showProgress": true

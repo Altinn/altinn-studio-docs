@@ -12,7 +12,7 @@ The app can generate PDFs as a standard service task that you add as a step in t
 {{<notice warning>}}
 Previously, this functionality was not in a service task but was built into the general code for changing process steps. If you set up the app before version 8.9, you should disable the functionality that runs outside the process definition.
 
-You do this by turning off "enablePdfGeneration" on all data types.
+You do this by setting `"enablePdfCreation": false` on all data types in `App/config/applicationmetadata.json`.
 
 <br />
 Benefits of migrating to a service task:

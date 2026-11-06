@@ -10,7 +10,7 @@ App/ui/SigningTask/Settings.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layoutSettings.schema.v1.json",
   "defaultDataType": "model",
   "pages": {
     "order": ["signing"]
