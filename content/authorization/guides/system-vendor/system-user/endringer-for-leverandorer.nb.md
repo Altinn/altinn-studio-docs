@@ -573,6 +573,50 @@ Elvebakken Kafé AS har bare gitt Merverdiavgift. Pakken finnes ikke i noen av s
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
+## Scenario: virksomheten bestemmer
+
+**Situasjon:** Personalportalen har «Virksomheten bestemmer» og de samme settene som i scenario 1. Havbris Fiskeoppdrett AS har gitt Nordlys Regnskap AS fire tilganger.
+
+**Det byrået gjør:** Klikker **Legg til** og får leverandørens forslag, som når leverandøren bestemmer. Vil byrået velge noe annet, åpner de **Velg andre tilganger**.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-06/vb-dialog-lukket.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/vb-dialog-lukket.png" alt="Dialogen Legge til Havbris Fiskeoppdrett AS, som viser de to tilgangene leverandøren foreslår, og lenken Velg andre tilganger" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-06/vb-dialog-apnet.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/vb-dialog-apnet.png" alt="Samme dialog med valgene åpne: forslaget er krysset av, og Ansvarlig revisor og Lønn kan velges i tillegg" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
+
+---
+## Scenario: byrået velger noe annet enn forslaget
+
+**Situasjon:** Byrået tar bort Sykefravær-pakken og velger Lønn. Dialogen sier at systemet da kan slutte å virke for klienten, men stopper ikke byrået.
+
+**Det byrået ser etterpå:** Klientsiden viser hvem som la til hver tilgang.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-06/vb-fjernet-fra-forslaget.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/vb-fjernet-fra-forslaget.png" alt="Dialogen der Sykefravær-pakken er tatt bort og Lønn er valgt, med teksten om at systemet kan slutte å virke for klienten" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-06/vb-klientsiden.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/vb-klientsiden.png" alt="Klientsiden for Havbris Fiskeoppdrett AS med tre tilganger, merket Foreslått av Eksempel Programvare AS eller Lagt til av Nordlys Regnskap AS" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
+
+---
+## Scenario: byrået fjerner tilganger
+
+**Situasjon:** Byrået fjerner Sykefravær-pakken og Lønn for Havbris. Hver tilgang kan fjernes for seg, i samme dialog som byrået brukte da klienten ble lagt til.
+
+**Det byrået ser etterpå:** Klientsiden og listen viser at klienten ikke har alt leverandøren foreslår. **Fjern klienten** fjerner alle tilgangene på én gang.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-06/vb-endre-tilganger.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/vb-endre-tilganger.png" alt="Dialogen Endre tilganger for Havbris Fiskeoppdrett AS, som viser at byrået fjerner Sykefravær-pakken og Lønn" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-06/vb-klientsiden-etter-endring.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/vb-klientsiden-etter-endring.png" alt="Klientsiden etter endringen: bare Revisormedarbeider er igjen, med linjen Har ikke alt Eksempel Programvare AS foreslår" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
+
+---
+## Scenario: klienten har ikke gitt det leverandøren foreslår
+
+**Situasjon:** Elvebakken Kafé AS har bare gitt Merverdiavgift. Når virksomheten bestemmer, kan byrået likevel legge til klienten.
+
+**Det byrået gjør:** Velger blant det klienten har gitt. Ingenting er valgt på forhånd, og listen har en egen gruppe for slike klienter.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-06/vb-elvebakken.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/vb-elvebakken.png" alt="Dialogen Legge til Elvebakken Kafé AS, der klienten ikke har gitt det leverandøren foreslår, og Merverdiavgift kan velges" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-06/vb-klientlisten.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/vb-klientlisten.png" alt="Klientlisten for Personalportalen med gruppene Knyttet til, Kan legges til og Har ikke gitt det leverandøren foreslår" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
+
+---
 ## Dette er likt som i dag for virksomhetene
 
 - Virksomheten godkjenner forespørselen fra lenken du sender, som nå.
