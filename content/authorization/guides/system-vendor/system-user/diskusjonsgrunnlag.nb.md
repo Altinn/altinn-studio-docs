@@ -86,6 +86,19 @@ Oppdateringen påvirker ikke hva som faktisk er delegert. Brukerflaten viser at 
 Åpent: om kunden må godkjenne, hva «komplett» betyr med flere sett, hvordan virksomheten fullfører et sett, og hva som skjer når leverandøren fjerner en tilgang. Se #4845 og #4846 i altinn-auth.
 
 ---
+## Vedtatt: Leverandøren kan be om flere tilganger for egen virksomhet
+
+**Leverandøren kan be kunden om flere tilganger for egen virksomhet med API-et for forespørsler om tilgang.**
+
+```http
+/accessmanagement/api/v1/enduser/request
+```
+
+Sluttbrukersystemer bruker det samme API-et i dag. Det gjelder både med `vendorLocked=true` og `vendorLocked=false`. Kunden godkjenner eller avviser forespørselen.
+
+Forespørsel om tilganger for klienter er ikke planlagt i denne endringen. Vedtatt 9. november 2026.
+
+---
 ## Vedtatt: Tilganger ved aksept
 
 **Ved aksept opprettes systembrukeren, og de forespurte tilgangene for egen virksomhet delegeres.**

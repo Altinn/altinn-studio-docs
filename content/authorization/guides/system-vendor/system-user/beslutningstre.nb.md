@@ -97,6 +97,10 @@ graph TD
 
 Eksisterende klientkoblinger flyttes ikke automatisk til nye systembrukere. Klientene må knyttes til de nye systembrukerne som opprettes med rettighetssett. En klient kan være knyttet til mange systembrukere samtidig.
 
+## Vedtatt: Forespørsel om flere tilganger for egen virksomhet
+
+Leverandøren kan be kunden om flere tilganger for egen virksomhet med `/accessmanagement/api/v1/enduser/request`, det samme API-et som sluttbrukersystemer bruker i dag. Det gjelder både med `vendorLocked=true` og `vendorLocked=false`. Forespørsel om tilganger for klienter er ikke planlagt i denne endringen. Vedtatt 9. november 2026.
+
 ## Vedtatt: Tilbakekalling følger rettighetsgrunnlaget
 
 {{< mermaid >}}

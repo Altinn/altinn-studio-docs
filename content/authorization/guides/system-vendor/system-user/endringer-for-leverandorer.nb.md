@@ -28,7 +28,7 @@ Funksjonaliteten er under utvikling og er ikke tilgjengelig ennå. Vi sender end
 - **Én systembruker for egen virksomhet og klienter.** Du trenger ikke lenger velge mellom systembruker for eget system og for klientsystem.
 - **Enkeltrettigheter også for klienter.** I dag kan du bare be om tilgangspakker for klientsystem.
 - **Forespørselen bestemmer rettighetene.** Du trenger ikke registrere hver rettighet på systemet først.
-- **Du kan oppdatere rettighetssettene.** Du slipper å opprette en ny systembruker når det for eksempel kommer nye tilgangspakker.
+- **Du kan oppdatere rettighetssettene og be om flere tilganger.** Du slipper å opprette en ny systembruker når det for eksempel kommer nye tilgangspakker. For egen virksomhet kan du be kunden om flere tilganger med en forespørsel.
 - **Tomme lister for egen virksomhet er lov.** Forespørselen må da ha rettighetssett eller `vendorLocked: false`. Kunden trenger bare å være tilgangsstyrer for å godkjenne.
 
 ---
@@ -146,6 +146,22 @@ Det nye flagget `vendorLocked` bestemmer hvem som forvalter tilgangene etter at 
 | Kan kunden legge til tilganger | Nei | Ja, men bare det de selv har lov til å gi |
 
 Det går an å bytte mellom de to måtene etter at systembrukeren er opprettet. Hvem som kan bytte, og hva som skjer med tilgangene, er ikke avklart ennå. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
+
+---
+## Forbedring 7: Du kan be om flere tilganger for egen virksomhet
+
+**I dag** kan du bare be om nye tilganger til en systembruker med en endringsforespørsel.
+
+**Etter endringen** kan du også be kunden om flere tilganger for egen virksomhet med API-et for forespørsler om tilgang. Sluttbrukersystemer bruker det samme API-et i dag.
+
+```http
+/accessmanagement/api/v1/enduser/request
+```
+
+- Du kan be om tilgangspakker og enkeltrettigheter.
+- Det gjelder både når leverandøren bestemmer og når virksomheten bestemmer.
+- Kunden godkjenner eller avviser forespørselen i Altinn.
+- Du kan ikke be om tilganger for klienter på denne måten. Det er ikke planlagt i denne endringen.
 
 ---
 ## Kunden godkjenner som i dag
@@ -376,6 +392,7 @@ Når kunden styrer tilgangene, kan de fjerne noe systemet ditt trenger. Det kan 
 - **Ikke anta at godkjent betyr at systemet har alt du foreslo.** Kunden kan endre tilgangene når som helst.
 - **Håndter avvist tilgang i systemet ditt.** Får du `403` fra en tjeneste, bør du vise kunden hvilken tilgang som mangler.
 - **Fortell kunden hva systemet trenger.** Dokumenter hvilke tilgangspakker og enkeltrettigheter de ulike funksjonene i systemet ditt bruker.
+- **Be om det som mangler.** Mangler systembrukeren en tilgang for egen virksomhet, kan du sende kunden en forespørsel om tilgang.
 
 Vi vurderer et API og varsling slik at du kan se hvilke tilganger systembrukeren faktisk har. Det er ikke avklart ennå.
 
@@ -612,7 +629,7 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 - Endelig navn på `clientAccessSets`.
 - Hvor lenge versjon 1 av forespørselen virker.
 - Hvem som kan bytte mellom «Leverandøren bestemmer» og «Virksomheten bestemmer», og hva som skjer med tilganger kunden har lagt til hvis de bytter tilbake.
-- Om du kan sende endringsforespørsel til en systembruker der virksomheten bestemmer tilgangene.
+- Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer tilgangene. Du kan uansett be om flere tilganger for egen virksomhet med en forespørsel om tilgang.
 - Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Hva som gjelder når du oppdaterer rettighetssett: om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når du fjerner en tilgang fra et sett.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
@@ -633,6 +650,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 - [Slik ber du om systembruker i dag](/nb/authorization/guides/system-vendor/system-user/systemuserrequest/)
 - [Slik endrer du rettighetene til en systembruker](/nb/authorization/guides/system-vendor/system-user/changerequest/)
 - [Klientdelegering for systemleverandører](/nb/authorization/guides/system-vendor/system-user/client-delegation/)
+- [Slik ber du om tilgang fra en annen part med tilgangsstyrings-API-et](/nb/authorization/guides/system-vendor/access-management/#be-om-fullmakt-fra-en-annen-part)
 - [Slik godkjenner virksomheten en systembruker](/nb/authorization/guides/end-user/system-user/accept-request/)
 - [Vedtakene og de åpne valgene, presentasjonen for teamet](../diskusjonsgrunnlag/)
 - [Arbeidet på GitHub, epic for systembrukermodellen](https://github.com/Altinn/altinn-auth/issues/4510)
