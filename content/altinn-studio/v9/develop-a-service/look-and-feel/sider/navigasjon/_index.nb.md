@@ -301,6 +301,10 @@ Du kan legge inn kode for å sjekke om det finnes valideringsfeil når brukeren 
 
 Du kan konfigurere dette globalt for hele appen, per prosessteg, per side og på komponentene NavigationButtons, CustomButton og NavigationBar. Ved fremovernavigering har innstillingen på komponenten høyest prioritet.
 
+{{% notice warning %}}
+Dette endrer tidligere oppførsel: innstillinger på siden eller appen overstyrte før komponentinnstillingene. Oppgaveinnstillingen `pages.validationOnNavigation` virker også nå, etter at backend tidligere utelot den. Se [hva dere må kontrollere ved oppgradering]({{< relref "/altinn-studio/v9/new-in-v9/upgrade#innstillinger-på-knappen-overstyrer-felles-validering" >}}).
+{{% /notice %}}
+
 ### `validationOnNavigation`-objektet
 
 Du bruker egenskapen `validationOnNavigation` på globalt nivå, per prosessteg og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).

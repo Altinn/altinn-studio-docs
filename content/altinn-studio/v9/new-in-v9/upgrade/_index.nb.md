@@ -208,6 +208,22 @@ Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-
 
 ## Breaking changes
 
+### Innstillinger på knappen overstyrer felles validering
+
+Ved fremovernavigering har innstillingen på komponenten nå høyest prioritet. Tidligere overstyrte `validationOnNavigation` på siden eller appen disse innstillingene:
+
+- `validateOnNext` på `NavigationButtons`
+- `validateOnForward` på `NavigationBar`
+- `validation` på en valideringshandling i `CustomButton`
+
+Har dere satt ulike regler begge steder, kan appen nå tillate navigering som tidligere ble stoppet, eller stoppe navigering som tidligere var tillatt. For eksempel vil en knapp som bare sjekker `CustomBackend`, ikke lenger sjekke `Required` selv om siden krever det. Reglene blir ikke slått sammen.
+
+Gå gjennom disse komponentinnstillingene sammen med `data.validationOnNavigation` i layoutfilene og `validationOnNavigation` i `App/ui/Settings.json`. For å beholde tidligere oppførsel kan dere fjerne komponentinnstillingen eller sette den lik regelen som gjaldt før. Oppgraderingsverktøyet gjør ikke dette for dere.
+
+Sjekk også `pages.validationOnNavigation` i `App/ui/{taskId}/Settings.json`. Backend utelot tidligere denne innstillingen fra svaret til frontend. Nå virker den, også i apper uten overstyringer på komponentene. Den overstyrer appens felles regel, mens siden og komponenten fortsatt har høyere prioritet. Fjern den hvis dere vil beholde oppførselen fra da appen ignorerte den.
+
+Se [innstillinger for validering ved sidebytte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#angi-validering-ved-sidebytte" >}}).
+
 ### Vi har flyttet egendefinerte oppgave-hooker, og de har fått ny funksjonsmåte
 
 Hvis appen din har en klasse som implementerer `IProcessTaskStart`, `IProcessTaskEnd` eller `IProcessTaskAbandon`, det vil si kode som kjører når en oppgave starter, avsluttes eller forlates, må du migrere den manuelt. Systemoppgavene over er med i oppgraderingen, men disse tre grensesnittene har vi fjernet uten en overgangsperiode med kompileringsadvarsler. Koden slutter rett og slett å kompilere til du har gjort om på den.
