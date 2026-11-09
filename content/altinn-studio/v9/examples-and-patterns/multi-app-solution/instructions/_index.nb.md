@@ -25,6 +25,7 @@ Dette må du tenke på før du starter den tekniske implementeringen.
 - App A sender forespørslene til app B som tjenesteeier, med den innebygde Maskinporten-klienten i appen.
 - Scopene app A trenger, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, får alle v9-apper automatisk. Du trenger ikke legge dem til i Altinn Studio.
 - `policy.xml` i app B må gi tjenesteeieren rettighetene `instantiate`, `read` og `write`. Malen for v9 gjør det allerede.
+- Veiledningen forutsetter at samme organisasjon eier begge appene. Eier en annen organisasjon app B, må `policy.xml` i app B i tillegg gi organisasjonen som eier app A, de samme rettighetene.
 
 Les mer i [veiledningen for Maskinporten-integrasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}).
 

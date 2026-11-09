@@ -15,7 +15,7 @@ aliases:
 
 Dette bør du vite når du samhandler med Maskinporten i en app.
 
-App A bruker standardscopene for tjenesteeier, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`. Dem får alle v9-apper automatisk, så du trenger ikke legge til scopes i Altinn Studio for flerappsløsningen. Altinn Studio oppretter Maskinporten-klienten for miljøet når du publiserer appen.
+App A bruker standardscopene for tjenesteeier, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`. Dem får alle v9-apper automatisk, så du trenger ikke legge til scopes i Altinn Studio for flerappsløsningen. Altinn Studio oppretter Maskinporten-klienten for miljøet når du publiserer appen. Du kan se hvilke scopes appen har, under **Innstillinger** i fanen **Maskinporten** i Altinn Studio.
 
 Trenger appen andre scopes i tillegg, må brukeren som legger dem til i Altinn Studio, ha tilgang til å administrere Maskinporten-klienter for tjenesteeierorganisasjonen. Les mer i [veiledningen for Maskinporten-integrasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}).
 
@@ -27,6 +27,8 @@ Du kan bare bygge hver app for seg og se hvordan de ser ut i forhåndsvisningen.
 ## Teste lokalt
 
 Når du tester lokalt med `studioctl`, må du starte begge appene. App A må også vite hvilken adresse app B har når de kjører lokalt.
+
+Lokalt har ikke app A noen Maskinporten-klient fra Altinn Studio. Du må lagre en klient med `studioctl app maskinporten set` før app A kan sende forespørsler til app B. Se [Lagre ny klient]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten#lokal-klient" >}}).
 
 Hvis du ikke vil at testdata fra app B skal havne i Altinn-innboksen til organisasjonen, bør du endre mottakeren i instansmalen i app A.
 Du gjør dette ved å bruke `PersonNumber` i stedet for `OrganisationNumber` i `InstanceOwner`-delen av instansmalen i hooken som oppretter instansen (`OpprettInstansIAppB`).
