@@ -6,7 +6,7 @@ weight: 20
 tags: [needsReview]
 aliases:
 
-- /app/multi-app-solution/instructions/app-b
+- /app/multi-app-solution/instructions
 
 ---
 
@@ -22,16 +22,10 @@ Dette må du tenke på før du starter den tekniske implementeringen.
 
 ### Tekniske krav
 
-- Appene dine må bruke versjon 8 eller nyere av Altinn-nugets.
-- Appen som sender forespørsler til en annen app må ha nødvendige Maskinporten-scopes lagt til i Altinn Studio:
-   `altinn:serviceowner/instances.read` og
-   `altinn:serviceowner/instances.write`.*
-- Appen må bruke den innebygde Maskinporten-klienten når appeieren må autorisere forespørslene.*
+- App A sender forespørslene til app B som tjenesteeier, med den innebygde Maskinporten-klienten i appen.
+- Scopene app A trenger, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, får alle v9-apper automatisk. Du trenger ikke legge dem til i Altinn Studio.
+- `policy.xml` i app B må gi tjenesteeieren rettighetene `instantiate`, `read` og `write`. Malen for v9 gjør det allerede.
 
-Hvis trinn 2 og 3 mangler, se
-[Maskinporten-App Integrering](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/)
-
-\* _Hvis sluttbrukeren av app A har de nødvendige rollene til å opprette app B på vegne av den
-tiltenkte mottakeren, kan du hoppe over disse tekniske kravene._
+Les mer i [veiledningen for Maskinporten-integrasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}).
 
 {{<children description="true"/>}}

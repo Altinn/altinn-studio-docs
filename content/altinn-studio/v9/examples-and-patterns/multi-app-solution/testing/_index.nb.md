@@ -15,9 +15,9 @@ aliases:
 
 Dette bør du vite når du samhandler med Maskinporten i en app.
 
-Legg til Maskinporten-scopene appen trenger i Altinn Studio før du publiserer den til et runtime-miljø. Altinn Studio oppretter Maskinporten-klienten for miljøet under publisering og setter inn genererte klientdetaljer i appen.
+App A bruker standardscopene for tjenesteeier, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`. Dem får alle v9-apper automatisk, så du trenger ikke legge til scopes i Altinn Studio for flerappsløsningen. Altinn Studio oppretter Maskinporten-klienten for miljøet når du publiserer appen.
 
-Brukeren som legger til scopes i Altinn Studio må ha tilgang til å administrere Maskinporten-klienter for tjenesteeierorganisasjonen. Les mer i [veiledningen for Maskinporten-integrasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}).
+Trenger appen andre scopes i tillegg, må brukeren som legger dem til i Altinn Studio, ha tilgang til å administrere Maskinporten-klienter for tjenesteeierorganisasjonen. Les mer i [veiledningen for Maskinporten-integrasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}).
 
 ## Teste i Altinn Studio
 
