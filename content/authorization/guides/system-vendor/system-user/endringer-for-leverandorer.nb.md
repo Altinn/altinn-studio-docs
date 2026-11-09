@@ -617,6 +617,42 @@ Elvebakken Kafé AS har bare gitt Merverdiavgift. Pakken finnes ikke i noen av s
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
+## Et annet oppsett: klientene åpnes i listen
+
+UX-teamet har foreslått et annet oppsett for Klientadministrasjon. Reglene og scenarioene er de samme som på de forrige lysbildene, bare oppsettet er nytt.
+
+- Byrået åpner en klient i listen og ser alle settene, med det som mangler. Byrået trenger ikke en egen dialog.
+- Settene heter «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Et rettighetssett har ikke noe navn.
+- Altinn krysser av for det første settet klienten oppfyller, og sier det under settene.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Siden for Personalportalen med Havbris Fiskeoppdrett AS åpen: alternativ 2 er krysset av, og alternativ 1 og 3 viser hva som mangler" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Nordavind Bygg AS åpen: alternativ 3 er krysset av, og alternativ 1 og 2 viser hva som mangler" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS, som Personalportalen allerede har: bare alternativ 1 vises, med knappen Fjern klienten fra systembrukeren og lenken Se de andre alternativene" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
+
+---
+## Et annet oppsett: klienter som ikke kan legges til ennå
+
+Det er de samme tre scenarioene som før: en pakke med nesten likt navn, en klient som mangler like mye til alle settene, og en klient som har gitt en helt annen pakke.
+
+- Det klienten har gitt byrået, står alltid øverst.
+- Under hvert sett står hvordan klienten løser det. En pakke fra regnskapsfører- eller revisorrollen krever at klienten registrerer byrået i Enhetsregisteret. Andre pakker kan klienten gi direkte i Altinn.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" alt="Fjordbakeriet AS åpen: klienten har gitt Sykefravær, som er en annen tilgangspakke enn Sykefravær med personopplysninger av særlig kategori" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" alt="Kystlinjen Eiendom AS åpen: klienten mangler én pakke til hvert av de tre alternativene, med ulik forklaring under hvert" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" alt="Elvebakken Kafé AS åpen: klienten har bare gitt Merverdiavgift, og Personalportalen får ingen tilgang gjennom den" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
+
+---
+## Et annet oppsett: legg til alle, søk og slettede klienter
+
+- **Legg til alle klienter** gir hver klient det første settet den oppfyller, og spør først.
+- Et søk uten treff sier ikke noe om virksomheten, bare hva klienten må gjøre for å vises.
+- Slettede klienter er skjult til byrået slår på **Vis slettede**.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" alt="Bekreftelsen Legge til 2 klienter? Hver klient får det første alternativet den oppfyller" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-sok-uten-treff.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-sok-uten-treff.png" alt="Søk etter Granly Hage uten treff, med forklaring om at en virksomhet vises først når den har gitt Nordlys Regnskap AS en tilgang" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-slettede.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-slettede.png" alt="Gruppen Slettede klienter med to klienter. Den ene har Personalportalen fortsatt, og kan fjernes" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
+
+---
 ## Klienten ser systembrukerne hos byrået
 
 Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uansett om leverandøren eller virksomheten bestemmer.
@@ -651,6 +687,8 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 - Hvilke virksomheter listen viser. Skissene forutsetter at en virksomhet vises først når den har gitt byrået en tilgang.
 - Om systembrukeren fortsatt har tilgang for en klient som er slettet i Enhetsregisteret.
 - Om klienten kan fjerne én ansatt eller systembruker hos byrået helt, uten å trekke tilgangen fra byrået.
+- Hvilket oppsett Klientadministrasjon får: dialoger, eller klienter som åpnes i listen.
+- Om byrået kan velge flere sett for samme klient, når klienten oppfyller mer enn ett.
 - Når funksjonaliteten blir tilgjengelig i testmiljøet og i produksjon.
 
 Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjonaliteten blir tilgjengelig.
