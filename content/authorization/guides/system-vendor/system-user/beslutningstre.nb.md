@@ -32,7 +32,7 @@ Synlig system i opprettelsesvalget er et annet begrep enn synlighet for opprette
 
 ## Vedtatt: Forespørsel og validering
 
-Vi lager `POST /authentication/api/v2/systemuser/request/vendor` med den utvidede forespørselen og kaller brukeren systembruker. Versjon 1 virker som før, og systembrukere fra versjon 1 får `vendorLocked=true`. Autentisering ligger nå i `altinn-auth`.
+Vi lager `POST /authentication/api/v2/systemuser/request/vendor` med den utvidede forespørselen og kaller brukeren systembruker. Versjon 1 virker som før og får ingen nye felt. Systembrukere fra versjon 1 får `vendorLocked=true`. Autentisering ligger nå i `altinn-auth`.
 
 Forespørselen har to lister for egen virksomhet, pakker og enkeltrettigheter, og en prioritert liste med rettighetssett for klienter. Navnet på det nye klientfeltet er ikke endelig fastsatt.
 

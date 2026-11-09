@@ -45,7 +45,7 @@ Med den nye flaggregelen betyr dette `vendorLocked=false`, typisk uten krav i fo
 POST /authentication/api/v2/systemuser/request/vendor
 ```
 
-Versjon 1 virker som før. Systembrukere fra versjon 1 får `vendorLocked=true`.
+Versjon 1 virker som før og får ingen nye felt. Systembrukere fra versjon 1 får `vendorLocked=true`.
 
 Vi omtaler brukeren som **systembruker**. Rettigheter for egen virksomhet og klienter beskrives i samme forespørsel.
 

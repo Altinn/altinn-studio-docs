@@ -36,7 +36,7 @@ Funksjonaliteten er under utvikling og er ikke tilgjengelig ennå. Vi sender end
 
 | Det du bruker i dag | Etter endringen |
 |---|---|
-| Forespørsel om systembruker for eget system med `rights` og `accessPackages` | Virker som før i versjon 1. Du trenger ikke sende de nye feltene. |
+| Forespørsel om systembruker for eget system med `rights` og `accessPackages` | Virker som før i versjon 1. De nye feltene finnes bare i versjon 2. |
 | Forespørsel om systembruker for klientsystem (`/request/vendor/agent`) | Virker som før. |
 | Endringsforespørsel (`/changerequest/vendor`) | Virker som før. |
 | Klientdelegerings-API-et | Virker som før. |
