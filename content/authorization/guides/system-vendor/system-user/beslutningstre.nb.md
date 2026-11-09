@@ -32,19 +32,20 @@ Synlig system i opprettelsesvalget er et annet begrep enn synlighet for opprette
 
 ## Vedtatt: Forespørsel og validering
 
-Vi utvider `POST /authentication/api/v1/systemuser/request/vendor` og kaller brukeren systembruker. Autentisering ligger nå i `altinn-auth`.
+Vi lager `POST /authentication/api/v2/systemuser/request/vendor` med den utvidede forespørselen og kaller brukeren systembruker. Versjon 1 virker som før og får ingen nye felt. Systembrukere fra versjon 1 får `vendorLocked=true`. Autentisering ligger nå i `altinn-auth`.
 
 Forespørselen har to lister for egen virksomhet, pakker og enkeltrettigheter, og en prioritert liste med rettighetssett for klienter. Navnet på det nye klientfeltet er ikke endelig fastsatt.
 
-Systembruker for eget system uten systemregisteret skal være uten forhåndsdefinerte rettigheter, og kunne brukes for både egen virksomhet og klienter. Den skal dermed ha flagget `ownerControlledAccess` satt, typisk uten krav i forespørselen. Direkte Maskinporten-tilknytning er fortsatt et eget teknisk arbeidspunkt.
+Systembruker for eget system uten systemregisteret skal være uten forhåndsdefinerte rettigheter, og kunne brukes for både egen virksomhet og klienter. Den skal dermed ha `vendorLocked=false`, typisk uten krav i forespørselen. Direkte Maskinporten-tilknytning er fortsatt et eget teknisk arbeidspunkt.
 
 {{< mermaid >}}
 graph TD
-  REQUEST["Forespørsel om systembruker: lister og rettighetssett"] --> FLAG{"ownerControlledAccess satt?"}
-  FLAG -->|Ja| EMPTY{"Er forespørselen uten krav?"}
+  REQUEST["Forespørsel om systembruker: lister og rettighetssett"] --> FLAG{"vendorLocked?"}
+  FLAG -->|Mangler| ERROR1["Valideringsfeil: vendorLocked er påkrevd i versjon 2"]
+  FLAG -->|false| EMPTY{"Er forespørselen uten krav?"}
   EMPTY -->|Ja| FREE["Gyldig: Virksomheten bestemmer, ingen tilganger ved aksept"]
-  EMPTY -->|Nei| PROPOSAL["Gyldig: Virksomheten bestemmer, listene er initialt forslag og delegeres ved aksept"]
-  FLAG -->|Nei| CONTENT{"Minst én pakke, rettighet eller ett rettighetssett?"}
+  EMPTY -->|Nei| PROPOSAL["Gyldig: Virksomheten bestemmer, kravene er initialt forslag. Listene for egen virksomhet delegeres ved aksept"]
+  FLAG -->|true| CONTENT{"Minst én pakke, rettighet eller ett rettighetssett?"}
   CONTENT -->|Ja| PRESET["Gyldig: Leverandøren bestemmer, bindende krav"]
   CONTENT -->|Nei| ERROR2["Valideringsfeil: mangler tilganger"]
 {{< /mermaid >}}
@@ -63,7 +64,7 @@ graph TD
   CHECK --> DELEGATE["Deleger hele settet samlet"]
 {{< /mermaid >}}
 
-Ved `ownerControlledAccess=true` delegeres eventuelle lister ved aksept som initialt forslag. Aksept er alt eller ingenting på listene. Den som godkjenner, må alltid være tilgangsstyrer, uansett flagg. Er listene for egen virksomhet tomme, er det eneste Altinn kontrollerer ved aksept. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
+Ved `vendorLocked=false` delegeres eventuelle lister for egen virksomhet ved aksept som initialt forslag. Klienttilgangene delegeres først når en klient knyttes til systembrukeren. Aksept er alt eller ingenting på listene. Den som godkjenner, må alltid være tilgangsstyrer, uansett flagg. Er listene for egen virksomhet tomme, er det eneste Altinn kontrollerer ved aksept. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
 
 ## Vedtatt: Vanlige bruker- og klientflater
 
@@ -71,9 +72,9 @@ Alle systembrukere vises i brukeroversikten og den relevante klientdelegeringsov
 
 {{< mermaid >}}
 graph TD
-  OPEN["Åpne systembrukeren på vanlig bruker- eller klientflate"] --> MODE{"ownerControlledAccess?"}
-  MODE -->|Ja| CHOOSE["Velg pakker og enkeltrettigheter innenfor virksomhetens fullmakter"]
-  MODE -->|Nei| CONTEXT{"Hvilke forhåndsdefinerte tilganger håndteres?"}
+  OPEN["Åpne systembrukeren på vanlig bruker- eller klientflate"] --> MODE{"vendorLocked?"}
+  MODE -->|false| CHOOSE["Velg pakker og enkeltrettigheter innenfor virksomhetens fullmakter"]
+  MODE -->|true| CONTEXT{"Hvilke forhåndsdefinerte tilganger håndteres?"}
   CONTEXT -->|Klient| SET["Det første oppfylte rettighetssettet er forhåndsvalgt på vanlig klientdelegeringsside"]
   SET --> ALL["Deleger hele settet samlet"]
   SET --> NONE["Velg ingen av tilgangene"]
@@ -107,16 +108,19 @@ graph TD
 
 Dette gjelder både enkeltrettigheter og tilgangspakker, uavhengig av systembrukertype og flagg.
 
+## Vedtatt: Flagget heter vendorLocked
+
+Vedtatt 9. november 2026, og vi sender det på høring. Flagget heter `vendorLocked` og er påkrevd i versjon 2 av forespørselen, så det har ingen standardverdi. Forespørsler til versjon 1 gir alltid `vendorLocked=true`. Navnet erstatter forslaget `ownerControlledAccess`.
+
 ## Fortsatt åpent: Ett valg om gangen
 
 | Valg | Alternativer som må avklares |
 |---|---|
 | Kombinasjoner på samme system | Tillate eller avvise samtidig bruk med og uten forhåndsdefinerte rettigheter |
-| Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Åpent: hvem kan bytte, og hva skjer med tillagte rettigheter ved bytte til `false` |
+| Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Åpent: hvem kan bytte, og hva skjer med tillagte rettigheter ved bytte til `vendorLocked=true` |
 | Eksisterende Agent-brukere | Intern representasjon: videreføre med kompatibilitet eller overføre til utvidet modell. Klientene flyttes ikke automatisk |
 | Oppdatering av rettighetssett | Om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når leverandøren fjerner en tilgang |
 | Delvis tilbakekalling | Fjerne hele klienttilknytningen, beholde resten, eller bytte til et annet sett |
-| Flaggnavn | `ownerControlledAccess` med default `false` eller `vendorLocked` med default `true` |
 | Bytte Maskinporten-klient | Tillate bytte eller kreve ny bruker |
 
 Presentasjonen har ett åpent valg per lysbilde. Ingen av disse alternativene er markert som vedtatt.
