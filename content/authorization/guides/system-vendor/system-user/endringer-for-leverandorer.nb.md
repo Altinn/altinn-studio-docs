@@ -68,7 +68,8 @@ Et **rettighetssett** er tilgangspakker og enkeltrettigheter som hører sammen. 
 - Det holder å oppfylle ett av settene.
 - Altinn går gjennom settene i rekkefølge og bruker det første klienten oppfyller fullt ut. Rekkefølgen i listen er prioriteten, og du trenger ikke oppgi noe tall.
 - Oppfyller klienten flere sett, får systembrukeren bare det første.
-- Oppfyller klienten ingen av settene, kan ikke virksomheten knytte klienten til systembrukeren. Flaten viser hva som mangler.
+- Når leverandøren bestemmer og klienten ikke oppfyller noen av settene, kan ikke virksomheten knytte klienten til systembrukeren. Flaten viser hva som mangler.
+- Når virksomheten bestemmer, er settene et forslag. Virksomheten kan da knytte til klienten og velge blant det klienten har gitt.
 
 Fordelen forutsetter at **alle settene dekker de samme tjenestene**. Ellers må du fortsatt vite hvilket sett klienten fikk.
 
@@ -140,7 +141,7 @@ Det nye flagget `vendorLocked` bestemmer hvem som forvalter tilgangene etter at 
 |---|---|---|
 | `vendorLocked` | `true`, som i dag | `false` |
 | Listene og rettighetssettene | Bindende krav | Et forslag kunden starter med |
-| Hvem endrer tilgangene etterpå | Du, med endringsforespørsel | Kunden selv, i Tilgangsstyring |
+| Hvem endrer tilgangene etterpå | Du, med endringsforespørsel eller endepunktet for rettighetssett | Kunden selv, i Tilgangsstyring |
 | Kan kunden fjerne én tilgang | Nei, bare slette hele systembrukeren | Ja |
 | Kan kunden legge til tilganger | Nei | Ja, innenfor sine egne fullmakter |
 
@@ -183,9 +184,8 @@ Krav betyr her tilganger i `accessPackages` eller `rights`, eller minst ett rett
 | `false` | Minst ett | Gyldig. Kravene er et forslag, og kunden kan endre etterpå. | Du vet hva de fleste trenger, men behovet varierer. |
 | `false` | Ingen | Gyldig. Systembrukeren starter uten tilganger, og kunden trenger bare å være tilgangsstyrer for å godkjenne. | Kunden vil gi alle tilganger selv. |
 | `true` | Ingen | Avvist | – |
-| Utelatt | Uansett | Avvist | – |
 
-Et rettighetssett uten tilganger blir også avvist. Flagget gir aldri tilganger av seg selv. Kunden kan bare gi tilganger de har myndighet til å gi.
+I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Et rettighetssett uten tilganger blir også avvist. Flagget gir aldri tilganger av seg selv. Kunden kan bare gi tilganger de har myndighet til å gi.
 
 ---
 ## Slik ber du om klientsystem i dag
@@ -366,7 +366,7 @@ POST /authentication/api/v2/systemuser/request/vendor
 }
 ```
 
-Vil kunden gi alle tilganger selv, sender du `vendorLocked: false` uten lister.
+Vil kunden gi alle tilganger selv, sender du `vendorLocked: false` med tomme lister.
 
 ---
 ## Hva du må tenke på når virksomheten bestemmer
@@ -427,7 +427,7 @@ Virksomheten ser tilgangene, men kan ikke fjerne eller legge til enkelttilganger
 Byrået åpner en klient i listen og ser hva klienten har gitt, og alle alternativene, med det som mangler.
 
 - Altinn krysser av for det første alternativet klienten oppfyller, og sier det under alternativene. Byrået velger ikke selv.
-- Systembrukeren får alle tilgangspakkene i alternativet, eller ingen av dem.
+- Systembrukeren får alle tilgangene i alternativet, både tilgangspakker og enkelttjenester, eller ingen av dem.
 - For en klient systembrukeren har, viser siden bare alternativet den har. De andre ligger bak en lenke.
 
 <div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Siden for Personalportalen med Havbris Fiskeoppdrett AS åpen: alternativ 2 er krysset av, og alternativ 1 og 3 viser hva som mangler" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Nordavind Bygg AS åpen: alternativ 3 er krysset av, og alternativ 1 og 2 viser hva som mangler" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS, som Personalportalen allerede har: bare alternativ 1 vises, med knappen Fjern klienten fra systembrukeren og lenken Se de andre alternativene" style="width:100%;height:auto"></a></div>
@@ -437,7 +437,7 @@ Byrået åpner en klient i listen og ser hva klienten har gitt, og alle alternat
 ---
 ## Virksomheten legger til mange klienter samtidig
 
-**Legg til alle klienter** gir hver klient det første alternativet den oppfyller, og ingenting annet. Siden spør først.
+**Legg til alle klienter** gir systembrukeren det første alternativet hver klient oppfyller, og ingenting annet. Siden spør først.
 
 <div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" alt="Bekreftelsen Legge til 2 klienter? Hver klient får det første alternativet den oppfyller" style="width:100%;height:auto"></a></div>
 
@@ -457,7 +457,7 @@ Med **Gi flere tilganger** velger virksomheten tilgangspakker og enkelttjenester
 ---
 ## Systembruker uten tilganger
 
-Sender du `vendorLocked: false` uten lister, starter systembrukeren uten tilganger. Virksomheten ser at systemet ikke kan gjøre noe før de gir tilganger.
+Sender du `vendorLocked: false` med tomme lister, starter systembrukeren uten tilganger. Virksomheten ser at systemet ikke kan gjøre noe før de gir tilganger.
 
 <div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-uten-tilganger.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-uten-tilganger.png" alt="Systembrukeren Rapportrobot uten tilganger, med knappen Gi tilganger" style="width:100%;height:auto"></a></div>
 
@@ -466,7 +466,7 @@ Sender du `vendorLocked: false` uten lister, starter systembrukeren uten tilgang
 ---
 ## Klienter når virksomheten bestemmer
 
-For hver klient velger virksomheten hvilke av klientens tilganger systembrukeren skal få. Leverandørens forslag er krysset av når byrået åpner en ny klient.
+For hver klient velger virksomheten hvilke av klientens tilganger systembrukeren skal få. Det klienten har gitt av leverandørens forslag, er krysset av når byrået åpner en ny klient.
 
 - Tjenester klienten har gitt gjennom en tilgangspakke, kan virksomheten ikke gi alene.
 - Trekker en klient tilbake en tilgang, mister systembrukeren den samtidig. Linjen under Eksempelklient AS viser hva som skjedde.
@@ -673,7 +673,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R17 | Virksomheten kan slette hele systembrukeren. |
 | R18 | For hver klient velger virksomheten tilgangspakker og enkelttjenester én og én, blant fullmaktene klienten har gitt. |
 | R19 | Virksomheten kan bare gi en enkelttjeneste videre hvis klienten har gitt den som enkelttjeneste. Handlingene, for eksempel lese og skrive, følger det klienten har gitt. |
-| R20 | Leverandørens forslag er krysset av når virksomheten åpner en ny klient. Dette er et forslag, ikke et vedtak. |
+| R20 | Det klienten har gitt av leverandørens forslag, er krysset av når virksomheten åpner en ny klient. Har klienten ikke gitt noe av forslaget, er ingenting krysset av. Dette er et forslag, ikke et vedtak. |
 
 ---
 ## Reglene bak skissene: felles

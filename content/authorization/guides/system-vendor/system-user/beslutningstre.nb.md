@@ -44,7 +44,7 @@ graph TD
   FLAG -->|Mangler| ERROR1["Valideringsfeil: vendorLocked er påkrevd i versjon 2"]
   FLAG -->|false| EMPTY{"Er forespørselen uten krav?"}
   EMPTY -->|Ja| FREE["Gyldig: Virksomheten bestemmer, ingen tilganger ved aksept"]
-  EMPTY -->|Nei| PROPOSAL["Gyldig: Virksomheten bestemmer, listene er initialt forslag og delegeres ved aksept"]
+  EMPTY -->|Nei| PROPOSAL["Gyldig: Virksomheten bestemmer, kravene er initialt forslag. Listene for egen virksomhet delegeres ved aksept"]
   FLAG -->|true| CONTENT{"Minst én pakke, rettighet eller ett rettighetssett?"}
   CONTENT -->|Ja| PRESET["Gyldig: Leverandøren bestemmer, bindende krav"]
   CONTENT -->|Nei| ERROR2["Valideringsfeil: mangler tilganger"]
@@ -64,7 +64,7 @@ graph TD
   CHECK --> DELEGATE["Deleger hele settet samlet"]
 {{< /mermaid >}}
 
-Ved `vendorLocked=false` delegeres eventuelle lister ved aksept som initialt forslag. Aksept er alt eller ingenting på listene. Den som godkjenner, må alltid være tilgangsstyrer, uansett flagg. Er listene for egen virksomhet tomme, er det eneste Altinn kontrollerer ved aksept. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
+Ved `vendorLocked=false` delegeres eventuelle lister for egen virksomhet ved aksept som initialt forslag. Klienttilgangene delegeres først når en klient knyttes til systembrukeren. Aksept er alt eller ingenting på listene. Den som godkjenner, må alltid være tilgangsstyrer, uansett flagg. Er listene for egen virksomhet tomme, er det eneste Altinn kontrollerer ved aksept. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
 
 ## Vedtatt: Vanlige bruker- og klientflater
 
