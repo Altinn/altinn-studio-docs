@@ -51,7 +51,7 @@ Systembrukere du ber om i versjon 1, får alltid `vendorLocked: true`. Det gir s
 
 **I dag** har hver systembruker ett fast sett tilgangspakker. Et regnskapsselskap trenger derfor én systembruker per kundetype. Du må vite kundeforholdet til klienten for å velge riktig systembruker før du henter token.
 
-**Nå** holder det med én systembruker. Du beskriver hva som er gyldig for hver kundetype, og henter token på samme måte for alle klienter.
+**Etter endringen** holder det med én systembruker. Du beskriver hva som er gyldig for hver kundetype, og henter token på samme måte for alle klienter.
 
 | Kundetype | Slik oppstår kundeforholdet | Selskapet får |
 |---|---|---|
@@ -78,7 +78,7 @@ Fordelen forutsetter at **alle settene dekker de samme tjenestene**. Ellers må 
 
 **I dag** må du velge type når du ber om systembruker. Et regnskapssystem som både leverer for regnskapsbyrået selv og for kundene deres, trenger to systembrukere.
 
-**Nå** kan én forespørsel til versjon 2 inneholde begge deler:
+**Etter endringen** kan én forespørsel til versjon 2 inneholde begge deler:
 
 | Felt | Gjelder | Status |
 |---|---|---|
@@ -94,7 +94,7 @@ Kunden godkjenner én systembruker. Tilgangene for egen virksomhet får systembr
 
 **I dag** kan systembruker for klientsystem bare få tilgangspakker. Har kunden din fått en enkelttjeneste fra klienten sin, kan de ikke gi den videre til systemet ditt.
 
-**Nå** kan et rettighetssett inneholde enkeltrettigheter. Virksomheten kan da klientdelegere enkelttjenester til systembrukeren, sammen med tilgangspakkene i settet.
+**Etter endringen** kan et rettighetssett inneholde enkeltrettigheter. Virksomheten kan da klientdelegere enkelttjenester til systembrukeren, sammen med tilgangspakkene i settet.
 
 Tre regler gjelder:
 
@@ -107,7 +107,7 @@ Tre regler gjelder:
 
 **I dag** avviser Altinn en forespørsel som inneholder rettigheter du ikke har registrert på systemet i systemregisteret. Vil du be om en ny rettighet, må du først oppdatere systemet.
 
-**Nå** er det listene og rettighetssettene i forespørselen som bestemmer rettighetene. Systemregisteret verken fyller ut, erstatter eller begrenser dem.
+**Etter endringen** er det listene og rettighetssettene i forespørselen som bestemmer rettighetene. Systemregisteret verken fyller ut, erstatter eller begrenser dem.
 
 Det betyr at du kan
 
@@ -122,7 +122,7 @@ Altinn kontrollerer fortsatt at rettighetene finnes, at det går an å delegere 
 
 **I dag** kan du ikke endre en systembruker for klientforhold. Du må slette den og opprette den på nytt.
 
-**Nå** får du et eget endepunkt for å oppdatere rettighetssettene på en systembruker, for eksempel når det kommer nye tilgangspakker. Foreløpig forslag til adresse:
+**Etter endringen** får du et eget endepunkt for å oppdatere rettighetssettene på en systembruker, for eksempel når det kommer nye tilgangspakker. Foreløpig forslag til adresse:
 
 ```http
 PUT /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
