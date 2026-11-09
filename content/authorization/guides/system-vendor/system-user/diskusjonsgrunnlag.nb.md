@@ -34,16 +34,18 @@ Direkte klienttilknytning er fortsatt et eget behov. Utvidelsen av forespørsels
 
 Virksomheten skal kunne knytte sin Maskinporten-klient direkte til systembrukeren og gi pakker og enkeltrettigheter for både egen virksomhet og klienter.
 
-Med den nye flaggregelen betyr dette `ownerControlledAccess=true`, typisk uten krav i forespørselen. Den tekniske flyten for direkte klienttilknytning må fortsatt beskrives.
+Med den nye flaggregelen betyr dette `vendorLocked=false`, typisk uten krav i forespørselen. Den tekniske flyten for direkte klienttilknytning må fortsatt beskrives.
 
 ---
 ## Vedtatt: Vi kaller det systembruker
 
-**Vi utvider dagens endepunkt for forespørsel om opprettelse.**
+**Vi lager versjon 2 av endepunktet for forespørsel om opprettelse.**
 
 ```http
-POST /authentication/api/v1/systemuser/request/vendor
+POST /authentication/api/v2/systemuser/request/vendor
 ```
+
+Versjon 1 virker som før. Systembrukere fra versjon 1 får `vendorLocked=true`.
 
 Vi omtaler brukeren som **systembruker**. Rettigheter for egen virksomhet og klienter beskrives i samme forespørsel.
 
@@ -90,7 +92,7 @@ Oppdateringen påvirker ikke hva som faktisk er delegert. Brukerflaten viser at 
 
 Rettighetssettene tildeler ingen klienttilgang på dette tidspunktet. De definerer hvilke tilganger som kan delegeres senere.
 
-Aksept krever alltid at den som godkjenner er tilgangsstyrer, uansett flagg. Tilganger for egen virksomhet krever i tillegg myndighet til hver tilgang. Er listene for egen virksomhet tomme, er tilgangsstyrer det eneste Altinn kontrollerer ved aksept. Med `ownerControlledAccess=true` kan virksomheten gi tilgangene senere i GUI.
+Aksept krever alltid at den som godkjenner er tilgangsstyrer, uansett flagg. Tilganger for egen virksomhet krever i tillegg myndighet til hver tilgang. Er listene for egen virksomhet tomme, er tilgangsstyrer det eneste Altinn kontrollerer ved aksept. Med `vendorLocked=false` kan virksomheten gi tilgangene senere i GUI.
 
 ---
 ## Vedtatt: Tilganger når klienten knyttes til
@@ -102,19 +104,19 @@ Når leverandøren bestemmer, gir virksomheten hele det første rettighetssettet
 Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer slettes. Avhengigheten følger rettighetsgrunnlaget, uavhengig av type og flagg.
 
 ---
-## Vedtatt: Eksplisitt flagg for «Virksomheten bestemmer»
+## Vedtatt: Påkrevd flagg vendorLocked i versjon 2
 
 ```json
-{ "ownerControlledAccess": true }
+{ "vendorLocked": false }
 ```
 
-Flagget sier at eiervirksomheten styrer tilgangene etter aksept og kan legge til og fjerne pakker og enkeltrettigheter. Listene i forespørselen er da leverandørens initiale forslag.
+Med `false` styrer eiervirksomheten tilgangene etter aksept og kan legge til og fjerne pakker og enkeltrettigheter. Listene i forespørselen er da leverandørens initiale forslag.
 
 **Ett flagg gjelder både egen virksomhet og klienter.** Virksomhetens delegeringsmyndighet og fullmakter gjelder fortsatt.
 
-Vi bruker navnet `ownerControlledAccess` i kontraktsforslaget (tidligere `withoutPredefinedRights`). Tomme lister alene betyr ikke at virksomheten bestemmer.
+Flagget heter `vendorLocked` (tidligere forslag: `ownerControlledAccess` og `withoutPredefinedRights`). Det er påkrevd i versjon 2, så det har ingen standardverdi. Forespørsler til versjon 1 gir alltid `vendorLocked=true`. Vedtatt 9. november 2026, og vi sender det på høring. Tomme lister alene betyr ikke at virksomheten bestemmer.
 
-I grensesnittet heter de to måtene «Leverandøren bestemmer» (`false`) og «Virksomheten bestemmer» (`true`). Vedtatt 27. oktober 2026.
+I grensesnittet heter de to måtene «Leverandøren bestemmer» (`vendorLocked=true`) og «Virksomheten bestemmer» (`vendorLocked=false`). Vedtatt 27. oktober 2026.
 
 Oppdatert 26. oktober 2026: flagget kan kombineres med lister, aksepten er alltid alt eller ingenting på listene, og flagget kan endres i etterkant.
 
@@ -123,19 +125,20 @@ Oppdatert 26. oktober 2026: flagget kan kombineres med lister, aksepten er allti
 
 Krav betyr tilganger i `rights` eller `accessPackages`, eller minst ett rettighetssett.
 
-| Flagget | Krav i forespørselen | Resultat |
+| `vendorLocked` | Krav i forespørselen | Resultat |
 |---|---|---|
-| Ikke satt / `false` | Minst ett | Gyldig kombinasjon |
-| Ikke satt / `false` | Ingen | Valideringsfeil |
-| `true` | Ingen | Gyldig kombinasjon |
-| `true` | Minst ett | Gyldig kombinasjon, kravene er initialt forslag |
+| `true` | Minst ett | Gyldig kombinasjon |
+| `true` | Ingen | Valideringsfeil |
+| `false` | Ingen | Gyldig kombinasjon |
+| `false` | Minst ett | Gyldig kombinasjon, kravene er initialt forslag |
+| Ikke satt | Uansett | Valideringsfeil i versjon 2 |
 
 «Gyldig kombinasjon» gjelder flagget og kravene. Øvrig validering og autorisasjon må fortsatt bestås. Detaljer for utelatte lister og `null` må beskrives i kontrakten.
 
 ---
 ## Vedtatt: Alle systembrukere vises i oversiktene
 
-**Synlighet er uavhengig av `ownerControlledAccess`.**
+**Synlighet er uavhengig av `vendorLocked`.**
 
 Alle systembrukere skal vises i den vanlige brukeroversikten og i den relevante klientdelegeringsoversikten, også når de har forhåndsdefinerte rettigheter.
 

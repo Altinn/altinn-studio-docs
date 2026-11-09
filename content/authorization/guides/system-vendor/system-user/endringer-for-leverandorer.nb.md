@@ -13,38 +13,38 @@ build:
 
 ## Hva endrer seg for systemleverandører og virksomheter?
 
-Oppdatert 5. november 2026
+Oppdatert 9. november 2026
 
 **Det du har laget i dag, virker som før.** Endringene gir nye muligheter som du kan ta i bruk når du vil.
 
-Funksjonaliteten er under utvikling og er ikke tilgjengelig ennå. Vi kan endre navnene på de nye feltene før lansering.
+Funksjonaliteten er under utvikling og er ikke tilgjengelig ennå. Vi sender endringene på høring og vil gjerne ha innspill. Navnet på `clientAccessSets` kan endre seg før lansering.
 
 ---
 ## Det viktigste
 
-- **Ingen endring for eksisterende integrasjoner.** Dagens endepunkter, felt og systembrukere virker uendret. Alle nye felt er valgfrie.
+- **Ingen endring for eksisterende integrasjoner.** Versjon 1 av API-et og dagens systembrukere virker uendret. De nye feltene kommer i versjon 2.
+- **Du velger hvem som bestemmer tilgangene.** Versjon 2 krever flagget `vendorLocked`. Med `false` kan virksomheten justere tilgangene etter at den har godkjent. Versjon 1 gir alltid `true`, som i dag.
 - **Én systembruker for alle kundetyper.** Med rettighetssett kan ett selskap bruke samme systembruker for regnskapsfører-, revisor- og uregistrerte kunder. Du trenger ikke vite kundeforholdet for å hente token.
 - **Én systembruker for egen virksomhet og klienter.** Du trenger ikke lenger velge mellom systembruker for eget system og for klientsystem.
 - **Enkeltrettigheter også for klienter.** I dag kan du bare be om tilgangspakker for klientsystem.
 - **Forespørselen bestemmer rettighetene.** Du trenger ikke registrere hver rettighet på systemet først.
 - **Du kan oppdatere rettighetssettene.** Du slipper å opprette en ny systembruker når det for eksempel kommer nye tilgangspakker.
-- **Tomme lister for egen virksomhet er lov.** Forespørselen må da ha rettighetssett eller flagget `ownerControlledAccess`. Kunden trenger bare å være tilgangsstyrer for å godkjenne.
-- **Kunden kan få styre tilgangene selv.** Med det nye flagget `ownerControlledAccess` kan virksomheten justere tilgangene etter at den har godkjent.
+- **Tomme lister for egen virksomhet er lov.** Forespørselen må da ha rettighetssett eller `vendorLocked: false`. Kunden trenger bare å være tilgangsstyrer for å godkjenne.
 
 ---
 ## Det du har laget i dag, virker som før
 
 | Det du bruker i dag | Etter endringen |
 |---|---|
-| Forespørsel om systembruker for eget system med `rights` og `accessPackages` | Virker som før. Du trenger ikke sende de nye feltene. |
+| Forespørsel om systembruker for eget system med `rights` og `accessPackages` | Virker som før i versjon 1. Du trenger ikke sende de nye feltene. |
 | Forespørsel om systembruker for klientsystem (`/request/vendor/agent`) | Virker som før. |
 | Endringsforespørsel (`/changerequest/vendor`) | Virker som før. |
 | Klientdelegerings-API-et | Virker som før. |
-| Systembrukere kundene dine allerede har godkjent | Beholder tilgangene og oppførselen sin. Ingen systembruker går over til «Virksomheten bestemmer» av seg selv. |
+| Systembrukere kundene dine allerede har godkjent | Beholder tilgangene og oppførselen sin, og får `vendorLocked: true`. Ingen systembruker går over til «Virksomheten bestemmer» av seg selv. |
 | Klienter som er knyttet til systembrukerne dine | Blir der de er. Altinn flytter dem ikke automatisk. |
 | Brukerstyrt opprettelse fra systemer i systemregisteret | Virker som før, med rettighetene som er registrert på systemet. |
 
-Sender du ikke `ownerControlledAccess`, får du samme oppførsel som i dag.
+Systembrukere du ber om i versjon 1, får alltid `vendorLocked: true`. Det gir samme oppførsel som i dag.
 
 ---
 ## Forbedring 1: Én systembruker for alle kundetyper
@@ -77,13 +77,14 @@ Fordelen forutsetter at **alle settene dekker de samme tjenestene**. Ellers må 
 
 **I dag** må du velge type når du ber om systembruker. Et regnskapssystem som både leverer for regnskapsbyrået selv og for kundene deres, trenger to systembrukere.
 
-**Nå** kan én forespørsel inneholde begge deler:
+**Nå** kan én forespørsel til versjon 2 inneholde begge deler:
 
 | Felt | Gjelder | Status |
 |---|---|---|
 | `accessPackages` | Tilgangspakker for egen virksomhet | Finnes i dag |
 | `rights` | Enkeltrettigheter for egen virksomhet | Finnes i dag |
 | `clientAccessSets` | Prioritert liste med rettighetssett for klienter | Nytt, foreløpig navn |
+| `vendorLocked` | Hvem som bestemmer tilgangene etter godkjenning | Nytt, påkrevd |
 
 Kunden godkjenner én systembruker. Tilgangene for egen virksomhet får systembrukeren når kunden godkjenner. Tilgangene for klienter får den når virksomheten knytter klienter til systembrukeren.
 
@@ -123,7 +124,7 @@ Altinn kontrollerer fortsatt at rettighetene finnes, at det går an å delegere 
 **Nå** får du et eget endepunkt for å oppdatere rettighetssettene på en systembruker, for eksempel når det kommer nye tilgangspakker. Foreløpig forslag til adresse:
 
 ```http
-PUT /authentication/api/v1/systemuser/vendor/{systemUserId}/clientaccesssets
+PUT /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 ```
 
 - **Oppdateringen endrer ikke det som er delegert.** Altinn verken gir eller fjerner tilganger.
@@ -133,17 +134,17 @@ PUT /authentication/api/v1/systemuser/vendor/{systemUserId}/clientaccesssets
 ---
 ## Forbedring 6: Kunden kan styre tilgangene selv
 
-Det nye flagget `ownerControlledAccess` bestemmer hvem som forvalter tilgangene etter at kunden har godkjent. Vi kaller de to måtene «Leverandøren bestemmer» og «Virksomheten bestemmer».
+Det nye flagget `vendorLocked` bestemmer hvem som forvalter tilgangene etter at kunden har godkjent. Flagget er påkrevd i versjon 2, så du må velge for hver forespørsel. Vi kaller de to måtene «Leverandøren bestemmer» og «Virksomheten bestemmer».
 
 | | Leverandøren bestemmer | Virksomheten bestemmer |
 |---|---|---|
-| Flagget | `false` eller utelatt, som i dag | `true` |
+| `vendorLocked` | `true`, som i dag | `false` |
 | Listene og rettighetssettene | Bindende krav | Et forslag kunden starter med |
 | Hvem endrer tilgangene etterpå | Du, med endringsforespørsel | Kunden selv, i Tilgangsstyring |
 | Kan kunden fjerne én tilgang | Nei, bare slette hele systembrukeren | Ja |
 | Kan kunden legge til tilganger | Nei | Ja, innenfor sine egne fullmakter |
 
-Det går an å bytte mellom de to måtene etter at systembrukeren er opprettet. Hvem som kan bytte, og hva som skjer med tilgangene, er ikke avklart ennå. Flagget gjelder bare forespørsler du sender selv.
+Det går an å bytte mellom de to måtene etter at systembrukeren er opprettet. Hvem som kan bytte, og hva som skjer med tilgangene, er ikke avklart ennå. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
 
 ---
 ## Godkjenningen er lik som i dag
@@ -163,32 +164,33 @@ Du kan nå be om tomme lister for egen virksomhet. Da er det eneste Altinn kontr
 
 | Forespørselen inneholder | Altinn kontrollerer ved godkjenning |
 |---|---|
-| Ingen tilganger, med `ownerControlledAccess` | At den som godkjenner er tilgangsstyrer |
+| Ingen tilganger, med `vendorLocked: false` | At den som godkjenner er tilgangsstyrer |
 | Bare rettighetssett for klienter | At den som godkjenner er tilgangsstyrer |
 | Tilganger for egen virksomhet | At den som godkjenner er tilgangsstyrer, og har myndighet til å gi hver av tilgangene |
 
 Rettighetssettene kontrollerer Altinn først når virksomheten knytter en klient til systembrukeren. Da må virksomheten ha fått fullmaktene fra klienten.
 
-Flagget `ownerControlledAccess` endrer ikke hva Altinn kontrollerer ved godkjenning.
+Flagget `vendorLocked` endrer ikke hva Altinn kontrollerer ved godkjenning.
 
 ---
 ## Fire kombinasjoner av flagg og krav
 
 Krav betyr her tilganger i `accessPackages` eller `rights`, eller minst ett rettighetssett.
 
-| `ownerControlledAccess` | Krav | Resultat | Typisk bruk |
+| `vendorLocked` | Krav | Resultat | Typisk bruk |
 |---|---|---|---|
-| `false` eller utelatt | Minst ett | Gyldig. Kravene er bindende, som i dag. | Systemet trenger et fast sett tilganger. |
-| `true` | Minst ett | Gyldig. Kravene er et forslag, og kunden kan endre etterpå. | Du vet hva de fleste trenger, men behovet varierer. |
-| `true` | Ingen | Gyldig. Systembrukeren starter uten tilganger, og kunden trenger bare å være tilgangsstyrer for å godkjenne. | Kunden vil gi alle tilganger selv. |
-| `false` eller utelatt | Ingen | Avvist | – |
+| `true` | Minst ett | Gyldig. Kravene er bindende, som i dag. | Systemet trenger et fast sett tilganger. |
+| `false` | Minst ett | Gyldig. Kravene er et forslag, og kunden kan endre etterpå. | Du vet hva de fleste trenger, men behovet varierer. |
+| `false` | Ingen | Gyldig. Systembrukeren starter uten tilganger, og kunden trenger bare å være tilgangsstyrer for å godkjenne. | Kunden vil gi alle tilganger selv. |
+| `true` | Ingen | Avvist | – |
+| Utelatt | Uansett | Avvist | – |
 
 Et rettighetssett uten tilganger blir også avvist. Flagget gir aldri tilganger av seg selv. Kunden kan bare gi tilganger de har myndighet til å gi.
 
 ---
 ## Slik ber du om klientsystem i dag
 
-Denne forespørselen virker som før, og du trenger ikke endre den.
+Denne forespørselen virker som før, og du trenger ikke endre den. Systembrukeren får `vendorLocked: true`.
 
 ```json
 POST /authentication/api/v1/systemuser/request/vendor/agent
@@ -230,12 +232,13 @@ Tilgangspakkene og tjenestene er slik de ligger i produksjon i dag. Vi har ikke 
 Du beskriver de tre kundetypene som hvert sitt sett. Alle settene dekker både a-melding og sykmelding.
 
 ```json
-POST /authentication/api/v1/systemuser/request/vendor
+POST /authentication/api/v2/systemuser/request/vendor
 
 {
   "systemId": "912345678_lonnssystem",
   "partyOrgNo": "310000001",
   "externalRef": "kunde-4711",
+  "vendorLocked": true,
   "clientAccessSets": [
     {
       "accessPackages": [
@@ -260,7 +263,7 @@ POST /authentication/api/v1/systemuser/request/vendor
 }
 ```
 
-Organisasjonsnumre, system-ID og URL-er er fiktive. Uten `ownerControlledAccess` er dette «Leverandøren bestemmer»: settene er krav som bare du kan endre.
+Organisasjonsnumre, system-ID og URL-er er fiktive. Med `vendorLocked: true` er dette «Leverandøren bestemmer»: settene er krav som bare du kan endre.
 
 ---
 ## Scenario 2: tilgangspakker og enkelttjeneste
@@ -336,7 +339,7 @@ Eksempel fra scenario 1: Fjellvik Bygg AS har regnskapsførerrollen, og har ogs�
 
 Har selskapet i dag én systembruker per kundetype, beholder de den til de er klare. En klient kan være knyttet til mange systembrukere samtidig, siden selskapet mottar fullmakten og gir den videre til så mange systembrukere det trenger. Selskapet kan derfor gå over gradvis.
 
-1. Du ber om en ny systembruker med `clientAccessSets`, og selskapet godkjenner.
+1. Du ber om en ny systembruker med `clientAccessSets` i versjon 2, og selskapet godkjenner.
 2. Selskapet knytter klientene til den nye systembrukeren. Altinn flytter dem ikke automatisk.
 3. Du bytter til den nye systembrukeren når du ber om token.
 4. Selskapet sletter de gamle systembrukerne.
@@ -346,16 +349,16 @@ Kombinasjonen av `systemId`, organisasjonsnummer og `externalRef` må være unik
 ---
 ## Slik lar du kunden styre tilgangene selv
 
-Legg til flagget. Listene blir da et forslag kunden får når de godkjenner.
+Sett `vendorLocked` til `false`. Listene blir da et forslag kunden får når de godkjenner.
 
 ```json
-POST /authentication/api/v1/systemuser/request/vendor
+POST /authentication/api/v2/systemuser/request/vendor
 
 {
   "systemId": "912345678_regnskapssystem",
   "partyOrgNo": "310000001",
   "externalRef": "kunde-4712",
-  "ownerControlledAccess": true,
+  "vendorLocked": false,
   "accessPackages": [
     { "urn": "urn:altinn:accesspackage:skattegrunnlag" }
   ],
@@ -363,7 +366,7 @@ POST /authentication/api/v1/systemuser/request/vendor
 }
 ```
 
-Vil kunden gi alle tilganger selv, sender du flagget uten lister.
+Vil kunden gi alle tilganger selv, sender du `vendorLocked: false` uten lister.
 
 ---
 ## Hva du må tenke på når virksomheten bestemmer
@@ -386,7 +389,7 @@ Vi vurderer et API og varsling slik at du kan se hvilke tilganger systembrukeren
 | Kunden har egen kompetanse på tilgangsstyring og vil bestemme alt selv | Virksomheten bestemmer, uten lister |
 | Du vil unngå mange endringsforespørsler for små justeringer | Virksomheten bestemmer, med et forslag |
 
-Er du i tvil, fortsett som i dag. Du kan ta i bruk flagget for nye kunder senere.
+Er du i tvil, velg `vendorLocked: true`. Da virker systembrukeren som i dag, og du kan la nye kunder bestemme selv senere.
 
 ---
 ## Om skissene
@@ -454,7 +457,7 @@ Med **Gi flere tilganger** velger virksomheten tilgangspakker og enkelttjenester
 ---
 ## Systembruker uten tilganger
 
-Sender du flagget uten lister, starter systembrukeren uten tilganger. Virksomheten ser at systemet ikke kan gjøre noe før de gir tilganger.
+Sender du `vendorLocked: false` uten lister, starter systembrukeren uten tilganger. Virksomheten ser at systemet ikke kan gjøre noe før de gir tilganger.
 
 <div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-uten-tilganger.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-uten-tilganger.png" alt="Systembrukeren Rapportrobot uten tilganger, med knappen Gi tilganger" style="width:100%;height:auto"></a></div>
 
@@ -606,7 +609,8 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 ---
 ## Dette er ikke avklart ennå
 
-- Endelig navn på `clientAccessSets`, og navnet på flagget. `ownerControlledAccess` kan bli erstattet av et annet navn.
+- Endelig navn på `clientAccessSets`.
+- Hvor lenge versjon 1 av forespørselen virker.
 - Hvem som kan bytte mellom «Leverandøren bestemmer» og «Virksomheten bestemmer», og hva som skjer med tilganger kunden har lagt til hvis de bytter tilbake.
 - Om du kan sende endringsforespørsel til en systembruker der virksomheten bestemmer tilgangene.
 - Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
