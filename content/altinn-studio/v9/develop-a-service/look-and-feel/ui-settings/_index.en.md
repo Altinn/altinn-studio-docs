@@ -53,7 +53,7 @@ See also [PDF generation](/en/altinn-studio/v9/develop-a-service/process/pdf/) f
 
 ## Hide the label for optional fields
 
-`hideOptionalIndicator` hides the **Valgfritt** (optional) label on fields that are not required, and defaults to `false`. If a component has `labelSettings.optionalIndicator`, that takes precedence over this setting.
+`hideOptionalIndicator` hides the **Optional** label on fields that are not required, and defaults to `false`. If a component has `labelSettings.optionalIndicator`, that takes precedence over this setting.
 
 We recommend keeping the default, so that end users can see which fields are optional.
 
