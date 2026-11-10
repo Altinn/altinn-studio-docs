@@ -260,11 +260,13 @@
   .docs-layout {
     grid-template-columns: var(--docs-sidebar-width) minmax(0, 1fr);
     column-gap: var(--ds-size-8);
-    padding: var(--ds-size-12) var(--ds-size-8) var(--ds-size-18);
+    padding: 0 var(--ds-size-8);
   }
   /*
     Menyen fester seg øverst i vinduet og er høyst så høy som vinduet (dvh tar hensyn til adresselinjen på mobil).
-    Før den fester seg, gjør skriptet i sidebar.html den lavere, så den ikke går under bunnen av vinduet.
+    Den bruker hele høyden mellom topplinjen og bunnteksten. Derfor har ikke rammen luft over og under seg,
+    men kolonnene har det selv. Skriptet i sidebar.html gjør menyen lavere før den fester seg og mot slutten av siden,
+    så den aldri går under topplinjen eller bunnteksten.
     Er menyen lengre, ruller den for seg selv. overscroll-behavior hindrer at siden ruller videre når menyen er rullet til bunnen,
     og scrollbar-gutter hindrer at innholdet i menyen hopper når rullefeltet dukker opp.
   */
@@ -276,15 +278,19 @@
     max-height: 100dvh;
     box-sizing: border-box;
     padding-block: var(--ds-size-6);
-    margin-block: calc(-1 * var(--ds-size-6));
+    margin-block-start: var(--ds-size-6);
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-gutter: stable;
     scrollbar-width: thin;
   }
-  /* Skillelinjen står på innholdet, så den går hele høyden og ikke slutter der menyen slutter. */
+  /* Temaet gir bunnteksten marg over. Her har innholdet luften selv, så menyen og skillelinjen går helt ned til bunnteksten. */
+  .docs-layout + .adocs-footer {
+    margin-block-start: 0;
+  }
+  /* Skillelinjen står på innholdet og går fra topplinjen til bunnteksten. Luften over og under ligger inni, så linjen ikke stopper før. */
   .docs-main {
-    padding-inline-start: var(--ds-size-12);
+    padding: var(--ds-size-12) 0 var(--ds-size-18) var(--ds-size-12);
     border-inline-start: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
   }
   .docs-menu {
@@ -311,7 +317,7 @@
     max-height: 100dvh;
     box-sizing: border-box;
     padding-block: var(--ds-size-6);
-    margin-block: calc(-1 * var(--ds-size-6));
+    margin-block-start: var(--ds-size-6);
     padding-inline-start: var(--ds-size-4);
     overflow-y: auto;
     overscroll-behavior: contain;

@@ -27,8 +27,8 @@
       sync();
       wide.addEventListener('change', sync);
 
-      // Menyen skal aldri gå utenfor vinduet eller forbi slutten av innholdet. Før den fester seg, starter den under topplinjen,
-      // og på slutten av siden ville den ellers blitt skjøvet opp av bunnteksten. Vi oppdaterer høyst én gang per bilde.
+      // Menyen bruker høyden mellom topplinjen og bunnteksten, men aldri mer enn vinduet. Før den fester seg, starter den under topplinjen,
+      // og på slutten av siden stopper den der bunnteksten begynner. Vi oppdaterer høyst én gang per bilde.
       var sidebar = menu.parentElement;
       var layout = sidebar.parentElement;
       var queued = false;
@@ -36,7 +36,7 @@
         queued = false;
         if (!wide.matches) { sidebar.style.maxHeight = ''; return; }
         var top = Math.max(0, sidebar.getBoundingClientRect().top);
-        var end = layout.getBoundingClientRect().bottom - parseFloat(getComputedStyle(layout).paddingBottom);
+        var end = layout.getBoundingClientRect().bottom;
         sidebar.style.maxHeight = Math.max(0, Math.min(window.innerHeight, end) - top) + 'px';
       };
       var queueFit = function () {
