@@ -21,6 +21,10 @@ På Windows kan du installere fra PowerShell:
 iwr https://altinn.studio/designer/api/v1/studioctl/install.ps1 -useb | iex
 ```
 
+Installasjonen legger `studioctl` til i PATH på Windows, så du kan bruke kommandoen med en gang.
+Terminaler som allerede var åpne, finner den først når du åpner dem på nytt.
+På Linux og macOS viser installasjonen hvordan du legger mappen til i PATH hvis den ikke er der fra før.
+
 Logg inn og klon appen:
 
 ```bash
