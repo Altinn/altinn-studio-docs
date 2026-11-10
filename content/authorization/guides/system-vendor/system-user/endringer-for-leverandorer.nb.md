@@ -67,7 +67,7 @@ Et **rettighetssett** er tilgangspakker og enkeltrettigheter som hører sammen. 
 - Klienten må ha gitt alt i et sett for at settet skal være oppfylt.
 - Det holder å oppfylle ett av settene.
 - Altinn går gjennom settene i rekkefølge og krysser av for det første klienten oppfyller fullt ut. Rekkefølgen i listen er prioriteten, og du trenger ikke oppgi noe tall.
-- Oppfyller klienten flere sett, kan virksomheten velge et annet av dem.
+- Oppfyller klienten flere sett, kan virksomheten velge et annet av dem, eller flere.
 - Når leverandøren bestemmer og klienten ikke oppfyller noen av settene, kan ikke virksomheten knytte klienten til systembrukeren. Flaten viser hva som mangler.
 - Når virksomheten bestemmer, er settene et forslag. Virksomheten kan da knytte til klienten og velge blant det klienten har gitt.
 
@@ -342,7 +342,7 @@ Klienten kan ikke delegere regnskapsfører- og revisorpakkene direkte. En uregis
 ---
 ## Når klienten passer med flere sett
 
-Klienten kan ha gitt nok til at flere sett er oppfylt. Da krysser Altinn av for **det første settet i listen**. Virksomheten kan velge et annet sett klienten også oppfyller. Systembrukeren får settet som er valgt.
+Klienten kan ha gitt nok til at flere sett er oppfylt. Da krysser Altinn av for **det første settet i listen**. Virksomheten kan velge et annet sett klienten også oppfyller, eller flere av dem. Systembrukeren får alle tilgangene i settene som er valgt.
 
 Eksempel fra scenario 1: Fjellvik Bygg AS har regnskapsførerrollen, og har også gitt A-ordningen og Sykefravær-pakken direkte.
 
@@ -350,9 +350,9 @@ Eksempel fra scenario 1: Fjellvik Bygg AS har regnskapsførerrollen, og har ogs�
 |---|---|---|
 | 1. Regnskapsfører lønn + Sykefravær-pakken | Ja | Altinn krysser av for dette settet |
 | 2. Revisormedarbeider + Sykefravær-pakken | Nei | Virksomheten kan ikke velge dette settet |
-| 3. A-ordningen + Sykefravær-pakken | Ja | Virksomheten kan velge dette settet i stedet |
+| 3. A-ordningen + Sykefravær-pakken | Ja | Virksomheten kan også velge dette settet |
 
-**Virksomheten kan endre valget.** Når byrået åpner klienten i listen, har Altinn krysset av for alternativ 1. Byrået kan krysse av for alternativ 3 i stedet. **Legg til alle klienter** gir systembrukeren det første alternativet hver klient oppfyller.
+**Virksomheten kan endre valget.** Når byrået åpner klienten i listen, har Altinn krysset av for alternativ 1. Byrået kan krysse av for alternativ 3 i stedet, eller i tillegg. **Legg til alle klienter** gir systembrukeren det første alternativet hver klient oppfyller.
 
 **Rekkefølgen er ditt valg, og den avgjør hvor mye tilgang systemet får hvis virksomheten ikke velger noe annet.** I dag dekker Regnskapsfører lønn 700 tjenester og A-ordningen 8. Vil du gi systemet minst mulig tilgang, setter du det smaleste settet først. For klienter som ikke oppfyller det, prøver Altinn neste sett.
 
@@ -451,9 +451,9 @@ Virksomheten ser tilgangene, men kan ikke fjerne eller legge til enkelttilganger
 
 Byrået åpner en klient i listen. Der ser byrået hva klienten har gitt, og hva som mangler til hvert alternativ.
 
-- Altinn krysser av for det første alternativet klienten oppfyller, og sier det under alternativene. Oppfyller klienten flere alternativer, kan byrået velge et annet.
+- Altinn krysser av for det første alternativet klienten oppfyller, og sier det under alternativene. Oppfyller klienten flere alternativer, kan byrået velge et annet, eller flere.
 - Systembrukeren får alle tilgangene i alternativet, både tilgangspakker og enkelttjenester, eller ingen av dem.
-- For en klient systembrukeren har, viser siden bare alternativet den har. De andre ligger bak en lenke.
+- For en klient systembrukeren har, viser siden bare alternativene den har. De andre ligger bak en lenke.
 
 <div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Siden for Personalportalen med Havbris Fiskeoppdrett AS åpen: alternativ 2 er krysset av, og alternativ 1 og 3 viser hva som mangler" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Nordavind Bygg AS åpen: alternativ 3 er krysset av, og alternativ 1 og 2 viser hva som mangler" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS, som Personalportalen allerede har: bare alternativ 1 vises, med knappen Fjern klienten fra systembrukeren og lenken Se de andre alternativene" style="width:100%;height:auto"></a></div>
 
@@ -462,10 +462,10 @@ Byrået åpner en klient i listen. Der ser byrået hva klienten har gitt, og hva
 ---
 ## Klienten oppfyller flere alternativer
 
-Fjellvik Bygg AS oppfyller alternativ 1 og 3. Altinn krysser av for alternativ 1, og byrået kan velge alternativ 3 i stedet.
+Fjellvik Bygg AS oppfyller alternativ 1 og 3. Altinn krysser av for alternativ 1, og byrået kan velge alternativ 3 i stedet, eller i tillegg.
 
 - Alternativ 2 har ingen avkrysningsboks, fordi klienten mangler Revisormedarbeider.
-- Skissen viser ett valg om gangen. Om byrået kan velge flere, er ikke avklart.
+- Krysser byrået av for flere alternativer, får systembrukeren alle tilgangene i dem.
 
 <div style="max-width:460px"><a href="/images/authorization/systemuser/2026-11-09/ux-flere-alternativer.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-flere-alternativer.png" alt="Fjellvik Bygg AS åpen der leverandøren bestemmer: alternativ 1 er krysset av, alternativ 3 har en tom avkrysningsboks, og alternativ 2 mangler Revisormedarbeider og kan ikke velges" style="width:100%;height:auto"></a></div>
 
@@ -680,7 +680,6 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 - Hvilke virksomheter listen viser. Skissene forutsetter at listen viser en virksomhet først når den har gitt byrået en tilgang.
 - Om systembrukeren fortsatt har tilgang for en klient som er slettet i Enhetsregisteret.
 - Om klienten kan fjerne én ansatt eller systembruker hos byrået helt, uten å trekke tilgangen fra byrået.
-- Om byrået kan velge flere sett for samme klient, når klienten oppfyller mer enn ett.
 - Når funksjonaliteten blir tilgjengelig i testmiljøet og i produksjon.
 
 Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjonaliteten blir tilgjengelig.
@@ -714,9 +713,9 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R5 | Siden viser tilgangspakker og enkelttjenester uten knapper for å fjerne eller legge til enkelttilganger. |
 | R6 | Virksomheten kan bare slette hele systembrukeren, med alle tilganger og klientdelegeringer. |
 | R7 | Siden forklarer at leverandøren bestemmer tilgangene, og at endringer kommer som en endringsforespørsel. |
-| R8 | Når virksomheten knytter til en klient, er det første rettighetssettet klienten oppfyller fullt ut, krysset av. Oppfyller klienten flere, kan virksomheten velge et annet av dem. Det er hele settet eller ingenting. |
+| R8 | Når virksomheten knytter til en klient, er det første rettighetssettet klienten oppfyller fullt ut, krysset av. Oppfyller klienten flere, kan virksomheten velge et annet av dem, eller flere. Det er hele settet eller ingenting. |
 | R9 | Virksomheten kan ikke knytte til klienter som ikke oppfyller noen av settene. Siden viser dem likevel. Når byrået åpner en klient i listen, ser de hva klienten har gitt, og hva som mangler. |
-| R10 | Virksomheten kan fjerne en klient. Da fjerner de hele settet for den klienten. |
+| R10 | Virksomheten kan fjerne en klient. Da fjerner de alle settene for den klienten. |
 | R11 | Virksomheten kan knytte til mange klienter samtidig. |
 | R12 | Siden skjuler slettede klienter som standard, med et valg for å vise dem. |
 

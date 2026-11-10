@@ -60,7 +60,7 @@ graph TD
   CREATE --> OWN["Forespurte tilganger for egen virksomhet delegeres"]
   CREATE --> CLIENTCONFIG["Rettighetssettene lagres på systembrukeren som ramme for senere delegering"]
   CLIENTCONFIG --> LINK["En klient knyttes til systembrukeren"]
-  LINK --> CHECK["Det første rettighetssettet klienten oppfyller fullt ut, er forhåndsvalgt. Brukeren kan velge et annet sett klienten oppfyller"]
+  LINK --> CHECK["Det første rettighetssettet klienten oppfyller fullt ut, er forhåndsvalgt. Brukeren kan velge andre sett klienten oppfyller, også flere"]
   CHECK --> DELEGATE["Deleger hele settet samlet"]
 {{< /mermaid >}}
 
@@ -82,7 +82,7 @@ graph TD
   VIEW --> DELETE["Eneste endringshandling her: slett bruker og rettigheter samlet"]
 {{< /mermaid >}}
 
-Et rettighetssett kan inneholde både pakker og enkeltrettigheter. Det kan ikke deles opp eller utvides. Oppfyller klienten flere sett, kan brukeren velge et annet av dem (vedtatt 10. november 2026). `action` støttes ikke i rettighetssett i første versjon. Den særskilte klientdelegeringssiden for disse systembrukerne fjernes, slik at delegeringen håndteres ett sted.
+Et rettighetssett kan inneholde både pakker og enkeltrettigheter. Det kan ikke deles opp eller utvides. Oppfyller klienten flere sett, kan brukeren velge et annet av dem, eller flere (vedtatt 10. november 2026). `action` støttes ikke i rettighetssett i første versjon. Den særskilte klientdelegeringssiden for disse systembrukerne fjernes, slik at delegeringen håndteres ett sted.
 
 Har systembrukeren ingen rettighetssett, og virksomheten bestemmer, tilbyr flaten ikke **Legg til alle klienter**. Det finnes da ikke noe forslag som sier hva klientene skal gi, og flaten skal ikke legge til alt klienten har gitt (10. november 2026).
 
