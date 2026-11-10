@@ -21,6 +21,8 @@ Additionally, she is a health expert and has started her own consulting firm for
 
 She is also a board member of the housing cooperative where she resides, named "Oslos Vakreste Borettslag" ("Oslo's Most Beautiful Housing Cooperative"). Sophie holds the role of MEDL (Member) along with associated roles for "Oslos Vakreste Borettslag".
 
+The roles DAGL and LEDE give Sophie most of the access packages for DDG Fitness AS, EAS Health Consulting and their sub-units, such as **Lønn** (`lonn`). If the authorization rules of the app give access through access packages, Sophie will therefore often have access on behalf of these organisations.
+
 #### Submitters (avgivere)
 
 | Submitter                                                                                                                     | Roles                                                                                                                                               |
@@ -37,7 +39,7 @@ She is also a board member of the housing cooperative where she resides, named "
 
 ### Pengelens Partner
 
-Pengelens Partner is the accountant for the company DDG Fitness AS.
+Pengelens Partner is the accountant for the company DDG Fitness AS. Pengelens also holds the access packages **Regnskapsfører med signeringsrettighet** (`regnskapsforer-med-signeringsrettighet`) and **Lønn** (`lonn`) for DDG Fitness AS.
 
 #### Submitters (avgivere)
 
@@ -81,6 +83,7 @@ Note: These originate from Tenor's test dataset but are listed there under diffe
 
 With the newer version of localtest, you can test apps locally using system users.
 A built-in system and system user associated with 950474084 Oslos Vakreste Borettslag has been provided.
+The system user holds the access packages **Regnskapsfører med signeringsrettighet** (`regnskapsforer-med-signeringsrettighet`) and **Lønn** (`lonn`) for the housing cooperative.
 You can obtain the token using `/Home/GetTestSystemUserToken` in localtest or visit the webpage `/Home/Tokens`.
 
 ### Instance Delegation
@@ -97,6 +100,66 @@ The simplest way is to place the file at `App/wwwroot/testData.json`
 Typical customizations you might be interested in include using alternative organization numbers or personal identification
 numbers, ensuring lookups in APIs your app depends on function correctly, or testing authorization rules with roles
 different from those assigned to the default users.
+
+### Give test users access packages
+
+Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorization rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the access packages their roles give in Altinn, as well as those you add in `accessPackages`. Access packages that come through client delegation or other delegations are not available locally. Access packages in localtest need studioctl v0.1.0-preview.31 or newer.
+
+This is how test users get access packages:
+
+- A role gives the same access packages as the role gives in Altinn. For example, a general manager (DAGL) gets most of the access packages for the organisation, and every person gets the citizen access packages for themselves through the private person role (PRIV), also when `partyRoles` does not list it.
+- You can give a person more access packages in `accessPackages`. The key is the `partyId` of the party the person holds the access packages for.
+- A sub-unit gets the same access packages as the person holds for the main unit.
+- Some roles give access packages only for certain kinds of organisation, such as a business manager (FFØR) for a securities fund. Localtest uses the organisation's `unitType` in the test data to decide.
+- You give a system user access packages in `accessPackages`. The system user holds them for the organisation it belongs to (`orgNumber`) and its sub-units.
+
+Write an access package as its name, such as `lonn`, or as its full URN, such as `urn:altinn:accesspackage:lonn`. [Read more about which roles and access packages exist in Altinn]({{< relref "/authorization/what-do-you-get/accesspackages" >}}).
+
+{{< code-title >}}
+App/wwwroot/testData.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
+  "persons": [
+    {
+      "partyId": 512999,
+      "userId": 12999,
+      "ssn": "01019012345",
+      "firstName": "Kari",
+      "lastName": "Eksempel",
+      "partyRoles": {},
+      "accessPackages": {
+        "500999": ["lonn", "urn:altinn:accesspackage:skattegrunnlag"]
+      }
+    }
+  ],
+  "orgs": [
+    {
+      "partyId": 500999,
+      "orgNumber": "310123456",
+      "name": "Eksempel AS",
+      "unitType": "AS"
+    }
+  ],
+  "systems": [
+    {
+      "id": "310123456_lonnssystem",
+      "name": "Lønnssystem",
+      "systemUsers": [
+        {
+          "id": "67eff800-7835-434a-a21a-39bf41c753f2",
+          "orgNumber": "310123456",
+          "accessPackages": ["lonn"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+System users can also have an `actions` list. It exists only in localtest: when the authorization rules of the app give no answer, it lets the system user perform the listed actions in every app. In Altinn, system users get access through access packages and single rights, so use `accessPackages` instead.
 
 ### Json Structure
 
@@ -127,10 +190,6 @@ file in an IDE such as VSCode. A full version of users from the `TestData`-folde
           {
             "type": "altinn",
             "value": "regna"
-          },
-          {
-            "type": "altinn",
-            "value": "dagl"
           },
           {
             "type": "altinn",
@@ -277,6 +336,10 @@ file in an IDE such as VSCode. A full version of users from the `TestData`-folde
             "confirm",
             "reject",
             "delete"
+          ],
+          "accessPackages": [
+            "regnskapsforer-med-signeringsrettighet",
+            "lonn"
           ]
         }
       ]

@@ -46,6 +46,8 @@ iwr https://altinn.studio/designer/api/v1/studioctl/install.ps1 -useb | iex
 
 Installasjonen kan spørre deg hvor du vil legge studioctl. Den installerer også det studioctl trenger for å kjøre den lokale testplattformen.
 
+På Windows legger installasjonen studioctl til i PATH, så du kan bruke kommandoen med en gang. Terminaler som allerede var åpne, finner den først når du åpner dem på nytt.
+
 ## Logg inn og hent appen
 
 1. Logg inn i Altinn Studio:
