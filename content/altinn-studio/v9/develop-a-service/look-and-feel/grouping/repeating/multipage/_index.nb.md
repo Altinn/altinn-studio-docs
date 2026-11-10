@@ -50,4 +50,5 @@ Eksempelet bruker også [`"mode": "hideTable"`]({{< relref "/altinn-studio/v9/de
 ## Slik oppfører sidene seg
 
 - Hvis alle komponentene på en side er skjult, hopper appen over siden.
+- Du kan også bruke `multiPage` på en repeterende gruppe som ligger inni en annen repeterende gruppe.
 - Du kan endre tekstene på knappene med `multipageNextButton` og `multipageBackButton` i `textResourceBindings`, se [Tekster]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating#tekster" >}}).

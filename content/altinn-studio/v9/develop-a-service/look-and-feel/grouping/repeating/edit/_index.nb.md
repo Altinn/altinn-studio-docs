@@ -59,6 +59,8 @@ Med `mode` bestemmer du om tabellen med alle radene skal være synlig mens bruke
 | `"showAll"`   | Appen viser ingen tabell, men viser alle radene åpne under hverandre. Brukeren ser ingen knapp for å lagre og lukke en rad, men appen lagrer dataene uansett.                    |
 | `"onlyTable"` | Appen viser tabellen, men brukeren kan aldri åpne en rad. Passer sammen med [redigering direkte i tabellen]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/table#redigere-direkte-i-tabellen" >}}).             |
 
+I eldre apper kunne `mode` også være `"likert"`. Den verdien finnes ikke i v9. Bruk [Likert-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Likert" >}}) i stedet.
+
 ## addButton
 
 Med `addButton` bestemmer du om brukeren skal se **Legg til ny**-knappen under tabellen. Sett den til `false` hvis brukeren bare skal se dataene og ikke skal kunne legge til rader.
@@ -176,7 +178,7 @@ Med `openByDefault` åpner appen en rad automatisk når brukeren kommer til side
 | `true`    | Hvis gruppen er tom, legger appen til en ny rad og åpner den. Hvis gruppen har rader fra før, åpner appen ingen rad.               |
 | `false`   | Standardverdien. Appen åpner ingen rad.                                                                                            |
 
-Med `"mode": "showAll"` er alle radene åpne fra før. Har du satt `openByDefault` til `true`, `"first"` eller `"last"`, legger appen likevel til en tom rad i en tom gruppe.
+Med `"mode": "showAll"` er alle radene åpne fra før, så `"first"` og `"last"` virker likt. Er gruppen tom, legger appen til en tom rad med alle de tre verdiene `true`, `"first"` og `"last"`.
 
 Appen legger ikke til en ny rad hvis du har skjult **Legg til ny**-knappen med `addButton`.
 
