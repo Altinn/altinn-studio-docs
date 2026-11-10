@@ -303,7 +303,7 @@ Du kan konfigurere dette globalt for hele appen, per oppgave og per side. I till
 
 ### `validationOnNavigation`-objektet
 
-Du bruker egenskapen `validationOnNavigation` på globalt nivå, per oppgave og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
+Du bruker egenskapen `validationOnNavigation` på globalt nivå, per oppgave og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar). I `CustomButton` setter du `validation` på hver handling i `actions`.
 
 {{< code-title >}}
 App/ui/Settings.json, App/ui/{taskId}/Settings.json eller App/ui/{taskId}/layouts/{page}.json
@@ -400,7 +400,7 @@ App/ui/Task_1/layouts/side1.json
 }
 ```
 
-#### 4. Komponentnivå (NavigationButtons, NavigationBar)
+#### 4. Komponentnivå (NavigationButtons, NavigationBar og CustomButton)
 
 Innstillinger på NavigationButtons og NavigationBar overstyrer `validationOnNavigation` fra siden, oppgaven og appen. For NavigationButtons bruker du `validateOnNext` og `validateOnPrevious`:
 
@@ -422,15 +422,17 @@ App/ui/{taskId}/layouts/{page}.json
 - Framover gjelder komponentinnstillingen hvis du har satt den. Ellers følger navigeringen `validationOnNavigation` fra siden, oppgaven eller appen.
 - Tilbake gjelder bare `validateOnPrevious` eller `validateOnBackward`. Har du ikke satt denne egenskapen, kan brukeren gå tilbake uten denne valideringen.
 
-De felles reglene i `validationOnNavigation` gjelder bare framovernavigering.
+For NavigationButtons og NavigationBar gjelder de felles reglene i `validationOnNavigation` bare framovernavigering.
+
+I `CustomButton` har `validation` på handlingen forrang framfor `validationOnNavigation`. Dette gjelder både klient- og serverhandlinger du har konfigurert i layoutfilen. Uten egen `validation` følger handlingen innstillingene for siden, oppgaven eller appen. Klienthandlingen `previousPage` bruker bare sin egen `validation` og lar ellers brukeren gå tilbake uten denne valideringen. `navigateToPage` bruker de samme reglene uansett hvor målsiden ligger i siderekkefølgen.
+
+Handlinger som backendkoden returnerer, kjører uten denne valideringssjekken, som før.
 
 ### Prioritetsrekkefølge
 
-For NavigationButtons og NavigationBar gjelder:
+For NavigationButtons, NavigationBar og handlinger konfigurert i CustomButton gjelder:
 
-Komponent → Side → Oppgave → Globalt
-
-`CustomButton` har fortsatt en annen prioritet: `validationOnNavigation` fra siden, oppgaven eller appen overstyrer `validation` på handlingen. For en `previousPage`-handling slår en slik felles innstilling av valideringen.
+Komponent (eller handling) → Side → Oppgave → Globalt
 
 ### Blokkere direktenavigasjon i sidemenyen
 
