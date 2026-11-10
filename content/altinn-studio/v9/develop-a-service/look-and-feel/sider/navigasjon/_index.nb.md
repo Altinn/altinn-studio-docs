@@ -299,14 +299,14 @@ App/config/texts/resource.nb.json
 
 Du kan legge inn kode for å sjekke om det finnes valideringsfeil når brukeren prøver å navigere mellom sider. Valideringsfeil kan for eksempel bety at brukeren har glemt å fylle ut et felt, eller har fylt det ut med feil format på informasjonen. Hvis det er feil, stopper appen navigeringen.
 
-Du kan konfigurere dette på to nivåer med ulik prioritet: globalt for hele appen og per side. Du kan ikke sette det per prosessteg i `Settings.json` i oppgavemappen, fordi appen ikke tar med `validationOnNavigation` derfra. I tillegg kan du konfigurere NavigationButtons, CustomButton og NavigationBar på komponentnivå.
+Du kan konfigurere dette globalt for hele appen, per oppgave og per side. I tillegg kan du konfigurere NavigationButtons, CustomButton og NavigationBar på komponentnivå.
 
 ### `validationOnNavigation`-objektet
 
-Du bruker egenskapen `validationOnNavigation` på globalt nivå og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
+Du bruker egenskapen `validationOnNavigation` på globalt nivå, per oppgave og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
 
 {{< code-title >}}
-App/ui/Settings.json eller App/ui/{taskId}/layouts/{page}.json
+App/ui/Settings.json, App/ui/{taskId}/Settings.json eller App/ui/{taskId}/layouts/{page}.json
 {{< /code-title >}}
 
 ```json
@@ -358,9 +358,29 @@ App/ui/Settings.json
 }
 ```
 
-#### 2. Per side
+#### 2. Per oppgave
 
-Overstyrer det globale nivået for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
+Innstillingen gjelder for alle sidene i oppgaven og overstyrer det globale nivået. Legg `validationOnNavigation` under `pages` i oppgavens `Settings.json`.
+
+{{< code-title >}}
+App/ui/Task_1/Settings.json
+{{< /code-title >}}
+
+```json
+{
+  "pages": {
+    "order": ["side1", "side2"],
+    "validationOnNavigation": {
+      "page": "current",
+      "show": ["Required", "Schema"]
+    }
+  }
+}
+```
+
+#### 3. Per side
+
+Overstyrer innstillingen for oppgaven og appen for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
 
 **Filplassering:** `App/ui/Task_1/layouts/side1.json`
 
@@ -380,9 +400,9 @@ App/ui/Task_1/layouts/side1.json
 }
 ```
 
-#### 3. Komponentnivå (NavigationButtons, CustomButton, NavigationBar)
+#### 4. Komponentnivå (NavigationButtons, NavigationBar)
 
-Har du ikke konfigurert noen av de høyere nivåene, kan du konfigurere validering direkte på komponenten. For NavigationButtons bruker du `validateOnNext` og `validateOnPrevious`:
+Innstillinger på NavigationButtons og NavigationBar overstyrer `validationOnNavigation` fra siden, oppgaven og appen. For NavigationButtons bruker du `validateOnNext` og `validateOnPrevious`:
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -399,16 +419,18 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-**Merk:** Setter du `validationOnNavigation` på side- eller globalt nivå, overstyrer denne konfigurasjonen komponentnivået:
+- Framover gjelder komponentinnstillingen hvis du har satt den. Ellers følger navigeringen `validationOnNavigation` fra siden, oppgaven eller appen.
+- Tilbake gjelder bare `validateOnPrevious` eller `validateOnBackward`. Har du ikke satt denne egenskapen, kan brukeren gå tilbake uten denne valideringen.
 
-- Den erstatter `validateOnNext`.
-- Den slår av `validateOnPrevious` helt.
+De felles reglene i `validationOnNavigation` gjelder bare framovernavigering.
 
 ### Prioritetsrekkefølge
 
-Side → Globalt → Komponent
+For NavigationButtons og NavigationBar gjelder:
 
-Sidenivå har høyest prioritet og overstyrer alt annet. Komponentnivåkonfigurasjonen gjelder bare når du ikke har konfigurert noen høyere nivåer.
+Komponent → Side → Oppgave → Globalt
+
+`CustomButton` har fortsatt en annen prioritet: `validationOnNavigation` fra siden, oppgaven eller appen overstyrer `validation` på handlingen. For en `previousPage`-handling slår en slik felles innstilling av valideringen.
 
 ### Blokkere direktenavigasjon i sidemenyen
 
