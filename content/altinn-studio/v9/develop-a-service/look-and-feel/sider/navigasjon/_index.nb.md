@@ -424,7 +424,9 @@ App/ui/{taskId}/layouts/{page}.json
 
 For NavigationButtons og NavigationBar gjelder de felles reglene i `validationOnNavigation` bare framovernavigering.
 
-I `CustomButton` har `validation` på handlingen forrang framfor `validationOnNavigation`. Dette gjelder både klient- og serverhandlinger du har konfigurert i layoutfilen. Uten egen `validation` følger handlingen innstillingene for siden, oppgaven eller appen. Klienthandlingen `previousPage` bruker bare sin egen `validation` og lar ellers brukeren gå tilbake uten denne valideringen. `navigateToPage` bruker de samme reglene uansett hvor målsiden ligger i siderekkefølgen.
+I `CustomButton` har `validation` på handlingen forrang framfor `validationOnNavigation`. Dette gjelder både klient- og serverhandlinger du har konfigurert i layoutfilen. Uten egen `validation` følger handlingen innstillingene for siden, oppgaven eller appen. Klienthandlingen `previousPage` bruker bare sin egen `validation` og lar ellers brukeren gå tilbake uten denne valideringen.
+
+Ved `navigateToPage` framover kan feil på en mellomliggende side deaktivere knappen. Appen sjekker disse feilene mot `validationOnNavigation` fra siden, oppgaven eller appen. Handlingens egen `validation` overstyrer ikke denne sperren. Sperren gjelder ikke hopp bakover.
 
 Handlinger som backendkoden returnerer, kjører uten denne valideringssjekken, som før.
 
