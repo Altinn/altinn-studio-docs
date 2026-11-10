@@ -16,6 +16,8 @@ th { background: #eaf4ff; }
 .slide img { display: block; max-width: min(100%, 960px); max-height: calc(100vh - 300px); width: auto; height: auto; margin: 8px 0; border: 1px solid #c9d7e2; border-radius: 6px; }
 @media (max-height: 600px) { .slide img { max-height: none; } }
 @media print { .slide img { max-height: 150mm; } }
+.slide a:has(> img) > img { max-height: none; object-fit: contain; }
+@media print { .slide a:has(> img) > img { max-height: 150mm; } }
 .slide a:has(> img) { display: inline-block; }
 .slide a:has(> img):focus-visible { outline-offset: 2px; }
 blockquote { border-left: 5px solid #1eaef7; margin: 24px 0; padding: 1px 24px; background: #f4f7fa; }
