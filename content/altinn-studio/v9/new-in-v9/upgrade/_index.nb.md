@@ -95,6 +95,18 @@ Mappestrukturen viser dermed selv hvilket skjema som hører til hvilket steg. Da
 
 Se [innstillinger for sider og oppgaver](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/) for felles innstillinger og overstyringer per oppgave.
 
+### Navigasjonskomponenter bruker egne valideringsinnstillinger
+
+I v9 har valideringsinnstillinger på `NavigationButtons` og `NavigationBar` forrang framfor innstillinger for siden, oppgaven og appen. Tidligere overstyrte `validationOnNavigation` innstillingene på komponenten. Komponentinnstillinger som tidligere ble ignorert, kan derfor gjøre at brukeren får fortsette eller blir stoppet i andre tilfeller enn før. En tilbakeknapp kan også begynne å kreve at brukeren retter feil før de går tilbake.
+
+Oppgraderingen beholder alle innstillingene. Den gir deg en TODO når forskjellen kan endre navigeringen, og viser hvilken fil, komponent og innstilling du må kontrollere. Les beskrivelsen og test om den nye oppførselen passer for appen:
+
+- Behold komponentinnstillingen hvis den nye oppførselen er ønsket.
+- Fjern `validateOnNext` fra `NavigationButtons`, eller `validateOnForward` fra `NavigationBar`, hvis framovernavigering fortsatt skal følge innstillingene for siden, oppgaven eller appen.
+- Fjern `validateOnPrevious` fra `NavigationButtons`, eller `validateOnBackward` fra `NavigationBar`, hvis tilbakeknappen fortsatt skal tillate at brukeren går tilbake uten denne valideringen.
+
+Test både framover- og tilbakeknappene før du publiserer appen, også på sider som appen bare viser når brukeren har gitt bestemte svar.
+
 ### URL-er bruker ikke lenger hash-ruting
 
 I v8 begynte stien inne i appen med `#/`:
