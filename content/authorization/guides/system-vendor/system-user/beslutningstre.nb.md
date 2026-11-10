@@ -9,7 +9,7 @@ build:
   list: never
   render: always
 ---
-Dette beslutningstreet er oppdatert 5. november 2026. [Åpne presentasjonen med UI-illustrasjoner](../diskusjonsgrunnlag/).
+Dette beslutningstreet er oppdatert 10. november 2026. [Åpne presentasjonen med UI-illustrasjoner](../diskusjonsgrunnlag/).
 
 Trærne under «Vedtatt» viser regler, ikke åpne alternativer. Punktene under «Fortsatt åpent» er ikke besluttet. Tidligere valg om implisitt deteksjon er erstattet av et eksplisitt flagg.
 
@@ -121,7 +121,7 @@ Vedtatt 9. november 2026, og vi sender det på høring. Flagget heter `vendorLoc
 | Valg | Alternativer som må avklares |
 |---|---|
 | Kombinasjoner på samme system | Tillate eller avvise samtidig bruk med og uten forhåndsdefinerte rettigheter |
-| Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Åpent: hvem kan bytte, og hva skjer med tillagte rettigheter ved bytte til `vendorLocked=true` |
+| Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Vedtatt 10. november 2026: bare fra `vendorLocked=true` til `false`. En åpen systembruker kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Åpent: om virksomheten også kan fjerne låsen |
 | Eksisterende Agent-brukere | Intern representasjon: videreføre med kompatibilitet eller overføre til utvidet modell. Klientene flyttes ikke automatisk |
 | Oppdatering av rettighetssett | Om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når leverandøren fjerner en tilgang |
 | Delvis tilbakekalling | Fjerne hele klienttilknytningen, beholde resten, eller bytte til et annet sett |

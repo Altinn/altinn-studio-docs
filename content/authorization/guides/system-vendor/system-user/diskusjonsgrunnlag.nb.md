@@ -12,7 +12,7 @@ build:
 
 ## Vedtak og videre avklaringer
 
-Oppdatert 9. november 2026. Vedtakene fra møtet 16. oktober er supplert med senere avklaringer.
+Oppdatert 10. november 2026. Vedtakene fra møtet 16. oktober er supplert med senere avklaringer.
 
 Én forespørsel for egen virksomhet og klienter. Tilgangsstyring på de vanlige bruker- og klientflatene.
 
@@ -231,13 +231,13 @@ Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder 
 Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke uttrykkelig avklart i møtereferatet her.
 
 ---
-## Vedtatt: Flagget kan endres etter opprettelse
+## Vedtatt: Låsen kan fjernes etter opprettelse
 
-**Flagget kan endres på en eksisterende systembruker** (vedtatt 26. oktober 2026). Identiteten beholdes.
+**Låsen kan fjernes på en eksisterende systembruker**, altså fra `vendorLocked=true` til `false`. Identiteten beholdes. En systembruker som har vært åpen, kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Vi vedtok at flagget kan endres 26. oktober 2026, og retningen 10. november 2026.
 
-Fortsatt åpent: hvem som kan bytte (anbefaling: kun eier), hva som skjer med rettigheter eieren har lagt til ved bytte til `false`, og hvordan byttet audit-loggføres og varsles til leverandøren.
+Fortsatt åpent: om virksomheten også kan fjerne låsen, og hvordan endringen audit-loggføres og varsles.
 
-Samlet sletting på brukersiden når flagget ikke er satt er vedtatt. Flyten for selve byttet er fortsatt uavklart.
+Samlet sletting på brukersiden med `vendorLocked=true` er vedtatt. Flyten for å fjerne låsen er fortsatt uavklart.
 
 ---
 ## Åpent valg: Eksisterende Agent-brukere

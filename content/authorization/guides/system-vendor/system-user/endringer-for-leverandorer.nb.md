@@ -13,7 +13,7 @@ build:
 
 ## Hva endrer seg for systemleverandører og virksomheter?
 
-Oppdatert 9. november 2026
+Oppdatert 10. november 2026
 
 **Det du har laget i dag, virker som før.** Endringene gir nye muligheter som du kan ta i bruk når du vil.
 
@@ -144,8 +144,9 @@ Det nye flagget `vendorLocked` bestemmer hvem som forvalter tilgangene etter at 
 | Hvem endrer tilgangene etterpå | Du, med endringsforespørsel eller endepunktet for rettighetssett | Kunden selv, i Tilgangsstyring |
 | Kan kunden fjerne én tilgang | Nei, bare slette hele systembrukeren | Ja |
 | Kan kunden legge til tilganger | Nei | Ja, men bare det de selv har lov til å gi |
+| Kan du be om flere tilganger for egen virksomhet | Ja, med en forespørsel om tilgang | Ja, med en forespørsel om tilgang |
 
-Det går an å bytte mellom de to måtene etter at systembrukeren er opprettet. Hvem som kan bytte, og hva som skjer med tilgangene, er ikke avklart ennå. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
+Du kan fjerne låsen etter at systembrukeren er opprettet, altså gå fra `vendorLocked: true` til `false`. Virksomheten trenger ikke godkjenne det. Du kan ikke låse en systembruker som har vært åpen. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
 
 ---
 ## Forbedring 7: Du kan be om flere tilganger for egen virksomhet
@@ -406,7 +407,7 @@ Vi vurderer et API og varsling slik at du kan se hvilke tilganger systembrukeren
 | Kunden har egen kompetanse på tilgangsstyring og vil bestemme alt selv | Virksomheten bestemmer, uten lister |
 | Du vil unngå mange endringsforespørsler for små justeringer | Virksomheten bestemmer, med et forslag |
 
-Er du i tvil, velg `vendorLocked: true`. Da virker systembrukeren som i dag, og du kan la nye kunder bestemme selv senere.
+Er du i tvil, velg `vendorLocked: true`. Da virker systembrukeren som i dag. Du kan fjerne låsen senere, men ikke låse en systembruker som har vært åpen.
 
 ---
 ## Om skissene
@@ -628,7 +629,7 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 
 - Endelig navn på `clientAccessSets`.
 - Hvor lenge versjon 1 av forespørselen virker.
-- Hvem som kan bytte mellom «Leverandøren bestemmer» og «Virksomheten bestemmer», og hva som skjer med tilganger kunden har lagt til hvis de bytter tilbake.
+- Hvordan du fjerner låsen på en systembruker, og om virksomheten også kan fjerne den selv.
 - Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer tilgangene. Du kan uansett be om flere tilganger for egen virksomhet med en forespørsel om tilgang.
 - Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Hva som gjelder når du oppdaterer rettighetssett: om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når du fjerner en tilgang fra et sett.
@@ -702,4 +703,4 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R22 | Bare den som har myndighet, ser handlingene. Den som ikke er tilgangsstyrer eller klientadministrator, ser det samme som i dag. |
 | R23 | Lenker fra siden **Systembrukere** leder til de nye sidene, ikke til den gamle klientsiden. |
 | R24 | Systembrukerens side viser hvem som bestemmer tilgangene. |
-| R25 | Virksomheten kan bytte hvem som bestemmer tilgangene. Reglene for byttet er ikke avklart, så dette er bare et forslag. |
+| R25 | Leverandøren kan fjerne låsen uten at virksomheten må godkjenne det. Da bestemmer virksomheten tilgangene. En systembruker som har vært åpen, kan ikke bli låst igjen. Om virksomheten også kan fjerne låsen selv, er ikke avklart. |
