@@ -9,15 +9,15 @@
 {{- if and (ne .Params.toc false) (ge (len $headings) 2) }}
 <div class="docs-toc">
   <nav aria-labelledby="docs-toc-title" data-docs-toc>
-    <h2 class="ds-heading docs-toc-title" data-size="2xs" id="docs-toc-title">{{ T "docs-on-this-page" }}</h2>
+    <h2 class="ds-paragraph docs-toc-title" data-size="md" id="docs-toc-title">{{ T "docs-on-this-page" }}</h2>
     <ul class="docs-toc-list" role="list">
       {{- range $headings }}
       <li>
-        <a class="docs-toc-link" href="#{{ .ID }}">{{ .Title }}</a>
+        <a class="docs-toc-link" href="#{{ .ID }}">{{ .Title | safeHTML }}</a>
         {{- with partial "designsystemet/docs/toc-headings.html" .Headings }}
         <ul class="docs-toc-list" role="list">
           {{- range . }}
-          <li><a class="docs-toc-link" href="#{{ .ID }}">{{ .Title }}</a></li>
+          <li><a class="docs-toc-link" href="#{{ .ID }}">{{ .Title | safeHTML }}</a></li>
           {{- end }}
         </ul>
         {{- end }}
