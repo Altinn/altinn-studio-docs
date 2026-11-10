@@ -31,7 +31,7 @@
   font-family: inherit;
 }
 /* Temaet gir lenker en strek under med border-bottom. Lenkene i rammen og komponentene har egen understreking. */
-:where(.docs-sidebar, .docs-breadcrumbs, .docs-toc, .docs-page-footer, .docs-overview, .docs-content .ds-card) a {
+:where(.docs-sidebar, .docs-menu-dialog, .docs-breadcrumbs, .docs-toc, .docs-page-footer, .docs-overview, .docs-content .ds-card) a {
   border-bottom: 0;
   padding-bottom: 0;
 }
@@ -106,11 +106,43 @@
   padding: 0;
 }
 
-/* Sidemeny */
+/*
+  Sidemeny. På små skjermer er sidemenyen skjult, og knappen over innholdet åpner den samme menyen i en Dialog fra venstre.
+  På store skjermer er det omvendt (se nederst).
+*/
 .docs-sidebar {
+  display: none;
+  flex-direction: column;
+}
+
+.docs-menu-button {
+  gap: var(--ds-size-2);
+}
+
+/* Dialogen fyller nesten hele skjermen, men en stripe til høyre viser at brukeren fortsatt er på siden og kan klikke seg ut. */
+.docs-menu-dialog {
+  --dsc-dialog-placement-inline-max-width: min(360px, 100% - var(--ds-size-12));
+  --dsc-dialog-spacing: var(--ds-size-4);
+}
+/* Temaet setter display: block på alle dialog-elementer (designsystem.css), så nettleseren skjuler ikke en lukket dialog av seg selv. */
+.docs-menu-dialog:not([open]) {
+  display: none;
+}
+.docs-menu-dialog[open] {
   display: flex;
   flex-direction: column;
-  gap: var(--ds-size-4);
+  gap: var(--ds-size-6);
+}
+.docs-menu-dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-size-2);
+  padding-block-end: var(--ds-size-4);
+  border-block-end: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
+}
+.docs-menu-dialog-head .ds-heading {
+  margin: 0;
 }
 
 .docs-version {
@@ -252,10 +284,7 @@
   font-weight: var(--ds-font-weight-medium);
 }
 
-/*
-  Store skjermer: sidemenyen står til venstre og er alltid åpen (skriptet i sidebar.html).
-  Da skal den ikke se ut som en Details, så vi skjuler tittelen og kantlinjene.
-*/
+/* Store skjermer: sidemenyen står til venstre og er alltid synlig. Knappen som åpner menyen på mobil, er skjult. */
 @media (min-width: 64em) {
   .docs-layout {
     grid-template-columns: var(--docs-sidebar-width) minmax(0, 1fr);
@@ -271,6 +300,7 @@
     og scrollbar-gutter hindrer at innholdet i menyen hopper når rullefeltet dukker opp.
   */
   .docs-sidebar {
+    display: flex;
     position: sticky;
     top: 0;
     align-self: start;
@@ -293,14 +323,8 @@
     padding: var(--ds-size-12) 0 var(--ds-size-18) var(--ds-size-12);
     border-inline-start: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
   }
-  .docs-menu {
-    border-block: 0;
-  }
-  .docs-menu[open] > summary {
+  .docs-mobile-nav {
     display: none;
-  }
-  .docs-menu > div {
-    padding: 0;
   }
 }
 

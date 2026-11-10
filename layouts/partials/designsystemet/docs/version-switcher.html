@@ -2,19 +2,21 @@
   Versjonsvelger: Dropdown fra Designsystemet med en lenke til hver versjon.
   Vi bruker lenker, ikke en select som bytter side ved valg. Da kan tastaturbrukere bla i valgene uten å bli sendt videre.
   Versjonene heter det samme som ellers på nettstedet (breadcrumbText på forsiden til versjonen).
-  Tar imot dict med productRoot og versionRoot.
+  Tar imot dict med productRoot, versionRoot og prefix. Velgeren står både i sidemenyen og i menyen på mobil,
+  så prefix gjør ID-ene unike.
 */ -}}
 {{- $versionRoot := .versionRoot -}}
+{{- $id := .prefix | default "docs-version" -}}
 {{- $versions := where .productRoot.Sections "Params.breadcrumbText" "!=" nil -}}
 {{- if gt (len $versions) 1 }}
 <div class="docs-version">
-  <span class="ds-label" id="docs-version-label">{{ T "docs-version" }}</span>
+  <span class="ds-label" id="{{ $id }}-label">{{ T "docs-version" }}</span>
   <button type="button" class="ds-button docs-version-button" data-variant="secondary" data-size="sm"
-    id="docs-version-button" popovertarget="docs-version-menu" aria-labelledby="docs-version-label docs-version-button">
+    id="{{ $id }}-button" popovertarget="{{ $id }}-menu" aria-labelledby="{{ $id }}-label {{ $id }}-button">
     {{ $versionRoot.Params.breadcrumbText }}
     {{ partial "designsystemet/icon.html" "ChevronDown" }}
   </button>
-  <div class="ds-dropdown" popover id="docs-version-menu" data-placement="bottom-start">
+  <div class="ds-dropdown" popover id="{{ $id }}-menu" data-placement="bottom-start">
     <ul>
       {{- range sort $versions "Path" "desc" }}
       <li>
