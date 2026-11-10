@@ -1,7 +1,6 @@
 ---
 headless: true
 hidden: true
-tags: [needsReview]
 ---
 
 #### Utvid app-prosessen med et signeringssteg
@@ -35,7 +34,7 @@ App/config/process/process.bpmn
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
         <!-- Vi har laget en standard validator som kan slås på her. -->
-        <!-- Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. -->
+        <!-- Den kontrollerer at alle som skal signere, har signert, og at antallet signaturer er minst minCount på signaturdatatypen. -->
         <!-- Hvis du ikke slår på denne, bør du skrive egen validering av signaturer. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
 
@@ -80,9 +79,9 @@ Verdien av `id`-feltet _må_ samstemme med verdien som har blitt spesifisert i [
 
 Det er viktig å sette `allowedContributors` til `"app:owned"`, slik at bare appen selv kan redigere disse dataene – ikke via appens API. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
-Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp dette, kan du fjerne disse feltene.
+Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp det, kan du fjerne disse feltene.
 
 #### Sett opp tilgangsstyring
-Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet. Andre som skal signere må også få `read` og `write`.
+De som skal signere, trenger `read` og `sign`. Med `SigningActions` ser bare brukere med `write` knappen **Send inn skjemaet** etter signeringen.
 
 [Les om action-attributter i tilgangsstyring](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/#action-attributter).

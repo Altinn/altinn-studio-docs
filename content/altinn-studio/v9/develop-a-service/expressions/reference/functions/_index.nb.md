@@ -54,6 +54,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`language`](#func-language)              | Ingenting                        | Streng     | ✅       | ❌      |
 | [`displayValue`](#func-displayValue)      | Streng                           | Streng     | ✅       | ❌      |
 | [`round`](#func-round)                    | Tall, valgfritt Tall             | Streng     | ✅       | ✅      |
+| [`formatNumber`](#func-formatNumber)      | Tall, valgfritt Objekt           | Streng     | ✅       | ❌      |
 | [`formatDate`](#func-formatDate)          | Dato/tid, valgfri Streng         | Streng     | ✅       | ✅      |
 | [`plus`](#func-plus)                      | Ett eller flere tall             | Tall       | ✅       | ✅      |
 | [`minus`](#func-minus)                    | Tall, tall                       | Tall       | ✅       | ✅      |
@@ -572,7 +573,7 @@ Eksempel:
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
-Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Hvis appen har flere datamodeller, kan du oppgi datatypen til datamodellen som andre argument, for eksempel `["dataModel", "Ansatte.Navn", "personalmodell"]`. Datatypen må være en fast tekst, ikke et uttrykk. Uten andre argument slår funksjonen opp i standarddatamodellen (`defaultDataType`). Ved bruk inne i [repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
+Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Hvis appen har flere datamodeller, kan du oppgi datatypen til datamodellen som andre argument, for eksempel `["dataModel", "Ansatte.Navn", "personalmodell"]`. Datatypen må være en fast tekst, ikke et uttrykk. Uten andre argument slår funksjonen opp i standarddatamodellen (`defaultDataType`). Hvis du bruker den inne i [repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}}) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
 Eksempel på oppslag i repeterende gruppe:
 
@@ -634,7 +635,54 @@ Oppslag direkte på komponent tilsvarer på mange måter et oppslag mot datamode
 
 Oppslag mot en komponent returnerer derimot `null` hvis komponenten du slår opp verdien til er skjult (selv om komponenten ellers har tilknyttet data i datamodellen). Dette gjør det til en viss grad mulig å styre visning av en komponent basert på om en annen komponent er vist eller ikke. Hvis komponenten ble funnet på en helt annen (men skjult) side, gir også oppslaget verdien `null` selv om datamodellen har en verdi tilknyttet komponenten.
 
-I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av uttrykket i kontekst av [repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/). Det søkes først etter komponenten i gjeldende rad, før det letes oppover i sidestrukturen.
+I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av uttrykket, innenfor konteksten av [repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}}). Oppslaget søker først etter komponenten i gjeldende rad, før det leter oppover i sidestrukturen.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-formatNumber" header="formatNumber" %}}
+
+Funksjonen `formatNumber` formaterer et tall og returnerer en streng. Du kan bruke de samme innstillingene som i
+`formatting` på komponentene `Input` og `Number`, uten å opprette en komponent. Funksjonen kjører bare i frontend.
+
+Det første argumentet er tallet. Funksjonen følger de vanlige reglene for typekonvertering i uttrykk: den gjør en numerisk
+streng om til et tall før den formaterer verdien. For eksempel blir `"00123.40"` til tallet `123.4`. En verdi som er `null`,
+gir `null` som resultat. En tom streng eller en streng som ikke er et tall, gir en uttrykksfeil.
+
+Det andre argumentet er et valgfritt objekt med innstillinger. Bruk [`object`](#func-object) til å bygge objektet.
+Uten innstillinger returnerer funksjonen tallet som en streng uten ekstra formatering.
+
+Dette uttrykket returnerer `"12 345,67"`:
+
+```json
+[
+  "formatNumber",
+  12345.678,
+  [
+    "object",
+    "number",
+    ["object", "thousandSeparator", " ", "decimalSeparator", ",", "decimalScale", 2]
+  ]
+]
+```
+
+Bruk `currency` eller `unit` for å tilpasse formatet til språket brukeren har valgt i appen:
+
+```json
+["formatNumber", ["dataModel", "amount"], ["object", "currency", "NOK", "position", "suffix"]]
+```
+
+Innstillinger i `number` overstyrer de tilsvarende verdiene fra `currency` og `unit`. Du kan også bruke mønstre, for
+eksempel `["object", "number", ["object", "format", "## ## ## ##"]]`. Egenskapen `align` påvirker ikke strengen.
+
+Verdiene du sender til `object`, kan være uttrykk. Dette eksemplet henter både tallet og enheten fra datamodellen:
+
+```json
+[
+  "formatNumber",
+  ["dataModel", "amount"],
+  ["object", "number", ["object", "suffix", ["concat", " ", ["dataModel", "unit"]]]]
+]
+```
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-formatDate" header="formatDate" %}}
