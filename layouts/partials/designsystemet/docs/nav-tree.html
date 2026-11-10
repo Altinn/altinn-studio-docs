@@ -1,0 +1,18 @@
+{{- /*
+  Ett nivå i sidemenyen. Grenen ned til siden brukeren står på, er åpen. Andre grener er lukket, slik at menyen holder seg kort.
+  Tar imot dict med section (siden vi viser undersidene til) og current (siden brukeren står på).
+*/ -}}
+{{- $current := .current -}}
+<ul class="docs-nav-list" role="list">
+  {{- range where .section.Pages.ByWeight "Params.hidden" "!=" true }}
+  {{- $isCurrent := eq . $current }}
+  {{- $isOpen := and .IsSection (or $isCurrent (.IsAncestor $current)) }}
+  <li>
+    <a class="docs-nav-link" href="{{ .RelPermalink }}"
+      {{- if $isCurrent }} aria-current="page"{{ else if $isOpen }} data-trail{{ end }}>{{ .LinkTitle }}</a>
+    {{- if and $isOpen .Pages }}
+    {{ partial "designsystemet/docs/nav-tree.html" (dict "section" . "current" $current) }}
+    {{- end }}
+  </li>
+  {{- end }}
+</ul>
