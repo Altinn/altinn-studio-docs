@@ -23,10 +23,6 @@
           },
           {
             "type": "altinn",
-            "value": "dagl"
-          },
-          {
-            "type": "altinn",
             "value": "priv"
           }
         ]
@@ -637,15 +633,17 @@
       "middleName": "",
       "lastName": "Partner",
       "customClaims": [],
+      "accessPackages": {
+        "500000": [
+          "regnskapsforer-med-signeringsrettighet",
+          "lonn"
+        ]
+      },
       "partyRoles": {
         "510001": [
           {
             "type": "altinn",
             "value": "regna"
-          },
-          {
-            "type": "altinn",
-            "value": "dagl"
           },
           {
             "type": "altinn",
@@ -686,10 +684,6 @@
           },
           {
             "type": "altinn",
-            "value": "dagl"
-          },
-          {
-            "type": "altinn",
             "value": "priv"
           }
         ]
@@ -724,10 +718,6 @@
           {
             "type": "altinn",
             "value": "regna"
-          },
-          {
-            "type": "altinn",
-            "value": "dagl"
           },
           {
             "type": "altinn",
@@ -970,6 +960,10 @@
             "confirm",
             "reject",
             "delete"
+          ],
+          "accessPackages": [
+            "regnskapsforer-med-signeringsrettighet",
+            "lonn"
           ]
         }
       ]
