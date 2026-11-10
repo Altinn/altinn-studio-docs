@@ -152,7 +152,7 @@ Det betyr at du kan
 
 Altinn kontrollerer fortsatt at rettighetene finnes, at det går an å delegere dem, og at kunden har myndighet til å gi dem.
 
-**Du må fortsatt registrere systemet i systemregisteret.** Registeret er kilden til hvilket system det gjelder. Listene over rettigheter på systemet gjelder bare når brukeren selv oppretter en systembruker fra et system i registeret.
+**Systemregisteret består.** Du må fortsatt registrere systemet. Det er bare rettighetene som er frikoblet fra registeret. Listene over rettigheter på systemet gjelder bare når brukeren selv oppretter en systembruker fra et system i registeret.
 
 ---
 ## Forbedring 6: Du kan oppdatere rettighetssettene
@@ -236,11 +236,11 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 ---
 ## Spørsmål vi regner med
 
-**Trenger vi ikke systemregisteret lenger?** Jo. Du må fortsatt registrere systemet. Det er listene over rettigheter på systemet som ikke lenger begrenser forespørslene dine.
+**Trenger vi ikke systemregisteret lenger?** Jo, registeret består, og du må fortsatt registrere systemet. Det er bare rettighetene som er frikoblet. Listene over rettigheter på systemet begrenser ikke lenger forespørslene dine.
 
-**Må vi gå over til versjon 2?** Ikke nå. Versjon 1 virker som før. Vi har ikke avklart hvor lenge den skal virke.
+**Må vi gå over til versjon 2?** Ikke nå. Versjon 1 virker som før. Vi regner med at den virker i minst to år, men det er ikke bekreftet.
 
-**Hjelper dere oss med å gå over fra versjon 1 til versjon 2?** Det har vi ikke avklart ennå. Lysbildet «Slik går du over til én systembruker» viser stegene.
+**Hjelper dere oss med å gå over fra versjon 1 til versjon 2?** Vi lager god dokumentasjon for overgangen. Utover det må du gjøre overgangen selv. Lysbildet «Slik går du over til én systembruker» viser stegene.
 
 **Kan vi be alle klientene om nye tilganger gjennom API-et?** Nei. Det er ikke planlagt i denne endringen. Du kan be om flere tilganger for egen virksomhet.
 
@@ -248,8 +248,7 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 ## Dette er ikke avklart ennå
 
 - Endelig navn på `clientAccessSets`.
-- Hvor lenge versjon 1 av forespørselen virker.
-- Om og hvordan vi hjelper til når du går over fra versjon 1 til versjon 2.
+- Hvor lenge versjon 1 av forespørselen virker. Vi regner med minst to år, men det er ikke bekreftet.
 - Hvordan du fjerner låsen på en systembruker, og om virksomheten også kan fjerne den selv.
 - Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer tilgangene. Du kan uansett be om flere tilganger for egen virksomhet med en forespørsel om tilgang.
 - Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
