@@ -66,8 +66,8 @@ Et **rettighetssett** er tilgangspakker og enkeltrettigheter som hører sammen. 
 
 - Klienten må ha gitt alt i et sett for at settet skal være oppfylt.
 - Det holder å oppfylle ett av settene.
-- Altinn går gjennom settene i rekkefølge og bruker det første klienten oppfyller fullt ut. Rekkefølgen i listen er prioriteten, og du trenger ikke oppgi noe tall.
-- Oppfyller klienten flere sett, får systembrukeren bare det første.
+- Altinn går gjennom settene i rekkefølge og krysser av for det første klienten oppfyller fullt ut. Rekkefølgen i listen er prioriteten, og du trenger ikke oppgi noe tall.
+- Oppfyller klienten flere sett, kan virksomheten velge et annet av dem.
 - Når leverandøren bestemmer og klienten ikke oppfyller noen av settene, kan ikke virksomheten knytte klienten til systembrukeren. Flaten viser hva som mangler.
 - Når virksomheten bestemmer, er settene et forslag. Virksomheten kan da knytte til klienten og velge blant det klienten har gitt.
 
@@ -337,19 +337,19 @@ Klienten kan ikke delegere regnskapsfører- og revisorpakkene direkte. En uregis
 ---
 ## Når klienten passer med flere sett
 
-Klienten kan ha gitt nok til at flere sett er oppfylt. Da bruker Altinn **det første settet i listen**. Virksomheten velger ikke, og systembrukeren får ikke summen av settene.
+Klienten kan ha gitt nok til at flere sett er oppfylt. Da krysser Altinn av for **det første settet i listen**. Virksomheten kan velge et annet sett klienten også oppfyller. Systembrukeren får settet som er valgt.
 
 Eksempel fra scenario 1: Fjellvik Bygg AS har regnskapsførerrollen, og har også gitt A-ordningen og Sykefravær-pakken direkte.
 
 | Sett | Oppfylt | Dette skjer |
 |---|---|---|
-| 1. Regnskapsfører lønn + Sykefravær-pakken | Ja | Systembrukeren får dette settet |
-| 2. Revisormedarbeider + Sykefravær-pakken | Nei | Ingenting |
-| 3. A-ordningen + Sykefravær-pakken | Ja | Ingenting, siden sett 1 står først |
+| 1. Regnskapsfører lønn + Sykefravær-pakken | Ja | Altinn krysser av for dette settet |
+| 2. Revisormedarbeider + Sykefravær-pakken | Nei | Virksomheten kan ikke velge dette settet |
+| 3. A-ordningen + Sykefravær-pakken | Ja | Virksomheten kan velge dette settet i stedet |
 
-**Virksomheten ser ikke forskjell.** Når byrået åpner klienten i listen, har Altinn krysset av for alternativ 1, og systembrukeren får bare tilgangene i det.
+**Virksomheten kan endre valget.** Når byrået åpner klienten i listen, har Altinn krysset av for alternativ 1. Byrået kan krysse av for alternativ 3 i stedet. **Legg til alle klienter** gir systembrukeren det første alternativet hver klient oppfyller.
 
-**Rekkefølgen er ditt valg, og den avgjør hvor mye tilgang systemet får.** I dag dekker Regnskapsfører lønn 700 tjenester og A-ordningen 8. Vil du gi systemet minst mulig tilgang, setter du det smaleste settet først. For klienter som ikke oppfyller det, prøver Altinn neste sett.
+**Rekkefølgen er ditt valg, og den avgjør hvor mye tilgang systemet får hvis virksomheten ikke velger noe annet.** I dag dekker Regnskapsfører lønn 700 tjenester og A-ordningen 8. Vil du gi systemet minst mulig tilgang, setter du det smaleste settet først. For klienter som ikke oppfyller det, prøver Altinn neste sett.
 
 ---
 ## Slik går du over til én systembruker
@@ -444,7 +444,7 @@ Virksomheten ser tilgangene, men kan ikke fjerne eller legge til enkelttilganger
 
 Byrået åpner en klient i listen. Der ser byrået hva klienten har gitt, og hva som mangler til hvert alternativ.
 
-- Altinn krysser av for det første alternativet klienten oppfyller, og sier det under alternativene. Byrået velger ikke selv.
+- Altinn krysser av for det første alternativet klienten oppfyller, og sier det under alternativene. Oppfyller klienten flere alternativer, kan byrået velge et annet.
 - Systembrukeren får alle tilgangene i alternativet, både tilgangspakker og enkelttjenester, eller ingen av dem.
 - For en klient systembrukeren har, viser siden bare alternativet den har. De andre ligger bak en lenke.
 
@@ -674,7 +674,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R5 | Siden viser tilgangspakker og enkelttjenester uten knapper for å fjerne eller legge til enkelttilganger. |
 | R6 | Virksomheten kan bare slette hele systembrukeren, med alle tilganger og klientdelegeringer. |
 | R7 | Siden forklarer at leverandøren bestemmer tilgangene, og at endringer kommer som en endringsforespørsel. |
-| R8 | Når virksomheten knytter til en klient, gir de det første rettighetssettet klienten oppfyller fullt ut, samlet. Det er hele settet eller ingenting. |
+| R8 | Når virksomheten knytter til en klient, er det første rettighetssettet klienten oppfyller fullt ut, krysset av. Oppfyller klienten flere, kan virksomheten velge et annet av dem. Det er hele settet eller ingenting. |
 | R9 | Virksomheten kan ikke knytte til klienter som ikke oppfyller noen av settene. Siden viser dem likevel. Når byrået åpner en klient i listen, ser de hva klienten har gitt, og hva som mangler. |
 | R10 | Virksomheten kan fjerne en klient. Da fjerner de hele settet for den klienten. |
 | R11 | Virksomheten kan knytte til mange klienter samtidig. |

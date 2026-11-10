@@ -60,7 +60,7 @@ graph TD
   CREATE --> OWN["Forespurte tilganger for egen virksomhet delegeres"]
   CREATE --> CLIENTCONFIG["Rettighetssettene lagres på systembrukeren som ramme for senere delegering"]
   CLIENTCONFIG --> LINK["En klient knyttes til systembrukeren"]
-  LINK --> CHECK["Finn det første rettighetssettet klienten oppfyller fullt ut"]
+  LINK --> CHECK["Det første rettighetssettet klienten oppfyller fullt ut, er forhåndsvalgt. Brukeren kan velge et annet sett klienten oppfyller"]
   CHECK --> DELEGATE["Deleger hele settet samlet"]
 {{< /mermaid >}}
 
@@ -82,7 +82,7 @@ graph TD
   VIEW --> DELETE["Eneste endringshandling her: slett bruker og rettigheter samlet"]
 {{< /mermaid >}}
 
-Et rettighetssett kan inneholde både pakker og enkeltrettigheter. Det kan ikke deles opp eller utvides, og brukeren kan ikke velge et annet sett. `action` støttes ikke i rettighetssett i første versjon. Den særskilte klientdelegeringssiden for disse systembrukerne fjernes, slik at delegeringen håndteres ett sted.
+Et rettighetssett kan inneholde både pakker og enkeltrettigheter. Det kan ikke deles opp eller utvides. Oppfyller klienten flere sett, kan brukeren velge et annet av dem (vedtatt 10. november 2026). `action` støttes ikke i rettighetssett i første versjon. Den særskilte klientdelegeringssiden for disse systembrukerne fjernes, slik at delegeringen håndteres ett sted.
 
 For forhåndsdefinerte tilganger for egen virksomhet kan enkeltpakker eller enkeltrettigheter ikke fjernes separat på brukersiden.
 
