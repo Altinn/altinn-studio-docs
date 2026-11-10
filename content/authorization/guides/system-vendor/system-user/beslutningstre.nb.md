@@ -124,6 +124,7 @@ Vedtatt 9. november 2026, og vi sender det på høring. Flagget heter `vendorLoc
 | Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Vedtatt 10. november 2026: bare fra `vendorLocked=true` til `false`. En åpen systembruker kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Åpent: om virksomheten også kan fjerne låsen |
 | Eksisterende Agent-brukere | Intern representasjon: videreføre med kompatibilitet eller overføre til utvidet modell. Klientene flyttes ikke automatisk |
 | Oppdatering av rettighetssett | Om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når leverandøren fjerner en tilgang |
+| Navn på rettighetssett | Valgfritt `name` fra leverandøren, eller bare «Alternativ 1», «Alternativ 2» i grensesnittet. Vi spør leverandørene i høringen |
 | Delvis tilbakekalling | Fjerne hele klienttilknytningen, beholde resten, eller bytte til et annet sett |
 | Bytte Maskinporten-klient | Tillate bytte eller kreve ny bruker |
 

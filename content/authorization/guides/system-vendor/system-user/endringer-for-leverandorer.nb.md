@@ -290,6 +290,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
 ```json
 "clientAccessSets": [
   {
+    "name": "Registrert regnskapsfører",
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:regnskapsforer-lonn" }
     ],
@@ -298,6 +299,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
     ]
   },
   {
+    "name": "Registrert revisor",
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:revisormedarbeider" }
     ],
@@ -306,6 +308,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
     ]
   },
   {
+    "name": "Uregistrert kunde",
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:a-ordning" }
     ],
@@ -315,6 +318,8 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
   }
 ]
 ```
+
+Feltet `name` er valgfritt, og navnet på feltet er foreløpig. Gir du settene navn, ser virksomheten navnene i stedet for «Alternativ 1», «Alternativ 2» og så videre.
 
 En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
 
@@ -416,7 +421,7 @@ De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere
 
 - Dette er skisser for å forstå problemet, ikke designforslag. Både utformingen og funksjonaliteten kan endre seg, og vi vil gjerne ha innspill.
 - Alle skissene følger oppsettet UX-teamet har foreslått. Innholdet står i grupper, byrået åpner en klient i listen, og siden har ingen dialoger bortsett fra bekreftelser.
-- Rettighetssettene heter «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Et rettighetssett har ikke noe navn.
+- Skissene kaller rettighetssettene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Vi ser for oss at du kan gi settene navn, som i scenario 2. Si gjerne fra om du ønsker det.
 - Reglene bak skissene står til slutt i presentasjonen.
 
 Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
@@ -635,6 +640,7 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 - Hva som gjelder når du oppdaterer rettighetssett: om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når du fjerner en tilgang fra et sett.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
 - Hvor mange rettighetssett du kan oppgi.
+- Om du skal kunne gi rettighetssettene navn med feltet `name`.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
 - Hvilke virksomheter listen viser. Skissene forutsetter at listen viser en virksomhet først når den har gitt byrået en tilgang.

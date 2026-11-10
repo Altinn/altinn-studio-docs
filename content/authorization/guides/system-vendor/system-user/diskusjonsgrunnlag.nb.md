@@ -76,6 +76,8 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 
 Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: registrert regnskapsfører (rollen REGN), registrert revisor (rollen REVI) og uregistrert kunde (direkte delegering). Leverandøren trenger ikke vite kundeforholdet for å hente token, så lenge alle settene dekker de samme tjenestene.
 
+Åpent: om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
+
 ---
 ## Vedtatt: Leverandøren kan oppdatere rettighetssettene
 
