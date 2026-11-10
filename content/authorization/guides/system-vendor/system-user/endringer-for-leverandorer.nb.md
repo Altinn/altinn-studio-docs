@@ -13,7 +13,7 @@ build:
 
 ## Hva endrer seg for systemleverandører og virksomheter?
 
-Oppdatert 9. november 2026
+Oppdatert 10. november 2026
 
 **Det du har laget i dag, virker som før.** Endringene gir nye muligheter som du kan ta i bruk når du vil.
 
@@ -66,8 +66,8 @@ Et **rettighetssett** er tilgangspakker og enkeltrettigheter som hører sammen. 
 
 - Klienten må ha gitt alt i et sett for at settet skal være oppfylt.
 - Det holder å oppfylle ett av settene.
-- Altinn går gjennom settene i rekkefølge og bruker det første klienten oppfyller fullt ut. Rekkefølgen i listen er prioriteten, og du trenger ikke oppgi noe tall.
-- Oppfyller klienten flere sett, får systembrukeren bare det første.
+- Altinn går gjennom settene i rekkefølge og krysser av for det første klienten oppfyller fullt ut. Rekkefølgen i listen er prioriteten, og du trenger ikke oppgi noe tall.
+- Oppfyller klienten flere sett, kan virksomheten velge et annet av dem.
 - Når leverandøren bestemmer og klienten ikke oppfyller noen av settene, kan ikke virksomheten knytte klienten til systembrukeren. Flaten viser hva som mangler.
 - Når virksomheten bestemmer, er settene et forslag. Virksomheten kan da knytte til klienten og velge blant det klienten har gitt.
 
@@ -144,8 +144,9 @@ Det nye flagget `vendorLocked` bestemmer hvem som forvalter tilgangene etter at 
 | Hvem endrer tilgangene etterpå | Du, med endringsforespørsel eller endepunktet for rettighetssett | Kunden selv, i Tilgangsstyring |
 | Kan kunden fjerne én tilgang | Nei, bare slette hele systembrukeren | Ja |
 | Kan kunden legge til tilganger | Nei | Ja, men bare det de selv har lov til å gi |
+| Kan du be om flere tilganger for egen virksomhet | Ja, med en forespørsel om tilgang | Ja, med en forespørsel om tilgang |
 
-Det går an å bytte mellom de to måtene etter at systembrukeren er opprettet. Hvem som kan bytte, og hva som skjer med tilgangene, er ikke avklart ennå. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
+Du kan fjerne låsen etter at systembrukeren er opprettet, altså gå fra `vendorLocked: true` til `false`. Virksomheten trenger ikke godkjenne det. Du kan ikke låse en systembruker som har vært åpen. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
 
 ---
 ## Forbedring 7: Du kan be om flere tilganger for egen virksomhet
@@ -289,6 +290,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
 ```json
 "clientAccessSets": [
   {
+    "name": "Registrert regnskapsfører",
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:regnskapsforer-lonn" }
     ],
@@ -297,6 +299,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
     ]
   },
   {
+    "name": "Registrert revisor",
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:revisormedarbeider" }
     ],
@@ -305,6 +308,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
     ]
   },
   {
+    "name": "Uregistrert kunde",
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:a-ordning" }
     ],
@@ -314,6 +318,8 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
   }
 ]
 ```
+
+Feltet `name` er valgfritt, og navnet på feltet er foreløpig. Gir du settene navn, ser virksomheten navnene i stedet for «Alternativ 1», «Alternativ 2» og så videre.
 
 En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
 
@@ -336,19 +342,19 @@ Klienten kan ikke delegere regnskapsfører- og revisorpakkene direkte. En uregis
 ---
 ## Når klienten passer med flere sett
 
-Klienten kan ha gitt nok til at flere sett er oppfylt. Da bruker Altinn **det første settet i listen**. Virksomheten velger ikke, og systembrukeren får ikke summen av settene.
+Klienten kan ha gitt nok til at flere sett er oppfylt. Da krysser Altinn av for **det første settet i listen**. Virksomheten kan velge et annet sett klienten også oppfyller. Systembrukeren får settet som er valgt.
 
 Eksempel fra scenario 1: Fjellvik Bygg AS har regnskapsførerrollen, og har også gitt A-ordningen og Sykefravær-pakken direkte.
 
 | Sett | Oppfylt | Dette skjer |
 |---|---|---|
-| 1. Regnskapsfører lønn + Sykefravær-pakken | Ja | Systembrukeren får dette settet |
-| 2. Revisormedarbeider + Sykefravær-pakken | Nei | Ingenting |
-| 3. A-ordningen + Sykefravær-pakken | Ja | Ingenting, siden sett 1 står først |
+| 1. Regnskapsfører lønn + Sykefravær-pakken | Ja | Altinn krysser av for dette settet |
+| 2. Revisormedarbeider + Sykefravær-pakken | Nei | Virksomheten kan ikke velge dette settet |
+| 3. A-ordningen + Sykefravær-pakken | Ja | Virksomheten kan velge dette settet i stedet |
 
-**Virksomheten ser ikke forskjell.** Når byrået åpner klienten i listen, har Altinn krysset av for alternativ 1, og systembrukeren får bare tilgangene i det.
+**Virksomheten kan endre valget.** Når byrået åpner klienten i listen, har Altinn krysset av for alternativ 1. Byrået kan krysse av for alternativ 3 i stedet. **Legg til alle klienter** gir systembrukeren det første alternativet hver klient oppfyller.
 
-**Rekkefølgen er ditt valg, og den avgjør hvor mye tilgang systemet får.** I dag dekker Regnskapsfører lønn 700 tjenester og A-ordningen 8. Vil du gi systemet minst mulig tilgang, setter du det smaleste settet først. For klienter som ikke oppfyller det, prøver Altinn neste sett.
+**Rekkefølgen er ditt valg, og den avgjør hvor mye tilgang systemet får hvis virksomheten ikke velger noe annet.** I dag dekker Regnskapsfører lønn 700 tjenester og A-ordningen 8. Vil du gi systemet minst mulig tilgang, setter du det smaleste settet først. For klienter som ikke oppfyller det, prøver Altinn neste sett.
 
 ---
 ## Slik går du over til én systembruker
@@ -384,6 +390,8 @@ POST /authentication/api/v2/systemuser/request/vendor
 
 Vil kunden gi alle tilganger selv, sender du `vendorLocked: false` med tomme lister.
 
+Vil du at byrået skal kunne legge til mange klienter samtidig, må du oppgi rettighetssett. Uten rettighetssett må byrået åpne hver klient og velge tilganger selv.
+
 ---
 ## Hva du må tenke på når virksomheten bestemmer
 
@@ -406,7 +414,7 @@ Vi vurderer et API og varsling slik at du kan se hvilke tilganger systembrukeren
 | Kunden har egen kompetanse på tilgangsstyring og vil bestemme alt selv | Virksomheten bestemmer, uten lister |
 | Du vil unngå mange endringsforespørsler for små justeringer | Virksomheten bestemmer, med et forslag |
 
-Er du i tvil, velg `vendorLocked: true`. Da virker systembrukeren som i dag, og du kan la nye kunder bestemme selv senere.
+Er du i tvil, velg `vendorLocked: true`. Da virker systembrukeren som i dag. Du kan fjerne låsen senere, men ikke låse en systembruker som har vært åpen.
 
 ---
 ## Om skissene
@@ -415,7 +423,7 @@ De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere
 
 - Dette er skisser for å forstå problemet, ikke designforslag. Både utformingen og funksjonaliteten kan endre seg, og vi vil gjerne ha innspill.
 - Alle skissene følger oppsettet UX-teamet har foreslått. Innholdet står i grupper, byrået åpner en klient i listen, og siden har ingen dialoger bortsett fra bekreftelser.
-- Rettighetssettene heter «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Et rettighetssett har ikke noe navn.
+- Skissene kaller rettighetssettene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Vi ser for oss at du kan gi settene navn, som i scenario 2. Si gjerne fra om du ønsker det.
 - Reglene bak skissene står til slutt i presentasjonen.
 
 Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
@@ -443,13 +451,34 @@ Virksomheten ser tilgangene, men kan ikke fjerne eller legge til enkelttilganger
 
 Byrået åpner en klient i listen. Der ser byrået hva klienten har gitt, og hva som mangler til hvert alternativ.
 
-- Altinn krysser av for det første alternativet klienten oppfyller, og sier det under alternativene. Byrået velger ikke selv.
+- Altinn krysser av for det første alternativet klienten oppfyller, og sier det under alternativene. Oppfyller klienten flere alternativer, kan byrået velge et annet.
 - Systembrukeren får alle tilgangene i alternativet, både tilgangspakker og enkelttjenester, eller ingen av dem.
 - For en klient systembrukeren har, viser siden bare alternativet den har. De andre ligger bak en lenke.
 
 <div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Siden for Personalportalen med Havbris Fiskeoppdrett AS åpen: alternativ 2 er krysset av, og alternativ 1 og 3 viser hva som mangler" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Nordavind Bygg AS åpen: alternativ 3 er krysset av, og alternativ 1 og 2 viser hva som mangler" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS, som Personalportalen allerede har: bare alternativ 1 vises, med knappen Fjern klienten fra systembrukeren og lenken Se de andre alternativene" style="width:100%;height:auto"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
+
+---
+## Klienten oppfyller flere alternativer
+
+Fjellvik Bygg AS oppfyller alternativ 1 og 3. Altinn krysser av for alternativ 1, og byrået kan velge alternativ 3 i stedet.
+
+- Alternativ 2 har ingen avkrysningsboks, fordi klienten mangler Revisormedarbeider.
+- Skissen viser ett valg om gangen. Om byrået kan velge flere, er ikke avklart.
+
+<div style="max-width:460px"><a href="/images/authorization/systemuser/2026-11-09/ux-flere-alternativer.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-flere-alternativer.png" alt="Fjellvik Bygg AS åpen der leverandøren bestemmer: alternativ 1 er krysset av, alternativ 3 har en tom avkrysningsboks, og alternativ 2 mangler Revisormedarbeider og kan ikke velges" style="width:100%;height:auto"></a></div>
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Alternativene kan ha navn
+
+Gir du rettighetssettene navn med feltet `name`, ser byrået navnene i stedet for «Alternativ 1», «Alternativ 2» og så videre. Si gjerne fra om du ønsker dette.
+
+<div style="max-width:460px"><a href="/images/authorization/systemuser/2026-11-09/ux-navn-pa-alternativer.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-navn-pa-alternativer.png" alt="Havbris Fiskeoppdrett AS åpen, der alternativene heter Registrert regnskapsfører, Registrert revisor og Uregistrert kunde, og Registrert revisor er krysset av" style="width:100%;height:auto"></a></div>
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Virksomheten legger til mange klienter samtidig
@@ -491,6 +520,17 @@ For hver klient velger virksomheten hvilke av klientens tilganger systembrukeren
 <div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-klienter.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-klienter.png" alt="Personalportalen der virksomheten bestemmer: Eksempelklient AS har ikke alt leverandøren foreslår fordi klienten trakk tilbake en tilgang, to klienter kan legges til, og Elvebakken Kafé AS har ikke gitt det leverandøren foreslår" style="width:100%;height:auto"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Klienter når leverandøren ikke har foreslått noe
+
+Har du ikke oppgitt rettighetssett, finnes det ikke noe forslag. Byrået åpner hver klient og velger blant det klienten har gitt. Ingenting er krysset av.
+
+Siden har ikke **Legg til alle klienter**, fordi det ikke er klart hva knappen skulle gitt systembrukeren. Siden skal ikke gi systembrukeren alt klienten har gitt.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-uten-forslag-liste.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-uten-forslag-liste.png" alt="Rapportrobot der virksomheten bestemmer: gruppen Kan få disse klientene har tre klienter og ingen knapp for å legge til alle" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-uten-forslag-apen.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-uten-forslag-apen.png" alt="Rapportrobot med Havbris Fiskeoppdrett AS åpen: fire tilganger klienten har gitt, og ingen av dem er krysset av" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
 ## Klientens side viser systembrukerne
@@ -628,12 +668,13 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 
 - Endelig navn på `clientAccessSets`.
 - Hvor lenge versjon 1 av forespørselen virker.
-- Hvem som kan bytte mellom «Leverandøren bestemmer» og «Virksomheten bestemmer», og hva som skjer med tilganger kunden har lagt til hvis de bytter tilbake.
+- Hvordan du fjerner låsen på en systembruker, og om virksomheten også kan fjerne den selv.
 - Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer tilgangene. Du kan uansett be om flere tilganger for egen virksomhet med en forespørsel om tilgang.
 - Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Hva som gjelder når du oppdaterer rettighetssett: om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når du fjerner en tilgang fra et sett.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
 - Hvor mange rettighetssett du kan oppgi.
+- Om du skal kunne gi rettighetssettene navn med feltet `name`.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
 - Hvilke virksomheter listen viser. Skissene forutsetter at listen viser en virksomhet først når den har gitt byrået en tilgang.
@@ -673,7 +714,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R5 | Siden viser tilgangspakker og enkelttjenester uten knapper for å fjerne eller legge til enkelttilganger. |
 | R6 | Virksomheten kan bare slette hele systembrukeren, med alle tilganger og klientdelegeringer. |
 | R7 | Siden forklarer at leverandøren bestemmer tilgangene, og at endringer kommer som en endringsforespørsel. |
-| R8 | Når virksomheten knytter til en klient, gir de det første rettighetssettet klienten oppfyller fullt ut, samlet. Det er hele settet eller ingenting. |
+| R8 | Når virksomheten knytter til en klient, er det første rettighetssettet klienten oppfyller fullt ut, krysset av. Oppfyller klienten flere, kan virksomheten velge et annet av dem. Det er hele settet eller ingenting. |
 | R9 | Virksomheten kan ikke knytte til klienter som ikke oppfyller noen av settene. Siden viser dem likevel. Når byrået åpner en klient i listen, ser de hva klienten har gitt, og hva som mangler. |
 | R10 | Virksomheten kan fjerne en klient. Da fjerner de hele settet for den klienten. |
 | R11 | Virksomheten kan knytte til mange klienter samtidig. |
@@ -691,7 +732,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R17 | Virksomheten kan slette hele systembrukeren. |
 | R18 | For hver klient velger virksomheten tilgangspakker og enkelttjenester én og én, blant tilgangene klienten har gitt. |
 | R19 | Virksomheten kan bare gi en enkelttjeneste videre hvis klienten har gitt den som enkelttjeneste. Handlingene, for eksempel lese og skrive, følger det klienten har gitt. |
-| R20 | Det klienten har gitt av leverandørens forslag, er krysset av når virksomheten åpner en ny klient. Har klienten ikke gitt noe av forslaget, er ingenting krysset av. Dette er et forslag, ikke et vedtak. |
+| R20 | Det klienten har gitt av leverandørens forslag, er krysset av når virksomheten åpner en ny klient. Har klienten ikke gitt noe av forslaget, er ingenting krysset av. Dette er et forslag, ikke et vedtak. Uten rettighetssett finnes det ikke noe forslag, og siden har ikke **Legg til alle klienter**. |
 
 ---
 ## Reglene bak skissene: felles
@@ -702,4 +743,4 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R22 | Bare den som har myndighet, ser handlingene. Den som ikke er tilgangsstyrer eller klientadministrator, ser det samme som i dag. |
 | R23 | Lenker fra siden **Systembrukere** leder til de nye sidene, ikke til den gamle klientsiden. |
 | R24 | Systembrukerens side viser hvem som bestemmer tilgangene. |
-| R25 | Virksomheten kan bytte hvem som bestemmer tilgangene. Reglene for byttet er ikke avklart, så dette er bare et forslag. |
+| R25 | Leverandøren kan fjerne låsen uten at virksomheten må godkjenne det. Da bestemmer virksomheten tilgangene. En systembruker som har vært åpen, kan ikke bli låst igjen. Om virksomheten også kan fjerne låsen selv, er ikke avklart. |

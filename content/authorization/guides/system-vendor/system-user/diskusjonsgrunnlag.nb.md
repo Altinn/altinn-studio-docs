@@ -12,7 +12,7 @@ build:
 
 ## Vedtak og videre avklaringer
 
-Oppdatert 9. november 2026. Vedtakene fra møtet 16. oktober er supplert med senere avklaringer.
+Oppdatert 10. november 2026. Vedtakene fra møtet 16. oktober er supplert med senere avklaringer.
 
 Én forespørsel for egen virksomhet og klienter. Tilgangsstyring på de vanlige bruker- og klientflatene.
 
@@ -70,11 +70,13 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 **Et rettighetssett er tilgangspakker og enkeltrettigheter som hører sammen.**
 
 - Klienten må oppfylle alt innenfor ett sett. Det holder å oppfylle ett av settene.
-- Rekkefølgen i listen er prioriteten, uten indeksfelt. Altinn bruker det første settet klienten oppfyller fullt ut.
+- Rekkefølgen i listen er prioriteten, uten indeksfelt. Altinn forhåndsvelger det første settet klienten oppfyller fullt ut. Oppfyller klienten flere, kan virksomheten velge et annet av dem.
 - Settene lagres som `jsonb` på systembrukeren etter opprettelse.
 - `action` støttes ikke i rettighetssett i første versjon. Behov for finere styring håndteres med tilgangspakker.
 
 Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: registrert regnskapsfører (rollen REGN), registrert revisor (rollen REVI) og uregistrert kunde (direkte delegering). Leverandøren trenger ikke vite kundeforholdet for å hente token, så lenge alle settene dekker de samme tjenestene.
+
+Åpent: om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
 
 ---
 ## Vedtatt: Leverandøren kan oppdatere rettighetssettene
@@ -112,7 +114,7 @@ Aksept krever alltid at den som godkjenner er tilgangsstyrer, uansett flagg. Til
 
 **Klientrettighetene delegeres når klienten knyttes til systembrukeren.**
 
-Når leverandøren bestemmer, gir virksomheten hele det første rettighetssettet klienten oppfyller fullt ut, samlet. Tildelingen må være innenfor eiervirksomhetens fullmakter for den aktuelle klienten.
+Når leverandøren bestemmer, gir virksomheten hele det valgte rettighetssettet samlet. Det første settet klienten oppfyller fullt ut, er forhåndsvalgt. Tildelingen må være innenfor eiervirksomhetens fullmakter for den aktuelle klienten.
 
 Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer slettes. Avhengigheten følger rettighetsgrunnlaget, uavhengig av type og flagg.
 
@@ -177,11 +179,14 @@ Begrunnelsen er at brukeren skal slippe å administrere denne delegeringen et eg
 **Når leverandøren bestemmer, er det første rettighetssettet klienten oppfyller fullt ut, forhåndsvalgt.**
 
 - Hele settet delegeres samlet, eller ingen av tilgangene delegeres.
-- Man kan ikke velge en delmengde av settet, eller et annet sett.
+- Man kan ikke velge en delmengde av settet.
+- Oppfyller klienten flere sett, kan man velge et annet av dem (vedtatt 10. november 2026).
 - Man kan ikke utvide det med pakker eller rettigheter utenfor settet.
 - Oppfyller klienten ingen av settene, kan den ikke knyttes til, og flaten viser hva som mangler.
 
 Dette gjelder per klient. Når virksomheten bestemmer, kan tilganger velges innenfor virksomhetens fullmakter.
+
+Har systembrukeren ingen rettighetssett, og virksomheten bestemmer, tilbyr flaten ikke **Legg til alle klienter**. Det finnes da ikke noe forslag som sier hva klientene skal gi, og flaten skal ikke legge til alt klienten har gitt (10. november 2026).
 
 ---
 ## Illustrasjon: Klienttilganger som ett sett
@@ -231,13 +236,13 @@ Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder 
 Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke uttrykkelig avklart i møtereferatet her.
 
 ---
-## Vedtatt: Flagget kan endres etter opprettelse
+## Vedtatt: Låsen kan fjernes etter opprettelse
 
-**Flagget kan endres på en eksisterende systembruker** (vedtatt 26. oktober 2026). Identiteten beholdes.
+**Låsen kan fjernes på en eksisterende systembruker**, altså fra `vendorLocked=true` til `false`. Identiteten beholdes. En systembruker som har vært åpen, kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Vi vedtok at flagget kan endres 26. oktober 2026, og retningen 10. november 2026.
 
-Fortsatt åpent: hvem som kan bytte (anbefaling: kun eier), hva som skjer med rettigheter eieren har lagt til ved bytte til `false`, og hvordan byttet audit-loggføres og varsles til leverandøren.
+Fortsatt åpent: om virksomheten også kan fjerne låsen, og hvordan endringen audit-loggføres og varsles.
 
-Samlet sletting på brukersiden når flagget ikke er satt er vedtatt. Flyten for selve byttet er fortsatt uavklart.
+Samlet sletting på brukersiden med `vendorLocked=true` er vedtatt. Flyten for å fjerne låsen er fortsatt uavklart.
 
 ---
 ## Åpent valg: Eksisterende Agent-brukere
