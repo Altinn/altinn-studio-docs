@@ -186,6 +186,8 @@ Begrunnelsen er at brukeren skal slippe å administrere denne delegeringen et eg
 
 Dette gjelder per klient. Når virksomheten bestemmer, kan tilganger velges innenfor virksomhetens fullmakter.
 
+Har systembrukeren ingen rettighetssett, og virksomheten bestemmer, tilbyr flaten ikke **Legg til alle klienter**. Det finnes da ikke noe forslag som sier hva klientene skal gi, og flaten skal ikke legge til alt klienten har gitt (10. november 2026).
+
 ---
 ## Illustrasjon: Klienttilganger som ett sett
 

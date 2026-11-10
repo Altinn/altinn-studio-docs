@@ -390,6 +390,8 @@ POST /authentication/api/v2/systemuser/request/vendor
 
 Vil kunden gi alle tilganger selv, sender du `vendorLocked: false` med tomme lister.
 
+Vil du at byrået skal kunne legge til mange klienter samtidig, må du oppgi rettighetssett. Uten rettighetssett må byrået åpne hver klient og velge tilganger selv.
+
 ---
 ## Hva du må tenke på når virksomheten bestemmer
 
@@ -458,6 +460,27 @@ Byrået åpner en klient i listen. Der ser byrået hva klienten har gitt, og hva
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
+## Klienten oppfyller flere alternativer
+
+Fjellvik Bygg AS oppfyller alternativ 1 og 3. Altinn krysser av for alternativ 1, og byrået kan velge alternativ 3 i stedet.
+
+- Alternativ 2 har ingen avkrysningsboks, fordi klienten mangler Revisormedarbeider.
+- Skissen viser ett valg om gangen. Om byrået kan velge flere, er ikke avklart.
+
+<div style="max-width:460px"><a href="/images/authorization/systemuser/2026-11-09/ux-flere-alternativer.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-flere-alternativer.png" alt="Fjellvik Bygg AS åpen der leverandøren bestemmer: alternativ 1 er krysset av, alternativ 3 har en tom avkrysningsboks, og alternativ 2 mangler Revisormedarbeider og kan ikke velges" style="width:100%;height:auto"></a></div>
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Alternativene kan ha navn
+
+Gir du rettighetssettene navn med feltet `name`, ser byrået navnene i stedet for «Alternativ 1», «Alternativ 2» og så videre. Si gjerne fra om du ønsker dette.
+
+<div style="max-width:460px"><a href="/images/authorization/systemuser/2026-11-09/ux-navn-pa-alternativer.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-navn-pa-alternativer.png" alt="Havbris Fiskeoppdrett AS åpen, der alternativene heter Registrert regnskapsfører, Registrert revisor og Uregistrert kunde, og Registrert revisor er krysset av" style="width:100%;height:auto"></a></div>
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
 ## Virksomheten legger til mange klienter samtidig
 
 **Legg til alle klienter** gir systembrukeren det første alternativet hver klient oppfyller, og ingenting annet. Siden spør først.
@@ -497,6 +520,17 @@ For hver klient velger virksomheten hvilke av klientens tilganger systembrukeren
 <div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-klienter.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-klienter.png" alt="Personalportalen der virksomheten bestemmer: Eksempelklient AS har ikke alt leverandøren foreslår fordi klienten trakk tilbake en tilgang, to klienter kan legges til, og Elvebakken Kafé AS har ikke gitt det leverandøren foreslår" style="width:100%;height:auto"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Klienter når leverandøren ikke har foreslått noe
+
+Har du ikke oppgitt rettighetssett, finnes det ikke noe forslag. Byrået åpner hver klient og velger blant det klienten har gitt. Ingenting er krysset av.
+
+Siden har ikke **Legg til alle klienter**, fordi det ikke er klart hva knappen skulle gitt systembrukeren. Siden skal ikke gi systembrukeren alt klienten har gitt.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-uten-forslag-liste.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-uten-forslag-liste.png" alt="Rapportrobot der virksomheten bestemmer: gruppen Kan få disse klientene har tre klienter og ingen knapp for å legge til alle" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-09/ux-uten-forslag-apen.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-uten-forslag-apen.png" alt="Rapportrobot med Havbris Fiskeoppdrett AS åpen: fire tilganger klienten har gitt, og ingen av dem er krysset av" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
 ## Klientens side viser systembrukerne
@@ -698,7 +732,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R17 | Virksomheten kan slette hele systembrukeren. |
 | R18 | For hver klient velger virksomheten tilgangspakker og enkelttjenester én og én, blant tilgangene klienten har gitt. |
 | R19 | Virksomheten kan bare gi en enkelttjeneste videre hvis klienten har gitt den som enkelttjeneste. Handlingene, for eksempel lese og skrive, følger det klienten har gitt. |
-| R20 | Det klienten har gitt av leverandørens forslag, er krysset av når virksomheten åpner en ny klient. Har klienten ikke gitt noe av forslaget, er ingenting krysset av. Dette er et forslag, ikke et vedtak. |
+| R20 | Det klienten har gitt av leverandørens forslag, er krysset av når virksomheten åpner en ny klient. Har klienten ikke gitt noe av forslaget, er ingenting krysset av. Dette er et forslag, ikke et vedtak. Uten rettighetssett finnes det ikke noe forslag, og siden har ikke **Legg til alle klienter**. |
 
 ---
 ## Reglene bak skissene: felles

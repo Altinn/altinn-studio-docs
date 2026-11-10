@@ -84,6 +84,8 @@ graph TD
 
 Et rettighetssett kan inneholde både pakker og enkeltrettigheter. Det kan ikke deles opp eller utvides. Oppfyller klienten flere sett, kan brukeren velge et annet av dem (vedtatt 10. november 2026). `action` støttes ikke i rettighetssett i første versjon. Den særskilte klientdelegeringssiden for disse systembrukerne fjernes, slik at delegeringen håndteres ett sted.
 
+Har systembrukeren ingen rettighetssett, og virksomheten bestemmer, tilbyr flaten ikke **Legg til alle klienter**. Det finnes da ikke noe forslag som sier hva klientene skal gi, og flaten skal ikke legge til alt klienten har gitt (10. november 2026).
+
 For forhåndsdefinerte tilganger for egen virksomhet kan enkeltpakker eller enkeltrettigheter ikke fjernes separat på brukersiden.
 
 ## Vedtatt: Leverandøren oppdaterer rettighetssettene
