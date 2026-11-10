@@ -220,7 +220,7 @@ Man kan ikke fjerne en enkelt tilgangspakke eller enkeltrettighet separat på de
 | Leverandøren sender en forespørsel | Listene og rettighetssettene i forespørselen |
 | Brukeren oppretter selv fra et synlig system | Listene på systemet i systemregisteret |
 
-Forespørselens krav skal verken fylles fra eller begrenses av listene i systemregisteret. Dette gjelder pakker og enkeltrettigheter for både egen virksomhet og klienter.
+Forespørselens krav skal verken fylles fra eller begrenses av listene i systemregisteret. Dette gjelder pakker og enkeltrettigheter for både egen virksomhet og klienter. Regelen gjelder versjon 2. Versjon 1 virker som før.
 
 Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder fortsatt. At et system er synlig ved opprettelse, er noe annet enn at alle opprettede systembrukere skal vises i brukeroversikten.
 
