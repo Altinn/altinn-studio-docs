@@ -211,7 +211,7 @@ POST {basePath}/{instanceOwnerPartyId}/{instanceGuid}/complete
 
 The request does not use the request body for anything even though it is a POST request.
 
-Se [Bekrefte at dataene er mottatt](/nb/altinn-studio/v9/receive-data/#bekrefte-mottak) for hva bekreftelsen brukes til, og hvordan du bekrefter mottak.
+See [Bekrefte at dataene er mottatt](/nb/altinn-studio/v9/receive-data/#bekrefte-mottak) for what the confirmation is used for and how to confirm receipt.
 
 
 ## Delete instance
