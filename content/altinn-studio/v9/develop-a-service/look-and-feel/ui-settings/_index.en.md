@@ -51,6 +51,12 @@ You can display the language selector with `showLanguageSelector`, progress with
 
 See also [PDF generation](/en/altinn-studio/v9/develop-a-service/process/pdf/) for PDF configuration.
 
+## Hide the label for optional fields
+
+`hideOptionalIndicator` hides the **Valgfritt** (optional) label on fields that are not required, and defaults to `false`. If a component has `labelSettings.optionalIndicator`, that takes precedence over this setting.
+
+We recommend keeping the default, so that end users can see which fields are optional.
+
 ## Automatic saving
 
 The default `autoSaveBehavior` is `onChangeFormData`. The app saves when form data changes. Text fields can delay updates while the user types.
