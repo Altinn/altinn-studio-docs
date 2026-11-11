@@ -95,6 +95,34 @@ Mappestrukturen viser dermed selv hvilket skjema som hører til hvilket steg. Da
 
 Se [innstillinger for sider og oppgaver](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/) for felles innstillinger og overstyringer per oppgave.
 
+### Navigasjonskomponenter bruker egne valideringsinnstillinger
+
+I v9 har valideringsinnstillinger på `NavigationButtons`, `NavigationBar` og handlinger i `CustomButton` forrang framfor innstillinger for siden, oppgaven og appen. Tidligere overstyrte `validationOnNavigation` innstillingene på komponenten. Komponentinnstillinger som tidligere ble ignorert, kan derfor gjøre at brukeren får fortsette eller blir stoppet i andre tilfeller enn før. En tilbakeknapp kan også begynne å kreve at brukeren retter feil før de går tilbake.
+
+Oppgraderingen beholder alle innstillingene. Den gir deg en TODO når forskjellen kan endre navigeringen, og viser hvilken fil, komponent og innstilling du må kontrollere. Les beskrivelsen og test om den nye oppførselen passer for appen:
+
+- Behold komponentinnstillingen hvis den nye oppførselen er ønsket.
+- Fjern `validateOnNext` fra `NavigationButtons`, eller `validateOnForward` fra `NavigationBar`, hvis framovernavigering fortsatt skal følge innstillingene for siden, oppgaven eller appen.
+- Fjern `validateOnPrevious` fra `NavigationButtons`, eller `validateOnBackward` fra `NavigationBar`, hvis tilbakeknappen fortsatt skal tillate at brukeren går tilbake uten denne valideringen.
+
+For `CustomButton` gjelder endringen `validation` på handlinger du har konfigurert i layoutfilen, både klient- og serverhandlinger. Oppgraderingen viser hvilken handling du må kontrollere. Behold `validation` hvis regelen er ønsket. Fjerner du den, følger handlingen innstillingene for siden, oppgaven eller appen. Unntaket er klienthandlingen `previousPage`: uten egen `validation` lar den brukeren gå tilbake uten denne valideringen.
+
+Oppgraderingen gir ikke TODO-er for handlinger som backendkoden returnerer. Disse handlingene følger samme oppførsel som før.
+
+Test både framover- og tilbakeknappene og andre berørte handlinger før du publiserer appen, også på sider som appen bare viser når brukeren har gitt bestemte svar.
+
+### Returknapper følger valideringen for Neste
+
+**Tilbake til oppsummering** og **Tilbake til side** på `NavigationButtons` bruker nå valideringsregelen for **Neste** når dere ikke har satt `validateOnBackToSummary`. Retur kan derfor bli stoppet av feil som tidligere ikke hindret navigeringen.
+
+Test retur etter redigering fra både oppsummeringer og lenker. Sett `validateOnBackToSummary` med `"show": []` på NavigationButtons hvis knappen fortsatt skal tillate retur uten å vise nye valideringsfeil. Dere kan også sette regelen på redigeringssiden, oppgaven eller appen. En regel på et mer spesifikt nivå har forrang, også når den gjelder **Neste**.
+
+Hvis redigeringen viser eller skjuler sider mellom redigeringssiden og retursiden, fjerner appen returknappen. Brukeren fortsetter da med vanlig sidenavigering.
+
+Kontroller også `pages.validationOnNavigation` i `App/ui/{taskId}/Settings.json`. Backend utelot tidligere denne innstillingen fra svaret til frontend. Nå virker den og kan endre både framovernavigering og retur.
+
+Se [validering ved retur]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#validering-ved-retur-til-oppsummering-eller-en-annen-side" >}}) for prioritetsrekkefølge og eksempler.
+
 ### URL-er bruker ikke lenger hash-ruting
 
 I v8 begynte stien inne i appen med `#/`:
@@ -207,22 +235,6 @@ I tillegg kjører plattformen systemoppgaver på en ny måte i v9. I v8 kjørte 
 Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}) for hele oppsettet, og [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}) hvis oppgaven sender noe og venter på svar.
 
 ## Breaking changes
-
-### Innstillinger på knappen overstyrer felles validering
-
-Ved fremovernavigering har innstillingen på komponenten nå høyest prioritet. Tidligere overstyrte `validationOnNavigation` på siden eller appen disse innstillingene:
-
-- `validateOnNext` på `NavigationButtons`
-- `validateOnForward` på `NavigationBar`
-- `validation` på en valideringshandling i `CustomButton`
-
-Har dere satt ulike regler begge steder, kan appen nå tillate navigering som tidligere ble stoppet, eller stoppe navigering som tidligere var tillatt. For eksempel vil en knapp som bare sjekker `CustomBackend`, ikke lenger sjekke `Required` selv om siden krever det. Reglene blir ikke slått sammen.
-
-Gå gjennom disse komponentinnstillingene sammen med `data.validationOnNavigation` i layoutfilene og `validationOnNavigation` i `App/ui/Settings.json`. For å beholde tidligere oppførsel kan dere fjerne komponentinnstillingen eller sette den lik regelen som gjaldt før. Oppgraderingsverktøyet gjør ikke dette for dere.
-
-Sjekk også `pages.validationOnNavigation` i `App/ui/{taskId}/Settings.json`. Backend utelot tidligere denne innstillingen fra svaret til frontend. Nå virker den, også i apper uten overstyringer på komponentene. Den overstyrer appens felles regel, mens siden og komponenten fortsatt har høyere prioritet. Fjern den hvis dere vil beholde oppførselen fra da appen ignorerte den.
-
-Se [innstillinger for validering ved sidebytte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#angi-validering-ved-sidebytte" >}}).
 
 ### Vi har flyttet egendefinerte oppgave-hooker, og de har fått ny funksjonsmåte
 

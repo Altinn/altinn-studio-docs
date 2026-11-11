@@ -299,15 +299,11 @@ App/config/texts/resource.nb.json
 
 Du kan legge inn kode for å sjekke om det finnes valideringsfeil når brukeren prøver å navigere mellom sider. Valideringsfeil kan for eksempel bety at brukeren har glemt å fylle ut et felt, eller har fylt det ut med feil format på informasjonen. Hvis det er feil, stopper appen navigeringen.
 
-Du kan konfigurere dette globalt for hele appen, per prosessteg, per side og på komponentene NavigationButtons, CustomButton og NavigationBar. Ved fremovernavigering har innstillingen på komponenten høyest prioritet.
-
-{{% notice warning %}}
-Dette endrer tidligere oppførsel: innstillinger på siden eller appen overstyrte før komponentinnstillingene. Oppgaveinnstillingen `pages.validationOnNavigation` virker også nå, etter at backend tidligere utelot den. Se [hva dere må kontrollere ved oppgradering]({{< relref "/altinn-studio/v9/new-in-v9/upgrade#innstillinger-på-knappen-overstyrer-felles-validering" >}}).
-{{% /notice %}}
+Du kan konfigurere dette globalt for hele appen, per oppgave og per side. I tillegg kan du konfigurere NavigationButtons, CustomButton og NavigationBar på komponentnivå.
 
 ### `validationOnNavigation`-objektet
 
-Du bruker egenskapen `validationOnNavigation` på globalt nivå, per prosessteg og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
+Du bruker egenskapen `validationOnNavigation` på globalt nivå, per oppgave og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar). I `CustomButton` setter du `validation` på hver handling i `actions`.
 
 {{< code-title >}}
 App/ui/Settings.json, App/ui/{taskId}/Settings.json eller App/ui/{taskId}/layouts/{page}.json
@@ -334,7 +330,7 @@ App/ui/Settings.json, App/ui/{taskId}/Settings.json eller App/ui/{taskId}/layout
 | --- | --- |
 | `"Required"` | Påkrevde felter som ikke er fylt ut. |
 | `"Schema"` | JSON Schema-feil på feltverdier. |
-| `"Invalid"` | Verdier som appen ikke kan lagre, for eksempel tekst i et tallfelt. Bruker du denne i `App/ui/Settings.json` (globalt nivå), får du feil når appen starter. |
+| `"Invalid"` | Verdier som appen ikke kan lagre, for eksempel tekst i et tallfelt. |
 | `"Component"` | Komponentspesifikk validering (for eksempel ugyldig format). |
 | `"Expression"` | Egendefinerte valideringsuttrykk. |
 | `"CustomBackend"` | Egendefinerte backendvalideringer. |
@@ -362,9 +358,9 @@ App/ui/Settings.json
 }
 ```
 
-#### 2. Per prosessteg
+#### 2. Per oppgave
 
-Overstyrer det globale nivået for ett prosessteg. Konfigurer under `pages` i oppgavemappens `Settings.json`.
+Innstillingen gjelder for alle sidene i oppgaven og overstyrer det globale nivået. Legg `validationOnNavigation` under `pages` i oppgavens `Settings.json`.
 
 {{< code-title >}}
 App/ui/Task_1/Settings.json
@@ -373,10 +369,10 @@ App/ui/Task_1/Settings.json
 ```json
 {
   "pages": {
-    "order": ["side1", "oppsummering"],
+    "order": ["side1", "side2"],
     "validationOnNavigation": {
       "page": "current",
-      "show": ["Required"]
+      "show": ["Required", "Schema"]
     }
   }
 }
@@ -384,7 +380,7 @@ App/ui/Task_1/Settings.json
 
 #### 3. Per side
 
-Overstyrer innstillingene for prosessteget og appen for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
+Overstyrer innstillingen for oppgaven og appen for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
 
 **Filplassering:** `App/ui/Task_1/layouts/side1.json`
 
@@ -404,9 +400,9 @@ App/ui/Task_1/layouts/side1.json
 }
 ```
 
-#### 4. Komponentnivå (NavigationButtons, CustomButton, NavigationBar)
+#### 4. Komponentnivå (NavigationButtons, NavigationBar og CustomButton)
 
-Du kan overstyre valideringen for fremovernavigering direkte på komponenten. For NavigationButtons bruker du `validateOnNext`:
+Innstillinger på NavigationButtons og NavigationBar overstyrer `validationOnNavigation` fra siden, oppgaven og appen. For NavigationButtons bruker du `validateOnNext` og `validateOnPrevious`:
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -423,13 +419,22 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-For bakovernavigering kan du bruke `validateOnPrevious`. Har du satt `validationOnNavigation` på side-, oppgave- eller appnivå, kjører ikke appen `validateOnPrevious`. Det samme gjelder `validateOnBackward` på NavigationBar.
+- Framover gjelder komponentinnstillingen hvis du har satt den. Ellers følger navigeringen `validationOnNavigation` fra siden, oppgaven eller appen.
+- Tilbake gjelder bare `validateOnPrevious` eller `validateOnBackward`. Har du ikke satt denne egenskapen, kan brukeren gå tilbake uten denne valideringen.
+
+Ved vanlig sidenavigering med NavigationButtons og NavigationBar gjelder de felles reglene i `validationOnNavigation` bare framovernavigering. Returknapper har egne regler, som beskrevet nedenfor.
+
+I `CustomButton` har `validation` på handlingen forrang framfor `validationOnNavigation`. Dette gjelder både klient- og serverhandlinger du har konfigurert i layoutfilen. Uten egen `validation` følger handlingen innstillingene for siden, oppgaven eller appen. Klienthandlingen `previousPage` bruker bare sin egen `validation` og lar ellers brukeren gå tilbake uten denne valideringen.
+
+Ved `navigateToPage` framover kan feil på en mellomliggende side deaktivere knappen. Appen sjekker disse feilene mot `validationOnNavigation` fra siden, oppgaven eller appen. Handlingens egen `validation` overstyrer ikke denne sperren. Sperren gjelder ikke hopp bakover.
+
+Handlinger som backendkoden returnerer, kjører uten denne valideringssjekken, som før.
 
 ### Prioritetsrekkefølge
 
-Komponent → Side → Prosessteg → App
+For NavigationButtons, NavigationBar og handlinger konfigurert i CustomButton gjelder:
 
-Ved fremovernavigering bruker appen den mest spesifikke innstillingen. Har komponenten ingen innstilling, bruker appen innstillingen for siden, deretter prosessteget og til slutt hele appen.
+Komponent (eller handling) → Side → Oppgave → Globalt
 
 ### Validering ved retur til oppsummering eller en annen side
 
