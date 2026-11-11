@@ -97,19 +97,9 @@ Se [innstillinger for sider og oppgaver](/nb/altinn-studio/v9/develop-a-service/
 
 ### Navigasjonskomponenter bruker egne valideringsinnstillinger
 
-I v9 har valideringsinnstillinger på `NavigationButtons`, `NavigationBar` og handlinger i `CustomButton` forrang framfor innstillinger for siden, oppgaven og appen. Tidligere overstyrte `validationOnNavigation` innstillingene på komponenten. Komponentinnstillinger som tidligere ble ignorert, kan derfor gjøre at brukeren får fortsette eller blir stoppet i andre tilfeller enn før. En tilbakeknapp kan også begynne å kreve at brukeren retter feil før de går tilbake.
+I v9 har valideringsregler på `NavigationButtons`, `NavigationBar` og `CustomButton`-handlinger i layoutfilen forrang framfor reglene for siden, oppgaven og appen. Dette kan endre når brukeren får fortsette, også bakover. Oppgraderingen beholder innstillingene og gir TODO-er når navigeringen kan endre seg eller trenger manuell vurdering. Gå gjennom TODO-ene og test berørte knapper og handlinger.
 
-Oppgraderingen beholder alle innstillingene. Den gir deg en TODO når forskjellen kan endre navigeringen, og viser hvilken fil, komponent og innstilling du må kontrollere. Les beskrivelsen og test om den nye oppførselen passer for appen:
-
-- Behold komponentinnstillingen hvis den nye oppførselen er ønsket.
-- Fjern `validateOnNext` fra `NavigationButtons`, eller `validateOnForward` fra `NavigationBar`, hvis framovernavigering fortsatt skal følge innstillingene for siden, oppgaven eller appen.
-- Fjern `validateOnPrevious` fra `NavigationButtons`, eller `validateOnBackward` fra `NavigationBar`, hvis tilbakeknappen fortsatt skal tillate at brukeren går tilbake uten denne valideringen.
-
-For `CustomButton` gjelder endringen `validation` på handlinger du har konfigurert i layoutfilen, både klient- og serverhandlinger. Oppgraderingen viser hvilken handling du må kontrollere. Behold `validation` hvis regelen er ønsket. Fjerner du den, følger handlingen innstillingene for siden, oppgaven eller appen. Unntaket er klienthandlingen `previousPage`: uten egen `validation` lar den brukeren gå tilbake uten denne valideringen.
-
-Oppgraderingen gir ikke TODO-er for handlinger som backendkoden returnerer. Disse handlingene følger samme oppførsel som før.
-
-Test både framover- og tilbakeknappene og andre berørte handlinger før du publiserer appen, også på sider som appen bare viser når brukeren har gitt bestemte svar.
+Se [hvordan valideringsreglene virker ved sidebytte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#angi-validering-ved-sidebytte" >}}).
 
 ### URL-er bruker ikke lenger hash-ruting
 
