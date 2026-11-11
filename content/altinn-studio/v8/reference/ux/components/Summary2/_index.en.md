@@ -108,6 +108,38 @@ To do this, simply specify the ```target.taskId``` like so:
 
 The behaviour is exactly like before with regard to ```target.type``` and ```target.id```, except that a ```taskId``` property has been added.
 
+## Settings for the entire summary
+
+These properties are set directly on the Summary2 component and apply to the whole summary:
+
+```json{hl_lines="6-"}
+{
+        "id": "MySummary2ID",
+        "type": "Summary2",
+        "target": {
+          "type": "layoutSet"
+        },
+        "hideEmptyFields": true,
+        "isCompact": true
+}
+```
+
+| Parameter           | Type    | Required | Description                                                                              |
+|---------------------|---------|----------|------------------------------------------------------------------------------------------|
+| hideEmptyFields     | boolean | no       | Exclude empty fields from the summary. Only works if the field is not required.          |
+| isCompact           | boolean | no       | Option to display a more compact version. (Map, Paragraph and Header does not have this) |
+| showPageInAccordion | boolean | no       | Show each page in the summary as an accordion.                                           |
+
+If you want to show a specific component even when ```hideEmptyFields``` is set, set ```forceShowInSummary``` on the component being summarized:
+
+```json{hl_lines="6-"}
+{
+  "id": "MyInputFieldID",
+  "type": "Input",
+  "forceShowInSummary": true
+}
+```
+
 ## Overrides
 
 For each component in your summary, you can configure different overrides to suit your needs.
@@ -137,10 +169,7 @@ Here are the overrides that are common for all components:
 |-----------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
 | componentId     | string  | yes      | ID of the compoment you are overriding                                                                      |
 | hidden          | boolean | no       | Exclude the component from summary                                                                          |
-| forceShowInSummary       | boolean | no       | Will force show the component in a summary even if hideEmptyFields is set to true in the summary component. |
 | emptyFieldText  | string  | no       | Custom text to show for empty fields.                                                                        |
-| hideEmptyFields | boolean | no       | Exclude empty fields for summary. Only works if the field is not required.                                    |
-| isCompact       | boolean | no       | Option to display a more compact version. (Map, Paragraph and Header does not have this)                    |
 
 In addition, a few components support component-specific overrides:
 
