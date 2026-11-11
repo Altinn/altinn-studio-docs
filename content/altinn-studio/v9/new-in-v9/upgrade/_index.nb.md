@@ -95,6 +95,12 @@ Mappestrukturen viser dermed selv hvilket skjema som hører til hvilket steg. Da
 
 Se [innstillinger for sider og oppgaver](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/) for felles innstillinger og overstyringer per oppgave.
 
+### Navigasjonskomponenter bruker egne valideringsinnstillinger
+
+I v9 har valideringsregler på `NavigationButtons`, `NavigationBar` og `CustomButton`-handlinger i layoutfilen forrang framfor reglene for siden, oppgaven og appen. Dette kan endre når brukeren får fortsette, også bakover. Oppgraderingen beholder innstillingene og gir TODO-er når navigeringen kan endre seg eller trenger manuell vurdering. Gå gjennom TODO-ene og test berørte knapper og handlinger.
+
+Se [hvordan valideringsreglene virker ved sidebytte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#angi-validering-ved-sidebytte" >}}).
+
 ### URL-er bruker ikke lenger hash-ruting
 
 I v8 begynte stien inne i appen med `#/`:

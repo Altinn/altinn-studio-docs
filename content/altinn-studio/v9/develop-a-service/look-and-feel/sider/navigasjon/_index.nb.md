@@ -297,16 +297,14 @@ App/config/texts/resource.nb.json
 
 ## Angi validering ved sidebytte
 
-Du kan legge inn kode for å sjekke om det finnes valideringsfeil når brukeren prøver å navigere mellom sider. Valideringsfeil kan for eksempel bety at brukeren har glemt å fylle ut et felt, eller har fylt det ut med feil format på informasjonen. Hvis det er feil, stopper appen navigeringen.
-
-Du kan konfigurere dette på to nivåer med ulik prioritet: globalt for hele appen og per side. Du kan ikke sette det per prosessteg i `Settings.json` i oppgavemappen, fordi appen ikke tar med `validationOnNavigation` derfra. I tillegg kan du konfigurere NavigationButtons, CustomButton og NavigationBar på komponentnivå.
+Du kan angi hvilke valideringsfeil som skal stoppe sidebytte, for appen, oppgaven, siden eller en enkelt komponent.
 
 ### `validationOnNavigation`-objektet
 
-Du bruker egenskapen `validationOnNavigation` på globalt nivå og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
+Objektet `validationOnNavigation` har egenskapene `page` og `show`:
 
 {{< code-title >}}
-App/ui/Settings.json eller App/ui/{taskId}/layouts/{page}.json
+App/ui/Settings.json, App/ui/{taskId}/Settings.json eller App/ui/{taskId}/layouts/{page}.json
 {{< /code-title >}}
 
 ```json
@@ -358,9 +356,29 @@ App/ui/Settings.json
 }
 ```
 
-#### 2. Per side
+#### 2. Per oppgave
 
-Overstyrer det globale nivået for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
+Innstillingen gjelder for alle sidene i oppgaven og overstyrer det globale nivået. Legg `validationOnNavigation` under `pages` i oppgavens `Settings.json`.
+
+{{< code-title >}}
+App/ui/Task_1/Settings.json
+{{< /code-title >}}
+
+```json
+{
+  "pages": {
+    "order": ["side1", "side2"],
+    "validationOnNavigation": {
+      "page": "current",
+      "show": ["Required", "Schema"]
+    }
+  }
+}
+```
+
+#### 3. Per side
+
+Overstyrer innstillingen for oppgaven og appen for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
 
 **Filplassering:** `App/ui/Task_1/layouts/side1.json`
 
@@ -380,9 +398,9 @@ App/ui/Task_1/layouts/side1.json
 }
 ```
 
-#### 3. Komponentnivå (NavigationButtons, CustomButton, NavigationBar)
+#### 4. Komponentnivå (NavigationButtons, NavigationBar og CustomButton)
 
-Har du ikke konfigurert noen av de høyere nivåene, kan du konfigurere validering direkte på komponenten. For NavigationButtons bruker du `validateOnNext` og `validateOnPrevious`:
+`NavigationButtons` bruker `validateOnNext` og `validateOnPrevious`. `NavigationBar` bruker `validateOnForward` og `validateOnBackward`.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -399,16 +417,18 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-**Merk:** Setter du `validationOnNavigation` på side- eller globalt nivå, overstyrer denne konfigurasjonen komponentnivået:
+- Framover bruker appen komponentens egen regel, eller arver `validationOnNavigation` hvis regelen mangler.
+- Tilbake bruker appen bare komponentens egen regel. Uten den kan brukeren gå tilbake uten denne valideringen.
 
-- Den erstatter `validateOnNext`.
-- Den slår av `validateOnPrevious` helt.
+For `CustomButton` har handlingens `validation` forrang. Dette gjelder klient- og serverhandlinger i layoutfilens `actions`. Uten egen regel følger handlingen `validationOnNavigation`, unntatt klienthandlingen `previousPage`, som da ikke validerer.
+
+Ved hopp framover med `NavigationBar` eller `navigateToPage` sjekker appen også mellomliggende sider mot hver sides `validationOnNavigation`, med arv fra oppgaven og appen. Feil som samsvarer med reglene, deaktiverer målet i `NavigationBar` eller hele `CustomButton`, uavhengig av `validateOnForward` eller handlingens egen `validation`. Denne sperren gjelder bare hopp framover.
+
+Handlinger som backendkoden returnerer, kjører uten denne valideringssjekken.
 
 ### Prioritetsrekkefølge
 
-Side → Globalt → Komponent
-
-Sidenivå har høyest prioritet og overstyrer alt annet. Komponentnivåkonfigurasjonen gjelder bare når du ikke har konfigurert noen høyere nivåer.
+Komponent (eller handling) → Side → Oppgave → Globalt
 
 ### Blokkere direktenavigasjon i sidemenyen
 
