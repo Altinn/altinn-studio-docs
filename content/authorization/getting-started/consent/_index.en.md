@@ -55,7 +55,7 @@ This section explains what the data consumer must do to start using the consent 
 - Maskinporten ensures authenticity and allows the service owner to perform coarse-grained access control through scopes.
 - The Maskinporten token carries the consent information, enabling the service owner to authorise access based on the token contents.
 
-You need a Norwegian organisation number to access Maskinporten. See [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869) for details.
+You need a Norwegian organisation number to access Maskinporten. See [Maskinporten](https://samarbeid.digdir.no/maskinporten/dette-er-maskinporten/96) for details.
 
 By signing the [terms of use for Maskinporten and ID-porten](https://samarbeid.digdir.no/maskinporten/bruksvilkar-private-virksomheter/73#21_generelt) you gain access to the test and production environments at Digdir.
 

@@ -96,7 +96,7 @@ In addition to general descriptions of each of the application components given 
 here's a summary of how these components relates to and serves Altinn 3 Broker:
 
 * [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Auhentication of human end users.
-* [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Authentication and authorization of machines (End User Systems). 
+* [Maskinporten](https://samarbeid.digdir.no/maskinporten/dette-er-maskinporten/96): Authentication and authorization of machines (End User Systems).
   Authorization features are realized in cooperation with the Altinn Authorization component.
 * [Altinn Authorization](/en/authorization/). Register services resources and authorize access.
 * [Altinn Notifications](/en/notifications/). Notifications to human end users via e-mail and sms.

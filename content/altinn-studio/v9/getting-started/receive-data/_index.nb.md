@@ -34,14 +34,14 @@ for å søke på instanser. Parameter `appId` eller `org` må alltid være med.
 For eksempel:
 
 ```
-GET https://{platformBaseUrl}/storage/api/v1/instances?appId={org}/{app}&process.isComplete=true&process.ended=gt:2026-02-27&excludeConfirmedBy=true
+GET https://{platformBaseUrl}/storage/api/v1/instances?appId={org}/{app}&process.isComplete=true&process.ended=gt:2026-02-27&excludeConfirmedBy={org}
 ```
 
 Eksempelet søker på instanser:
 - fra en gitt app, `appId={org}/{app}` - bytt ut `org` og `app` med din app
 - som er fullført `process.isComplete=true`
 - kun instanser som er fullført etter 27. februar 2026, `process.ended=gt:2026-02-27`
-- kun instanser som ikke allerede er markert som bekreftet hentet ut `excludeConfirmedBy=true`
+- kun instanser som ikke allerede har blitt markert som bekreftet mottak, `excludeConfirmedBy={org}` - bytt ut `org` med organisasjonen din
    
 
 [Se oversikt over spørringsparametre som er tilgjengelig, og eksempler på bruk.]({{<relref "/api/storage/instances">}})
@@ -79,6 +79,8 @@ POST https://{org}.apps.{host}/api/v1/instances/{instanceOwnerPartyId}/{instance
 
 hvor `host` er enten `tt02.altinn.no` (test) eller `altinn.no` (produksjon). `body` brukes ikke til noe i dette 
 endepunktet, og kan være tom.
+
+Se [Bekrefte at dataene er mottatt]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-mottak) for hva bekreftelsen gjør, og hva som skjer hvis du aldri sender den.
 
 
 ## Abonnere på hendelser som varsler om nye instanser som er klare
