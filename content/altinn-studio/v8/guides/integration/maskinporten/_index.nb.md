@@ -137,7 +137,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
   });
   
   // More information about the Maskinporten environment mapping:
-  // https://github.com/Altinn/altinn-apiclient-maskinporten/blob/main/src/Altinn.ApiClients.Maskinporten/Services/MaskinportenService.cs#L343
+  // https://github.com/Altinn/altinn-apiclient-maskinporten/blob/85d71b3c46ac84206573585f9da9bcf743498b6e/src/Altinn.ApiClients.Maskinporten/Services/MaskinportenService.cs#L453
 }
 {{< / highlight >}}
 

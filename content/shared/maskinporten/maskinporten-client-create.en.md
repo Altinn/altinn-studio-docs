@@ -19,7 +19,7 @@ If you logged in to represent a synthetic organisation, you will also be able to
 ![The add Maskinporten client page](/en/shared/maskinporten/add_maskinporten_client_page.en.png "The 'Add Maskinporten client' page.")
 6. You have now created a Maskinporten client for your organisation. 
 To use this client you need to add at least one authentication key. The client supports JWK and PEM keys. 
-Start by either locating an existing key or creating a new one. You can use the [Altinn JWKS tool](https://github.com/Altinn/altinn-authorization-utils/tree/main/src/Altinn.Cli) or other key generator of your choice for this.
+Start by either locating an existing key or creating a new one. You can use the [Altinn JWKS tool](https://github.com/Altinn/altinn-authorization-utils/tree/main/src/tools/Altinn.Cli) or other key generator of your choice for this.
 Next, navigate to the key section on your client page and select `Add`.
 ![Select the key section on your client page](/en/shared/maskinporten/key_section.en.png "Keys can be added in the key section.")
 In the `JWK or PEM format` field paste your public key and click `Save`. The key is now added to the client. 
