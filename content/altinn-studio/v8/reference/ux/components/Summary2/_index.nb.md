@@ -167,9 +167,12 @@ Her er overstyringene som er felles for alle komponenter:
 
 | Parameter       | Type    | Påkrevd | Beskrivelse                                                                                                            |
 |-----------------|---------|---------|------------------------------------------------------------------------------------------------------------------------|
-| componentId     | string  | ja      | ID-en til komponenten du overstyrer                                                                                    |
+| componentId     | string  | ja*     | ID-en til komponenten du overstyrer                                                                                    |
+| componentType   | string  | ja*     | Komponenttypen du overstyrer, for eksempel ```Input```. Gjelder alle komponenter av denne typen                        |
 | hidden          | boolean | nei     | Ekskluder komponenten fra oppsummeringen                                                                               |
 | emptyFieldText  | string  | nei     | Egendefinert tekst som skal vises for tomme felt.                                                                       |
+
+\* Bruk enten ```componentId``` eller ```componentType```, ikke begge.
 
 I tillegg støtter noen komponenter komponentspesifikke overstyringer:
 

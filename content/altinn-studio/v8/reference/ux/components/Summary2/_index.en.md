@@ -167,9 +167,12 @@ Here are the overrides that are common for all components:
 
 | Parameter       | Type    | Required | Description                                                                                                 |
 |-----------------|---------|----------|-------------------------------------------------------------------------------------------------------------|
-| componentId     | string  | yes      | ID of the compoment you are overriding                                                                      |
+| componentId     | string  | yes*     | ID of the component you are overriding                                                                      |
+| componentType   | string  | yes*     | Type of component to override, for example ```Input```. Applies to all components of that type              |
 | hidden          | boolean | no       | Exclude the component from summary                                                                          |
 | emptyFieldText  | string  | no       | Custom text to show for empty fields.                                                                        |
+
+\* Use either ```componentId``` or ```componentType```, not both.
 
 In addition, a few components support component-specific overrides:
 
