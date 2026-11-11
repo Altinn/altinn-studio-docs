@@ -85,7 +85,7 @@ To lister for påkrevde og ikke-påkrevde enkelt rettigheter (Rights), to lister
 }
 ```
 
-Hver rettighet (Right) gjelder én ressurs, så `resource`-listen har ett element. Det er ikke støtte for subressurser. Trenger du flere ressurser, legger du inn én rettighet per ressurs, som i eksempelet over. API-et svarer med `400 Bad Request` hvis en rettighet har flere elementer, både i `requiredRights` og `unwantedRights`.
+Hver rettighet (Right) gjelder én ressurs, så `resource`-listen har ett element. Det er ikke støtte for subressurser. Trenger du flere ressurser, legger du inn én rettighet per ressurs, som i eksempelet over. API-et svarer med `400 Bad Request` hvis en rettighet har flere elementer eller en annen id enn `urn:altinn:resource`, både i `requiredRights` og `unwantedRights`.
 
 Alle endringer er Idempotente, dvs det er helt ok å prøve å legge til en ressurs som allerede er delegert, eller å prøve å fjerne en ressurs som ikke er delegert. Da vil det ikke skje noen.
 
