@@ -35,6 +35,7 @@
   $dsCss
   (resources.Get "designsystemet/altinn.css")
   (resources.Get "css/designsystemet-site.css")
+  (resources.Get "css/designsystemet-docs.css")
   | resources.Concat "css/designsystemet.css" -}}
 {{- $js := resources.Get "js/designsystemet.js" | js.Build (dict "format" "esm" "target" "es2020" "minify" hugo.IsProduction) -}}
 {{- if hugo.IsProduction }}

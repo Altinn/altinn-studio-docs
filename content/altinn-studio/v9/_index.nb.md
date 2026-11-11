@@ -12,10 +12,14 @@ sitemap:
   disable: true
 noindex: true
 cascade:
+  # Alle v9-sider bruker rammen med Designsystemet (layouts/_default/designsystemet-docs.html).
+  layout: designsystemet-docs
   sitemap:
     disable: true
   params:
     noindex: true
+    # Viser Preview i sidehodet. Fjern linjen når v9 blir gjeldende versjon.
+    preview: true
     product: product_studio
     version: v10
 ---

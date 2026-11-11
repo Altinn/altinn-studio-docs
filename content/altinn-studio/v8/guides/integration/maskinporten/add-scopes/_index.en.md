@@ -46,7 +46,7 @@ If Studio shows **You do not have access on behalf of the organisation**, Studio
 To resolve it:
 
 1. Check that the app is owned by the correct organisation in Altinn Studio.
-2. Ask a director/manager in the organisation, or someone with the Altinn **Hovedadministrator** role, to give your user access to self-service for clients in ID-porten/Maskinporten in Altinn. If the organisation also administers API scopes itself, the user also needs access to self-service for APIs. See [Digdir's guide for access in test and production environments](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web.html#tilgang-i-test-og-produksjonsmilj%C3%B8).
+2. Ask a director/manager in the organisation, or someone with the Altinn **Hovedadministrator** role, to give your user access to self-service for clients in ID-porten/Maskinporten in Altinn. If the organisation also administers API scopes itself, the user also needs access to self-service for APIs. See [Digdir's guide for access in test and production environments](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web.html#tilgang-i-test--og-produksjonsmilj%C3%B8).
 3. Alternatively, ask a user who already has this access to add the scopes to the app.
 4. Try again in Altinn Studio after the access has been granted.
 5. Contact Altinn servicedesk if the access should be correct but the message is still shown.

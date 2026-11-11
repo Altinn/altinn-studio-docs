@@ -301,6 +301,14 @@ Se [Prosess-hooks]({{< relref "/altinn-studio/v9/develop-a-service/reference/con
 
 Appen har ikke lenger endepunktet `PUT .../process/completeProcess`. Bruker systemet deres det til å avslutte en tilbakemeldingsoppgave når dere har behandlet innsendingen, kaller dere `PUT .../process/next` i stedet.
 
+### Vi har fjernet `data/{dataGuid}/validate`
+
+Appen har ikke lenger endepunktet `GET .../data/{dataGuid}/validate`. Bruk `GET .../instances/{instanceOwnerPartyId}/{instanceGuid}/validate` i stedet. Det godtar disse parameterne:
+
+- `onlyIncrementalValidators`: `true` kjører bare validatorene for inkrementell validering, `false` bare de andre. Uten parameteren kjører alle.
+- `ignoredValidators`: en kommaseparert liste med `ValidationSource` for validatorer som ikke skal kjøre.
+- `language`: språket på valideringsmeldingene.
+
 ### Mindre endringer
 
 Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det er greit å kjenne til dem:
