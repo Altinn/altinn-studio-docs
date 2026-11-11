@@ -24,7 +24,7 @@ graph TD
   VISIBLE --> REGISTERLISTS["Bruk rettighetskravene på det valgte systemet"]
 {{< /mermaid >}}
 
-Listene på systemet i systemregisteret gjelder bare når brukeren selv oppretter systembruker for et synlig system. I forespørselsflyten angir leverandøren listene og rettighetssettene uavhengig av systemets lister. Forespørselens krav trenger ikke være en delmengde av disse.
+Listene på systemet i systemregisteret gjelder bare i versjon 1, og når brukeren selv oppretter systembruker for et synlig system. I forespørselsflyten i versjon 2 angir leverandøren listene og rettighetssettene uavhengig av systemets lister. Forespørselens krav trenger ikke være en delmengde av disse.
 
 Ved aksept og senere delegering gjelder de lagrede kravene fra forespørselen, også hvis systemets lister er tomme eller endres. Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder fortsatt. Systemregisteret er fortsatt kilde til systemets identitet og annen relevant metadata.
 
@@ -127,6 +127,7 @@ Vedtatt 9. november 2026, og vi sender det på høring. Flagget heter `vendorLoc
 | Eksisterende Agent-brukere | Intern representasjon: videreføre med kompatibilitet eller overføre til utvidet modell. Klientene flyttes ikke automatisk |
 | Oppdatering av rettighetssett | Om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når leverandøren fjerner en tilgang |
 | Navn på rettighetssett | Valgfritt `name` fra leverandøren, eller bare «Alternativ 1», «Alternativ 2» i grensesnittet. Vi spør leverandørene i høringen |
+| Levetid for versjon 1 | Antatt minst to år, ikke bekreftet. Leverandørene får god dokumentasjon, men ikke annen hjelp til overgangen |
 | Delvis tilbakekalling | Fjerne hele klienttilknytningen, beholde resten, eller bytte til et annet sett |
 | Bytte Maskinporten-klient | Tillate bytte eller kreve ny bruker |
 
