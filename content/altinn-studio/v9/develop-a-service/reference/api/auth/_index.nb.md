@@ -37,9 +37,13 @@ Altinn Autorisasjon støtter ulike typer brukere. Dette er viktig å vite om nå
   - Leverandøren har Maskinporten-klienten og autentiserer seg. Konseptet lar systemet opptre på vegne av systembrukeren (inkludert rettigheter systembrukeren har fått delegert fra kunden).
   - Appens API aksepterer bare Maskinporten-tokens som har blitt innvekslet til Altinn-token (i fremtiden vil vi støtte Maskinporten-tokens direkte).
 
-{{% notice info %}}
-Virksomhetsbrukere fra Altinn 2 kan ikke lenger logge inn. De er erstattet av [systembruker]({{< relref "/authorization/what-do-you-get/systemuser" >}}).
-{{% /notice %}}
+### Slik velger du innloggingsmetode
+
+Velg innloggingsmetode ut fra hva appen må vite om den som utfører operasjonene:
+
+- Må appen vite hvilken person som utfører operasjonene, bruker du ID-porten.
+- Må appen vite hvilket system som står bak, bruker du [systembruker]({{< relref "/authorization/what-do-you-get/systemuser" >}}).
+- Holder det å vite hvilken virksomhet det er, og eventuelt hvilket scope den har, bruker du Maskinporten.
 
 ## Informasjon i appen
 
