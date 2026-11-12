@@ -355,9 +355,12 @@ Du som tjenesteeier vurderer selv om meldingen er en servicemelding. Altinn kont
 
 ```json
 {
-  "notification": {
+  "correspondence": {
     ...,
-    "useStaleContactInformation": true
+    "notification": {
+      ...,
+      "useStaleContactInformation": true
+    }
   }
 }
 ```

@@ -356,9 +356,12 @@ The service owner is responsible for assessing whether the correspondence qualif
 
 ```json
 {
-  "notification": {
+  "correspondence": {
     ...,
-    "useStaleContactInformation": true
+    "notification": {
+      ...,
+      "useStaleContactInformation": true
+    }
   }
 }
 ```
