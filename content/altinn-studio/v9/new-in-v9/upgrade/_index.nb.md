@@ -117,7 +117,7 @@ Test både framover- og tilbakeknappene og andre berørte handlinger før du pub
 
 Test retur etter redigering fra både oppsummeringer og lenker. Sett `validateOnBackToSummary` med `"show": []` på NavigationButtons hvis knappen fortsatt skal tillate retur uten å vise nye valideringsfeil. Dere kan også sette regelen på redigeringssiden, oppgaven eller appen. En regel på et mer spesifikt nivå har forrang, også når den gjelder **Neste**.
 
-Hvis redigeringen viser eller skjuler sider mellom redigeringssiden og retursiden, fjerner appen returknappen. Brukeren fortsetter da med vanlig sidenavigering.
+Hvis redigeringen viser tidligere skjulte sider mellom redigeringssiden og retursiden, eller gjør retursiden utilgjengelig, fjerner appen returknappen. Brukeren fortsetter da med vanlig sidenavigering. Returknappen blir stående når brukeren skjuler mellomliggende sider eller endrer hvilke sider som er synlige før redigeringssiden.
 
 Kontroller også `pages.validationOnNavigation` i `App/ui/{taskId}/Settings.json`. Backend utelot tidligere denne innstillingen fra svaret til frontend. Nå virker den og kan endre både framovernavigering og retur.
 
