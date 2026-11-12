@@ -42,6 +42,7 @@ API actions and activity log entries may refer to single transmissions.
 **Read more**
 
 - {{<link "../../reference/entities/transmission">}}
+- {{<link "../../user-guides/service-owners/transmission-types">}}
 
 ## Attachments
 
