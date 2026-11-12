@@ -1,5 +1,6 @@
 ---
 title: "Choosing a transmission type"
+linkTitle: "Transmission types"
 description: "How to choose a transmission type, with examples of each type"
 weight: 22
 ---
