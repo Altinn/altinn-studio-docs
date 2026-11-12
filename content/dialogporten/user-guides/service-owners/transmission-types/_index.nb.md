@@ -84,7 +84,7 @@ Et formelt vedtak. En sak kan ha flere.
 
 ## Typisk forløp
 
-```
+```text
 Submission → Acceptance → Request → Submission → Acceptance → Decision
 Submission → Rejection  → Correction → Acceptance → Decision
 ```
