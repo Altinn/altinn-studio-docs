@@ -75,6 +75,7 @@ Et formelt vedtak. En sak kan ha flere.
 
 | Spørsmål                                               | Type                       |
 |--------------------------------------------------------|----------------------------|
+| Kommer forsendelsen fra parten?                        | `Submission` / `Correction` |
 | Godkjenner vi denne ene innsendingen?                  | `Acceptance` / `Rejection` |
 | Er dette et formelt vedtak?                            | `Decision`                 |
 | Trenger vi noe fra parten?                             | `Request`                  |

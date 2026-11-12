@@ -75,6 +75,7 @@ A formal decision. A case can have several.
 
 | Question                                               | Type                       |
 |--------------------------------------------------------|----------------------------|
+| Does the transmission come from the party?             | `Submission` / `Correction` |
 | Do we accept this particular submission?               | `Acceptance` / `Rejection` |
 | Is this a formal decision?                             | `Decision`                 |
 | Do we need something from the party?                   | `Request`                  |
