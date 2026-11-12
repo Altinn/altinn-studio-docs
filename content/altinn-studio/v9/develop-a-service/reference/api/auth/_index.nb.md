@@ -42,8 +42,8 @@ Altinn Autorisasjon støtter ulike typer brukere. Dette er viktig å vite om nå
 Velg innloggingsmetode ut fra hva appen må vite om den som utfører operasjonene:
 
 - Må appen vite hvilken person som utfører operasjonene, bruker du ID-porten.
-- Må appen vite hvilket system som står bak, bruker du [systembruker]({{< relref "/authorization/what-do-you-get/systemuser" >}}).
-- Holder det å vite hvilken virksomhet det er, og eventuelt hvilket scope den har, bruker du Maskinporten.
+- Må appen vite hvilket system som står bak, bruker du [systembruker]({{< relref "/authorization/what-do-you-get/systemuser" >}}). Det gjelder også når et system skal sende inn på vegne av en virksomhet.
+- Holder det å vite hvilken virksomhet det er, og eventuelt hvilket scope den har, bruker du Maskinporten. En virksomhet som er logget inn med bare Maskinporten, kan ikke sende inn på vegne av seg selv.
 
 ## Informasjon i appen
 
