@@ -6,11 +6,11 @@
     "theme": "designsystemet tokens create -y && designsystemet tokens build --out-dir assets/designsystemet --clean"
   },
   "dependencies": {
-    "@digdir/designsystemet-css": "1.23.0",
-    "@digdir/designsystemet-web": "1.23.0",
-    "@navikt/aksel-icons": "8.19.1"
+    "@digdir/designsystemet-css": "1.24.0",
+    "@digdir/designsystemet-web": "1.24.0",
+    "@navikt/aksel-icons": "8.22.1"
   },
   "devDependencies": {
-    "@digdir/designsystemet": "1.23.0"
+    "@digdir/designsystemet": "1.24.0"
   }
 }
