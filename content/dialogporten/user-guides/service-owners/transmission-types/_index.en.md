@@ -84,10 +84,8 @@ A formal decision. A case can have several.
 
 ## Typical flow
 
-```text
-Submission → Acceptance → Request → Submission → Acceptance → Decision
-Submission → Rejection  → Correction → Acceptance → Decision
-```
+- `Submission` → `Acceptance` → `Request` → `Submission` → `Acceptance` → `Decision`
+- `Submission` → `Rejection` → `Correction` → `Acceptance` → `Decision`
 
 **Read more**
 
