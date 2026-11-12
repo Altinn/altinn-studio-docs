@@ -16,7 +16,7 @@ Arbeidsflate viser ikke `extendedType`, men andre sluttbrukersystemer kan bruke 
 
 Typene er ikke hentet fra en formell standard. De er et pragmatisk utvalg som skal dekke de aller fleste behovene vi ser for oss i tjenesteeiernes saksprosesser, uten at det blir så mange typer at det er uklart hvilken man skal velge.
 
-Typene er bevisst generelle og sier ikke noe om domenet. Det gjør at de kan brukes på tvers av tjenesteeiere, og at sluttbrukerflatene kan vise forsendelser likt uansett hvilken tjeneste de kommer fra. Hva forsendelsen konkret handler om, kommer fram av tittel og innhold. Typen sier hvilken rolle den har i dialogen.
+Typene er bevisst generelle og sier ikke noe om domenet. Det gjør at de kan brukes på tvers av tjenesteeiere, og at sluttbrukerflatene kan vise forsendelser likt uansett hvilken tjeneste de kommer fra. Hva forsendelsen konkret handler om, kommer frem av tittel og innhold. Typen sier hvilken rolle den har i dialogen.
 
 ## Relaterte forsendelser
 
@@ -28,13 +28,13 @@ og svar på en `Request`. Da blir det tydelig hva forsendelsen svarer på eller 
 
 ### `Submission` – Innsending
 En vanlig innsending av opplysninger eller et skjema.
-- Virksomhet sender inn MVA-meldingen for en termin
+- Virksomhet sender inn mva-meldingen for en termin
 - Innbygger søker om byggetillatelse
 - Ettersending av dokumentasjon etter en `Request` (bør relateres til forespørselen)
 
 ### `Correction` – Korrigering
 Retter eller overstyrer en tidligere innsending. Bør relateres til innsendingen den korrigerer.
-- Korrigert MVA-melding for en termin som allerede er levert
+- Korrigert mva-melding for en termin som allerede er levert
 - A-melding som retter et feil lønnsbeløp
 
 ## Fra tjenesteeieren
@@ -46,7 +46,7 @@ Generell informasjon som ikke er knyttet til en innsending. Krever ingen handlin
 
 ### `Acceptance` – Godkjenning
 Sier at en tidligere innsending (`Submission` eller `Correction`) er godkjent. Bør relateres til innsendingen.
-- «MVA-meldingen er mottatt og godkjent.»
+- «Mva-meldingen er mottatt og godkjent.»
 - Kvittering på godkjent a-melding
 
 ### `Rejection` – Avvisning
@@ -58,7 +58,7 @@ Bør relateres til innsendingen. Svaret er ofte en `Correction` eller en ny `Sub
 ### `Request` – Forespørsel
 Ber parten om mer informasjon. Svaret er normalt en `Submission`.
 - «Vi trenger kopi av leiekontrakten for å behandle søknaden.»
-- Pålegg om å legge fram regnskapsbilag
+- Pålegg om å legge frem regnskapsbilag
 
 ### `Alert` – Kritisk varsel
 Kritisk informasjon om prosessen. Det får følger for parten å overse den. Brukes med måte.

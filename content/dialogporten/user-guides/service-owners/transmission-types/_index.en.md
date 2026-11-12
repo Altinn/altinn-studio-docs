@@ -35,7 +35,7 @@ A regular submission of information or a form.
 ### `Correction`
 Corrects or overrides a previous submission. Should be related to the submission it corrects.
 - A corrected VAT return for a period that has already been submitted
-- An A-message (a-melding) that corrects an incorrect salary amount
+- An a-melding that corrects an incorrect salary amount
 
 ## From the service owner
 
@@ -47,12 +47,12 @@ General information not tied to a submission. Requires no action.
 ### `Acceptance`
 States that a previous submission (`Submission` or `Correction`) has been accepted. Should be related to the submission.
 - "The VAT return has been received and accepted."
-- Receipt for an accepted A-message
+- Receipt for an accepted a-melding
 
 ### `Rejection`
 States that a previous submission (`Submission` or `Correction`) has not been accepted. Applies to one part of the case, not the case as a whole.
 Should be related to the submission. The response is often a `Correction` or a new `Submission`.
-- "The message was rejected: the organization number does not exist."
+- "The message was rejected: the organisation number does not exist."
 - Validation errors in a submitted form
 
 ### `Request`
