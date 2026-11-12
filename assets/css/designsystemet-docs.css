@@ -7,7 +7,7 @@
 
 .docs-layout {
   --docs-sidebar-width: 272px;
-  --docs-toc-width: 220px;
+  --docs-toc-width: 256px;
 
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -181,7 +181,8 @@
   background: var(--ds-color-neutral-surface-hover);
   color: var(--ds-color-neutral-text-default);
 }
-.docs-nav-link:focus-visible {
+.docs-nav-link:focus-visible,
+.docs-toc-link:focus-visible {
   outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
   outline-offset: 0;
 }
@@ -255,33 +256,63 @@
   content: none;
 }
 
-/* På denne siden. Vises bare på store skjermer (se nederst). */
+/*
+  På denne siden: overskriftene på nivå 2 er litt tykkere, og nivå 3 er rykket inn under dem.
+  Overskriften brukeren leser, er markert med strek og bakgrunn.
+  Lenkene får letter-spacing fra Designsystemet, fordi temaet setter en egen verdi på alle lenker.
+  Listen er skjult til skjermen er stor nok, se «Svært store skjermer».
+*/
 .docs-toc {
   display: none;
 }
 .docs-toc-title {
-  margin: 0 0 var(--ds-size-4);
+  margin: 0 0 var(--ds-size-2);
+  padding-inline-start: var(--ds-size-3);
+  color: var(--ds-color-neutral-text-subtle);
+  font-weight: var(--ds-font-weight-semibold);
 }
 .docs-toc-list .docs-toc-list {
-  padding-inline-start: var(--ds-size-3);
+  margin-block-end: var(--ds-size-2);
 }
 .docs-toc-link {
+  position: relative;
   display: block;
-  padding: var(--ds-size-2) var(--ds-size-4);
-  border-inline-start: var(--ds-border-width-focus) solid var(--ds-color-neutral-border-subtle);
-  color: var(--ds-color-neutral-text-subtle);
-  font-size: var(--ds-body-sm-font-size);
-  line-height: var(--ds-body-short-sm-line-height);
+  padding: var(--ds-size-1) var(--ds-size-2) var(--ds-size-1) var(--ds-size-3);
+  margin-inline-end: var(--ds-size-2);
+  border-radius: var(--ds-border-radius-sm);
+  color: var(--ds-color-neutral-text-default);
+  font-size: var(--ds-body-md-font-size);
+  line-height: var(--ds-body-md-line-height);
+  font-weight: var(--ds-font-weight-medium);
+  letter-spacing: var(--ds-body-md-letter-spacing);
   text-decoration: none;
 }
+:where(.docs-toc-list .docs-toc-list) .docs-toc-link {
+  padding-inline-start: var(--ds-size-6);
+  font-weight: var(--ds-font-weight-regular);
+}
 .docs-toc-link:hover {
-  color: var(--ds-color-neutral-text-default);
-  text-decoration: underline;
+  background-color: var(--ds-color-neutral-surface-hover);
 }
 .docs-toc-link[aria-current='location'] {
-  border-inline-start-color: var(--ds-color-accent-base-default);
-  color: var(--ds-color-accent-text-default);
+  background-color: var(--ds-color-neutral-background-tinted);
   font-weight: var(--ds-font-weight-medium);
+}
+.docs-toc-link[aria-current='location']::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: var(--ds-border-width-focus);
+  border-radius: var(--ds-border-radius-full);
+  background-color: var(--ds-color-accent-base-default);
+}
+/* Kode i overskriftene, for eksempel komponentnavn, vises som vanlig lenketekst. */
+.docs-toc-link code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
 }
 
 /* Store skjermer: sidemenyen står til venstre og er alltid synlig. Knappen som åpner menyen på mobil, er skjult. */

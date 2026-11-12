@@ -42,6 +42,7 @@ API-handlinger og aktivitetsloggoppføringer kan referere til enkeltforsendelser
 **Les mer**
 
 - {{<link "../../reference/entities/transmission">}}
+- {{<link "../../user-guides/service-owners/transmission-types">}}
 
 ## Vedlegg
 

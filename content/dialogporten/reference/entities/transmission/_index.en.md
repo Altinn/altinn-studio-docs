@@ -13,7 +13,7 @@ A transmission represents one immutable communication unit inside a dialog. The 
 
 Important parts of the transmission model are:
 
-- `type`, which indicates the implemented transmission category such as `Information`, `Acceptance`, `Rejection`, `Request`, `Alert`, `Decision`, `Submission`, or `Correction`
+- `type`, which indicates the implemented transmission category such as `Information`, `Acceptance`, `Rejection`, `Request`, `Alert`, `Decision`, `Submission`, or `Correction` (see [Choosing a transmission type]({{< relref "/dialogporten/user-guides/service-owners/transmission-types" >}}))
 - `sender`, which identifies whether the transmission came from the service owner or a party representative
 - an [authorization context]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) (preferred), which can evaluate access to the transmission against a different resource, additional parties, or both
 - `authorizationAttribute` (deprecated), which can override the default authorization resource used for the transmission
