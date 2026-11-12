@@ -13,7 +13,7 @@ En forsendelse representerer én uforanderlig kommunikasjonsenhet inni en dialog
 
 Viktige deler av forsendelsesmodellen er:
 
-- `type`, som angir implementert forsendelseskategori som `Information`, `Acceptance`, `Rejection`, `Request`, `Alert`, `Decision`, `Submission` eller `Correction`
+- `type`, som angir implementert forsendelseskategori som `Information`, `Acceptance`, `Rejection`, `Request`, `Alert`, `Decision`, `Submission` eller `Correction` (se [Velge forsendelsestype]({{< relref "/dialogporten/user-guides/service-owners/transmission-types" >}}))
 - `sender`, som identifiserer om forsendelsen kom fra tjenesteeieren eller en partsrepresentant
 - en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) (foretrukket), som kan evaluere tilgang til forsendelsen mot en annen ressurs, flere parter, eller begge deler
 - `authorizationAttribute` (utfaset), som kan overstyre standard autorisasjonsressurs brukt for forsendelsen
