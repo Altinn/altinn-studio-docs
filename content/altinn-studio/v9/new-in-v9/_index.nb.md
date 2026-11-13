@@ -70,7 +70,7 @@ Alle felt har også fått en etikett etter ledeteksten:
 - Påkrevde felt har **Må fylles ut** i stedet for `*`.
 - Andre felt har **Valgfritt**.
 
-Banneret «Påkrevde felter er markert med *» er borte. Du kan [skjule etiketten **Valgfritt** på enkeltfelt]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/felt-innstillinger" >}}).
+Banneret «Påkrevde felter er markert med *» er borte. Du kan [skjule etiketten **Valgfritt** på enkeltfelt]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/felt-innstillinger" >}}) eller [i hele appen eller en oppgave]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings#skjule-etiketten-for-valgfrie-felt" >}}).
 
 Både den nye skrifttypen og etikettene kan gjøre at tekst går over flere linjer enn før. Se gjennom skjemaene etter oppgraderingen, og sjekk at du er fornøyd med hvordan de ser ut.
 

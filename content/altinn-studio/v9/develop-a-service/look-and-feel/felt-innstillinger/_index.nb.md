@@ -13,7 +13,7 @@ Appen merker alle felt som enten påkrevde eller valgfrie, slik at det er tydeli
 
 - Påkrevde felt får etiketten **Må fylles ut**.
 - Felt som ikke er påkrevde, får etiketten **Valgfritt**.
-- Skrivebeskyttede felt får ikke etiketten **Valgfritt**.
+- Skrivebeskyttede felt får verken etiketten **Må fylles ut** eller **Valgfritt**.
 
 ![Fødselsnummer med etiketten Må fylles ut](./required.png "Påkrevd felt")
 
@@ -36,6 +36,8 @@ App/ui/{taskId}/layouts/{page}.json
 ```
 
 ![Fødselsnummer uten etikett](./optional-hidden.png "Valgfritt felt der etiketten er skjult")
+
+Vil du skjule etiketten i hele appen eller i en hel oppgave, kan du [sette `hideOptionalIndicator` i `Settings.json`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings#skjule-etiketten-for-valgfrie-felt" >}}). Innstillingen på komponenten gjelder fortsatt foran denne.
 
 Du kan ikke skjule **Må fylles ut** på et påkrevd felt.
 
