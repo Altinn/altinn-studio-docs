@@ -63,6 +63,8 @@ services.AddTransient<IOnTaskStartingHandler, MyTaskStartHandler>();
 
 Du kan registrere flere klasser for samme hook, så lenge de gjelder for ulike oppgaver.
 
+Svaret fra `ShouldRunForTask` må bare avhenge av oppgave-ID-en, ikke for eksempel av hvem brukeren er eller hva klokken er. Appen kaller metoden allerede når den planlegger stegene inn i eller ut av en oppgave, og hooken får bare et steg hvis svaret er `true`.
+
 {{% notice warning %}}
 Bare én hook av hver type kan gjelde for samme oppgave. Svarer to registrerte `IOnTaskStartingHandler` `true` for samme oppgave i `process.bpmn`, starter ikke appen. Det samme gjelder `IOnTaskEndingHandler` og `IOnTaskAbandoningHandler`.
 {{% /notice %}}
