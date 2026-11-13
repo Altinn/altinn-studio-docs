@@ -14,10 +14,10 @@ En policy som bare gir sluttbrukeren rettigheter — den vanlige formen i v8 —
 ikke får flyttet sin egen prosess videre. Feilen viser seg ellers først når en innbygger
 sender inn.
 
-Apporganisasjonen trenger alltid `read` og `write`. I tillegg trenger den `complete` der en
-systemoppgave markerer instansen som fullført, og `delete` der instansen slettes ved
-prosessens slutt. Den trenger ingen handling knyttet til en oppgavetype, som `confirm`,
-`reject` eller navnet på en egendefinert oppgavetype: Storage lar alltid apporganisasjonen
+Apporganisasjonen trenger alltid `read` og `write`. I tillegg trenger den `complete` når
+`onProcessEnd.confirm` i `applicationmetadata.json` er slått på, og `delete` der instansen
+slettes ved prosessens slutt. Den trenger ingen handling knyttet til en oppgavetype, som
+`confirm`, `reject` eller navnet på en egendefinert oppgavetype: Storage lar alltid apporganisasjonen
 lagre en prosessovergang.
 
 Kategori `Authorization`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.

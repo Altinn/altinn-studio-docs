@@ -184,6 +184,17 @@ Dette må du se på selv:
 
 Mangler `sendAfterTaskId`, eller klarer ikke oppgraderingen å sette inn oppgaven, lar den `applicationmetadata.json` stå urørt og ber deg legge til oppgaven selv. Se [veiledningen for eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) for hele oppsettet.
 
+### Appen bekrefter mottak når prosessen er ferdig
+
+I v8 bekreftet eFormidling mottak på vegne av tjenesteeieren når meldingen var levert. Fiks Arkiv gjorde det samme når arkivet hadde kvittert, hvis `MarkInstanceComplete` var slått på. I v9 bekrefter ingen av oppgavene selv. Appen bekrefter i stedet når prosessen er ferdig, hvis `"onProcessEnd": { "confirm": true }` står i `applicationmetadata.json`.
+
+Oppgraderingen gjør dette for deg:
+
+- Den setter `"onProcessEnd": { "confirm": true }` hvis eFormidling eller Fiks Arkiv bekreftet mottak i v8.
+- Den fjerner `MarkInstanceComplete` fra Fiks Arkiv-innstillingene i `appsettings`-filene.
+
+Går prosessen videre til flere oppgaver etter eFormidling eller Fiks Arkiv, kommer bekreftelsen nå først når prosessen er ferdig. Se [La appen bekrefte når prosessen er ferdig]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-ved-prosessslutt).
+
 ### Regelfilene forsvinner
 
 Vi har lenge anbefalt å sette opp dynamikk i skjemaer med dynamiske uttrykk i JSON-filene, men vi har fortsatt støttet de eldre reglene som er skrevet i JavaScript. Den støtten forsvinner i v9.
