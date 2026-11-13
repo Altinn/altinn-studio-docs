@@ -35,8 +35,13 @@ The field is optional and defaults to `false`. Forwarding is therefore only poss
 
 ### Constraints
 
-- Correspondences can be forwarded by email both with and without attachments. However, the total size of all attachments must not exceed 10 MB. If it does, the user can still forward the correspondence itself, but the attachments will not be included because of limitations in the email service.
 - Correspondences sent on services that use the access package *post-til-virksomheten-med-taushetsbelagt-innhold* cannot be forwarded by email.
+- Users can forward the same correspondence to the same email recipient twice: once with attachment and once without.
+- Forwarding a correspondence with attachments included follows an all-or-nothing approach: either all of them are included, or none are. If one of the following constraints apply, the user will only be able to forward the correspondence content:
+  - the user lacks access to one or more attachments
+  - one or more attachments contains an `expirationTime`
+  - the combined attachment size exceeds 10MB
+
 
 ### Security implications
 

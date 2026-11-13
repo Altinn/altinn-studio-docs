@@ -35,9 +35,12 @@ Feltet er valgfritt og har standardverdien `false`. Videresending er derfor bare
 
 ### Begrensninger
 
-- Meldinger både med og uten vedlegg kan videresendes på e-post. Den samlede størrelsen på alle vedlegg kan likevel ikke overstige 10 MB. Hvis grensen overskrides, kan brukeren fortsatt videresende selve meldingen, men vedleggene blir ikke med på grunn av begrensninger i e-posttjenesten.
 - Meldinger som sendes på tjenester som bruker tilgangspakken *post-til-virksomheten-med-taushetsbelagt-innhold*, kan ikke videresendes på e-post.
-- Dersom du ikke er autorisert til å se vedlegget, kan du heller ikke videresende det. 
+- Brukeren kan videresende den samme meldingen til den samme epost mottakeren to ganger: en gang med vedlegg og en gang uten.
+- For videresending av en melding med vedlegg gjelder alt-eller-ingenting, enten blir alle vedleggene med, eller ingen av dem. Brukeren kan bare videresende selve meldingen, uten vedlegg, hvis
+  - brukeren ikke har tilgang til et eller flere av vedleggene
+  - et eller flere av vedleggene har en utløpstid (`expirationTime`)
+  - den totale størrelsen til vedleggene er større enn 10 MB
 
 ### Sikkerhetsmessige konsekvenser
 
