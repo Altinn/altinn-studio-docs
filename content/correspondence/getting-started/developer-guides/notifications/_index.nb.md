@@ -53,7 +53,8 @@ En varslingsbestilling gjøres ved å legge til følgende når du initialiserer 
           "emailAddress": string?
         }
       ],
-      "overrideRegisteredContactInformation": boolean
+      "overrideRegisteredContactInformation": boolean,
+      "useStaleContactInformation": boolean?
     }
   },
   "Recipients": [],
@@ -336,5 +337,51 @@ Resultat: Varsler sendes til både standard meldingsmottaker OG den valgfrie org
 }
 ```
 Resultat: Varsler sendes KUN til den valgfrie organisasjonen (standard meldingsmottaker ekskluderes)
+
+## Varsling ved utdatert kontaktinformasjon
+
+Altinn sender varsler til personer på kontaktinformasjonen de har registrert i Kontakt- og reservasjonsregisteret (KRR).
+Hvis mottakeren ikke har oppdatert eller bekreftet kontaktinformasjonen sin de siste 18 månedene, sender Altinn som standard ikke varsel.
+Altinn oppretter og publiserer likevel meldingen som vanlig.
+
+For servicemeldinger er det tillatt å varsle selv om kontaktinformasjonen er eldre enn 18 måneder.
+Det gjør du med flagget `useStaleContactInformation`.
+
+{{% notice warning %}}
+Du som tjenesteeier vurderer selv om meldingen er en servicemelding. Altinn kontrollerer ikke dette.
+{{% /notice %}}
+
+### Slik bruker du useStaleContactInformation
+
+```json
+{
+  "correspondence": {
+    ...,
+    "notification": {
+      ...,
+      "useStaleContactInformation": true
+    }
+  }
+}
+```
+
+### Oppførsel
+
+- **`false` (standard)**: Personer med kontaktinformasjon eldre enn 18 måneder får ikke varsel.
+- **`true`**: Personer får varsel på kontaktinformasjonen sin i KRR, også hvis den er eldre enn 18 måneder.
+
+Feltet er valgfritt. Hvis du ikke setter det, er verdien `false`.
+
+Flagget gjelder for
+
+- mottakere som er personer, både mottakeren av meldingen og valgfrie mottakere du angir med `nationalIdentityNumber`
+- både varsel og revarsel
+
+Flagget gjelder ikke for
+
+- mottakere som er organisasjoner
+- valgfrie mottakere du angir med `emailAddress` eller `mobileNumber`, siden Altinn ikke slår dem opp i KRR
+
+Flagget endrer ikke hvordan Altinn håndterer reservasjoner i KRR.
 
 
