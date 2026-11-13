@@ -109,8 +109,6 @@ Test retur etter redigering fra både oppsummeringer og lenker. Sett `validateOn
 
 Hvis redigeringen viser tidligere skjulte sider mellom redigeringssiden og retursiden, eller gjør retursiden utilgjengelig, fjerner appen returknappen. Brukeren fortsetter da med vanlig sidenavigering. Returknappen blir stående når brukeren skjuler mellomliggende sider eller endrer hvilke sider som er synlige før redigeringssiden.
 
-Kontroller også `pages.validationOnNavigation` i `App/ui/{taskId}/Settings.json`. Backend utelot tidligere denne innstillingen fra svaret til frontend. Nå virker den og kan endre både fremovernavigering og retur.
-
 Se [validering ved retur]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#validering-ved-retur-til-oppsummering-eller-en-annen-side" >}}) for prioritetsrekkefølge og eksempler.
 
 ### URL-er bruker ikke lenger hash-ruting
