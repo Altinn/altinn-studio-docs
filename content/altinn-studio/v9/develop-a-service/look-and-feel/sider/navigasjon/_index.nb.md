@@ -468,7 +468,7 @@ App/ui/Task_1/layouts/side1.json
 
 Returknappene bruker de samme reglene for `page` og `show` som **Neste**. Med `"page": "all"` kan appen vise feil på senere sider, men disse feilene hindrer ikke retur. Innstillinger på mellomliggende sider gir ingen ekstra validering ved retur.
 
-Hvis en endring viser en tidligere skjult side mellom redigeringssiden og retursiden, fjerner appen returknappen og viser vanlige navigasjonsknapper. Det samme skjer hvis retursiden ikke lenger er tilgjengelig. Returknappen blir stående hvis brukeren skjuler en mellomliggende side eller endrer hvilke sider som er synlige før redigeringssiden.
+Hvis en endring viser en tidligere skjult side mellom redigeringssiden og retursiden, fjerner appen returknappen og viser vanlige navigasjonsknapper. Det samme skjer hvis retursiden ikke lenger er tilgjengelig. Returknappen blir stående hvis brukeren skjuler en mellomliggende side eller endrer synligheten til sider som ikke ligger mellom redigeringssiden og retursiden.
 
 ### Blokkere direktenavigasjon i sidemenyen
 
