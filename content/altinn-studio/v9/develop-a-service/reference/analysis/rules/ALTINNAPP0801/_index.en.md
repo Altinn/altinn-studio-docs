@@ -12,7 +12,8 @@ the question could not be settled at build time. The message gives the reason:
 - `policy.xml` could not be read as an XACML policy document
 - `policy.xml` contains `Deny` rules, whose effect on the app owner organisation the analysis
   cannot evaluate
-- `process.bpmn` could not be parsed, so the actions the process needs could not be determined
+- `process.bpmn` could not be parsed, so a `complete` grant scoped to an end event could not be
+  checked
 - the right is granted only through a rule the analysis cannot settle statically: a condition,
   a grant limited to a single task, or an attribute or match function it does not model
 

@@ -11,8 +11,8 @@ lot seg avgjøre ved bygging. Meldingen oppgir årsaken:
 - `policy.xml` kunne ikke leses som et XACML-policydokument
 - `policy.xml` inneholder `Deny`-regler, hvis virkning på apporganisasjonen analysen ikke
   kan evaluere
-- `process.bpmn` kunne ikke tolkes, slik at handlingene prosessen trenger ikke lot seg
-  bestemme
+- `process.bpmn` kunne ikke tolkes, slik at en `complete`-rettighet avgrenset til en
+  sluttilstand ikke lot seg kontrollere
 - rettigheten gis kun gjennom en regel analysen ikke kan avgjøre statisk: en betingelse,
   en tildeling avgrenset til én enkelt oppgave, eller et attributt eller en match-funksjon
   den ikke modellerer

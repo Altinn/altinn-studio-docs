@@ -56,7 +56,7 @@ Slik går det steg for steg:
 1. **Appen sender.** Arbeidssteget henter mottakeren, lager `arkivmelding.xml` med hoveddokument og vedlegg fra instansdataene, og lagrer arkivmeldingen på instansen som datatypen i `Receipt.ArchiveRecord`. Så åpner det en postkasse og sender meldingen til mottakerkontoen gjennom Fiks IO. Postkassens id følger med som `klientKorrelasjonsId`, og det er den som gjør at svaret finner tilbake til riktig oppgave. Feiler noe underveis, prøver plattformen steget på nytt med samme innhold.
 2. **Arkivet svarer.** Arkivsystemet sender først en mottaksbekreftelse (`arkivmelding.opprett.mottatt`) og deretter en kvittering (`arkivmelding.opprett.kvittering`) når saken er opprettet. Kan det ikke opprette saken, sender det en feilmelding i stedet.
 3. **Lytteren sender svaret videre.** Appen lytter på Fiks IO-kontoen sin, leser `klientKorrelasjonsId` fra hver melding og leverer den til postkassen som venter. Meldinger uten korrelasjons-id blir logget og forkastet, siden ingen oppgave venter på dem.
-4. **Oppgaven konkluderer.** Mottaksbekreftelsen holder oppgaven ventende. Kvitteringen lagres på instansen som datatypen i `Receipt.ConfirmationRecord`, instansen markeres som fullført med mindre du har slått det av, og prosessen går videre med handlingen i `SuccessHandling.Action`, som standard uten handling. En feilmelding fra arkivet sender prosessen videre med handlingen i `ErrorHandling.Action`, som standard `reject`. Gatewayen etter oppgaven skiller de to veiene. Kommer det ingen kvittering på 7 døgn, feiler oppgaven.
+4. **Oppgaven konkluderer.** Mottaksbekreftelsen holder oppgaven ventende. Kvitteringen lagres på instansen som datatypen i `Receipt.ConfirmationRecord`, og prosessen går videre med handlingen i `SuccessHandling.Action`, som standard uten handling. En feilmelding fra arkivet sender prosessen videre med handlingen i `ErrorHandling.Action`, som standard `reject`. Gatewayen etter oppgaven skiller de to veiene. Kommer det ingen kvittering på 7 døgn, feiler oppgaven.
 
 Mens oppgaven venter, ser brukeren lastevisningen. Ingen bruker eller tjenesteeier trenger å gjøre noe, og ingenting spør arkivet om status. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}) for hvordan du tilpasser ventingen og feilsiden.
 
@@ -262,8 +262,7 @@ FiksArkivSettings
 ├─ ErrorHandling
 │  └─ Action
 └─ SuccessHandling
-   ├─ Action
-   └─ MarkInstanceComplete
+   └─ Action
 ```
 
 Nedenfor går vi gjennom hver seksjon, viser hvordan du oppgir verdier (fast eller fra datamodellen), og gir eksempler på `appsettings.json`.
@@ -462,12 +461,11 @@ App/appsettings.json
 
 Hva oppgaven gjør når arkivet har bekreftet saken med en kvittering. Innstillingene gjelder altså ikke når meldingen er sendt, men når kvitteringen har kommet. Prosessen går alltid videre; innstillingene bestemmer hvordan.
 
-| Innstilling              | Formål og standardverdi                                                                                            |
-|--------------------------|--------------------------------------------------------------------------------------------------------------------|
-| **Action**               | Handlingen prosessen går videre med. Standard: ingen. Gatewayen i eksempelet over tar da `Flow_4`.                        |
-| **MarkInstanceComplete** | Om instansen skal markeres som fullført. Skjer før prosessen går videre. Standard: `true`.                         |
+| Innstilling | Formål og standardverdi                                                                            |
+|-------------|----------------------------------------------------------------------------------------------------|
+| **Action**  | Handlingen prosessen går videre med. Standard: ingen. Gatewayen i eksempelet over tar da `Flow_4`. |
 
-Seksjonen kan utelates. Da markeres instansen som fullført, og prosessen går videre uten handling. Gatewayen i eksempelet over tar da `Flow_4`. Å markere instansen som fullført er det samme som å bekrefte at tjenesteeieren har mottatt dataene, se [Bekrefte at dataene er mottatt]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-mottak). Sett `MarkInstanceComplete` til `false` hvis oppgaven ikke skal bekrefte mottak når arkivet har kvittert, og `Action` hvis gatewayen skal skille på en egen handling. Slik ser standardverdiene ut, skrevet ut:
+Seksjonen kan utelates. Da går prosessen videre uten handling, og gatewayen i eksempelet over tar `Flow_4`. Sett `Action` hvis gatewayen skal skille på en egen handling. Slik ser standardverdien ut, skrevet ut:
 
 {{< code-title >}}
 App/appsettings.json
@@ -476,11 +474,12 @@ App/appsettings.json
 ```json
 "FiksArkivSettings": {
   "SuccessHandling": {
-    "Action": null,
-    "MarkInstanceComplete": true
+    "Action": null
   }
 }
 ```
+
+Oppgaven bekrefter ikke mottak på vegne av tjenesteeieren når arkivet har kvittert. Skal appen gjøre det når prosessen er ferdig, slår du på `onProcessEnd.confirm`. Den bekrefter hver gang prosessen er ferdig, også når arkivet har avvist saken og prosessen likevel ender. Se [La appen bekrefte når prosessen er ferdig]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-ved-prosessslutt).
 
 #### ErrorHandling
 
@@ -644,7 +643,8 @@ Dette er endret fra v8:
 
 - **Ingen tilbakemeldingsoppgave.** Oppgaven venter selv på kvitteringen fra arkivet, og prosessen går først videre når den har kommet. Fjern tilbakemeldingsoppgaven du hadde etter Fiks Arkiv-oppgaven.
 - **`MoveToNextTask` finnes ikke lenger.** Oppgaven går alltid videre når arkiveringen er avgjort: med `SuccessHandling.Action` etter en kvittering, og med `ErrorHandling.Action`, som standard `reject`, etter en avvisning. Legg en eksklusiv gateway rett etter oppgaven, og gi tjenesteeieren `reject`. Appen nekter å starte uten gatewayen.
-- **`SuccessHandling` gjelder når arkivet har bekreftet saken**, ikke når meldingen er sendt, og `MarkInstanceComplete` er `true` som standard.
+- **`SuccessHandling` gjelder når arkivet har bekreftet saken**, ikke når meldingen er sendt.
+- **`MarkInstanceComplete` finnes ikke lenger.** Oppgaven bekrefter aldri mottak selv. Slå på `onProcessEnd.confirm` i `applicationmetadata.json` hvis appen skal bekrefte når prosessen er ferdig.
 - **Fiks IO-klienten bruker appens innebygde Maskinporten-klient.** Du peker den ikke lenger til en egen `MaskinportenSettings`-seksjon.
 - **Klassifikasjon av eieren er valgfri.** Den legges ikke lenger på automatisk. Legg inn `{ "Source": "InstanceOwner" }` i `Metadata.CaseFileClassifications` for å beholde den. Systemene heter nå `PNR` og `ORGNR`, og eieren av instansen klassifiseres, ikke den som sendte inn.
 - **`IFiksArkivResponseHandler` er erstattet av `IFiksArkivMessageHandler`**, og `.WithResponseHandler<T>()` av `.WithMessageHandler<T>()`. Handleren kalles for hver melding arkivet sender, og skal ikke flytte prosessen.
@@ -652,7 +652,7 @@ Dette er endret fra v8:
 - **`klientKorrelasjonsId` er postkassens id**, ikke lenken til instansen. Lenken ligger fortsatt i arkivmeldingen, som referansen på mottakerens korrespondansepart.
 - **Tidspunktene i arkivmeldingen er i UTC**, og `dokumentobjekt` har ikke lenger en `systemID`.
 
-`studioctl app upgrade v9` legger inn tilgangsreglene tjenesteeieren trenger, fjerner `MoveToNextTask` fra Fiks Arkiv-konfigurasjonen og sier fra hvis verdien var `false` eller oppgaven mangler gatewayen. Resten av Fiks Arkiv-konfigurasjonen lar den stå.
+`studioctl app upgrade v9` legger inn tilgangsreglene tjenesteeieren trenger, fjerner `MoveToNextTask` fra Fiks Arkiv-konfigurasjonen og sier fra hvis verdien var `false` eller oppgaven mangler gatewayen. Den fjerner også `MarkInstanceComplete`, og slår på `onProcessEnd.confirm` hvis oppgaven bekreftet mottak i v8. Resten av Fiks Arkiv-konfigurasjonen lar den stå.
 
 ## Konfigurasjon for mottak av meldinger i arkivsystemet {#mottak}
 

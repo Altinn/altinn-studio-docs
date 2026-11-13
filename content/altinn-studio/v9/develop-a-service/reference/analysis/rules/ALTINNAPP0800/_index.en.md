@@ -14,10 +14,11 @@ as the end user. Storage authorises those calls against the app's own policy, wi
 app unable to move its own process forward. Without the rule, the error only shows when a
 citizen submits.
 
-The app owner always needs `read` and `write`. It also needs `complete` where a service task
-marks the instance as completed, and `delete` where the instance is deleted at the end of the
-process. It needs no action tied to a task type, such as `confirm`, `reject` or the name of a
-custom task type: Storage always lets the app owner commit a process transition.
+The app owner always needs `read` and `write`. It also needs `complete` when
+`onProcessEnd.confirm` is turned on in `applicationmetadata.json`, and `delete` where the
+instance is deleted at the end of the process. It needs no action tied to a task type, such
+as `confirm`, `reject` or the name of a custom task type: Storage always lets the app owner
+commit a process transition.
 
 Category `Authorization`, severity **error**. The rule therefore fails the build.
 
