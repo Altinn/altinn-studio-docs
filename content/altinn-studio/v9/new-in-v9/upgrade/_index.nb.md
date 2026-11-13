@@ -101,6 +101,16 @@ I v9 har valideringsregler på `NavigationButtons`, `NavigationBar` og `CustomBu
 
 Se [hvordan valideringsreglene virker ved sidebytte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#angi-validering-ved-sidebytte" >}}).
 
+### Returknapper følger valideringen for Neste
+
+**Tilbake til oppsummering** og **Tilbake til side** på `NavigationButtons` bruker nå valideringsregelen for **Neste** når du ikke har satt `validateOnBackToSummary`. Feil som tidligere ikke hindret navigeringen, kan derfor stoppe returen.
+
+Test retur etter redigering fra både oppsummeringer og lenker. Sett `validateOnBackToSummary` med `"page": "current"` og `"show": []` på NavigationButtons hvis knappen fortsatt skal tillate retur uten å vise nye valideringsfeil. Du kan også sette regelen på redigeringssiden, oppgaven eller appen. En regel på et mer spesifikt nivå har forrang, også når den gjelder **Neste**.
+
+Hvis redigeringen viser tidligere skjulte sider mellom redigeringssiden og retursiden, eller gjør retursiden utilgjengelig, fjerner appen returknappen. Brukeren fortsetter da med vanlig sidenavigering.
+
+Se [validering ved retur]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#validering-ved-retur-til-oppsummering-eller-en-annen-side" >}}) for prioritetsrekkefølge og eksempler.
+
 ### URL-er bruker ikke lenger hash-ruting
 
 I v8 begynte stien inne i appen med `#/`:
