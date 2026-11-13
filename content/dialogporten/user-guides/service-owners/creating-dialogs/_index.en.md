@@ -194,6 +194,8 @@ Transmissions may contain an additional level content and attachments that repre
 - the type of transmission, which should give end user systems an idea on how to appropiately display it to end-users. A service specific, structured extended type can also be supplied that custom end-users systems can utilize.
 - optionally another related transmission
 
+[Choosing a transmission type]({{< relref "../transmission-types" >}}) describes each type with examples and explains how to choose.
+
 As with dialog level content, transmissions might contain a title, summary and a content reference (front channel embed). Service owners might use front channel embeds to track whether or not a particular transmission has been opened, which again can eg. trigger a `transmissionOpened` activity being added.
 
 ### Navigational actions on transmissions
