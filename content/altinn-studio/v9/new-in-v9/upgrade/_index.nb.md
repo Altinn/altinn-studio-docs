@@ -190,7 +190,7 @@ I v8 bekreftet eFormidling mottak på vegne av tjenesteeieren når meldingen var
 
 Oppgraderingen gjør dette for deg:
 
-- Den setter `"onProcessEnd": { "confirm": true }` hvis eFormidling eller Fiks Arkiv bekreftet mottak i v8.
+- Den setter `"onProcessEnd": { "confirm": true }` hvis eFormidling eller Fiks Arkiv bekreftet mottak i v8. Innstillingen gjelder i alle miljøer, også der oppgaven er slått av.
 - Den fjerner `MarkInstanceComplete` fra Fiks Arkiv-innstillingene i `appsettings`-filene.
 
 Går prosessen videre til flere oppgaver etter eFormidling eller Fiks Arkiv, kommer bekreftelsen nå først når prosessen er ferdig. Se [La appen bekrefte når prosessen er ferdig]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-ved-prosessslutt).

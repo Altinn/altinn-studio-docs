@@ -479,7 +479,7 @@ App/appsettings.json
 }
 ```
 
-Oppgaven bekrefter ikke mottak på vegne av tjenesteeieren når arkivet har kvittert. Skal appen gjøre det når prosessen er ferdig, slår du på `onProcessEnd.confirm`. Se [La appen bekrefte når prosessen er ferdig]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-ved-prosessslutt).
+Oppgaven bekrefter ikke mottak på vegne av tjenesteeieren når arkivet har kvittert. Skal appen gjøre det når prosessen er ferdig, slår du på `onProcessEnd.confirm`. Den bekrefter hver gang prosessen er ferdig, også når arkivet har avvist saken og prosessen likevel ender. Se [La appen bekrefte når prosessen er ferdig]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-ved-prosessslutt).
 
 #### ErrorHandling
 
