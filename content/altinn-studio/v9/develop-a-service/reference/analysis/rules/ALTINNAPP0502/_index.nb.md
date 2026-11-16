@@ -1,7 +1,7 @@
 ---
-title: "ALTINNAPP0501: asynkron metode returnerer void"
+title: "ALTINNAPP0502: asynkron metode returnerer void"
 description: "Asynkrone metoder i appen må returnere Task, ikke void"
-weight: 51
+weight: 52
 ---
 
 Denne diagnostikken melder fra når en asynkron metode, lokal funksjon eller lambda i appen
@@ -31,6 +31,24 @@ Riktig:
 
 ```csharp
 public async Task SendKvittering(Instance instance)
+{
+    await _client.SendAsync(instance);
+}
+```
+
+En lambda du sender til `List.ForEach`, kan ikke returnere `Task`, fordi `ForEach` ikke venter
+på den. Bruk en `foreach`-løkke i stedet, og vent på hvert kall med `await`.
+
+Feil:
+
+```csharp
+instances.ForEach(async instance => await _client.SendAsync(instance));
+```
+
+Riktig:
+
+```csharp
+foreach (var instance in instances)
 {
     await _client.SendAsync(instance);
 }

@@ -1,8 +1,8 @@
 ---
 draft: true
-title: "ALTINNAPP0501: async method returns void"
+title: "ALTINNAPP0502: async method returns void"
 description: "Async methods in the app must return Task, not void"
-weight: 51
+weight: 52
 ---
 
 This diagnostic is reported when an async method, local function or lambda in the app returns
@@ -32,6 +32,24 @@ Correct:
 
 ```csharp
 public async Task SendReceipt(Instance instance)
+{
+    await _client.SendAsync(instance);
+}
+```
+
+A lambda you pass to `List.ForEach` cannot return `Task`, because `ForEach` does not wait for
+it. Use a `foreach` loop instead, and `await` each call.
+
+Incorrect:
+
+```csharp
+instances.ForEach(async instance => await _client.SendAsync(instance));
+```
+
+Correct:
+
+```csharp
+foreach (var instance in instances)
 {
     await _client.SendAsync(instance);
 }
