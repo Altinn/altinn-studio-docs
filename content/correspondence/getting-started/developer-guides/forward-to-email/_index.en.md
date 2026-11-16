@@ -13,9 +13,6 @@ weight: 40
 
 Service owners can decide, per correspondence, whether end users should be able to forward it to an email address of their choice.
 
-{{% notice note %}}
-This functionality is under development and is not yet available to end users. Service owners can already mark new correspondences as eligible for forwarding, so they are ready when the feature is released.
-{{% /notice %}}
 
 ### How to get started
 

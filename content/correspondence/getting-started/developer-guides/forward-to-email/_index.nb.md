@@ -2,7 +2,7 @@
 title: Videresende melding på e-post
 linktitle: Videresende melding på e-post
 description: Hvordan tillate sluttbrukere å videresende meldinger til en e-postadresse
-tags: [Correspondence, videresending, epost, guide]
+tags: [Correspondence, videresending, e-post, guide]
 toc: true
 weight: 40
 ---
@@ -13,14 +13,11 @@ weight: 40
 
 Tjenesteeiere kan bestemme, per melding, om sluttbrukere skal kunne videresende den til en e-postadresse de selv velger.
 
-{{% notice note %}}
-Denne funksjonaliteten er under utvikling og er foreløpig ikke tilgjengelig for sluttbrukere. Tjenesteeiere kan allerede nå merke nye meldinger som tillatt for videresending, slik at de er klare når funksjonen lanseres.
-{{% /notice %}}
 
 ### Kom i gang
 
 Når du oppretter en melding, kan du legge til feltet `allowForwarding` for å markere meldingen som trygg å videresende på e-post.
-For å aktivere videresending på epost setter du `allowForwarding` til `true`:
+For å aktivere videresending på e-post setter du `allowForwarding` til `true`:
 
 ```json
 {
@@ -36,7 +33,7 @@ Feltet er valgfritt og har standardverdien `false`. Videresending er derfor bare
 ### Begrensninger
 
 - Meldinger som sendes på tjenester som bruker tilgangspakken *post-til-virksomheten-med-taushetsbelagt-innhold*, kan ikke videresendes på e-post.
-- Brukeren kan videresende den samme meldingen til den samme epost mottakeren to ganger: en gang med vedlegg og en gang uten.
+- Brukeren kan videresende den samme meldingen til den samme e-post mottakeren to ganger: en gang med vedlegg og en gang uten.
 - For videresending av en melding med vedlegg gjelder alt-eller-ingenting, enten blir alle vedleggene med, eller ingen av dem. Brukeren kan bare videresende selve meldingen, uten vedlegg, hvis
   - brukeren ikke har tilgang til et eller flere av vedleggene
   - et eller flere av vedleggene har en utløpstid (`expirationTime`)
