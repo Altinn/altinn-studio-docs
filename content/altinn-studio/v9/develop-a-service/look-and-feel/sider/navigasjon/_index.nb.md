@@ -430,6 +430,46 @@ Handlinger som backendkoden returnerer, kjører uten denne valideringssjekken.
 
 Komponent (eller handling) → Side → Oppgave → Globalt
 
+### Validering ved retur til oppsummering eller en annen side
+
+Når brukeren velger **Endre** i en oppsummering, kan NavigationButtons vise **Tilbake til oppsummering** på redigeringssiden. En lenke med `linkToPage` eller `linkToComponent` og returknapp gir tilsvarende **Tilbake til side**. Begge returknappene bruker `validateOnBackToSummary`.
+
+Du kan sette egenskapen på NavigationButtons, på `data`-objektet i redigeringssidens layoutfil, under `pages` i oppgavemappens `Settings.json` eller i roten av appens `App/ui/Settings.json`.
+
+Appen sjekker innstillingene i denne rekkefølgen:
+
+1. På NavigationButtons: `validateOnBackToSummary`, ellers `validateOnNext`.
+2. På redigeringssiden: `validateOnBackToSummary`, ellers `validationOnNavigation`.
+3. På oppgaven: `validateOnBackToSummary`, ellers `validationOnNavigation`.
+4. På appen: `validateOnBackToSummary`, ellers `validationOnNavigation`.
+
+Den første innstillingen appen finner, gjelder. Har NavigationButtons for eksempel `validateOnNext`, bruker returknappen denne fremfor `validateOnBackToSummary` på oppgaven. Innstillinger på siden brukeren returnerer til, påvirker ikke returknappen.
+
+I eksempelet under sjekker **Neste** påkrevde felter, mens **Tilbake til oppsummering** tillater retur uten å vise nye valideringsfeil. En tom `show`-liste fjerner ikke feilmeldinger som allerede er synlige.
+
+{{< code-title >}}
+App/ui/Task_1/layouts/side1.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "navigasjon",
+  "type": "NavigationButtons",
+  "validateOnNext": {
+    "page": "current",
+    "show": ["Required"]
+  },
+  "validateOnBackToSummary": {
+    "page": "current",
+    "show": []
+  }
+}
+```
+
+Returknappene bruker de samme reglene for `page` og `show` som **Neste**. Med `"page": "all"` kan appen vise feil på senere sider, men disse feilene hindrer ikke retur. Innstillinger på mellomliggende sider gir ingen ekstra validering ved retur.
+
+Hvis en endring viser en tidligere skjult side mellom redigeringssiden og retursiden, fjerner appen returknappen og viser vanlige navigasjonsknapper. Det samme skjer hvis retursiden ikke lenger er tilgjengelig. Returknappen blir stående hvis brukeren skjuler en mellomliggende side eller endrer synligheten til sider som ikke ligger mellom redigeringssiden og retursiden.
+
 ### Blokkere direktenavigasjon i sidemenyen
 
 Når sidemenyen er aktiv og brukeren prøver å hoppe direkte til en side lenger fremme i rekkefølgen, stopper appen navigasjonen dersom noen av de mellomliggende sidene har `validationOnNavigation` konfigurert og inneholder valideringsfeil.
