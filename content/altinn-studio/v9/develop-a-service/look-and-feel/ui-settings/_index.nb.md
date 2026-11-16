@@ -50,6 +50,12 @@ Du kan vise [språkvelgeren](/nb/altinn-studio/v9/develop-a-service/look-and-fee
 
 Se også [validering](/nb/altinn-studio/v9/develop-a-service/data/validation/) for validering ved navigasjon og [PDF-generering](/nb/altinn-studio/v9/develop-a-service/process/pdf/) for PDF-oppsettet.
 
+## Skjule etiketten for valgfrie felt
+
+`hideOptionalIndicator` skjuler etiketten **Valgfritt** på felt som ikke er påkrevde, og er som standard `false`. Hvis en komponent har `labelSettings.optionalIndicator`, gjelder den foran denne innstillingen. Se [innstillinger for felt]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/felt-innstillinger" >}}).
+
+Vi anbefaler å beholde standardverdien, slik at det er tydelig for brukerne hvilke felt som er valgfrie.
+
 ## Automatisk lagring
 
 Standardverdien for `autoSaveBehavior` er `onChangeFormData`. Appen lagrer når skjemadataene endres. For tekstfelt er oppdateringen normalt forsinket mens brukeren skriver. `saveWhileTyping` styrer hvor lenge appen venter før skjemadataene oppdateres, som standard 400 ms. Se [feltinnstillinger](/nb/altinn-studio/v9/develop-a-service/look-and-feel/felt-innstillinger/).
@@ -57,4 +63,3 @@ Standardverdien for `autoSaveBehavior` er `onChangeFormData`. Appen lagrer når 
 Sett `autoSaveBehavior` til `onChangePage` for å lagre ved sideskifte i stedet. Da kjører serverens dataprosessering først når dataene lagres. Beregnede verdier fra serveren oppdateres dermed ikke for hver endring brukeren gjør på siden. Ta hensyn til dette hvis skjemaet bruker slike verdier i dynamikk eller validering.
 
 Hvis brukeren oppdaterer siden før navigering eller innsending, kan endringer siden forrige lagring gå tapt.
-
