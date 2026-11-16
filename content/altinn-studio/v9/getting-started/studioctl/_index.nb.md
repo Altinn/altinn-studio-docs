@@ -1,7 +1,7 @@
 ---
-title: Installere og sette opp studioctl
-linktitle: Sette opp studioctl
-description: Slik installerer du studioctl, logger inn og henter appen til egen maskin.
+title: Sette opp utviklingsmiljøet på egen maskin
+linktitle: Sette opp utviklingsmiljøet
+description: Slik installerer du kommandolinjeverktøyet studioctl, logger inn og henter appen til egen maskin.
 weight: 2
 toc: true
 ---
