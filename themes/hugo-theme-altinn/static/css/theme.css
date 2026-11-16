@@ -671,7 +671,7 @@ pre {
     line-height: 1.15;
 }
 pre code {
-    color: #237794;
+    color: #c5c8c6;
     background: inherit;
     white-space: inherit;
     border: 0;
@@ -1082,12 +1082,12 @@ pre .copy-to-clipboard {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: #4d5257;
+    background-color: #c5c8c6;
     color: #ccc;
     border-radius: 2px;
 }
 pre .copy-to-clipboard:hover {
-    background-color: #656c72;
+    background-color: #fff;
     color: #fff;
 }
 .parent-element {
