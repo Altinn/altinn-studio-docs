@@ -97,7 +97,9 @@ Et **rettighetssett** er tilgangspakker og enkeltrettigheter som hører sammen. 
 
 **Det betyr for deg som bruker API-et:**
 
-- Du sender rettighetssettene i `clientAccessSets` i forespørselen, med det du foretrekker først. Du oppgir ikke noe tall.
+- Du sender rettighetssettene i `clientAccessSets` i forespørselen. Hvert sett har en id du velger selv, og id-en er nøkkelen til settet.
+- Du setter det settet du foretrekker, først. Rekkefølgen er prioriteten, og du oppgir ikke noe tall.
+- Altinn bruker id-en når virksomheten knytter en klient til systembrukeren. Da er det klart hvilket sett klienten har fått.
 - Du henter token på samme måte for alle klienter.
 - Alle settene bør dekke de samme tjenestene. Ellers må du fortsatt vite hvilket sett klienten fikk.
 
@@ -118,7 +120,7 @@ Et **rettighetssett** er tilgangspakker og enkeltrettigheter som hører sammen. 
 |---|---|---|
 | `accessPackages` | Tilgangspakker for egen virksomhet | Finnes i dag |
 | `rights` | Enkeltrettigheter for egen virksomhet | Finnes i dag |
-| `clientAccessSets` | Prioritert liste med rettighetssett for klienter | Nytt, foreløpig navn |
+| `clientAccessSets` | Rettighetssett for klienter, med id som nøkkel og i prioritert rekkefølge | Nytt, foreløpig navn |
 | `vendorLocked` | Hvem som bestemmer tilgangene etter godkjenning | Nytt, påkrevd |
 
 Kunden godkjenner én systembruker. Tilgangene for egen virksomhet får systembrukeren når kunden godkjenner. Tilgangene for klienter får den når virksomheten knytter klienter til systembrukeren.
@@ -165,6 +167,7 @@ PUT /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 ```
 
 - **Oppdateringen endrer ikke det som er delegert.** Altinn verken gir eller fjerner tilganger.
+- **Behold id-en når du endrer et sett.** Klientene er knyttet til settet med id-en. En ny id er et nytt sett.
 - **Virksomheten ser avviket.** Flaten viser at settet ikke er komplett for klienter som allerede er knyttet til.
 - **Systemet ditt må tåle avviket.** Til virksomheten har gitt det som mangler, kan kall til den nye tjenesten bli avvist for disse klientene.
 - **Du kan ikke be klientene om tilgangene gjennom API-et.** Det er ikke planlagt i denne endringen. Virksomheten må be klientene om det som mangler.
@@ -253,7 +256,8 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Hva som gjelder når du oppdaterer rettighetssett: om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når du fjerner en tilgang fra et sett.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
-- Hvor mange rettighetssett du kan oppgi.
+- Hvor mange rettighetssett du kan oppgi, og hvilke tegn id-en til et sett kan ha.
+- Hvordan API-et for å knytte en klient til systembrukeren viser til id-en til settet.
 - Om du skal kunne gi rettighetssettene navn med feltet `name`.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
@@ -328,31 +332,31 @@ POST /authentication/api/v2/systemuser/request/vendor
   "partyOrgNo": "310000001",
   "externalRef": "kunde-4711",
   "vendorLocked": true,
-  "clientAccessSets": [
-    {
+  "clientAccessSets": {
+    "regnskapsforer": {
       "accessPackages": [
         { "urn": "urn:altinn:accesspackage:regnskapsforer-lonn" },
         { "urn": "urn:altinn:accesspackage:sykefravaer-personopplysninger-saerlig-kategori" }
       ]
     },
-    {
+    "revisor": {
       "accessPackages": [
         { "urn": "urn:altinn:accesspackage:revisormedarbeider" },
         { "urn": "urn:altinn:accesspackage:sykefravaer-personopplysninger-saerlig-kategori" }
       ]
     },
-    {
+    "uregistrert": {
       "accessPackages": [
         { "urn": "urn:altinn:accesspackage:a-ordning" },
         { "urn": "urn:altinn:accesspackage:sykefravaer-personopplysninger-saerlig-kategori" }
       ]
     }
-  ],
+  },
   "redirectUrl": "https://lonn.example.no/altinn/callback"
 }
 ```
 
-Organisasjonsnumre, system-ID og URL-er er fiktive. Med `vendorLocked: true` er dette «Leverandøren bestemmer»: settene er bindende, og bare du kan endre dem.
+Organisasjonsnumre, system-ID og URL-er er fiktive. Nøklene `regnskapsforer`, `revisor` og `uregistrert` er id-ene du velger for settene. Med `vendorLocked: true` er dette «Leverandøren bestemmer»: settene er bindende, og bare du kan endre dem.
 
 ---
 ## Scenario 2: tilgangspakker og enkelttjeneste
@@ -360,8 +364,8 @@ Organisasjonsnumre, system-ID og URL-er er fiktive. Med `vendorLocked: true` er 
 Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang til sykmeldingen uten alt det andre som ligger i pakken.
 
 ```json
-"clientAccessSets": [
-  {
+"clientAccessSets": {
+  "regnskapsforer": {
     "name": "Registrert regnskapsfører",
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:regnskapsforer-lonn" }
@@ -370,7 +374,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
       { "resource": [ { "id": "urn:altinn:resource", "value": "nav_sykepenger_sykmelding" } ] }
     ]
   },
-  {
+  "revisor": {
     "name": "Registrert revisor",
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:revisormedarbeider" }
@@ -379,7 +383,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
       { "resource": [ { "id": "urn:altinn:resource", "value": "nav_sykepenger_sykmelding" } ] }
     ]
   },
-  {
+  "uregistrert": {
     "name": "Uregistrert kunde",
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:a-ordning" }
@@ -388,10 +392,10 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang
       { "resource": [ { "id": "urn:altinn:resource", "value": "nav_sykepenger_sykmelding" } ] }
     ]
   }
-]
+}
 ```
 
-Feltet `name` er valgfritt, og navnet på feltet er foreløpig. Gir du settene navn, ser virksomheten navnene i stedet for «Alternativ 1», «Alternativ 2» og så videre.
+Id-en er nøkkelen og ligger fast. Feltet `name` er teksten virksomheten ser. Feltet er valgfritt, og navnet på feltet er foreløpig. Gir du settene navn, ser virksomheten navnene i stedet for «Alternativ 1», «Alternativ 2» og så videre.
 
 En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
 
@@ -414,7 +418,7 @@ Klienten kan ikke delegere regnskapsfører- og revisorpakkene direkte. En uregis
 ---
 ## Når klienten passer med flere sett
 
-Klienten kan ha gitt nok til at flere sett er oppfylt. Da krysser Altinn av for **det første settet i listen**. Virksomheten kan velge et annet sett klienten også oppfyller, eller flere av dem. Systembrukeren får alle tilgangene i settene som er valgt.
+Klienten kan ha gitt nok til at flere sett er oppfylt. Da krysser Altinn av for **det første settet i `clientAccessSets`**. Virksomheten kan velge et annet sett klienten også oppfyller, eller flere av dem. Systembrukeren får alle tilgangene i settene som er valgt.
 
 Eksempel fra scenario 1: Fjellvik Bygg AS har regnskapsførerrollen, og har også gitt A-ordningen og Sykefravær-pakken direkte.
 

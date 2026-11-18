@@ -34,7 +34,7 @@ Synlig system i opprettelsesvalget er et annet begrep enn synlighet for opprette
 
 Vi lager `POST /authentication/api/v2/systemuser/request/vendor` med den utvidede forespørselen og kaller brukeren systembruker. Versjon 1 virker som før og får ingen nye felt. Systembrukere fra versjon 1 får `vendorLocked=true`. Autentisering ligger nå i `altinn-auth`.
 
-Forespørselen har to lister for egen virksomhet, pakker og enkeltrettigheter, og en prioritert liste med rettighetssett for klienter. Navnet på det nye klientfeltet er ikke endelig fastsatt.
+Forespørselen har to lister for egen virksomhet, pakker og enkeltrettigheter, og rettighetssett for klienter. Rettighetssettene er et objekt der nøkkelen er en id leverandøren velger, og rekkefølgen i objektet er prioriteten. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026). Navnet på det nye klientfeltet er ikke endelig fastsatt.
 
 Systembruker for eget system uten systemregisteret skal være uten forhåndsdefinerte rettigheter, og kunne brukes for både egen virksomhet og klienter. Den skal dermed ha `vendorLocked=false`, typisk uten krav i forespørselen. Direkte Maskinporten-tilknytning er fortsatt et eget teknisk arbeidspunkt.
 

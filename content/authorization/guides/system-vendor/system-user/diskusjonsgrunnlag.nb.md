@@ -58,7 +58,7 @@ Autentiseringskoden ligger nå under `src/apps/Altinn.Authentication` i `altinn-
 |---|---|
 | `rights` | Enkeltrettigheter for egen virksomhet |
 | `accessPackages` | Tilgangspakker for egen virksomhet |
-| `clientAccessSets`* | Prioritert liste med rettighetssett for klienter |
+| `clientAccessSets`* | Rettighetssett for klienter, med id som nøkkel og i prioritert rekkefølge |
 
 Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på systemet i systemregisteret. Rettighetssettene setter rammen for senere klientdelegering.
 
@@ -70,13 +70,21 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 **Et rettighetssett er tilgangspakker og enkeltrettigheter som hører sammen.**
 
 - Klienten må oppfylle alt innenfor ett sett. Det holder å oppfylle ett av settene.
-- Rekkefølgen i listen er prioriteten, uten indeksfelt. Altinn forhåndsvelger det første settet klienten oppfyller fullt ut. Oppfyller klienten flere, kan virksomheten velge et annet av dem, eller flere.
-- Settene lagres som `jsonb` på systembrukeren etter opprettelse.
+- `clientAccessSets` er et objekt der nøkkelen er id-en til settet. Leverandøren velger id-en, og den må være unik på systembrukeren. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026).
+- Id-en ligger fast. Det valgfrie feltet `name` er teksten virksomheten ser. Når leverandøren oppdaterer settene, er samme id samme sett.
+- Rekkefølgen i objektet er prioriteten, uten indeksfelt. Altinn forhåndsvelger det første settet klienten oppfyller fullt ut. Oppfyller klienten flere, kan virksomheten velge et annet av dem, eller flere.
+- Vi lagrer settene på systembrukeren etter opprettelsen.
+
+**Konsekvens av at rekkefølgen i objektet er prioriteten:**
+
+- PostgreSQL-typen `jsonb` tar ikke vare på rekkefølgen av nøklene. Vi må lagre rekkefølgen på en annen måte, for eksempel som en liste med id internt eller som `json`.
+- JavaScript legger nøkler som bare er sifre, først. Id-en bør derfor ikke bare bestå av sifre.
+- Klienten og serveren må lese JSON-objektet slik at de beholder rekkefølgen. Det må stå tydelig i API-dokumentasjonen.
 - `action` støttes ikke i rettighetssett i første versjon. Behov for finere styring håndteres med tilgangspakker.
 
 Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: registrert regnskapsfører (rollen REGN), registrert revisor (rollen REVI) og uregistrert kunde (direkte delegering). Leverandøren trenger ikke vite kundeforholdet for å hente token, så lenge alle settene dekker de samme tjenestene.
 
-Åpent: om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
+Åpent: hvilke tegn id-en kan ha, hvordan API-et for å knytte til en klient viser til id-en, og om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
 
 ---
 ## Vedtatt: Leverandøren kan oppdatere rettighetssettene
