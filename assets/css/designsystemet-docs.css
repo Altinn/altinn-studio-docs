@@ -87,6 +87,33 @@
 :where(.docs-content) :where(.highlight) > pre {
   margin: 0;
 }
+/*
+  Kortkoden code-title viser filstien i en mørk boks over en kodeblokk.
+  custom.css flytter boksen 30 px ned, så den nederste delen ligger bak kodeblokken.
+  Det virker bare når kodeblokken har luft over seg. I denne rammen får blokker i innholdet bare luft under seg, ikke over, så kodeblokken dekker filstien.
+  Reglene under fjerner flyttingen og legger boksen rett over kodeblokken, så de ser ut som én boks.
+*/
+.docs-content .code-title {
+  top: 0;
+  margin: 0;
+  padding-bottom: 15px;
+  border-radius: 7px 7px 0 0;
+}
+.docs-content .code-title + .highlight {
+  margin-block-start: 0;
+}
+.docs-content .code-title + .highlight > pre {
+  border-start-start-radius: 0;
+  border-start-end-radius: 0;
+}
+/*
+  Kortkoden content-version-selector viser faner over innholdet sitt. Fanene er en liste, og utseendet deres står i custom.css.
+  Fanene skal sitte rett på innholdet under, så de skal ikke få luften som rammen gir andre lister og listepunkter.
+*/
+.docs-content #content-version-tabs,
+.docs-content #content-version-tabs > li {
+  margin-block: 0;
+}
 /* En liste inne i et listepunkt skal ligge tett på punktet over. */
 :where(.docs-content) :where(li) > :where(ul, ol, p:last-child) {
   margin-block-end: 0;
