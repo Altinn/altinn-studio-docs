@@ -18,6 +18,7 @@ Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
 Fjern `<bpmn:conditionExpression>` fra standardflyten, eller fjern `default` fra gatewayen, slik
 at appen vurderer betingelsen. Da kan ikke betingelsen være tom (se
-[ALTINNAPP1012]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1012" >}})).
+[ALTINNAPP1012]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1012" >}})),
+og uten standardflyt må én av betingelsene være sann for hver instans som kommer til gatewayen.
 
 Se [veiledningen for flytkontroll]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/flowcontrol" >}}).

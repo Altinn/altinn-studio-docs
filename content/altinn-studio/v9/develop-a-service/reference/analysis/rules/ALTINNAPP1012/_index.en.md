@@ -18,8 +18,8 @@ The build reports an empty condition on the default flow as
 
 Category `Process`, severity **error**. The rule therefore fails the build.
 
-Give the sequence flow a condition. If the gateway should take it when no other condition is true,
-remove the empty `<bpmn:conditionExpression>` and name the sequence flow in `default` on the gateway
+Give the sequence flow a condition. If the gateway has no default flow yet and should take this one
+when no other condition is true, remove the empty `<bpmn:conditionExpression>` and name the sequence flow in `default` on the gateway
 instead.
 
 See the [guide to flow control](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/)

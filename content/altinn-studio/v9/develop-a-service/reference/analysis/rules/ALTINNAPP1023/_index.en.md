@@ -19,7 +19,9 @@ Category `Process`, severity **error**. The rule therefore fails the build.
 
 Remove the `<bpmn:conditionExpression>` from the default flow, or remove `default` from the
 gateway so that the app evaluates the condition. The condition must then not be empty (see
-[ALTINNAPP1012]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1012" >}})).
+[ALTINNAPP1012]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1012" >}})),
+and without a default flow, one of the conditions must be true for every instance that reaches the
+gateway.
 
 See the [guide to flow control](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/)
 (documentation available in Norwegian only).
