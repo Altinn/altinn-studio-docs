@@ -139,7 +139,7 @@ Oppgraderingen legger til en egen PDF-oppgave i prosessen der v8 laget en PDF. D
 - Kommer det en annen gateway rett etter steget som velger vei ut fra `gatewayAction`, legger ikke oppgraderingen til en PDF-oppgave. Du får en advarsel og må selv legge PDF-oppgaven på flyten som skal lage PDF-en.
 - Legger oppgraderingen til en eFormidling-oppgave etter det samme steget, kommer den etter PDF-oppgaven, også på `sign`-flyten.
 
-Byggefeilen [ALTINNAPP1030](/nb/altinn-studio/v9/develop-a-service/reference/analysis/rules/altinnapp1030/) stopper en gateway som velger vei ut fra `gatewayAction` rett etter en `pdf`-, `subformPdf`- eller `eFormidling`-oppgave. Disse oppgavene sender ingen handling videre, så gatewayen kan ikke se for eksempel `reject`. Flytter du en PDF-oppgave, må den ikke stå rett foran en slik gateway.
+Byggefeilen [ALTINNAPP1030]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1030" >}}) stopper en gateway som velger vei ut fra `gatewayAction` rett etter en `pdf`-, `subformPdf`- eller `eFormidling`-oppgave. Disse oppgavene sender ingen handling videre, så gatewayen kan ikke se for eksempel `reject`. Flytter du en PDF-oppgave, må den ikke stå rett foran en slik gateway.
 
 Du har også flere valg:
 
