@@ -89,20 +89,21 @@ For detailed description about each entity in the response body, please refer th
 
 ### Error Codes
 
-| Error Code | Status Code | Error Message                                                                                     | Detailed Description                                         |
-| ---------- | ----------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| AUTH-00011 | 400         | The Id does not refer to a Registered System.                                                     | No system with the system id found in altinn system register |
-| AUTH-00023 | 401         | Can't resolve the Organisation Number for the Vendor from the Token.                              | -                                                            |
-| AUTH-00004 | 400         | Failed to create new SystemUser, existing SystemUser tied to the given System-Id.                 | -                                                            |
-| AUTH-00006 | 400         | The combination of External Ids refer to an already Accepted SystemUser.                          | -                                                            |
-| AUTH-00007 | 400         | The combination of External Ids refer to a Pending Request, please reuse or delete.               | -                                                            |
-| AUTH-00008 | 400         | The combination of External Ids refer to a Denied Request, please delete and renew the Request.   | -                                                            |
-| AUTH-00009 | 400         | The combination of External Ids refer to a Rejected Request, please delete and renew the Request. | -                                                            |
-| AUTH-00000 | 400         | Can't resolve the Organisation Number from the logged in Reportee PartyId.                        | -                                                            |
-| AUTH-00026 | 400         | No redirect uris are set for the system                                                           | -                                                            |
-| AUTH-00021 | 400         | The RedirectUri was not found or not valid.                                                       | -                                                            |
-| AUTH-00001 | 400         | One or more Right not found or not delegable.                                                     | -                                                            |
-| AUTH-00012 | 400         | An error occured when storing the Request.                                                        | -                                                            |
+| Error Code | Status Code | Error Message                                                                                       | Detailed Description                                                                                                                      |
+| ---------- | ----------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| AUTH-00011 | 400         | The Id does not refer to a Registered System.                                                       | No system with the system id found in altinn system register                                                                              |
+| AUTH-00023 | 401         | Can't resolve the Organisation Number for the Vendor from the Token.                                | -                                                                                                                                         |
+| AUTH-00004 | 400         | Failed to create new SystemUser, existing SystemUser tied to the given System-Id.                   | -                                                                                                                                         |
+| AUTH-00006 | 400         | The combination of External Ids refer to an already Accepted SystemUser.                            | -                                                                                                                                         |
+| AUTH-00007 | 400         | The combination of External Ids refer to a Pending Request, please reuse or delete.                 | -                                                                                                                                         |
+| AUTH-00008 | 400         | The combination of External Ids refer to a Denied Request, please delete and renew the Request.     | -                                                                                                                                         |
+| AUTH-00009 | 400         | The combination of External Ids refer to a Rejected Request, please delete and renew the Request.   | -                                                                                                                                         |
+| AUTH-00000 | 400         | Can't resolve the Organisation Number from the logged in Reportee PartyId.                          | -                                                                                                                                         |
+| AUTH-00026 | 400         | No redirect uris are set for the system                                                             | -                                                                                                                                         |
+| AUTH-00021 | 400         | The RedirectUri was not found or not valid.                                                         | -                                                                                                                                         |
+| AUTH-00001 | 400         | One or more Right not found or not delegable.                                                       | Also returned when a right has an empty resource list.                                                                                    |
+| AUTH-00083 | 400         | A right can have at most one resource, with the id urn:altinn:resource. Use one right per resource. | A right has more than one entry in its resource list, or an entry with an id other than urn:altinn:resource. Send one right per resource. |
+| AUTH-00012 | 400         | An error occured when storing the Request.                                                          | -                                                                                                                                         |
 
 ## Get a system user request
 
