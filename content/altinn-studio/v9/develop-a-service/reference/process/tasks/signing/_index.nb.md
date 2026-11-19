@@ -120,7 +120,7 @@ App/config/applicationmetadata.json
         "allowAnonymousOnStateless": false,
         "autoDeleteOnProcessEnd": false
       },
-      "taskId": "Task_1",
+      "taskIds": ["Task_1"],
       "maxCount": 1,
       "minCount": 1
     },
@@ -130,7 +130,7 @@ App/config/applicationmetadata.json
         "application/json"
       ],
       "allowedContributors": ["app:owned"],
-      "taskId": "Task_2",
+      "taskIds": ["Task_2"],
       "maxSize": 25,
       "maxCount": 1,
       "minCount": 0

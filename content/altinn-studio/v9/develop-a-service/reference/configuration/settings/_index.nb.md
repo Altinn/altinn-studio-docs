@@ -55,7 +55,6 @@ Disse innstillingene under `AppSettings` er nå slått på som standard:
 | `RequiredValidation` | Kontrollerer på serveren at felt som må fylles ut, er fylt ut. |
 | `ExpressionValidation` | Kjører valideringer med uttrykk på serveren. |
 | `RemoveHiddenData` | Fjerner data fra skjulte komponenter før oppgaven avsluttes. |
-| `EnforceDataTypeTaskId` | Lar appen endre en datatype med `taskId` bare mens instansen er i den oppgaven. Andre forsøk får svaret `409 Conflict`. |
 
 Er appen ikke klar for en av dem, setter du den til `false`:
 
@@ -71,7 +70,7 @@ App/appsettings.json
 }
 ```
 
-Vi fjerner `EnforceDataTypeTaskId` i neste hovedversjon.
+Innstillingen `EnforceDataTypeTaskId` finnes ikke lenger i v9. Appen kontrollerer alltid at instansen er i en av oppgavene i `taskIds` når noen oppretter, endrer eller sletter data av en datatype. Er instansen i en annen oppgave, svarer appen `409 Conflict`. `studioctl app upgrade v9` fjerner innstillingen fra `appsettings`-filene.
 
 ## Funksjonsflagg
 

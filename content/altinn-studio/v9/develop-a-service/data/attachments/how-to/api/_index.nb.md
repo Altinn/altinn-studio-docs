@@ -23,7 +23,7 @@ App/config/applicationmetadata.json
   "dataTypes": [
     {
       "id": "attest",
-      "taskId": "Task_1",
+      "taskIds": ["Task_1"],
       "maxSize": 25,
       "maxCount": 1,
       "minCount": 1,
@@ -40,7 +40,7 @@ Du finner en forklaring av hver egenskap på siden [Egenskaper på datatypen for
 
 ## Sjekke at prosessteget stemmer
 
-Appen kontrollerer at datatypen hører til prosessteget (taskId) som instansen står i. Laster et system opp til en datatype som hører til et annet prosessteg, svarer appen med feilkoden 409. Appen gjør denne kontrollen som standard.
+Appen kontrollerer at prosessteget som instansen står i, er med i `taskIds` for datatypen. Laster et system opp til en datatype som hører til andre prosessteg, svarer appen med feilkoden 409. Appen gjør alltid denne kontrollen.
 
 ## Bestemme hvem som kan laste opp
 
