@@ -94,13 +94,13 @@ App/config/process/process.bpmn
 
 ## Gi tilgang til oppgaven
 
-Når plattformen kjører systemoppgaven og flytter prosessen ut av den, gjør den det som tjenesteeier, ikke som brukeren. Det gjelder også når oppgaven svarer `Success("reject")`. Tjenesteeieren trenger ingen handling for oppgavetypen eller for `reject`, bare `read` og `write`. Tilgangsfilen fra appmalen gir tjenesteeieren begge.
+Når plattformen kjører systemoppgaven og flytter prosessen ut av den, gjør den det som tjenesteeier, ikke som brukeren. Det gjelder også når oppgaven svarer `Success("reject")`. Tjenesteeieren trenger ingen handling for oppgavetypen eller for `reject`, bare `read` og `write`. Tilgangsfilen fra app-malen gir tjenesteeieren begge.
 
 Appen kontrollerer tilgangene til tjenesteeieren når du bygger, gjennom regelen [ALTINNAPP0800]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0800" >}}). Oppgraderingen fra v8 legger inn de reglene tjenesteeieren mangler. Se [tilgangsregler]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}) for mer om filen.
 
 ### Når brukeren skal kunne prøve igjen
 
-Feiler oppgaven, kan brukeren trykke **Prøv igjen**. Da trenger brukeren `write` på oppgaven. Tilgangsfilen fra appmalen gir brukeren `write` i hele tjenesten. Gir tilgangsfilen din brukeren `write` bare i bestemte oppgaver, må du ta med systemoppgaven i den regelen.
+Feiler oppgaven, kan brukeren klikke på **Prøv igjen**. Da trenger brukeren `write` på oppgaven. Tilgangsfilen fra app-malen gir brukeren `write` i hele tjenesten. Gir tilgangsfilen din brukeren `write` bare i bestemte oppgaver, må du ta med systemoppgaven i den regelen.
 
 Brukeren kan ikke hoppe over oppgaven. Så lenge oppgaven jobber, venter eller har feilet, svarer plattformen 409 på `process/next`, også når brukeren sender handlingen `reject`. Når oppgaven er ferdig, flytter plattformen prosessen videre selv.
 

@@ -166,4 +166,4 @@ public class MyTaskStartHandler : IOnTaskStartingHandler
 
 Felt du ikke setter, får standardverdien.
 
-Systemoppgaver har ikke `StepOptions`. Der gir du `ProcessStepOptions` til hvert steg når du setter sammen oppgaven, og standard tidsavbrudd er lengre. Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#styre-tidsbruk-og-nye-forsøk).
+Systemoppgaver har ikke `StepOptions`. I en systemoppgave gir du `ProcessStepOptions` til hvert steg når du setter sammen oppgaven, og standard tidsavbrudd er lengre. Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#styre-tidsbruk-og-nye-forsøk).
