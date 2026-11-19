@@ -18,8 +18,8 @@ a gateway. The rule therefore checks every gateway, including those no instance 
 Category `Process`, severity **error**. The rule therefore fails the build.
 
 Remove the `<bpmn:conditionExpression>` from the default flow, or remove `default` from the
-gateway so that the app evaluates the condition. The condition must then not be empty, or the build
-reports [ALTINNAPP1012]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1012" >}}).
+gateway so that the app evaluates the condition. The condition must then not be empty (see
+[ALTINNAPP1012]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1012" >}})).
 
 See the [guide to flow control](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/)
 (documentation available in Norwegian only).
