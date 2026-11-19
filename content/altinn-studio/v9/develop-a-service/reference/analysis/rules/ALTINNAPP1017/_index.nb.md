@@ -8,8 +8,8 @@ Denne diagnostikken melder fra når `taskIds` på en datatype i `applicationmeta
 oppføring som ikke er id-en til en oppgave eller systemoppgave i `config/process/process.bpmn`.
 Det gjelder også en tom oppføring, `null`, og en oppgave som ligger inne i en underprosess, som
 appen ikke kjører. Meldingen navngir datatypen, oppføringen og hvorfor den ikke peker på en
-oppgave. En datamodell (en datatype med `classRef`) i en app uten instanser kan ha navnet på
-UI-mappen appen viser, i `taskIds`, og den melder ikke regelen.
+oppgave. En datamodell (en datatype med `classRef`) i en tilstandsløs app kan ha navnet på
+UI-mappen appen viser, i `taskIds`, og regelen melder ikke fra om det.
 
 Prosessen stopper aldri i en slik oppgave. Lister `taskIds` også en oppgave som finnes, har
 oppføringen ingen virkning. Ellers kan ikke brukerne endre dataene i datatypen gjennom appen, og

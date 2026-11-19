@@ -10,7 +10,7 @@ slutthendelser og sekvensflyter under ett. Meldingen navngir id-en og hvor mange
 bruker den, og står på det andre elementet med id-en.
 
 BPMN krever at hver id er unik i filen. Appen kan sende en instans feil vei når to elementer har
-samme id. Siden **Prosess** i Altinn Studio Designer fjerner dessuten elementer med en id den
+samme id. **Prosess**-siden i Altinn Studio Designer fjerner dessuten elementer med en id den
 allerede har lest, så de forsvinner neste gang du lagrer prosessen derfra. Regelen sjekker hele
 prosessen, også elementer ingen instans kan nå.
 

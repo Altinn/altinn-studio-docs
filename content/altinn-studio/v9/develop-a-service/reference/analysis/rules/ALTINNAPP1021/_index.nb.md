@@ -15,8 +15,8 @@ Denne diagnostikken melder fra når `<altinn:taskExtension>` på en oppgave i
 Meldingen navngir oppgaven, elementet og hvor det står, og foreslår en retting.
 
 Appen hopper over elementer den ikke kjenner, uten å si fra, så innstillingen forsvinner i
-stillhet. Elementer med andre navn i andre navnerom hører til andre verktøy, og dem melder ikke
-regelen. De gamle innstillingene `subformComponentId` og `subformDataTypeId` melder bygget som
+stillhet. Elementer med andre navn i andre navnerom hører til andre verktøy, og regelen melder ikke
+fra om dem. De gamle innstillingene `subformComponentId` og `subformDataTypeId` melder bygget som
 [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}})
 i stedet.
 
