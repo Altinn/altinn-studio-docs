@@ -15,7 +15,7 @@ Disse systemoppgavene følger med plattformen:
 - [eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) sender data videre til arkivet eller en annen mottaker.
 - [Fiks Arkiv]({{< relref "/altinn-studio/v9/receive-data/fiks-arkiv" >}}) sender data til arkiv gjennom KS Fiks. Den ligger i en egen pakke som utviklerne legger til i appen.
 
-Du finner hele oversikten over oppgavetyper under [📚 Referanse]({{< relref "/altinn-studio/v9/develop-a-service/process/reference/task-types" >}}).
+Du finner hele oversikten over oppgavetyper under [Referanse]({{< relref "/altinn-studio/v9/develop-a-service/process/reference/task-types" >}}).
 
 ## Egne systemoppgaver
 

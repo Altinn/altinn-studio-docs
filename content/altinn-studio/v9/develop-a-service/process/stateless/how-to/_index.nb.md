@@ -1,4 +1,4 @@
 ---
-title: 🎯 Guider
+title: Guider
 ---
 {{<children />}}
