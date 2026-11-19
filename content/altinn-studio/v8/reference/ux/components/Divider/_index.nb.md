@@ -125,7 +125,7 @@ App/ui/layouts/{page}.json
       "layout": [
         {
           "id": "myDivider",
-          "type": "Divider",
+          "type": "Divider"
         }
       ]
     }
@@ -179,6 +179,6 @@ App/ui/layouts/{page}.json
 ```json
   {
     "id": "myDivider",
-    "type": "Divider",
+    "type": "Divider"
   }
 ```
