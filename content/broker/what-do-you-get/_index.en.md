@@ -36,7 +36,7 @@ The sender determines how long the file will be available for download by the re
 - 'FileTransferTimeToLive': How long a file is available for download (default is 30 days, maximum is one year).
 
 ### API access
-All users, both senders and recipients, have access to functionalities through the Broker APIs. This provides you with the possibility to integrate Altinn Broker into your own systems, allowing you to automate your processes.
+All users, both senders and recipients, have access to functionalities through the Broker APIs. This provides you with the possibility to integrate Altinn Broker into your own systems, allowing you to automate your processes. People can also send and receive files in the browser. See [Use Broker in the browser](/en/broker/getting-started/web-app/).
 
 ### Integrations and cloud Support
 Altinn Broker seeks to provide as standardized integrations as possible with other common solutions, easing integration with existing systems. The solution also offers buffering to handle large data volumes. It can be configured to use your own cloud solution for storage, should you have requirements for this.

@@ -12,6 +12,11 @@ cascade:
 
 {{<children />}}
 
+Du kan bruke Altinn Formidling på to måter:
+
+- I nettleseren logger sluttbrukere inn med ID-porten og sender eller mottar filer selv. Følg [Slik bruker du Formidling i nettleseren](/nb/broker/getting-started/web-app/).
+- Mot API-et sender og mottar et system filene. Følg [felles steg](/nb/broker/getting-started/common-steps/) og [utviklerveiledningen](/nb/broker/getting-started/developer-guides/).
+
 På grunn av de ulike rollene en virksomhet kan ha i samhandling med Altinn Formidling, har vi delt veiledningene i flere deler basert på den aktuelle rollen;
 
 - Sender/Avsender

@@ -12,6 +12,11 @@ cascade:
 
 {{<children />}}
 
+You can use Altinn Broker in two ways:
+
+- In the browser, end users log in with ID-porten and send or receive files themselves. Follow [Use Broker in the browser](/en/broker/getting-started/web-app/).
+- Through the API, a system sends and receives the files. Follow the [common steps](/en/broker/getting-started/common-steps/) and the [developer guide](/en/broker/getting-started/developer-guides/).
+
 Due to the different distinct roles an enterprise may have in their interaction with Altinn Broker, we have divided our guides based on the specific role;
 
 - Sender
