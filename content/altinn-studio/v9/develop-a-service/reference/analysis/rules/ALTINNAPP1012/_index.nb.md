@@ -17,6 +17,8 @@ En tom betingelse på standardflyten melder bygget som
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
-Gi sekvensflyten en betingelse, eller fjern den tomme `<bpmn:conditionExpression>`.
+Gi sekvensflyten en betingelse. Skal gatewayen ta den når ingen annen betingelse er sann, fjerner
+du den tomme `<bpmn:conditionExpression>` og setter sekvensflyten som `default` på gatewayen i
+stedet.
 
 Se [veiledningen for flytkontroll]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/flowcontrol" >}}).

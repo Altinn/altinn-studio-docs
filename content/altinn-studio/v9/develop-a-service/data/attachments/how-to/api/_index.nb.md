@@ -40,7 +40,7 @@ Du finner en forklaring av hver egenskap på siden [Egenskaper på datatypen for
 
 ## Sjekke at prosessteget stemmer
 
-Appen kontrollerer at prosessteget som instansen står i, er med i `taskIds` for datatypen. Laster et system opp til en datatype som hører til andre prosessteg, svarer appen med feilkoden 409. Appen gjør alltid denne kontrollen.
+Har datatypen `taskIds`, kontrollerer appen alltid at prosessteget som instansen står i, er med i listen. Laster et system opp til en datatype som hører til andre prosessteg, svarer appen med feilkoden 409. En datatype uten `taskIds` kan endres i alle prosessteg.
 
 ## Bestemme hvem som kan laste opp
 

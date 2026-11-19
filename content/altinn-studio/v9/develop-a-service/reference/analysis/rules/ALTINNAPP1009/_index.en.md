@@ -18,4 +18,5 @@ The rule checks the whole process, including elements no instance can reach.
 Category `Process`, severity **error**. The rule therefore fails the build.
 
 Give each element its own id, and update the sequence flows and the `<bpmn:incoming>` and
-`<bpmn:outgoing>` lists that refer to it.
+`<bpmn:outgoing>` lists that refer to it. If you change a task's id, also update everything else that
+names the task, such as `taskIds` on data types in `applicationmetadata.json`.

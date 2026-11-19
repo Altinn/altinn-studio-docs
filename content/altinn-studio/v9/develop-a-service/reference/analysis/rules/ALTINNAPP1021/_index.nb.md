@@ -16,9 +16,10 @@ Meldingen navngir oppgaven, elementet og hvor det står, og foreslår en retting
 
 Appen hopper over elementer den ikke kjenner, uten å si fra, så innstillingen forsvinner i
 stillhet. Elementer med andre navn i andre navnerom hører til andre verktøy, og regelen melder ikke
-fra om dem. De gamle innstillingene `subformComponentId` og `subformDataTypeId` melder bygget som
+fra om dem. De gamle innstillingene `subformComponentId` og `subformDataTypeId` i
+`<altinn:subformPdfConfig>` melder bygget som
 [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}})
-i stedet.
+i stedet. Andre steder melder denne regelen fra om dem.
 
 Kategori `Process`, alvorlighetsgrad **advarsel**. Det er en advarsel fordi ingenting feiler der
 elementet står.

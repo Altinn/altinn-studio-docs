@@ -17,4 +17,5 @@ prosessen, også elementer ingen instans kan nå.
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
 Gi hvert element sin egen id, og oppdater sekvensflytene og listene `<bpmn:incoming>` og
-`<bpmn:outgoing>` som peker på den.
+`<bpmn:outgoing>` som peker på den. Endrer du id-en til en oppgave, må du også oppdatere alt annet
+som navngir oppgaven, for eksempel `taskIds` på datatyper i `applicationmetadata.json`.

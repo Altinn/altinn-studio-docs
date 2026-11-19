@@ -17,9 +17,10 @@ The message names the task, the element and where it is, and suggests a fix.
 
 The app skips elements it does not know without a word, so the setting is lost silently.
 Elements with other names in other namespaces belong to other tools, and the rule does not
-report them. The build reports the old settings `subformComponentId` and `subformDataTypeId` as
+report them. The build reports the old settings `subformComponentId` and `subformDataTypeId` in
+`<altinn:subformPdfConfig>` as
 [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}})
-instead.
+instead. Elsewhere, this rule reports them.
 
 Category `Process`, severity **warning**. It is a warning because nothing fails where the
 element is.
