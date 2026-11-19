@@ -42,7 +42,7 @@ App/config/applicationmetadata.json
         "autoCreate": true,
         "classRef": "Altinn.App.Models.Skjema"
       },
-      "taskId": "Task_1",
+      "taskIds": ["Task_1"],
       "maxCount": 1,
       "minCount": 1
     },
@@ -57,7 +57,7 @@ App/config/applicationmetadata.json
     {
       "id": "6aa7d237-f20f-4d42-9361-0c84cf1a8ed0",
       "allowedContentTypes": [],
-      "taskId": "Task_1",
+      "taskIds": ["Task_1"],
       "maxSize": 1,
       "maxCount": 3,
       "minCount": 1
@@ -98,7 +98,7 @@ App/config/applicationmetadata.json
 			"allowAnonymousOnStateless": false,
 			"autoDeleteOnProcessEnd": true
 		},
-		"taskId": "Task_1",
+		"taskIds": ["Task_1"],
 		"maxCount": 1,
 		"minCount": 1
 	},
@@ -112,7 +112,7 @@ App/config/applicationmetadata.json
 	},
 	{
 		"id": "vedleggA",
-		"taskId": "Task_1",
+		"taskIds": ["Task_1"],
 		"maxSize": 25,
 		"maxCount": 1,
 		"minCount": 1,
