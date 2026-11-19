@@ -4,6 +4,12 @@ description: Overview of changes introduced in v3 of deployment.
 toc: true
 ---
 
+## 3.3.0
+
+* Adds conditional dual stack configuration to service template with IPv4/IPv6 support when ipv6.enabled is true (default).
+
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-3.3.0)
+
 ## 3.2.0
 
 * Change traefik api from traefik.containo.us to traefik.io
