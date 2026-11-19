@@ -56,6 +56,8 @@ En kort tekst som beskriver systemet. Denne brukes til å presentere systemet fo
 
 Dette definerer tjenestene som leverandørens system krever tilgang til fra systembrukeren. Dette kan være enten en Altinn 3-app, en tjeneste utenfor Altinn, men som er registrert som en ressurs i Altinn. Eksempelet nedenfor definerer en app "app_ttd_endring-av-navn-v2" i Altinn og en tjeneste "ske-krav-og-betalinger" utenfor Altinn som er registrert som en ressurs i Altinn. Dette er et valgfrie argument for å opprette et system, men det må settes før systembrukeren kan opprettes.
 
+Hver rettighet gjelder én ressurs: `resource`-listen har ett element, med `"id": "urn:altinn:resource"`. Trenger systemet flere ressurser, legger du til én rettighet per ressurs, som i eksempelet nedenfor. API-et svarer med `400 Bad Request` hvis en rettighet har flere elementer.
+
 ```json
 "rights": [
   {
