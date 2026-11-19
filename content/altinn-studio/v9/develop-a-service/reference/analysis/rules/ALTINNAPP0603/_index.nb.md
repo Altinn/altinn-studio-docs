@@ -1,6 +1,6 @@
 ---
 title: "ALTINNAPP0603: taskId støttes ikke"
-description: "En datatype i applicationmetadata.json har taskId, som ikke lenger er støttet"
+description: "En datatype i applicationmetadata.json har taskId, som appen ikke lenger støtter"
 weight: 63
 ---
 

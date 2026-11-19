@@ -1,5 +1,5 @@
 ---
-title: "ALTINNAPP0604: taskId ved siden av taskIds blir ignorert"
+title: "ALTINNAPP0604: appen ser bort fra taskId ved siden av taskIds"
 description: "En datatype i applicationmetadata.json har både taskId og taskIds, og appen leser bare taskIds"
 weight: 64
 ---

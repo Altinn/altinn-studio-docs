@@ -9,7 +9,7 @@ Denne diagnostikken melder fra når `default` på en eksklusiv gateway i
 Meldingen navngir gatewayen og verdien i `default`.
 
 Appen leter bare etter standardflyten blant sekvensflytene gatewayen lister, og ser bort fra
-`default` når den ikke finner den der. Det feiler bare når de andre sekvensflytene ikke snevrer
+`default` når den ikke finner den der. Gatewayen feiler bare når de andre sekvensflytene ikke snevrer
 valget inn til én. Regelen sjekker bare gatewayer en instans kan nå.
 
 Kategori `Process`, alvorlighetsgrad **advarsel**.

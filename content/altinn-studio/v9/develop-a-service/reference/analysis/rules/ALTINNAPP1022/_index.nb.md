@@ -1,6 +1,6 @@
 ---
 title: "ALTINNAPP1022: oppgavekonfigurasjonen har et env-attributt appen ikke kan bruke"
-description: "Et env-attributt i oppgavekonfigurasjonen har et miljønavn appen ikke kjenner, eller blir ikke lest"
+description: "Et env-attributt i oppgavekonfigurasjonen har et miljønavn appen ikke kjenner, eller appen leser det ikke"
 weight: 122
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "ALTINNAPP1015: datatypen kan ikke lagre det oppgaven lagrer i den"
-description: "En datatype som en oppgave lagrer PDF-er, signaturer eller annen data i, tar ikke imot det oppgaven lagrer"
+description: "En datatype som en oppgave lagrer PDF-er, signaturer eller andre data i, tar ikke imot det oppgaven lagrer"
 weight: 115
 ---
 
@@ -24,7 +24,7 @@ En slik datatype tar ikke imot det oppgaven lagrer, når
 I en signeringsoppgave som har handlingen `sign`, melder regelen også fra når `taskIds` på
 datatypen i `signatureDataType` har verdier, men ikke signeringsoppgaven. Storage tar bare imot
 en signatur i en datatype som ikke hører til noen oppgave, eller som hører til
-signeringsoppgaven, så ellers feiler alle signaturene i oppgaven.
+signeringsoppgaven. Ellers feiler alle signaturene i oppgaven.
 
 Regelen sjekker bare oppgaver en instans kan nå.
 

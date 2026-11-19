@@ -1,6 +1,6 @@
 ---
 title: "ALTINNAPP1021: oppgavekonfigurasjonen har et element appen ser bort fra"
-description: "Et element i altinn:taskExtension blir ikke lest av appen, så innstillingen har ingen virkning"
+description: "Appen leser ikke et element i altinn:taskExtension, så innstillingen har ingen virkning"
 weight: 121
 ---
 
@@ -14,8 +14,8 @@ Denne diagnostikken melder fra når `<altinn:taskExtension>` på en oppgave i
 
 Meldingen navngir oppgaven, elementet og hvor det står, og foreslår en retting.
 
-Appen hopper over elementer den ikke kjenner, uten å si fra, så innstillingen forsvinner i
-stillhet. Elementer med andre navn i andre navnerom hører til andre verktøy, og regelen melder ikke
+Appen hopper over elementer den ikke kjenner, uten å si fra, så innstillingen har ingen
+virkning. Elementer med andre navn i andre navnerom hører til andre verktøy, og regelen melder ikke
 fra om dem. De gamle innstillingene `subformComponentId` og `subformDataTypeId` i
 `<altinn:subformPdfConfig>` melder bygget som
 [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}})

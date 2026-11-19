@@ -1,5 +1,5 @@
 ---
-title: "ALTINNAPP1009: samme id brukes flere ganger i prosessen"
+title: "ALTINNAPP1009: flere elementer i prosessen har samme id"
 description: "To eller flere elementer eller sekvensflyter i process.bpmn har samme id"
 weight: 109
 ---

@@ -1,5 +1,5 @@
 ---
-title: "ALTINNAPP1016: datatypen må eies av appen"
+title: "ALTINNAPP1016: appen må eie datatypen"
 description: "En datatype for signaturer, signeringsstatus eller betalingsinformasjon har ikke allowedContributors satt til app:owned"
 weight: 116
 ---

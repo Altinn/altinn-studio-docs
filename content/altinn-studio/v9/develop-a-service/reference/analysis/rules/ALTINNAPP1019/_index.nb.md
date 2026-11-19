@@ -6,7 +6,7 @@ weight: 119
 
 Denne diagnostikken melder fra når `<altinn:connectedDataTypeId>` i `<altinn:gatewayExtension>`
 på en eksklusiv gateway i `config/process/process.bpmn` ikke er id-en til en datatype i
-`applicationmetadata.json`. En tom id gjelder også. Meldingen navngir gatewayen og datatypen.
+`applicationmetadata.json`. Det gjelder også en tom id. Meldingen navngir gatewayen og datatypen.
 
 Betingelsene på gatewayen finner da ikke noe dataelement. En betingelse som leser
 `["dataModel", ...]` uten å navngi en datatype, feiler når en instans forlater gatewayen.
