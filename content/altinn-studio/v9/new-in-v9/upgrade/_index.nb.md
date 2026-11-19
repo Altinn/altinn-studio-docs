@@ -19,7 +19,7 @@ Det er som regel utvikleren eller leverandøren din som kjører oppgraderingen. 
 
 ## 1. Sett opp studioctl og hent appen
 
-Har du ikke appen på maskinen din, følger du [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen.
+Har du ikke appen på maskinen din, følger du [veiledningen for å sette opp utviklingsmiljøet på egen maskin]({{< relref "/altinn-studio/v9/getting-started/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen.
 
 Har du appen på maskinen fra før, trenger du ikke hente den på nytt. Har du ikke studioctl ennå, [installerer du verktøyet]({{< relref "/altinn-studio/v9/getting-started/studioctl#installer-studioctl" >}}). Har du studioctl fra før, oppdaterer du til siste versjon:
 
@@ -95,6 +95,22 @@ Mappestrukturen viser dermed selv hvilket skjema som hører til hvilket steg. Da
 
 Se [innstillinger for sider og oppgaver](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/) for felles innstillinger og overstyringer per oppgave.
 
+### Navigasjonskomponenter bruker egne valideringsinnstillinger
+
+I v9 har valideringsregler på `NavigationButtons`, `NavigationBar` og `CustomButton`-handlinger i layoutfilen forrang framfor reglene for siden, oppgaven og appen. Dette kan endre når brukeren får fortsette, også bakover. Oppgraderingen beholder innstillingene og gir TODO-er når navigeringen kan endre seg eller trenger manuell vurdering. Gå gjennom TODO-ene og test berørte knapper og handlinger.
+
+Se [hvordan valideringsreglene virker ved sidebytte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#angi-validering-ved-sidebytte" >}}).
+
+### Returknapper følger valideringen for Neste
+
+**Tilbake til oppsummering** og **Tilbake til side** på `NavigationButtons` bruker nå valideringsregelen for **Neste** når du ikke har satt `validateOnBackToSummary`. Feil som tidligere ikke hindret navigeringen, kan derfor stoppe returen.
+
+Test retur etter redigering fra både oppsummeringer og lenker. Sett `validateOnBackToSummary` med `"page": "current"` og `"show": []` på NavigationButtons hvis knappen fortsatt skal tillate retur uten å vise nye valideringsfeil. Du kan også sette regelen på redigeringssiden, oppgaven eller appen. En regel på et mer spesifikt nivå har forrang, også når den gjelder **Neste**.
+
+Hvis redigeringen viser tidligere skjulte sider mellom redigeringssiden og retursiden, eller gjør retursiden utilgjengelig, fjerner appen returknappen. Brukeren fortsetter da med vanlig sidenavigering.
+
+Se [validering ved retur]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon#validering-ved-retur-til-oppsummering-eller-en-annen-side" >}}) for prioritetsrekkefølge og eksempler.
+
 ### URL-er bruker ikke lenger hash-ruting
 
 I v8 begynte stien inne i appen med `#/`:
@@ -115,7 +131,17 @@ Appen omdirigerer gamle lenker med `#/` til den nye adressen. Bruk det nye forma
 
 Tidligere laget appen PDF-kvitteringen samtidig som brukeren gikk ut av et utfyllingssteg. PDF-en var altså en del av det steget. Feilet PDF-en, kunne hele innsendingen feile, og det var ikke lett å starte prosessen på nytt fra punktet som gikk galt.
 
-Etter oppgraderingen har appen din en egen PDF-oppgave i prosessen. Det gjør både feilhåndtering og ny kjøring enklere, og du får flere valg:
+Oppgraderingen legger til en egen PDF-oppgave i prosessen der v8 laget en PDF. Det gjør både feilhåndtering og ny kjøring enklere. Vanligvis kommer PDF-oppgaven rett etter steget, men ikke alltid:
+
+- Lager ingenting i appen datatypen som PDF-en hørte til, laget heller ikke v8 noen PDF. Da legger ikke oppgraderingen til en PDF-oppgave. Det gjelder for eksempel en datatype med `autoCreate: false` som verken koden, et underskjema, et betalingssteg eller hjelpefelter (`shadowFields`) lager.
+- Kan det hende at bare koden i appen lager datatypen, legger oppgraderingen til PDF-oppgaven og gir deg en oppgave du må gjøre selv. Fjern PDF-oppgaven hvis ingenting lager datatypen.
+- Kommer det en gateway rett etter et signeringssteg, og velger den vei ut fra `gatewayAction` med én flyt for `sign` og én for `reject`, legger oppgraderingen PDF-oppgaven på `sign`-flyten. Som i v8 lager signering en PDF, men avvisning gjør det ikke.
+- Kommer det rett etter steget en annen gateway som velger vei ut fra `gatewayAction`, legger ikke oppgraderingen til en PDF-oppgave. Du får en advarsel og må selv legge PDF-oppgaven på flyten som skal lage PDF-en.
+- Legger oppgraderingen til en eFormidling-oppgave etter det samme steget, kommer den etter PDF-oppgaven, også på `sign`-flyten.
+
+Byggefeilen [ALTINNAPP1030]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1030" >}}) stopper en gateway som velger vei ut fra `gatewayAction` rett etter en `pdf`-, `subformPdf`- eller `eFormidling`-oppgave. Disse oppgavene sender ingen handling videre, så gatewayen kan for eksempel ikke se `reject`. Flytter du en PDF-oppgave, må den ikke stå rett foran en slik gateway.
+
+Du har også flere valg:
 
 - Du kan fjerne PDF-oppgaven hvis du ikke vil ha en PDF.
 - Du kan flytte PDF-oppgaven helt bakerst i større prosesser, når PDF-en skal inneholde data fra flere steg.
@@ -163,7 +189,7 @@ Tidligere sendte appen eFormidling-meldingen når prosessen gikk ut av oppgaven 
 
 Oppgraderingen gjør dette for deg:
 
-- Den legger til en eFormidling-oppgave rett etter oppgaven i `sendAfterTaskId`, med konfigurasjonen fra `applicationmetadata.json`.
+- Den legger til en eFormidling-oppgave etter oppgaven i `sendAfterTaskId`, med konfigurasjonen fra `applicationmetadata.json`. Har oppgraderingen lagt til en PDF-oppgave etter den samme oppgaven, kommer eFormidling-oppgaven etter PDF-oppgaven.
 - Den gjør `EnableEFormidling` om til `<altinn:disabled>` på oppgaven. Var flagget ulikt i ulike miljøer, får oppgaven ett `<altinn:disabled env="…">` for hvert miljø der sendingen var slått av.
 - Den fjerner `eFormidling`-seksjonen fra `applicationmetadata.json` og `EnableEFormidling` fra `appsettings`-filene.
 - Den skriver om registreringen i `Program.cs` fra `AddEFormidlingServices<...>(config)` til `AddEFormidling().WithMetadata<...>()`, med `WithReceivers<...>()` hvis appen har sin egen mottakerklasse.
@@ -206,7 +232,7 @@ public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
 // Etter (v9)
 public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
 
-private async Task<ServiceTaskResult> Execute(StageContext context)
+public async Task<ServiceTaskResult> Execute(StageContext context)
 {
     // Arbeidet oppgaven gjør, som før
 }
@@ -303,6 +329,14 @@ Se [Prosess-hooks]({{< relref "/altinn-studio/v9/develop-a-service/reference/con
 
 Appen har ikke lenger endepunktet `PUT .../process/completeProcess`. Bruker systemet deres det til å avslutte en tilbakemeldingsoppgave når dere har behandlet innsendingen, kaller dere `PUT .../process/next` i stedet.
 
+### Vi har fjernet `data/{dataGuid}/validate`
+
+Appen har ikke lenger endepunktet `GET .../data/{dataGuid}/validate`. Bruk `GET .../instances/{instanceOwnerPartyId}/{instanceGuid}/validate` i stedet. Det godtar disse parameterne:
+
+- `onlyIncrementalValidators`: `true` kjører bare validatorene for inkrementell validering, `false` bare de andre. Uten parameteren kjører alle.
+- `ignoredValidators`: en kommaseparert liste med `ValidationSource` for validatorer som ikke skal kjøre.
+- `language`: språket på valideringsmeldingene.
+
 ### Mindre endringer
 
 Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det er greit å kjenne til dem:
@@ -310,6 +344,10 @@ Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det
 - Komponenten `NavigationButtons` viser nå tilbake-knappen som standard. Tidligere måtte du slå den på selv. Oppgraderingen legger ikke til `"showBackButton": false` for deg, så vil du skjule knappen, må du sette det selv.
 - Komponenten `OrganisationLookup` heter nå `OrganizationLookup`.
 - Komponenten `Header` heter nå `Heading`.
+- Knappetekstene i `RepeatingGroup` har fått nye navn i camelCase under `textResourceBindings`, for eksempel `addButton` i stedet for `add_button`. Det gjelder `addButton`, `addButtonFull`, `saveButton`, `saveAndNextButton`, `editButtonOpen`, `editButtonClose`, `paginationNextButton`, `paginationBackButton`, `multipageNextButton` og `multipageBackButton`.
+- Appen merker nå alle felt som enten påkrevde eller valgfrie (se [Skjemaene er lettere å lese og fylle ut]({{< relref "/altinn-studio/v9/new-in-v9#skjemaene-er-lettere-å-lese-og-fylle-ut" >}})). Appen viser **Valgfritt** som standard, så oppgraderingen fjerner `"optionalIndicator": true` fra `labelSettings` i layoutfilene.
+- Oppgraderingen fjerner teksten `form_filler.required_description` fra tekstfilene, fordi appen ikke lenger viser banneret om påkrevde felt. Den fjerner også `form_filler.required_label` hvis verdien er `*`. Har dere skrevet en annen tekst der, beholder oppgraderingen den og gir en advarsel, slik at dere kan vurdere ordlyden.
+- Datamodellkoblingene i `PersonLookup` og `OrganizationLookup` har fått nye navn i camelCase, uten prefiksene `person_lookup_`, `organization_lookup_` og `organisation_lookup_`. I `PersonLookup` heter de nå `ssn`, `fullName`, `firstName`, `middleName` og `lastName`. Legg merke til at `person_lookup_name` har blitt til `fullName`. I `OrganizationLookup` heter de `orgnr` og `name`.
 
 ## Neste steg
 

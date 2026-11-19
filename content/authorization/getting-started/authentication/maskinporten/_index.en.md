@@ -40,5 +40,5 @@ Altinn does not accept Maskinporten tokens directly. These must be exchanged for
 
 ## More information
 
-- For more information, see [documentation for API consumers](https://docs.digdir.no/maskinporten_guide_apikonsument.html#prosedyre-for-api-konsument) from Maskinporten.
+- For more information, see [documentation for API consumers](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html#prosedyre-for-api-konsument) from Maskinporten.
 - See also [authentication scenario](/en/api/scenarios/authentication/) for more details (in English).

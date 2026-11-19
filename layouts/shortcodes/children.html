@@ -1,0 +1,11 @@
+{{- /*
+  Lister undersidene til siden.
+  Sider med rammen med Designsystemet (layout: designsystemet-docs) får klikkbare kort, som på oversiktssidene.
+  Andre sider bruker kortkoden fra temaet, med alle valgene den har (style, depth, sort og så videre).
+*/ -}}
+{{- if eq .Page.Layout "designsystemet-docs" -}}
+{{ partial "designsystemet/child-cards.html" (dict "page" .Page "prefix" (printf "children-%d" .Ordinal)) }}
+{{ .Inner }}
+{{- else -}}
+{{ partial "children/theme.html" . }}
+{{- end -}}

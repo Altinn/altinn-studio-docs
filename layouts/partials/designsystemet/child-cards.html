@@ -1,0 +1,18 @@
+{{- /*
+  Undersidene til en side som klikkbare kort, i samme rekkefølge som menyen. Tittel og beskrivelse hentes fra hver side.
+  Hopper over skjulte sider, sider Hugo lager uten egen fil, og mapper som er listet i skip.
+  Tar imot dict med page, prefix (til id-ene) og eventuelt skip (slice med mappenavn).
+*/ -}}
+{{- $skip := .skip | default slice -}}
+{{- $prefix := .prefix -}}
+{{- $pages := slice -}}
+{{- range .page.Pages.ByWeight }}
+{{- $dir := "" }}{{ with .File }}{{ $dir = path.Base .Dir }}{{ end }}
+{{- if and $dir (not .Params.hidden) (not (in $skip $dir)) }}{{ $pages = $pages | append . }}{{ end }}
+{{- end -}}
+{{- /* Fire eller færre kort står i to kolonner, så siste rad ikke får ett kort alene. */ -}}
+<ul class="studio-grid{{ if le (len $pages) 4 }} studio-grid-2{{ end }} ds-list--unstyled">
+    {{- range $i, $page := $pages }}
+    {{ partial "designsystemet/link-card.html" (dict "id" (printf "%s-%d" $prefix $i) "href" .RelPermalink "title" .LinkTitle "text" .Description) }}
+    {{- end }}
+</ul>

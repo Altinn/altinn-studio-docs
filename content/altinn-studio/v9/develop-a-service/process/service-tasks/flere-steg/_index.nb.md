@@ -89,7 +89,7 @@ public class ArchiveServiceTask : IServiceTask
 }
 ```
 
-Oppgaven registrerer du på `IServiceTask`, som alle andre systemoppgaver:
+Du registrerer oppgaven på `IServiceTask`, som andre systemoppgaver:
 
 {{< code-title >}}
 App/Program.cs
@@ -127,7 +127,7 @@ Tidsavbrudd, nye forsøk og ventefrist gir du steget der du setter det sammen, s
 
 `Defer` betyr «alt gikk bra, men svaret er ikke kommet». Plattformen holder ikke serveren opptatt mens oppgaven venter, og kjører oppgaven på nytt etter den pausen du oppgir.
 
-- Ventetiden til sammen har en frist, `WaitBudget`. Sett fristen på `Finally`, steget som venter.
+- Ventetiden til sammen har en frist, `WaitBudget`. Sett fristen på avslutningen, som er steget som venter. Arbeidssteg som ikke får en frist, arver ikke fristen fra andre steg.
 - `context.Wait` forteller hvor langt ventingen er kommet: `DeferCount`, `StartedAt`, `Deadline`, `Remaining` og `IsFinalCheck`. Bruk dem til å spørre ofte i starten og sjeldnere etter hvert, og til å avslutte med en melding som sier hva som aldri kom.
 - Teksten du sender med i `reason`, lagrer plattformen på steget, og den følger med i prosessdataene og driftsverktøyene. Ingen av standardvisningene viser den til brukeren, så skal brukeren se den, må du [lage din egen side]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}). Skriv den likevel for et menneske.
 - Et forsøk som venter, lagrer ingenting, og endrer forsøket data mens det venter, avviser plattformen forsøket. Arbeid som skal etterlate et spor, hører til i sitt eget arbeidssteg foran ventingen.

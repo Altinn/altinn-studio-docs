@@ -54,7 +54,8 @@ A notification order is made by adding the following when initializing a message
           "emailAddress": string?
         }
       ],
-      "overrideRegisteredContactInformation": boolean
+      "overrideRegisteredContactInformation": boolean,
+      "useStaleContactInformation": boolean?
     }
   },
   "Recipients": [],
@@ -337,5 +338,51 @@ Result: Notifications sent to both the default correspondence recipient AND the 
 }
 ```
 Result: Notifications sent ONLY to the custom organization (default correspondence recipient excluded)
+
+## Notifications with outdated contact information
+
+Notifications to persons are sent to the contact information they have registered in the Common Contact Register (KRR).
+If the recipient has not updated or confirmed their contact information within the last 18 months, no notification is sent by default.
+The correspondence is still created and published as normal.
+
+For service messages, notifications may be sent even if the contact information is older than 18 months.
+To do this, use the `useStaleContactInformation` flag.
+
+{{% notice warning %}}
+The service owner is responsible for assessing whether the correspondence qualifies as a service message. Altinn does not verify this.
+{{% /notice %}}
+
+### Using useStaleContactInformation
+
+```json
+{
+  "correspondence": {
+    ...,
+    "notification": {
+      ...,
+      "useStaleContactInformation": true
+    }
+  }
+}
+```
+
+### Behaviour
+
+- **`false` (default)**: Persons whose contact information is older than 18 months are not notified.
+- **`true`**: Persons are notified using their contact information in KRR, even if it is older than 18 months.
+
+The field is optional. If not specified, it defaults to `false`.
+
+The flag applies to:
+
+- person recipients, both the correspondence recipient and custom recipients specified with `nationalIdentityNumber`
+- both the notification and the reminder
+
+The flag does not apply to:
+
+- organisation recipients
+- custom recipients specified with `emailAddress` or `mobileNumber`, since these are not looked up in KRR
+
+The flag does not change how reservations in KRR are handled.
 
 

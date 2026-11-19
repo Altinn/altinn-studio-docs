@@ -25,6 +25,8 @@ I tillegg er hun ekspert på helse og har startet sitt eget konsulentfirma for h
 
 Hun er også styremedlem i borettslaget der hun bor, Oslos Vakreste Borettslag. Sophie har rollen MEDL og tilknyttede roller for borettslaget.
 
+Rollene DAGL og LEDE gir Sophie de fleste tilgangspakkene for DDG Fitness AS, EAS Health Consulting og underenhetene, for eksempel **Lønn** (`lonn`). Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, får Sophie derfor ofte tilgang på vegne av disse virksomhetene.
+
 #### Aktører
 
 | Aktør                                                                                                                         | Roller                                                                                                                                        |
@@ -39,7 +41,7 @@ Hun er også styremedlem i borettslaget der hun bor, Oslos Vakreste Borettslag. 
 
 ### Pengelens Partner
 
-Pengelens Partner er regnskapsføreren for selskapet DDG Fitness AS.
+Pengelens Partner er regnskapsføreren for selskapet DDG Fitness AS. Pengelens har også tilgangspakkene **Regnskapsfører med signeringsrettighet** (`regnskapsforer-med-signeringsrettighet`) og **Lønn** (`lonn`) for DDG Fitness AS.
 
 #### Aktører
 
@@ -90,6 +92,7 @@ For å teste skjemaer om barn og oppvekst, for eksempel barnehage og skole, har 
 
 Med nyere versjoner av localtest kan du teste apper med systembrukere lokalt.
 Localtest har et innebygd system og en systembruker som er knyttet til 950474084 Oslos Vakreste Borettslag.
+Systembrukeren har tilgangspakkene **Regnskapsfører med signeringsrettighet** (`regnskapsforer-med-signeringsrettighet`) og **Lønn** (`lonn`) for borettslaget.
 Du kan hente et token med `/Home/GetTestSystemUserToken` i localtest, eller åpne siden **Tokens** (`/Home/Tokens`).
 
 ### Instansdelegering
@@ -105,6 +108,66 @@ Du kan for eksempel:
 - Teste autorisasjonsreglene med andre roller enn det standardbrukerne har.
 
 Vil du bruke flere testpersoner eller virksomheter, for eksempel de samme som i TT02, kan du hente dem fra Tenor testdata og velge dem på siden **User administration** i localtest. Der kan du laste dem ned som `testData.json`.
+
+### Gi testbrukere tilgangspakker
+
+Tilgangspakker samler rettigheter til tjenester som hører sammen, for eksempel alt som har med lønn å gjøre. Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, kan du teste reglene lokalt. Localtest gir testbrukerne tilgangspakkene som rollene deres gir i Altinn, i tillegg til dem du legger inn i `accessPackages`. Tilgangspakker som kommer gjennom klientdelegering eller andre delegeringer, får du ikke lokalt. Tilgangspakker i localtest krever studioctl v0.1.0-preview.31 eller nyere.
+
+Slik får testbrukerne tilgangspakker:
+
+- En rolle gir de samme tilgangspakkene som rollen gir i Altinn. Daglig leder (DAGL) får for eksempel de fleste tilgangspakkene for virksomheten, og alle personer får tilgangspakkene for innbyggere for seg selv gjennom rollen privatperson (PRIV), også når den ikke står i `partyRoles`.
+- Du kan gi en person flere tilgangspakker i `accessPackages`. Nøkkelen er `partyId` til aktøren personen har tilgangspakkene for.
+- En underenhet får de samme tilgangspakkene som personen har for hovedenheten.
+- Noen roller gir tilgangspakker bare for bestemte typer virksomheter, for eksempel forretningsfører (FFØR) for verdipapirfond. Localtest bruker `unitType` på virksomheten i testdataene til å avgjøre det.
+- Du gir en systembruker tilgangspakker i `accessPackages`. Systembrukeren har dem for virksomheten den tilhører (`orgNumber`) og underenhetene til virksomheten.
+
+Skriv tilgangspakken med navnet, for eksempel `lonn`, eller med hele URN-en, for eksempel `urn:altinn:accesspackage:lonn`. [Les mer om hvilke roller og tilgangspakker som finnes i Altinn]({{< relref "/authorization/what-do-you-get/accesspackages" >}}).
+
+{{< code-title >}}
+App/wwwroot/testData.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
+  "persons": [
+    {
+      "partyId": 512999,
+      "userId": 12999,
+      "ssn": "01019012345",
+      "firstName": "Kari",
+      "lastName": "Eksempel",
+      "partyRoles": {},
+      "accessPackages": {
+        "500999": ["lonn", "urn:altinn:accesspackage:skattegrunnlag"]
+      }
+    }
+  ],
+  "orgs": [
+    {
+      "partyId": 500999,
+      "orgNumber": "310123456",
+      "name": "Eksempel AS",
+      "unitType": "AS"
+    }
+  ],
+  "systems": [
+    {
+      "id": "310123456_lonnssystem",
+      "name": "Lønnssystem",
+      "systemUsers": [
+        {
+          "id": "67eff800-7835-434a-a21a-39bf41c753f2",
+          "orgNumber": "310123456",
+          "accessPackages": ["lonn"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+Systembrukere kan også ha listen `actions`. Den finnes bare i localtest og gir systembrukeren lov til å utføre handlingene i listen i alle apper når autorisasjonsreglene i appen ikke gir noe svar. I Altinn får systembrukere tilgang gjennom tilgangspakker og enkeltrettigheter, så bruk heller `accessPackages`.
 
 ### JSON-struktur
 
@@ -137,10 +200,6 @@ App/wwwroot/testData.json
           {
             "type": "altinn",
             "value": "regna"
-          },
-          {
-            "type": "altinn",
-            "value": "dagl"
           },
           {
             "type": "altinn",
@@ -287,6 +346,10 @@ App/wwwroot/testData.json
             "confirm",
             "reject",
             "delete"
+          ],
+          "accessPackages": [
+            "regnskapsforer-med-signeringsrettighet",
+            "lonn"
           ]
         }
       ]

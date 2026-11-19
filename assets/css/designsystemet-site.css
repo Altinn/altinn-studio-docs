@@ -1,5 +1,6 @@
 /*
-  Oppsett for sider som bruker Designsystemet (layouts/_default/designsystemet.html), foreløpig forsiden for Altinn Studio v9.
+  Felles oppsett for sider som bruker Designsystemet: forsiden for Altinn Studio v9 (layouts/_default/designsystemet.html)
+  og kortene på oversiktssidene. Rammen for dokumentasjonssidene ligger i designsystemet-docs.css.
   Komponentene, fargene og typografien kommer fra Designsystemet med Altinn-temaet (assets/designsystemet/altinn.css).
   Denne filen styrer bare oppsettet: rutenett, bredde og avstander. Bruk variablene fra Designsystemet, ikke faste verdier.
 */
@@ -154,25 +155,6 @@
   fill: var(--ds-color-neutral-text-default);
   font-size: 21px;
   font-weight: 500;
-}
-
-/* Sidehode på oversiktssider (for eksempel Kom i gang): samme lyse flate som heroen på forsiden. */
-.studio-page-head {
-  padding-block: var(--ds-size-15);
-  background: var(--ds-color-accent-background-tinted);
-  border-bottom: var(--ds-border-width-default) solid var(--ds-color-accent-border-subtle);
-}
-.studio-page-head .studio-stack {
-  gap: var(--ds-size-6);
-}
-.studio-page-head .ds-heading[data-size="xl"] {
-  color: var(--ds-color-neutral-text-default);
-}
-.studio-page-head .studio-eyebrow {
-  color: var(--ds-color-accent-text-default);
-}
-.studio-page-head .studio-lead {
-  color: var(--ds-color-neutral-text-subtle);
 }
 
 /* Seksjoner */

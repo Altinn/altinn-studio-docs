@@ -1,26 +1,40 @@
 ---
 draft: true
 hidden: true
+tags: [Reviewed]
 ---
-> The setup in this section is done from the Process page in the app editor. Navigate there by clicking on "Process"
-> in the top menu while in the app editor.
 
-- Add a payment task to the process by dragging a payment task from the left menu in the process editor, and dropping it
-  in the process. The following configurations are automatically set up when you do this:
-  - 2 new data types related to payment are added (one for data about the payment, one for the payment receipt).
-  - A new layout set used in the payment task is added, with a page configured to show payment information in the payment task.
-  - A new rule for access management is added to the apps policy - this rule needs to be configured later.
-- Add a Gateway after the payment task
-  - The gateway should have two outgoing sequence flows:
-    - One pointing forwards in the process
-    - One pointing backwards to the task _before_ payment
-  - Add rules to determine _when_ the two sequence flows should be used.
-    - Select the sequence flow going _forward_ in the process
-      - In the panel on the right hand side, click "Add new logic rule". This automatically sets up a new rule with 
-        the action "Reject" (`reject`) as a starting point.
-      - Click "Change" and change the action from "Reject" to "Confirm". Click "Save and close" to save the rule.
-    - Select the sequence flow going _back_ in the process. Repeat the steps above, but leave the rule as-is this time - 
-      the action should be "Reject".
+> You do the setup in this section on the **Arbeidsflyt** page in Altinn Studio. Click **Arbeidsflyt** in the top menu to get there.
 
-    
-![Eksempel på en prosess med utfylling etterfulgt av betaling](/en/altinn-studio/v8/guides/development/payment/process-data-payment.png "Eksempel på en prosess med utfylling etterfulgt av betaling")
+### 1. Add a payment task
+
+Add a payment task by dragging **Lag betalingsoppgave** from the menu on the left into the workflow.
+
+Altinn Studio then automatically adds
+
+- two data types for payment (one for payment data and one for the payment receipt)
+- pages for the payment task, with one page already set up
+- an access rule for the payment task, which you set up in the step 'Authorise the payer and the service owner'
+
+### 2. Add a gateway after the payment task
+
+The gateway must have two arrows (sequence flows) going out:
+
+- One pointing forward in the workflow.
+- One pointing back to the previous task in the workflow (before payment).
+
+### 3. Set up rules for the arrows out of the gateway
+
+**For the arrow going forward:**
+
+1. Click the arrow going _forward_ in the workflow.
+2. In the panel on the right, click **Lag en ny logikkregel**. The rule starts with the action **Avvise** (`reject`).
+3. Click **Endre**, and change the action from **Avvise** to **Bekrefte**.
+4. Click **Lagre og lukk** to save the rule.
+
+**For the arrow going back:**
+
+1. Click the arrow going _back_ in the workflow.
+2. Repeat the steps above, but do not change the action. It should be **Avvise**.
+
+![Workflow with the tasks Utfylling and Betaling, and a gateway that either continues to the end or goes back to Utfylling](./process-data-payment.png "Workflow with payment")

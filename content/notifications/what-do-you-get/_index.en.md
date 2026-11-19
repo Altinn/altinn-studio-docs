@@ -35,11 +35,10 @@ Altinn SMS notifications ensure the timely delivery of concise messages to users
 
 ### Send Window
 
-- SMS notifications can be sent **around the clock, every day of the year**.
 - Control the send window by setting `smsSettings.sendingTimePolicy` in the order:
-  - `Anytime` (default) keeps delivery available 24/7.
-  - `Daytime` limits delivery to Altinn's daytime window (09:00-17:00 in the Europe/Oslo time zone). The daytime window applies every day, including weekends and public holidays.
-- Scheduled notifications are delivered at the selected time, even outside office hours (interpreted in the Europe/Oslo time zone).
+  - `Daytime` (default) limits delivery to Altinn's daytime window (09:00-17:00 in the Europe/Oslo time zone). The daytime window applies every day, including weekends and public holidays.
+  - `Anytime` keeps delivery available **around the clock, every day of the year**.
+- With `Anytime`, scheduled notifications are delivered at the selected time, even outside office hours (interpreted in the Europe/Oslo time zone). With `Daytime`, a notification scheduled outside the window is sent when the window next opens.
 - Notification orders can be placed and updated at any time.
 
 ### Supported Recipient Numbers
@@ -54,6 +53,15 @@ Altinn SMS notifications ensure the timely delivery of concise messages to users
 ## Email Notifications
 
 Altinn Email notifications provide the capability to send plain text or HTML content directly to users’ inboxes.
+
+### Send Window
+
+- Control the send window by setting `emailSettings.sendingTimePolicy` in the order:
+  - `Anytime` (default) keeps delivery available **around the clock, every day of the year**.
+  - `Daytime` limits delivery to Altinn's daytime window (09:00-17:00 in the Europe/Oslo time zone). The daytime window applies every day, including weekends and public holidays.
+- The default differs from SMS: email defaults to `Anytime`, while SMS defaults to `Daytime`.
+- With `Daytime`, an email ordered or scheduled outside the window is sent when the window next opens. Orders can be placed and updated at any time.
+- When an order covers both email and SMS (`EmailAndSms`, `EmailPreferred` or `SmsPreferred`), `emailSettings.sendingTimePolicy` and `smsSettings.sendingTimePolicy` are independent, and each applies to its own channel. Each reminder has its own settings and policy.
 
 ### Content Types
 

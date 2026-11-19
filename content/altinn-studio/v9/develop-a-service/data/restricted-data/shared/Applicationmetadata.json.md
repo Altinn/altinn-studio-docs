@@ -15,7 +15,7 @@ App/config/applicationmetadata.json
     "autoCreate": false,
     "classRef": "Altinn.App.Models.RestrictedDataModel"
   },
-  "taskId": "Task_1",
+  "taskIds": ["Task_1"],
   "maxCount": 1,
   "minCount": 1,
   "actionRequiredToRead": "customActionRead",

@@ -61,7 +61,9 @@ The InstanceStatus model is used to hold key status related metadata about an in
 
 ## CompleteConfirmation
 
-The CompleteConfirmation model is a simple type for holding information about who and when a given stakeholder has told Altinn that the instance is no longer needed. They have obtained all the information they needed from the instance. The instance can be deleted permanently should an application user decide to to so. At the time of writing an instance can have only one stakeholder and that is the Application Owner. 
+The CompleteConfirmation model is a simple type for holding information about who and when a given stakeholder has told Altinn that the instance is no longer needed. They have obtained all the information they needed from the instance. The instance can be deleted permanently should an application user decide to to so. At the time of writing an instance can have only one stakeholder and that is the Application Owner.
+
+See [Bekrefte at dataene er mottatt](/nb/altinn-studio/v9/receive-data/#bekrefte-mottak) for what the confirmation is used for and how to confirm receipt.
 
 ## DataValues
 

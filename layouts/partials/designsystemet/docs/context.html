@@ -1,0 +1,13 @@
+{{- /*
+  Finner produktet og versjonen siden hører til, ut fra sidetreet.
+  Produktet er den første seksjonen (for eksempel /altinn-studio/), og versjonen er seksjonen rett under (for eksempel /altinn-studio/v9/).
+  Tar imot siden. Returnerer dict med productRoot, versionRoot og label (for eksempel «Altinn Studio v9»).
+*/ -}}
+{{- $productRoot := .FirstSection -}}
+{{- $versionRoot := cond (eq .Parent $productRoot) . nil -}}
+{{- range .Ancestors -}}
+  {{- if eq .Parent $productRoot }}{{ $versionRoot = . }}{{ end -}}
+{{- end -}}
+{{- $label := $productRoot.LinkTitle -}}
+{{- with $versionRoot }}{{ with .File }}{{ $label = printf "%s %s" $label (path.Base .Dir) }}{{ end }}{{ end -}}
+{{- return dict "productRoot" $productRoot "versionRoot" $versionRoot "label" $label -}}

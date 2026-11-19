@@ -14,8 +14,7 @@ The rule knows these task types:
 
 - the built-in service tasks `pdf`, `subformPdf`, `eFormidling` and `fiksArkiv`
 - the built-in user tasks `data`, `confirmation`, `feedback`, `signing` and `payment`
-- the app's own `IServiceTask` and `IProcessTask`, when `Type` returns
-  a constant
+- the app's own `IServiceTask` and `IProcessTask`, when `Type` returns a constant
 
 The rule reports nothing about a task type it cannot settle at build time, such as one that
 comes from a package. The app checks the same thing when it starts, and does not start if a task

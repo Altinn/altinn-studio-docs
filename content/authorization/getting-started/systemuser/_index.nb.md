@@ -39,7 +39,7 @@ For tjenester som kjøres utenfor Altinn må du gjøre autorisasjonsoppslag mot 
 Systemembruker bygger videre på Maskinporten som lar tjenesteeier sikre autensitet og tilgang til tjenesten gjennom scopes.
 Maskinporten token brukes som informasjonsbærer for sytembruker informasjon, som gjør at tjenesteeier kan utføre tilangskontroll mot Altinn Autorisasjon
 
-For å kunne få tilgang til Maskinporten må du ha norsk organisasjonsnummer. For mer informasjon, se [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869).
+For å kunne få tilgang til Maskinporten må du ha norsk organisasjonsnummer. For mer informasjon, se [Maskinporten](https://samarbeid.digdir.no/maskinporten/dette-er-maskinporten/96).
 
 Gjennom signering av [bruksvilkår for Maskinporten og ID-porten](https://samarbeid.digdir.no/maskinporten/bruksvilkar-private-virksomheter/73#21_generelt) får man tilgang til både testmiljø og produksjonsmiljø hos Digdir.
 

@@ -25,7 +25,7 @@ App/config/applicationmetadata.json
   "dataTypes": [
     {
       "id": "attest",
-      "taskId": "Task_1",
+      "taskIds": ["Task_1"],
       "maxCount": 1,
       "minCount": 0,
       "allowedContentTypes": ["application/pdf"],

@@ -9,7 +9,6 @@ En egendefinert systemoppgave lar appen gjøre arbeid på serveren midt i proses
 
 - en C#-klasse som implementerer grensesnittet `IServiceTask`
 - et nytt steg i prosessen (BPMN)
-- en tilgangsregel som lar appen flytte prosessen forbi steget
 
 {{% notice info %}}
 Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave fra før, se avsnittet om systemoppgaver i [oppgraderingsveiledningen]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}). Du finner [den tilsvarende veiledningen for v8](/nb/altinn-studio/v8/guides/development/service-tasks/custom/) i dokumentasjonen for gjeldende versjon.
@@ -17,7 +16,7 @@ Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave f
 
 ## Skrive systemoppgaven i C\#
 
-Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `DefineExecute`. Der setter du sammen arbeidet oppgaven gjør. En oppgave som gjør én ting, består bare av avslutningen: `DefineExecute` svarer `pipeline.Finally(Execute)`, og selve arbeidet skriver du i en egen `Execute`-metode. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen og i tilgangsregelen.
+Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `DefineExecute`. En oppgave som gjør én ting, svarer `pipeline.Finally(Execute)` og gjør arbeidet i `Execute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
@@ -36,7 +35,7 @@ public class ExampleServiceTask : IServiceTask
 
     public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
 
-    private async Task<ServiceTaskResult> Execute(StageContext context)
+    public async Task<ServiceTaskResult> Execute(StageContext context)
     {
         Datamodell? skjemadata = await context.InstanceDataMutator.GetFormData<Datamodell>();
 
@@ -97,98 +96,15 @@ App/config/process/process.bpmn
 
 ## Gi tilgang til oppgaven
 
-Når plattformen flytter prosessen ut av en systemoppgave, gjør den det som tjenesteeier, ikke som brukeren. Kaller en bruker eller et annet system `process/next` selv, kontrollerer appen i tillegg at den som kaller, har handlingen for oppgaven den står på.
+Når plattformen kjører systemoppgaven og flytter prosessen ut av den, gjør den det som tjenesteeier, ikke som brukeren. Det gjelder også når oppgaven svarer `Success("reject")`. Tjenesteeieren trenger ingen handling for oppgavetypen eller for `reject`, bare `read` og `write`. Tilgangsfilen fra app-malen gir tjenesteeieren begge.
 
-Tjenesteeieren må derfor ha tilgang til handlingen som hører til oppgavetypen. Mangler den, feiler overgangen ut av steget. Plattformen prøver på nytt i opptil ett døgn mens brukeren ser lastevisningen, og loggen forteller hvilken rettighet tjenesteeieren mangler.
-
-Tilgangsfilen fra appmalen gir tjenesteeieren de grunnleggende handlingene, blant annet `read`, `write`, `instantiate` og `complete`. Den gir ingen egendefinert handling, så en egen oppgavetype må du åpne selv.
-
-### Handlingen prosessen krever
-
-| Oppgavetype | Handlingen prosessen krever |
-| --- | --- |
-| `data`, `feedback`, `pdf`, `eFormidling`, `fiksArkiv`, `subformPdf` | `write` |
-| `payment` | `pay` eller `write` |
-| `signing` | `sign` eller `write` |
-| `confirmation` | `confirm` |
-| Egendefinert oppgavetype | Handling med samme navn som oppgavetypen |
-
-Har oppgaven en `reject`-flyt ut av seg, trenger tjenesteeieren `reject` i tillegg. Det gjelder når du bruker `Success("reject")`. Plattformen autoriserer en avbrytende overgang med `reject`, uansett hvilken type oppgaven har.
-
-Oppgraderingen fra v8 legger inn de grunnleggende reglene for tjenesteeieren, men gir ikke tilgang til egendefinerte oppgavetyper automatisk. Den leser prosessen og sier fra om handlingene du må legge inn selv. Appen kontrollerer det samme når du bygger, gjennom regelen `ALTINNAPP0800`.
-
-### Regelen tjenesteeieren trenger
-
-`[ORG]` og `[APP]` skal stå som de er. Det er plassholdere plattformen bytter ut med org- og appnavnet når appen blir satt i drift, så den samme filen virker i alle miljøer. De små variantene `[org]` og `[app]` virker likt.
-
-Du fyller bare inn to ting selv: nummeret på regelen, som må være ledig i filen, og oppgavetypen, som er den samme verdien som `Type`-egenskapen på klassen har.
-
-{{< code-title >}}
-App/config/authorization/policy.xml
-{{< /code-title >}}
-
-```xml
-<xacml:Rule RuleId="urn:altinn:resource:app_[ORG]_[APP]:policyid:1:ruleid:3" Effect="Permit">
-  <xacml:Description>Tjenesteeier kan flytte prosessen forbi systemoppgaven [TASK_TYPE].</xacml:Description>
-  <xacml:Target>
-    <xacml:AnyOf>
-      <xacml:AllOf>
-        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[ORG]</xacml:AttributeValue>
-          <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
-        </xacml:Match>
-      </xacml:AllOf>
-    </xacml:AnyOf>
-    <xacml:AnyOf>
-      <xacml:AllOf>
-        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[ORG]</xacml:AttributeValue>
-          <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
-        </xacml:Match>
-        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[APP]</xacml:AttributeValue>
-          <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
-        </xacml:Match>
-      </xacml:AllOf>
-    </xacml:AnyOf>
-    <xacml:AnyOf>
-      <xacml:AllOf>
-        <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
-          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[TASK_TYPE]</xacml:AttributeValue>
-          <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
-        </xacml:Match>
-      </xacml:AllOf>
-      <xacml:AllOf> <!-- Tas med når oppgaven har en reject-flyt ut av seg. -->
-        <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
-          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">reject</xacml:AttributeValue>
-          <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
-        </xacml:Match>
-      </xacml:AllOf>
-    </xacml:AnyOf>
-  </xacml:Target>
-</xacml:Rule>
-```
-
-Se [tilgangsregler]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}) for mer om filen.
+Appen kontrollerer tilgangene til tjenesteeieren når du bygger, gjennom regelen [ALTINNAPP0800]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0800" >}}). Oppgraderingen fra v8 legger inn de reglene tjenesteeieren mangler. Se [tilgangsregler]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}) for mer om filen.
 
 ### Når brukeren skal kunne prøve igjen
 
-Skal brukeren kunne trykke **Prøv igjen** på en oppgave som har feilet, trenger brukeren den samme handlingen. Legg den på samme sted som de andre handlingene brukeren skal ha tilgang til.
+Feiler oppgaven, kan brukeren klikke på **Prøv igjen**. Da trenger brukeren `write` på oppgaven. Tilgangsfilen fra app-malen gir brukeren `write` i hele tjenesten. Gir tilgangsfilen din brukeren `write` bare i bestemte oppgaver, må du ta med systemoppgaven i den regelen.
 
-{{< code-title >}}
-App/config/authorization/policy.xml
-{{< /code-title >}}
-
-```xml
-<xacml:AllOf>
-    <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">exampleServiceTask</xacml:AttributeValue>
-    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
-    </xacml:Match>
-</xacml:AllOf>
-```
-
-Handlingen gir ikke brukeren mulighet til å hoppe over oppgaven. Så lenge oppgaven jobber eller venter, svarer plattformen 409 på `process/next`, og når den er ferdig, flytter plattformen prosessen videre selv.
+Brukeren kan ikke hoppe over oppgaven. Så lenge oppgaven jobber, venter eller har feilet, svarer plattformen 409 på `process/next`, også når brukeren sender handlingen `reject`. Når oppgaven er ferdig, flytter plattformen prosessen videre selv.
 
 ## Hva oppgaven kan svare
 
@@ -231,7 +147,7 @@ Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en meldi
 
 ## Styre tidsbruk og nye forsøk
 
-Trenger oppgaven andre tidsrammer enn standard, gir du dem til steget der du setter det sammen, som `options`-argumentet til `Finally`:
+Trenger oppgaven andre tidsrammer enn standard, gir du et `ProcessStepOptions` til steget i `DefineExecute`, der du setter sammen oppgaven. En oppgave som gjør én ting, har bare ett steg, `Finally`:
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
@@ -244,18 +160,23 @@ public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
         new ProcessStepOptions
         {
             MaxExecutionTime = TimeSpan.FromMinutes(2),
+            RetryStrategy = ProcessStepRetryStrategy.Exponential(
+                baseInterval: TimeSpan.FromSeconds(5),
+                maxRetries: 5,
+                maxDelay: TimeSpan.FromMinutes(1)
+            ),
             WaitBudget = TimeSpan.FromHours(6),
         }
     );
 ```
 
-Valgene gjelder bare det steget du gir dem til. I en oppgave med flere arbeidssteg gir du hvert steg sine egne valg på samme måte, på `Stage`, `HandleReplies`, `Finally` eller `ConcludeOnReplies`. Et steg arver aldri valgene til et annet steg, og det du ikke setter, får standardverdiene.
-
 Feltene betyr dette:
 
 - `MaxExecutionTime` er hvor lenge ett forsøk får bruke før plattformen avbryter det og regner forsøket som feilet. Hold den nær det kallet realistisk trenger. Et langt tidsavbrudd på et tregt kall kan forsinke andre instanser.
-- `WaitBudget` er hvor lenge oppgaven til sammen får vente når den svarer `Defer`. Når fristen er ute, feiler steget.
-- `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er.
+- `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er. Du kan velge `Exponential`, `Linear` eller `Constant`. `ProcessStepRetryStrategy.None()` slår av nye forsøk.
+- `WaitBudget` er hvor lenge steget til sammen får vente når det svarer `Defer`. Når fristen er ute, feiler steget.
+
+Felt du ikke setter, får standardverdien. Har oppgaven flere arbeidssteg, gir du tidsrammene til `Stage`, `HandleReplies` eller `ConcludeOnReplies` på samme måte. Hvert steg får bare det du gir det, og arver ingenting fra de andre stegene.
 
 Standardverdiene og grensene ligger i plattformen, og kan avvike mellom miljøene:
 
@@ -267,7 +188,7 @@ Standardverdiene og grensene ligger i plattformen, og kan avvike mellom miljøen
 | Pausen du oppgir i `Defer` | — | Minst ett sekund |
 | `MailboxOptions.Timeout` | — | 21 døgn |
 
-Setter du `MaxExecutionTime` eller `WaitBudget` høyere enn grensen, avviser plattformen overgangen med en gang. Det samme gjelder en postkassefrist over 21 døgn, men den avvisningen kommer først når oppgaven prøver å åpne postkassen. Oppgir du en kortere pause i `Defer` enn ett sekund, venter plattformen ett sekund likevel.
+Setter du `MaxExecutionTime` eller `WaitBudget` til 0 eller lavere, starter ikke appen. Setter du dem høyere enn grensen, avviser plattformen overgangen med en gang. Det samme gjelder en postkassefrist over 21 døgn, men den avvisningen kommer først når oppgaven prøver å åpne postkassen. Oppgir du en kortere pause i `Defer` enn ett sekund, venter plattformen ett sekund likevel.
 
 ## Oppgaver med flere steg
 
