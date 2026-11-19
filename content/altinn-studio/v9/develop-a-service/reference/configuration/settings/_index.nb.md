@@ -70,7 +70,7 @@ App/appsettings.json
 }
 ```
 
-Innstillingen `EnforceDataTypeTaskId` finnes ikke lenger i v9. Lister en datatype oppgaver i `taskIds`, kontrollerer appen alltid at instansen er i en av oppgavene i listen når noen oppretter, endrer eller sletter data av datatypen. Er instansen i en annen oppgave, svarer appen `409 Conflict`. En datatype der `taskIds` mangler eller er tom, kan endres i alle oppgaver, så langt andre tilgangskontroller tillater det. `studioctl app upgrade v9` fjerner innstillingen fra `appsettings`-filene.
+Innstillingen `EnforceDataTypeTaskId` finnes ikke lenger i v9, og `studioctl app upgrade v9` fjerner den fra `appsettings`-filene. Appen gjør nå alltid det innstillingen gjorde: Har en datatype oppgaver i `taskIds`, kan du bare endre dataene i de oppgavene. I andre oppgaver svarer appen `409 Conflict`. Har datatypen ingen oppgaver i `taskIds`, kan du endre dataene i alle oppgaver.
 
 ## Funksjonsflagg
 
