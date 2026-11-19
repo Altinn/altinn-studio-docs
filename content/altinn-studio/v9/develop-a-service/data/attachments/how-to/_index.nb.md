@@ -1,6 +1,6 @@
 ---
 title: Vedlegg - guider
-linktitle: 🎯 Guider
+linktitle: Guider
 description: Slik tar du imot vedlegg og slår på virusskanning
 tags: [needsReview]
 ---

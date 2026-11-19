@@ -27,7 +27,7 @@ I *overgangene* mellom hendelser/oppgaver kjøres noe standard logikk, som f.eks
 ## Oppgavetyper
 
 Det er definert et sett med oppgavetyper som kan brukes i en Altinn-app. Se kort oversikt under, og les mer om de 
-forskjellige oppgavetypene under [📚 Referanse]({{<relref "/altinn-studio/v9/develop-a-service/process/reference/task-types" >}})
+forskjellige oppgavetypene under [Referanse]({{<relref "/altinn-studio/v9/develop-a-service/process/reference/task-types" >}})
 
 ### Datainnsamling (`data`)
 

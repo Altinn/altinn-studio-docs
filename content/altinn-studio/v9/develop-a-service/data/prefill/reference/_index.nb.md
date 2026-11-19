@@ -1,6 +1,6 @@
 ---
 title: Forhåndsutfylling - referanse
-linktitle: 📚 Referanse
+linktitle: Referanse
 description: Tilgjengelige kilder og metoder for forhåndsutfylling
 tags: [needsReview]
 aliases:
