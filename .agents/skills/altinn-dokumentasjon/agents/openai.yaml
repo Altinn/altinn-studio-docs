@@ -1,0 +1,4 @@
+interface:
+  display_name: "Altinn-dokumentasjon"
+  short_description: "Lag og oppdater Altinn-dokumentasjon"
+  default_prompt: "Use $altinn-dokumentasjon to create or update this documentation."
