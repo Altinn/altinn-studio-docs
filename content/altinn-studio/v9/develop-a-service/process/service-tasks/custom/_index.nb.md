@@ -143,26 +143,36 @@ Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en meldi
 
 ## Styre tidsbruk og nye forsøk
 
-Trenger oppgaven andre tidsrammer enn standard, overstyrer du `StepOptions`:
+Trenger oppgaven andre tidsrammer enn standard, gir du et `ProcessStepOptions` til steget i `DefineExecute`, der du setter sammen oppgaven. En oppgave som gjør én ting, har bare ett steg, `Finally`:
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
 {{< /code-title >}}
 
 ```csharp
-public ProcessStepOptions? StepOptions =>
-    new()
-    {
-        MaxExecutionTime = TimeSpan.FromMinutes(2),
-        WaitBudget = TimeSpan.FromHours(6),
-    };
+public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
+    pipeline.Finally(
+        Execute,
+        new ProcessStepOptions
+        {
+            MaxExecutionTime = TimeSpan.FromMinutes(2),
+            RetryStrategy = ProcessStepRetryStrategy.Exponential(
+                baseInterval: TimeSpan.FromSeconds(5),
+                maxRetries: 5,
+                maxDelay: TimeSpan.FromMinutes(1)
+            ),
+            WaitBudget = TimeSpan.FromHours(6),
+        }
+    );
 ```
 
 Feltene betyr dette:
 
 - `MaxExecutionTime` er hvor lenge ett forsøk får bruke før plattformen avbryter det og regner forsøket som feilet. Hold den nær det kallet realistisk trenger. Et langt tidsavbrudd på et tregt kall kan forsinke andre instanser.
-- `WaitBudget` er hvor lenge oppgaven til sammen får vente når den svarer `Defer`. Når fristen er ute, feiler steget.
-- `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er.
+- `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er. Du kan velge `Exponential`, `Linear` eller `Constant`. `ProcessStepRetryStrategy.None()` slår av nye forsøk.
+- `WaitBudget` er hvor lenge steget til sammen får vente når det svarer `Defer`. Når fristen er ute, feiler steget.
+
+Felt du ikke setter, får standardverdien. Har oppgaven flere arbeidssteg, gir du tidsrammene til `Stage`, `HandleReplies` eller `ConcludeOnReplies` på samme måte. Hvert steg får bare det du gir det, og arver ingenting fra de andre stegene.
 
 Standardverdiene og grensene ligger i plattformen, og kan avvike mellom miljøene:
 
@@ -174,7 +184,7 @@ Standardverdiene og grensene ligger i plattformen, og kan avvike mellom miljøen
 | Pausen du oppgir i `Defer` | — | Minst ett sekund |
 | `MailboxOptions.Timeout` | — | 21 døgn |
 
-Setter du `MaxExecutionTime` eller `WaitBudget` høyere enn grensen, avviser plattformen overgangen med en gang. Det samme gjelder en postkassefrist over 21 døgn, men den avvisningen kommer først når oppgaven prøver å åpne postkassen. Oppgir du en kortere pause i `Defer` enn ett sekund, venter plattformen ett sekund likevel.
+Setter du `MaxExecutionTime` eller `WaitBudget` til 0 eller lavere, starter ikke appen. Setter du dem høyere enn grensen, avviser plattformen overgangen med en gang. Det samme gjelder en postkassefrist over 21 døgn, men den avvisningen kommer først når oppgaven prøver å åpne postkassen. Oppgir du en kortere pause i `Defer` enn ett sekund, venter plattformen ett sekund likevel.
 
 ## Oppgaver med flere steg
 
