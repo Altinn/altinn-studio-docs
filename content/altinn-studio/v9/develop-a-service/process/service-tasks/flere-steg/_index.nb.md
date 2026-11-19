@@ -55,7 +55,9 @@ public class ArchiveServiceTask : IServiceTask
         }
 
         // context.StepId er den samme gjennom alle forsøk på dette arbeidssteget.
-        // Bruk den som nøkkel, slik at arkivet kjenner igjen en sending det har fått før.
+        // Bruk den som nøkkel, slik at arkivet kjenner igjen en sending det har fått før,
+        // og svarer med den samme referansen i stedet for å arkivere på nytt. Da får et nytt
+        // forsøk tak i referansen selv om forrige forsøk stoppet før det fikk lagret den.
         string referanse = await _archive.Send(context.StepId, context.InstanceDataMutator.Instance);
 
         // Avslutningen kjører som sitt eget steg, med sin egen StepId. Lagre referansen
@@ -203,7 +205,7 @@ if (!await _partner.RecipientExists(recipient))
 Bruk `Conclude` bare når sendingen alene avgjør saken, for eksempel når mottakeren ikke finnes, slik at det ikke er noe poeng i å vente på et svar som aldri kommer. I to tilfeller skal du ikke avslutte:
 
 - Vet du ikke om sendingen kom frem, for eksempel etter et tidsavbrudd, svarer du `FailedRetryable`. Sendingen kan ha gått, og en avslutning ville lukket postkassen svaret trenger.
-- Er feilen hos dere, for eksempel avviste påloggingsopplysninger eller feil konfigurasjon, svarer du `FailedPermanent` uten `Conclude`. Da står postkassen åpen, og når noen har rettet feilen og gjenopptatt oppgaven, kjører sendingen på nytt, og oppgaven kan fullføre utvekslingen.
+- Er feilen hos dere, for eksempel avviste påloggingsopplysninger eller feil konfigurasjon, svarer du `FailedPermanent` uten `Conclude`. Da står postkassen åpen, og når noen har rettet feilen og gjenopptatt oppgaven, kjører sendingen på nytt, og oppgaven kan fullføre utvekslingen. Fristen i `MailboxOptions.Timeout` løper videre mens oppgaven står feilet, og ingen forlenger den, så rett feilen og gjenoppta oppgaven før fristen går ut. Går fristen ut først, kjører sendingen på nytt når noen gjenopptar oppgaven, men svaret kan ikke nå en lukket postkasse: behandleren kjører `onClosed` med `MailboxClosedReason.Deadline` med en gang, og der avgjør du hva som skal skje.
 
 ## Navn på stegene
 
@@ -259,7 +261,7 @@ public class CaseProcessTask : IProcessTask
 }
 ```
 
-Standardimplementasjonene setter ikke sammen noen arbeidssteg, så du overstyrer bare dem oppgaven trenger. Hvert arbeidssteg kjører som sitt eget steg som lagrer for seg, og feiler et arbeidssteg, prøver plattformen det på nytt uten å kjøre dem foran om igjen. Et arbeidssteg som venter (`Defer`), holder overgangen igjen: instansen står som `processing` til arbeidssteget er ferdig, på samme måte som når en systemoppgave venter.
+Standardimplementasjonene setter ikke sammen noen arbeidssteg, så du overstyrer bare dem oppgaven trenger. Hvert arbeidssteg kjører som sitt eget steg som lagrer for seg. Svarer et arbeidssteg `FailedRetryable`, prøver plattformen det på nytt uten å kjøre dem foran om igjen. Svarer det `FailedPermanent`, står overgangen til noen retter feilen og gjenopptar oppgaven, og da kjører bare arbeidssteget som feilet. Et arbeidssteg som venter (`Defer`), holder overgangen igjen: instansen står som `processing` til arbeidssteget er ferdig, på samme måte som når en systemoppgave venter.
 
 En systemoppgave er også en oppgavetype, så den kan sette sammen disse i tillegg til `DefineExecute`. Den innebygde signeringsoppgaven gjør det slik: når oppgaven starter, finner den dem som skal signere, delegerer rettigheter til dem og varsler dem, i hvert sitt arbeidssteg.
 
