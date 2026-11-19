@@ -16,7 +16,7 @@ Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave f
 
 ## Skrive systemoppgaven i C\#
 
-Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `Execute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen.
+Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `DefineExecute`. En oppgave som gjør én ting, svarer `pipeline.Finally(Execute)` og gjør arbeidet i `Execute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
@@ -33,7 +33,9 @@ public class ExampleServiceTask : IServiceTask
 {
     public string Type => "exampleServiceTask";
 
-    public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
+    public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
+
+    public async Task<ServiceTaskResult> Execute(StageContext context)
     {
         Datamodell? skjemadata = await context.InstanceDataMutator.GetFormData<Datamodell>();
 
