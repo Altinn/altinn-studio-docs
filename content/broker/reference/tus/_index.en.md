@@ -33,7 +33,7 @@ Many TUS client libraries support concatenation, for example [tus-js-client](htt
 
 TUS upload uses the same authorization as other sender operations. You need a Maskinporten token with the `altinn:broker.write` scope.
 
-Before you upload, [initialize the file transfer](/en/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer). Set file size, checksum, recipients, and other metadata in that call — the same as for a streaming upload.
+Before you upload, [initialize the file transfer](/en/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer). Set file size, checksum, `checksumAlgorithm`, recipients, and other metadata in that call — the same as for a streaming upload. See [Checksum](/en/broker/explanation/checksum/).
 
 ## Upload flow
 
@@ -102,7 +102,7 @@ https://github.com/Altinn/altinn-broker/tree/main/.bruno
 ## Limitations
 
 - **Upload-Length is required at create time.** Deferred length (`Upload-Defer-Length`) is not supported.
-- **MD5 checksum validation** runs async when the upload completes if checksum is provided on initialization. The upload is set to UploadProcessing while this is generated async.
+- **File checksum** is optional and is set on initialize (`checksum` and `checksumAlgorithm`: `MD5` or `SHA256`). See [Checksum](/en/broker/explanation/checksum/). After the upload completes, Broker hashes the final file. A mismatch fails the transfer. 
 - **Downloads** are not available via TUS. Recipients download files through the [standard download endpoint](/en/broker/getting-started/developer-guides/receive-files/).
 - **Incomplete uploads** are removed after 24 hours without activity.
 
