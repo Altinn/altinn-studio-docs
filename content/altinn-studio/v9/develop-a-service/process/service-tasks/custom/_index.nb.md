@@ -16,7 +16,7 @@ Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave f
 
 ## Skrive systemoppgaven i C\#
 
-Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `DefineExecute`. En oppgave som gjør én ting, svarer `pipeline.Finally(Execute)` og gjør arbeidet i `Execute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen.
+Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `DefineExecute`. En oppgave som gjør én ting, svarer `pipeline.Stage(Execute)` og gjør arbeidet i `Execute`. Fordi `Execute` svarer med et `ServiceTaskResult`, avslutter dette steget oppgaven. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
@@ -33,7 +33,8 @@ public class ExampleServiceTask : IServiceTask
 {
     public string Type => "exampleServiceTask";
 
-    public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
+    public ServiceTaskPipeline DefineExecute(PipelineBuilder.ServiceTask pipeline) =>
+        pipeline.Stage(Execute);
 
     public async Task<ServiceTaskResult> Execute(StageContext context)
     {
@@ -145,15 +146,15 @@ Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en meldi
 
 ## Styre tidsbruk og nye forsøk
 
-Trenger oppgaven andre tidsrammer enn standard, gir du et `ProcessStepOptions` til steget i `DefineExecute`, der du setter sammen oppgaven. En oppgave som gjør én ting, har bare ett steg, `Finally`:
+Trenger oppgaven andre tidsrammer enn standard, gir du et `ProcessStepOptions` til steget i `DefineExecute`, der du setter sammen oppgaven. En oppgave som gjør én ting, har bare ett steg, `Stage(Execute)`:
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
 {{< /code-title >}}
 
 ```csharp
-public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
-    pipeline.Finally(
+public ServiceTaskPipeline DefineExecute(PipelineBuilder.ServiceTask pipeline) =>
+    pipeline.Stage(
         Execute,
         new ProcessStepOptions
         {
@@ -174,7 +175,7 @@ Feltene betyr dette:
 - `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er. Du kan velge `Exponential`, `Linear` eller `Constant`. `ProcessStepRetryStrategy.None()` slår av nye forsøk.
 - `WaitBudget` er hvor lenge steget til sammen får vente når det svarer `Defer`. Når fristen er ute, feiler steget.
 
-Felt du ikke setter, får standardverdien. Har oppgaven flere arbeidssteg, gir du tidsrammene til `Stage`, `HandleReplies` eller `ConcludeOnReplies` på samme måte. Hvert steg får bare det du gir det, og arver ingenting fra de andre stegene.
+Felt du ikke setter, får standardverdien. Har oppgaven flere arbeidssteg, gir du tidsrammene til `Stage` eller `HandleReplies` på samme måte. Hvert steg får bare det du gir det, og arver ingenting fra de andre stegene.
 
 Standardverdiene og grensene ligger i plattformen, og kan avvike mellom miljøene:
 

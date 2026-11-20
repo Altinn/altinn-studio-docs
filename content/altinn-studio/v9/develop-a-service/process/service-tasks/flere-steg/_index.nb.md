@@ -15,7 +15,16 @@ Denne siden gir oversikten. Utviklerne finner alle detaljene i [`docs/service-ta
 
 ## Dele oppgaven i arbeidssteg
 
-Du setter sammen arbeidsstegene i `DefineExecute`. Sammensetningen må slutte med én avslutning: `Finally` for arbeid som blir ferdig av seg selv eller ved å spørre igjen, eller `ConcludeOnReplies` for arbeid som en melding svarer på.
+Du setter sammen arbeidsstegene i `DefineExecute`: `Stage` for arbeid appen gjør selv, og `HandleReplies` for svar som kommer som en melding. Sammensetningen må slutte med én avslutning, altså steget som avslutter oppgaven. Hva metodene i et steg svarer med, avgjør om steget går videre til neste eller er avslutningen:
+
+| | `Stage` | `HandleReplies` |
+| --- | --- | --- |
+| Går videre | arbeidet svarer med `StageResult` | behandlerne svarer med `StageExchangeResult` og `StageResult` |
+| Avslutter oppgaven | arbeidet svarer med `ServiceTaskResult` | behandlerne svarer med `ServiceTaskExchangeResult` og `ServiceTaskResult` |
+
+Avslutningen er alltid det siste steget. Slutter sammensetningen med et steg som går videre, kompilerer ikke koden.
+
+I eksempelet under svarer `SendToArchive` med `StageResult` og går videre, mens `AwaitConfirmation` svarer med `ServiceTaskResult` og avslutter oppgaven.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ArchiveServiceTask.cs
@@ -38,10 +47,13 @@ public class ArchiveServiceTask : IServiceTask
 
     public string Type => "archive";
 
-    public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
+    public ServiceTaskPipeline DefineExecute(PipelineBuilder.ServiceTask pipeline) =>
         pipeline
             .Stage(SendToArchive)
-            .Finally(AwaitConfirmation, new ProcessStepOptions { WaitBudget = TimeSpan.FromHours(6) });
+            .Stage(
+                AwaitConfirmation,
+                new ProcessStepOptions { WaitBudget = TimeSpan.FromHours(6) }
+            );
 
     private async Task<StageResult> SendToArchive(StageContext context)
     {
@@ -82,7 +94,7 @@ services.AddTransient<IServiceTask, ArchiveServiceTask>();
 
 `DefineExecute` kjører hver gang plattformen skal finne ut hva som er neste arbeidssteg, og når appen starter. Den skal derfor være billig og forutsigbar, og ikke gjøre noe arbeid selv. Selve arbeidet hører til inne i arbeidsstegene.
 
-Setter du sammen noe ugyldig, for eksempel et arbeidssteg uten avslutning eller en postkasse ingen svarer på, feiler appen når den starter. Da får du feilen med en gang, ikke først når en bruker treffer oppgaven.
+Glemmer du avslutningen, kompilerer ikke koden. Andre feil i sammensetningen, for eksempel en postkasse ingen svarer på, gjør at appen feiler når den starter. Da får du feilen med en gang, ikke først når en bruker treffer oppgaven.
 
 ## Svare fra et arbeidssteg
 
@@ -95,7 +107,7 @@ Et arbeidssteg svarer med `StageResult`:
 | `FailedRetryable("melding")` | Noe gikk galt som kan gå bedre om litt. Plattformen prøver arbeidssteget på nytt. |
 | `FailedPermanent("melding")` | Noe gikk galt som ikke retter seg selv. Plattformen gir opp. |
 
-Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå videre. Derfor svarer `Finally` med `ServiceTaskResult`, som i tillegg har `Success(action)`. `Success` flytter alltid prosessen videre.
+Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå videre. Den svarer med `ServiceTaskResult`, som i tillegg har `Success(action)`. `Success` flytter alltid prosessen videre.
 
 ## Vente på svar
 
@@ -115,10 +127,10 @@ App/logic/ServiceTasks/ArchiveServiceTask.cs
 {{< /code-title >}}
 
 ```csharp
-public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
+public ServiceTaskPipeline DefineExecute(PipelineBuilder.ServiceTask pipeline) =>
     pipeline
         .Stage(SendOrder, new MailboxOptions { Timeout = TimeSpan.FromDays(14) }, out MailboxHandle svar)
-        .ConcludeOnReplies(svar, onMessage: HandleAnswer, onClosed: HandleClosed);
+        .HandleReplies(svar, onMessage: HandleAnswer, onClosed: HandleClosed);
 
 // _partner, TryLesSvar og Svar er dine egne, på samme måte som IArchiveClient over.
 private async Task<ServiceTaskOpeningStageResult> SendOrder(StageContext context, ServiceTaskMailbox mailbox)
@@ -153,6 +165,7 @@ Slik henger delene sammen:
 - Kanalen som tar imot svaret hos dere, for eksempel en lytter på en meldingskø eller et endepunkt, sender meldingen videre med `IServiceTaskReplyForwarder.ForwardReply(mailboxId, serviceTaskType, payload, idempotencyKey)`, og gjør ikke noe arbeid selv. Bruk avsenderens egen meldings-id som `idempotencyKey`, siden samme melding kan komme flere ganger.
 - `onMessage` kjører én gang per melding. `AwaitNextReply()` betyr «denne er håndtert, vent på neste». `Success()` avslutter utvekslingen, og plattformen lukker postkassen først, slik at ingen senere melding lander i en utveksling som allerede er svart på.
 - `onClosed` kjører når postkassen er lukket uten at oppgaven har konkludert, fordi fristen gikk ut eller fordi noen lukket den. Der bestemmer du om det er kritisk (`FailedPermanent`) eller noe oppgaven kan leve med.
+- Her svarer behandlerne med `ServiceTaskExchangeResult` og `ServiceTaskResult`, så `HandleReplies` er avslutningen. Skal oppgaven gjøre mer etter utvekslingen, lar du behandlerne svare med `StageExchangeResult` og `StageResult` i stedet, og legger avslutningen etter. Da betyr `Completed()` at utvekslingen er ferdig, og oppgaven går videre til neste steg.
 - Id-en til postkassen er umulig å gjette, men den er ikke en hemmelighet. Den er en adresse, ikke bevis for hvem som sendte meldingen.
 
 Fiks Arkiv er det innebygde eksempelet i plattformen: oppgaven sender id-en til postkassen som `klientKorrelasjonsId`, og lytteren leser den tilbake fra svaret og sender meldingen videre.
