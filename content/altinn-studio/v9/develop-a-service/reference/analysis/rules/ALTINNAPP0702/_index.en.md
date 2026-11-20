@@ -6,11 +6,11 @@ weight: 72
 ---
 
 This diagnostic is reported when a service task with several stages opens a mailbox, and the
-same `MailboxHandle` is passed both to `HandleReplies` and to `ConcludeOnReplies`, or to one of
-them twice. The message names the variable the mailbox was opened into.
+same `MailboxHandle` is passed to `HandleReplies` twice. The message names the variable the
+mailbox was opened into.
 
-Each mailbox must be answered exactly once: with `HandleReplies` to carry on afterwards, or with
-`ConcludeOnReplies` to end there. A second handler would never run.
+Each mailbox must be answered by exactly one `HandleReplies`, whether the task carries on after the
+exchange or ends there. A second handler would never run.
 
 Category `Contracts`, severity **error**. The rule therefore fails the build.
 

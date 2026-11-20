@@ -5,11 +5,11 @@ weight: 72
 ---
 
 Denne diagnostikken meldes når en systemoppgave med flere arbeidssteg åpner en postkasse, og
-den samme `MailboxHandle` blir sendt både til `HandleReplies` og til `ConcludeOnReplies`, eller
-til en av dem to ganger. Meldingen navngir variabelen postkassen ble åpnet i.
+den samme `MailboxHandle` blir sendt til `HandleReplies` to ganger. Meldingen navngir variabelen
+postkassen ble åpnet i.
 
-Hver postkasse skal besvares nøyaktig én gang: med `HandleReplies` for å fortsette etterpå, eller
-med `ConcludeOnReplies` for å avslutte der. En behandler nummer to ville aldri kjørt.
+Nøyaktig én `HandleReplies` skal besvare hver postkasse, enten oppgaven fortsetter etter
+utvekslingen eller slutter der. En behandler nummer to ville aldri kjørt.
 
 Kategori `Contracts`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 

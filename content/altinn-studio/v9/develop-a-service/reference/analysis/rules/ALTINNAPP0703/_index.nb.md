@@ -11,8 +11,10 @@ kommer tilbake, ville da ikke hatt noen behandler. Meldingen navngir variabelen 
 
 Kategori `Contracts`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
-Besvar postkassen før sammensetningen slutter: med `HandleReplies` for å fortsette etterpå, eller
-med `ConcludeOnReplies` for å avslutte der.
+Besvar postkassen med `HandleReplies` før sammensetningen slutter, og send med håndtaket
+arbeidssteget delte ut. Svarer behandlerne med `StageExchangeResult` og `StageResult`, fortsetter
+oppgaven etterpå. Svarer de med `ServiceTaskExchangeResult` og `ServiceTaskResult`, avslutter de
+oppgaven.
 
 Regelen melder bare et håndtak som ikke er brukt i det hele tatt. Forkaster du håndtaket med
 `out _`, eller bruker du det uten å besvare postkassen, melder ikke regelen noe, men appen feiler

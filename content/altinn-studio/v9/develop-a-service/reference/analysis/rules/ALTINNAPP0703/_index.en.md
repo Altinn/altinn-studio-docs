@@ -11,8 +11,9 @@ would then have no handler. The message names the variable the mailbox was opene
 
 Category `Contracts`, severity **error**. The rule therefore fails the build.
 
-Answer the mailbox before the pipeline ends: with `HandleReplies` to carry on afterwards, or with
-`ConcludeOnReplies` to end there.
+Answer the mailbox with `HandleReplies` before the pipeline ends, passing the handle the stage
+handed out. Handlers that return `StageExchangeResult` and `StageResult` carry on afterwards.
+Handlers that return `ServiceTaskExchangeResult` and `ServiceTaskResult` end the task.
 
 The rule only reports a handle that is not used at all. If you discard the handle with `out _`,
 or use it without answering the mailbox, the rule reports nothing, but the app fails when it
