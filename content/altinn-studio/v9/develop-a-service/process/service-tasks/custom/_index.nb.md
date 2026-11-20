@@ -56,6 +56,8 @@ public class ExampleServiceTask : IServiceTask
 
 Du leser og endrer data gjennom `context.InstanceDataMutator`. Plattformen lagrer endringene når oppgaven svarer at den gikk bra. Husk at dataelementer fra tidligere oppgaver er låst.
 
+`DefineExecute` kjører når plattformen planlegger oppgaven, foran hvert steg og når appen starter. Den skal bare sette sammen stegene, ikke gjøre noe arbeid selv. Arbeidet hører hjemme i `Execute`.
+
 ## Registrere systemoppgaven
 
 Registrer klassen i `Program.cs`, slik at plattformen finner den:
@@ -106,7 +108,7 @@ Brukeren kan ikke hoppe over oppgaven. Så lenge oppgaven jobber, venter eller h
 
 ## Hva oppgaven kan svare
 
-`Execute` svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre. Et svar som sier at oppgaven er ferdig, flytter alltid prosessen videre:
+Avslutningen, `Execute` i eksempelet over, svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre. Et svar som sier at oppgaven er ferdig, flytter alltid prosessen videre:
 
 | Svar | Dette skjer |
 | --- | --- |
