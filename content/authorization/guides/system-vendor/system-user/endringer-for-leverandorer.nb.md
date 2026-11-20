@@ -106,7 +106,7 @@ Et **rettighetssett** er tilgangspakker og enkeltrettigheter som hører sammen. 
 **Det skjer når virksomheten legger til en klient:**
 
 - Når leverandøren bestemmer, må klienten ha gitt alt i minst ett sett. Ellers kan ikke virksomheten legge til klienten, og flaten viser hva som mangler.
-- Altinn krysser av for det første settet klienten oppfyller. Oppfyller klienten flere, kan virksomheten velge et annet, eller flere.
+- Oppfyller klienten flere sett, kan virksomheten velge flere av dem. Skissene viser at Altinn krysser av for det første, men det er ikke avklart.
 - Når virksomheten bestemmer, er settene et forslag. Virksomheten kan legge til klienten og velge blant det klienten har gitt.
 
 ---
@@ -257,6 +257,7 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Hva som gjelder når du oppdaterer rettighetssett: om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når du fjerner en tilgang fra et sett.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
 - Hvor mange rettighetssett du kan oppgi, og hvilke tegn id-en til et sett kan ha.
+- Hvordan virksomheten knytter klienter til et sett: om Altinn krysser av for det første settet klienten oppfyller, eller om virksomheten legger til alle klienter per sett.
 - Hvordan API-et for å knytte en klient til systembrukeren viser til id-en til settet.
 - Om du skal kunne gi rettighetssettene navn med feltet `name`.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
@@ -418,7 +419,7 @@ Klienten kan ikke delegere regnskapsfører- og revisorpakkene direkte. En uregis
 ---
 ## Når klienten passer med flere sett
 
-Klienten kan ha gitt nok til at flere sett er oppfylt. Da krysser Altinn av for **det første settet i `clientAccessSets`**. Virksomheten kan velge et annet sett klienten også oppfyller, eller flere av dem. Systembrukeren får alle tilgangene i settene som er valgt.
+Klienten kan ha gitt nok til at flere sett er oppfylt. Skissene viser at Altinn da krysser av for **det første settet i `clientAccessSets`**. Det er ikke avklart. Virksomheten kan velge et annet sett klienten også oppfyller, eller flere av dem. Systembrukeren får alle tilgangene i settene som er valgt.
 
 Eksempel fra scenario 1: Fjellvik Bygg AS har regnskapsførerrollen, og har også gitt A-ordningen og Sykefravær-pakken direkte.
 
@@ -487,6 +488,7 @@ De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere
 
 - Dette er skisser for å forstå problemet, ikke designforslag. Både utformingen og funksjonaliteten kan endre seg, og vi vil gjerne ha innspill.
 - Alle skissene følger oppsettet UX-teamet har foreslått. Innholdet står i grupper, byrået åpner en klient i listen, og siden har ingen dialoger bortsett fra bekreftelser.
+- Skissene viser at Altinn krysser av for det første settet klienten oppfyller, og at **Legg til alle klienter** gir det første settet. Vi har ikke bestemt om det blir slik, eller om virksomheten legger til alle klienter per sett.
 - Skissene kaller rettighetssettene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Vi ser for oss at du kan gi settene navn, som i scenario 2. Si gjerne fra om du ønsker det.
 - Reglene bak skissene står til slutt i presentasjonen.
 
@@ -749,7 +751,7 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 | R5 | Siden viser tilgangspakker og enkelttjenester uten knapper for å fjerne eller legge til enkelttilganger. |
 | R6 | Virksomheten kan bare slette hele systembrukeren, med alle tilganger og klientdelegeringer. |
 | R7 | Siden forklarer at leverandøren bestemmer tilgangene, og at endringer kommer som en endringsforespørsel. |
-| R8 | Når virksomheten knytter til en klient, er det første rettighetssettet klienten oppfyller fullt ut, krysset av. Oppfyller klienten flere, kan virksomheten velge et annet av dem, eller flere. Det er hele settet eller ingenting. |
+| R8 | Når virksomheten knytter til en klient, er det første rettighetssettet klienten oppfyller fullt ut, krysset av. Oppfyller klienten flere, kan virksomheten velge et annet av dem, eller flere. Det er hele settet eller ingenting. Om Altinn skal krysse av for det første settet, er ikke avklart. |
 | R9 | Virksomheten kan ikke knytte til klienter som ikke oppfyller noen av settene. Siden viser dem likevel. Når byrået åpner en klient i listen, ser de hva klienten har gitt, og hva som mangler. |
 | R10 | Virksomheten kan fjerne en klient. Da fjerner de alle settene for den klienten. |
 | R11 | Virksomheten kan knytte til mange klienter samtidig. |

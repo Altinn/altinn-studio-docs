@@ -72,7 +72,7 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 - Klienten må oppfylle alt innenfor ett sett. Det holder å oppfylle ett av settene.
 - `clientAccessSets` er et objekt der nøkkelen er id-en til settet. Leverandøren velger id-en, og den må være unik på systembrukeren. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026).
 - Id-en ligger fast. Det valgfrie feltet `name` er teksten virksomheten ser. Når leverandøren oppdaterer settene, er samme id samme sett.
-- Rekkefølgen i objektet er prioriteten, uten indeksfelt. Altinn forhåndsvelger det første settet klienten oppfyller fullt ut. Oppfyller klienten flere, kan virksomheten velge et annet av dem, eller flere.
+- Rekkefølgen i objektet er prioriteten, uten indeksfelt. Oppfyller klienten flere sett, kan virksomheten velge et annet av dem, eller flere. Om Altinn forhåndsvelger det første, eller om virksomheten legger til alle klienter per sett, er åpent.
 - Vi lagrer settene på systembrukeren etter opprettelsen.
 
 **Konsekvens av at rekkefølgen i objektet er prioriteten:**
@@ -122,7 +122,7 @@ Aksept krever alltid at den som godkjenner er tilgangsstyrer, uansett flagg. Til
 
 **Klientrettighetene delegeres når klienten knyttes til systembrukeren.**
 
-Når leverandøren bestemmer, gir virksomheten hvert valgte rettighetssett samlet. Det første settet klienten oppfyller fullt ut, er forhåndsvalgt. Tildelingen må være innenfor eiervirksomhetens fullmakter for den aktuelle klienten.
+Når leverandøren bestemmer, gir virksomheten hvert valgte rettighetssett samlet. Om det første settet klienten oppfyller fullt ut, er forhåndsvalgt, er åpent. Tildelingen må være innenfor eiervirksomhetens fullmakter for den aktuelle klienten.
 
 Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer slettes. Avhengigheten følger rettighetsgrunnlaget, uavhengig av type og flagg.
 
@@ -184,7 +184,7 @@ Begrunnelsen er at brukeren skal slippe å administrere denne delegeringen et eg
 ---
 ## Vedtatt: Hele rettighetssettet eller ingen
 
-**Når leverandøren bestemmer, er det første rettighetssettet klienten oppfyller fullt ut, forhåndsvalgt.**
+**Når leverandøren bestemmer, gir virksomheten hele rettighetssett, og bare sett klienten oppfyller fullt ut.** Om Altinn forhåndsvelger det første settet, er åpent.
 
 - Hele settet delegeres samlet, eller ingen av tilgangene delegeres.
 - Man kan ikke velge en delmengde av settet.
