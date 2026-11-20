@@ -21,7 +21,7 @@ Duplicate changes in Altinn Studio template
 
 ### Updating Altinn Platform and app template  
 
-1. Code that requires changes in platform are merged in a seperate PR
+1. Code that requires changes in platform are merged in a separate PR
 2. The platform code must be rolled out to all environments.
 3. Then, follow [Updating app template](#updating-app-template-template-files--depentent-supporting-projects) for remaning changes.
 
