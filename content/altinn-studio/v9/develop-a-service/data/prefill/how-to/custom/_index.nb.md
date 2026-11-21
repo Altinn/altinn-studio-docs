@@ -21,6 +21,8 @@ Klassen må implementere `IInstantiationProcessor`-grensesnittet fra `Altinn.App
 Implementer `DataCreation`-metoden i den nye klassen. I denne metoden setter du opp hvilke felt som skal fylles ut automatisk, og hvilken verdi de skal få.
 Her kan du for eksempel gjøre kall for å hente data fra en ekstern kilde, gjøre beregninger eller annen relevant logikk.
 
+Metoden får en `IInstanceDataMutator`. Instansen finner du i `instanceDataMutator.Instance`. Vil du legge til eller endre andre dataelementer, gjør du det gjennom `instanceDataMutator`, ikke med `IDataClient`. Appen lagrer endringene sammen med dataelementet den oppretter.
+
 Se under for eksempler.
 
 ## 3. Registrer klassen din
@@ -43,18 +45,17 @@ Dette fyller ut feltet `Organisasjon.Orgnr` med et egendefinert organisasjonsnum
 
 *Merk at feltnavnene her kun er tenkte eksempler, tilpass til dine behov/data.*
 
-```csharp {hl_lines=[17,18]}
+```csharp {hl_lines=[16,17]}
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Altinn.App.Core.Features;
 using Altinn.App.Models;
-using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.Logic.Instantiation;
 
 public class MinUtfylling : IInstantiationProcessor
 {
-    public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+    public async Task DataCreation(IInstanceDataMutator instanceDataMutator, object data, Dictionary<string, string>? prefill)
     {
         if (data is Datamodell skjema)
         {
@@ -76,18 +77,17 @@ Dette fyller ut feltet `Person.Personnr` med personnummer og feltet `Person.Navn
 
 *Merk at feltnavnene her kun er tenkte eksempler, tilpass til dine behov/data.*
 
-```csharp {hl_lines=[17,18]}
+```csharp {hl_lines=[16,17]}
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Altinn.App.Core.Features;
 using Altinn.App.Models;
-using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.Logic.Instantiation;
 
 public class MinUtfylling : IInstantiationProcessor
 {
-    public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+    public async Task DataCreation(IInstanceDataMutator instanceDataMutator, object data, Dictionary<string, string>? prefill)
     {
         if (data is Datamodell skjema)
         {
