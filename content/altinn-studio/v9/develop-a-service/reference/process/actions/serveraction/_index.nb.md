@@ -169,6 +169,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 - `UserActionResult.SuccessResult()`: Handlingen lyktes.
 - `UserActionResult.FailureResult(new ActionError { Message = "..." })`: Handlingen mislyktes, og API-et returnerer en feil til brukeren. `errorType` bestemmer statuskoden, for eksempel `ProcessErrorType.BadRequest` for 400. Standard er 500.
+- `UserActionResult.FailureResult(validationIssues)`: Handlingen mislyktes på grunn av en liste med valideringsmeldinger. API-et svarer med statuskode 400 og meldingene i `validationIssues`. Appen oversetter `CustomTextKey` til `Description` på samme måte som for validering, og brukeren ser den første meldingen som feilmelding.
 - `UserActionResult.RedirectResult(uri)`: Appen sender brukeren videre til en annen URL.
 
 I motsetning til prosesshandlinger flytter serverhandlinger **ikke** prosessen til neste oppgave. Hvis prosessen skal gå videre, bruker du en [prosesshandling]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions/process-actions" >}}) i stedet.
@@ -196,5 +197,5 @@ Du trenger ikke lagre dataene selv eller legge dem i resultatet.
 - Vil du bytte ut hele datamodellen, bruker du `await context.DataMutator.ReplaceFormData(dataElement, nyModell)`.
 - Med `AddFormDataElement`, `AddBinaryDataElement` og `RemoveDataElement` legger du til og fjerner dataelementer.
 - Returnerer handlingen `FailureResult`, lagrer appen ingen av endringene.
-- Kaller du `context.DataMutator.AbandonAllChanges(issues)`, feiler handlingen på samme måte, med statuskode 400. Brukeren får teksten fra den første valideringsmeldingen, `CustomTextKey` eller `Description`, som feilmelding.
+- Kaller du `context.DataMutator.AbandonAllChanges(issues)`, feiler handlingen som om den returnerte `FailureResult(issues)`.
 - [Dataprosessorene]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing" >}}) kjører ikke for endringene handlingen gjør.
