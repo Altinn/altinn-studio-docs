@@ -117,6 +117,8 @@ Du kan bare registrere én `IOnProcessEndedHandler`. Med flere starter ikke appe
 
 Hooken kjører før datatyper med `autoDeleteOnProcessEnd` blir slettet, så den ser alle dataene. Er `autoDeleteOnProcessEnd` slått på for hele appen, blir instansen slettet etter at hooken er ferdig.
 
+Hooken kan ikke bekrefte instansen som mottatt for tjenesteeieren. Slå på `onProcessEnd.confirm` i stedet, så bekrefter appen etter at hooken er ferdig. Se [La appen bekrefte når prosessen er ferdig]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-ved-prosessslutt).
+
 Feiler hooken, er prosessen likevel avsluttet. Instansen blir værende under behandling til arbeidsflyten blir startet på nytt fra arbeidsflytmotoren. Skal en feil kunne stoppe avslutningen, bruk `IOnTaskEndingHandler` for den siste oppgaven i stedet. Avslutter en avvisning prosessen, kjører `IOnTaskAbandoningHandler` for oppgaven i stedet.
 
 [Se grensesnittet IOnProcessEndedHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnProcessEndedHandler.cs)
