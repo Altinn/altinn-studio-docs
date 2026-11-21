@@ -172,3 +172,29 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 - `UserActionResult.RedirectResult(uri)`: Appen sender brukeren videre til en annen URL.
 
 I motsetning til prosesshandlinger flytter serverhandlinger **ikke** prosessen til neste oppgave. Hvis prosessen skal gå videre, bruker du en [prosesshandling]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions/process-actions" >}}) i stedet.
+
+### Endre data i handlingen
+
+Les og endre data gjennom `context.DataMutator`. Appen lagrer endringene når handlingen er ferdig. Skjemaet får de endrede dataene og nye valideringsmeldinger i svaret, så brukeren ser endringene uten å laste siden på nytt.
+
+{{< code-title >}}
+App/logic/MyServerAction.cs
+{{< /code-title >}}
+
+```csharp
+public async Task<UserActionResult> HandleAction(UserActionContext context)
+{
+    DataElement dataElement = context.DataMutator.GetDataElementsForType("model").First();
+    var model = await context.DataMutator.GetFormData<Model>(dataElement);
+    model.Status = "Behandlet";
+    return UserActionResult.SuccessResult();
+}
+```
+
+Du trenger ikke lagre dataene selv eller legge dem i resultatet.
+
+- Vil du bytte ut hele datamodellen, bruker du `await context.DataMutator.ReplaceFormData(dataElement, nyModell)`.
+- Med `AddFormDataElement`, `AddBinaryDataElement` og `RemoveDataElement` legger du til og fjerner dataelementer.
+- Returnerer handlingen `FailureResult`, lagrer appen ingen av endringene.
+- Kaller du `context.DataMutator.AbandonAllChanges(issues)`, feiler handlingen på samme måte, med statuskode 400. Brukeren får teksten fra den første valideringsmeldingen, `CustomTextKey` eller `Description`, som feilmelding.
+- [Dataprosessorene]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing" >}}) kjører ikke for endringene handlingen gjør.
