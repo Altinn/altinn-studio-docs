@@ -406,3 +406,25 @@
     scrollbar-width: thin;
   }
 }
+
+/*
+  Forsiden (layouts/_default/designsystemet.html) har den samme sidemenyen, men innholdet fyller hele kolonnen.
+  Da går heroen og de fargede seksjonene helt ut til kantene. Skillelinjen mot sidemenyen står som på de andre sidene.
+  Rammen har ingen luft rundt seg, så knappen som åpner menyen på mobil, får luften selv.
+  Reglene står til slutt og bruker to klasser, så de vinner over reglene for rammen over.
+*/
+.docs-layout.docs-layout--landing {
+  gap: 0;
+  padding: 0;
+}
+.docs-layout--landing .docs-mobile-nav {
+  padding: var(--ds-size-4);
+}
+@media (min-width: 64em) {
+  .docs-layout.docs-layout--landing {
+    padding-inline: var(--ds-size-8) 0;
+  }
+  .docs-main.docs-landing {
+    padding: 0;
+  }
+}
