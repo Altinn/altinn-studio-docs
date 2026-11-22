@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/@digdir/designsystemet/dist/config.schema.json",
+  "outDir": "./design-tokens",
+  "clean": true,
+  "themes": {
+    "altinn": {
+      "colors": {
+        "accent": "#0062BA",
+        "brand1": "#3F3161",
+        "brand2": "#E02F4A",
+        "neutral": "#1E2B3C"
+      },
+      "borderRadius": 4
+    }
+  }
+}

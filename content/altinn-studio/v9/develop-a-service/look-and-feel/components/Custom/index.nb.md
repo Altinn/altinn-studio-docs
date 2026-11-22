@@ -1,6 +1,5 @@
 ---
 title: Custom
-draft: true
 ---
 
 ## Egenskaper

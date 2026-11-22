@@ -1,0 +1,14 @@
+{{- /*
+  Overskriftene som hører hjemme i «På denne siden»: nivå 2 og 3.
+  Har siden en H1 i innholdet, ligger nivå 2 under den, så vi går ett nivå ned.
+  Tar imot en liste med overskrifter fra .Fragments.Headings. Returnerer overskriftene som har ID.
+*/ -}}
+{{- $out := slice -}}
+{{- range . -}}
+  {{- if lt .Level 2 -}}
+    {{- $out = $out | append (partial "designsystemet/docs/toc-headings.html" .Headings) -}}
+  {{- else if and .ID (le .Level 3) -}}
+    {{- $out = $out | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

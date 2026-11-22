@@ -279,7 +279,7 @@ Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
 
 ## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
 It is now possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
-[Documentation on how to implement the functionality](/en/altinn-studio/v8/reference/logic/validation/#specify-that-validation-errors-are-fixed).
+[Documentation on how to implement the functionality](/en/altinn-studio/v8/reference/logic/validation/csharp/#migrating-from-iinstancevalidator).
 
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings

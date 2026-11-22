@@ -1,6 +1,6 @@
 ---
-title: Video
 draft: true
+title: Video
 ---
 
 ## Properties

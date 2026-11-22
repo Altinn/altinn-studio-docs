@@ -1,6 +1,6 @@
 ---
-title: Summary
 draft: true
+title: Summary
 ---
 
 ## Properties

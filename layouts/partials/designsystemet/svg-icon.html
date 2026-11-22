@@ -1,0 +1,9 @@
+{{- /*
+  Aksel-ikon (@navikt/aksel-icons) som nøstet SVG inne i en annen SVG.
+  Tar imot dict med name, x, y, size og class.
+*/ -}}
+{{- with resources.Get (printf "vendor/aksel-icons/%s.svg" .name) -}}
+{{- replace .Content `<svg width="1em" height="1em"` (printf `<svg x="%v" y="%v" width="%v" height="%v" class="%s" aria-hidden="true"` $.x $.y $.size $.size $.class) | safeHTML -}}
+{{- else -}}
+{{- errorf "Fant ikke ikonet %q i @navikt/aksel-icons. Kjør npm ci, eller sjekk navnet." .name -}}
+{{- end -}}

@@ -194,6 +194,8 @@ Forsendelser kan inneholde et ekstra nivå av innhold og vedlegg som representer
 - typen forsendelse, som bør gi sluttbrukersystemer en idé om hvordan den bør vises for sluttbrukere. En tjenestespesifikk, strukturert utvidet type kan også oppgis for bruk i tilpassede sluttbrukersystemer.
 - eventuelt en annen relatert forsendelse
 
+I [Velge forsendelsestype]({{< relref "../transmission-types" >}}) finner du eksempler på hver type og råd om hvilken du skal velge.
+
 Som med innhold på dialognivå kan forsendelser inneholde tittel, sammendrag og en innholdsreferanse, altså front channel embed. Tjenesteeiere kan bruke front channel embed for å spore om en bestemt forsendelse er åpnet, noe som igjen f.eks. kan utløse at en `transmissionOpened`-aktivitet legges til.
 
 ### Navigasjonshandlinger på forsendelser

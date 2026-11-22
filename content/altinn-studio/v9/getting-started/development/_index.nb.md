@@ -1,8 +1,8 @@
 ---
 title: For deg som skal utvikle en app
 linktitle: Lag en app
+description: Slik lager du en app i Altinn Studio, fra et enkelt skjema til publisering.
 weight: 10
-draft: true
 # Marker at denne siden er rotsiden i en veiledning som går over flere sider.
 # Sidene under får automatisk lenker til forrige og neste side.
 guide: true

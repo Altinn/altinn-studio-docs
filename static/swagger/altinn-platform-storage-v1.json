@@ -432,6 +432,101 @@
         }
       }
     },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGuid}/versions/{blobVersionId}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Gets the content of one blob version of a data element, for the instance's own service owner.",
+        "description": "The version may be current, superseded, or belong to a deleted element. Detached versions remain readable until\norphan cleanup. Aggregate mutations keep a deleted element's versions; other deletes remove them immediately.\nReading a version requires the same access to its data type as reading the element, using the application's\ncurrent metadata.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "blobVersionId",
+            "in": "path",
+            "description": "The blob version to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/instances/{instanceOwnerPartyId}/{instanceGuid}/dataelements": {
       "get": {
         "tags": [
@@ -1333,7 +1428,7 @@
           "InstanceMutations"
         ],
         "summary": "Commits a batch of mutations for a single instance.\nFor multipart requests, the first part must be the `mutation` JSON field;\neach subsequent part must match exactly one `contentPartName` in the request.\nUnknown, duplicate, or missing file parts are rejected with 400 Bad Request.",
-        "description": "After the endpoint's outer `InstanceWrite` policy admits the request, idempotent replay\nis checked before process-state, presentation-text, data-value, per-data-type write,\ncomplete-confirmation, and delete-instance authorization. A complete confirmation is\nadditionally subject to the `InstanceComplete` policy and is recorded for the calling\norganisation only; an organisation that already has a confirmation keeps the one it has, and\nthe remaining operations commit either way. An admitted replay is a no-op and uses the snapshot\nreturned by replay admission. For non-replays, operation-specific authorization is evaluated\nagainst the controller's instance snapshot; data-element update and delete references missing\nfrom that snapshot are rejected by later plan validation. Process-state mutations on instances\nwithout a current task, and delete-instance mutations the application prevents from deletion,\nare rejected after replay admission. Delete-instance mutations check instance existence before\ndelete authorization, so a missing instance returns 404 before a possible delete-policy 403.",
+        "description": "After the endpoint's outer `InstanceWrite` policy admits the request, idempotent replay\nis checked before process-state, presentation-text, data-value, per-data-type write,\ncomplete-confirmation, and delete-instance authorization. A complete confirmation is\nadditionally subject to the `InstanceComplete` policy and is recorded for the calling\norganisation only; an organisation that already has a confirmation keeps the one it has, and\nthe remaining operations commit either way. An admitted replay is a no-op and uses the snapshot\nreturned by replay admission. For non-replays, operation-specific authorization is evaluated\nagainst the controller's instance snapshot; data-element update and delete references missing\nfrom that snapshot are rejected by later plan validation. Process-state authorization admits a\nmutation on an instance without a current task only from the app that owns the instance. A\ndelete-instance mutation returns 403 while the application's\n`PreventInstanceDeletionForDays` period, counted from when the instance was archived, has\nnot passed. A delete-instance mutation checks instance existence before delete authorization,\nso a missing instance returns 404 before a possible delete-policy 403.",
         "parameters": [
           {
             "name": "instanceOwnerPartyId",
@@ -2933,6 +3028,15 @@
         },
         "additionalProperties": false
       },
+      "AppStatus": {
+        "enum": [
+          "Completed",
+          "Deprecated",
+          "UnderDevelopment",
+          "Withdrawn"
+        ],
+        "type": "string"
+      },
       "Application": {
         "type": "object",
         "properties": {
@@ -3054,6 +3158,9 @@
             },
             "nullable": true
           },
+          "status": {
+            "$ref": "#/components/schemas/AppStatus"
+          },
           "created": {
             "type": "string",
             "format": "date-time",
@@ -3157,6 +3264,23 @@
           },
           "includeAttachments": {
             "type": "boolean"
+          },
+          "includeDueBefore": {
+            "type": "boolean"
+          },
+          "includedDataValues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "includedPresentationTexts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3387,7 +3511,9 @@
             "nullable": true
           },
           "enablePdfCreation": {
-            "type": "boolean"
+            "type": "boolean",
+            "nullable": true,
+            "deprecated": true
           },
           "enableFileScan": {
             "type": "boolean"

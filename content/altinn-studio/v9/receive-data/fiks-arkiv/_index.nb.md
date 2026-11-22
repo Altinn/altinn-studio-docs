@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Fiks Arkiv
 linktitle: Fiks Arkiv
 description: Slik setter du opp Fiks Arkiv som systemoppgave i appen din.
@@ -153,9 +152,9 @@ Utvidelsesmetodene ligger i navnerommet `Altinn.App.Clients.Fiks.Extensions`, s�
 
 Legg oppgaven inn i `process.bpmn` som en `bpmn:serviceTask` med oppgavetypen `fiksArkiv`, og legg en eksklusiv gateway rett etter den. Oppgaven går alltid videre når arkiveringen er avgjort: med handlingen i `SuccessHandling.Action` når arkivet har bekreftet saken, og med handlingen i `ErrorHandling.Action`, som standard `reject`, når arkiveringen ikke kan lykkes. Gatewayen er der de to veiene skiller lag, og appen nekter å starte hvis oppgaven ikke er fulgt av en gateway med minst to utganger. Plasser oppgaven etter oppgaven som lager dataene du vil arkivere, vanligvis etter PDF-oppgaven, og ikke legg en tilbakemeldingsoppgave etter den.
 
-**Merk:** Du kan ennå ikke dra en Fiks Arkiv-oppgave direkte inn i Arbeidsflyt-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
+**Merk:** Du kan ennå ikke dra en Fiks Arkiv-oppgave direkte inn i Prosess-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
 
-1. Dra en vanlig dataoppgave inn i Arbeidsflyt-editoren.
+1. Dra en vanlig dataoppgave inn i Prosess-editoren.
 2. Del endringene i Studio.
 3. Rediger `process.bpmn` på din egen maskin.
 4. Gjør dataoppgaven om til en `bpmn:serviceTask` (se eksemplet nedenfor).
@@ -468,7 +467,7 @@ Hva oppgaven gjør når arkivet har bekreftet saken med en kvittering. Innstilli
 | **Action**               | Handlingen prosessen går videre med. Standard: ingen. Gatewayen i eksempelet over tar da `Flow_4`.                        |
 | **MarkInstanceComplete** | Om instansen skal markeres som fullført. Skjer før prosessen går videre. Standard: `true`.                         |
 
-Seksjonen kan utelates. Da markeres instansen som fullført, og prosessen går videre uten handling. Gatewayen i eksempelet over tar da `Flow_4`. Sett `MarkInstanceComplete` til `false` hvis instansen skal holdes åpen etter arkiveringen, og `Action` hvis gatewayen skal skille på en egen handling. Slik ser standardverdiene ut, skrevet ut:
+Seksjonen kan utelates. Da markeres instansen som fullført, og prosessen går videre uten handling. Gatewayen i eksempelet over tar da `Flow_4`. Å markere instansen som fullført er det samme som å bekrefte at tjenesteeieren har mottatt dataene, se [Bekrefte at dataene er mottatt]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-mottak). Sett `MarkInstanceComplete` til `false` hvis oppgaven ikke skal bekrefte mottak når arkivet har kvittert, og `Action` hvis gatewayen skal skille på en egen handling. Slik ser standardverdiene ut, skrevet ut:
 
 {{< code-title >}}
 App/appsettings.json
@@ -603,7 +602,7 @@ services
 ```csharp
 public class MinMeldingshandterer : IFiksArkivMessageHandler
 {
-    public Task HandleMessage(FiksArkivReceivedMessage message, ServiceTaskContext context)
+    public Task HandleMessage(FiksArkivReceivedMessage message, StageContext context)
     {
         if (message.IsReceipt)
         {

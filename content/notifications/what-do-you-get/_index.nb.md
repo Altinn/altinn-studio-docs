@@ -35,11 +35,10 @@ Altinn SMS-varsler sikrer rettidig levering av konsise meldinger til brukernes m
 
 ### Sendevindu
 
-- SMS-varsler kan sendes **hele døgnet, alle dager**.
 - Angi sendevindu ved å sette `smsSettings.sendingTimePolicy` i bestillingen:
-  - `Anytime` (standard) gir utsendelse hele døgnet.
-  - `Daytime` begrenser utsendelsen til Altinns dagtidsvindu (09:00-17:00 i tidssonen Europe/Oslo). Dagtidsvinduet gjelder alle dager, også helger og helligdager.
-- Planlagte varsler blir sendt på angitt tidspunkt, også utenfor arbeidstid (tolket i tidssonen Europe/Oslo).
+  - `Daytime` (standard) begrenser utsendelsen til Altinns dagtidsvindu (09:00-17:00 i tidssonen Europe/Oslo). Dagtidsvinduet gjelder alle dager, også helger og helligdager.
+  - `Anytime` gir utsendelse **hele døgnet, alle dager i året**.
+- Med `Anytime` blir planlagte varsler sendt på angitt tidspunkt, også utenfor arbeidstid (tolket i tidssonen Europe/Oslo). Med `Daytime` blir et varsel som er planlagt utenfor vinduet sendt når vinduet åpner neste gang.
 - Varslingsordrer kan legges inn og endres når som helst.
 
 ### Støttede mottakernummer
@@ -54,6 +53,15 @@ Altinn SMS-varsler sikrer rettidig levering av konsise meldinger til brukernes m
 ## E-postvarsler
 
 Altinn E-postvarsler gir mulighet til å sende ren tekst eller HTML-innhold direkte til brukernes innbokser.
+
+### Sendevindu
+
+- Angi sendevindu ved å sette `emailSettings.sendingTimePolicy` i bestillingen:
+  - `Anytime` (standard) gir utsendelse **hele døgnet, alle dager i året**.
+  - `Daytime` begrenser utsendelsen til Altinns dagtidsvindu (09:00-17:00 i tidssonen Europe/Oslo). Dagtidsvinduet gjelder alle dager, også helger og helligdager.
+- Standardverdien er forskjellig fra SMS: e-post har `Anytime` som standard, mens SMS har `Daytime`.
+- Med `Daytime` blir en e-post som er bestilt eller planlagt utenfor vinduet sendt når vinduet åpner neste gang. Bestillinger kan legges inn og endres når som helst.
+- Når en bestilling omfatter både e-post og SMS (`EmailAndSms`, `EmailPreferred` eller `SmsPreferred`), er `emailSettings.sendingTimePolicy` og `smsSettings.sendingTimePolicy` uavhengige av hverandre, og hver gjelder for sin egen kanal. Hver påminnelse har sine egne innstillinger og sin egen policy.
 
 ### Innholdstyper
 

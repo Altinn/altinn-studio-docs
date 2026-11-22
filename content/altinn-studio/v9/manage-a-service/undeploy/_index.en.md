@@ -2,15 +2,15 @@
 draft: true
 title: Unpublishing apps
 linktitle: Unpublishing
-description: Explains what unpublishing is and what happens when you unpublish an app.
+description: What happens when you unpublish an app, and what to consider before you do it.
 toc: true
 weight: 70
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-## Unpublishing Apps in Altinn Studio
+## Unpublishing apps in Altinn Studio
 
-When you unpublish apps in Altinn Studio, you make the apps unavailable to users by removing them from an environment. This can be useful when an app is outdated and is no longer to be used. In this article, we will explain what happens when you unpublish, what you should consider before and after the process, and what alternatives you may wish to consider.
+When you unpublish an app in Altinn Studio, you make it unavailable to users by removing it from an environment. This can be useful when an app is outdated and should no longer be used. In this article, we explain what happens when you unpublish, what you should consider before and after the process, and what you can do instead. See the [guide to unpublishing an app]({{< relref "/altinn-studio/v9/manage-a-service/undeploy/how-to" >}}) for the steps in Altinn Studio.
 
 ### What happens when you unpublish an app?
 
@@ -27,15 +27,15 @@ Once the app is unpublished, it becomes unavailable to users, both in the user i
 Before you proceed with unpublishing, you should consider how you will handle active instances and their data:
 
 1. **Handling active instances:**  
-   If there are instances that are still in use (for example, in the user's inbox), you must consider what will happen to these. If you want to remove the instances, you can do so via the app’s APIs before unpublishing.
+   If there are instances that are still in use (for example, in the user's inbox), you must decide what should happen to them. If you want to remove the instances, you can do so via the app’s APIs before unpublishing.
 
 2. **Handling data after unpublishing:**  
    Once the app is unpublished, you can still retrieve data, but you will need to use the Storage API after unpublishing. This is because the app’s own APIs will no longer be available.
 {.floating-bullet-numbers}
 
-### What can you do to make an app unavailable, instead of unpublishing?
+### What can you do to make an app unavailable instead of unpublishing?
 
-If you do not wish to unpublish the app, you can make it unavailable in several other ways:
+If you do not want to unpublish the app, you can make it unavailable in several other ways:
 
 - **Switch to an earlier version:**  
   If the current version of the app has issues, you can choose to roll back to an earlier version that works better.
@@ -44,7 +44,7 @@ If you do not wish to unpublish the app, you can make it unavailable in several 
   You can remove access to the app in the code, making it unavailable in that way. This allows you to avoid completely unpublishing the app.
 
 - **Change access settings:**  
-  You can adjust the access settings so that users cannot start new instances of the application.
+  You can adjust the access settings so that users cannot start new instances of the app.
 
-- **Implement validation before you unpublish:**  
-  By adding validation in the code, you can decide when users should have access to the app. This can be useful if you want to give users a transition period before the app becomes completely unavailable in the environment.
+- **Add a check before you unpublish:**  
+  By adding a check in the code, you can decide when users should have access to the app. This can be useful if you want to give users a transition period before the app becomes completely unavailable in the environment.

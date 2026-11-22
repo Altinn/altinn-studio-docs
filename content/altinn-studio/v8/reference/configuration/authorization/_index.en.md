@@ -108,19 +108,19 @@ Example with read action:
 ## Obligation
 
 The obligation part is used to define information that should be used by PEP. The required authentication level is set
-to 2 by default. This is done as an obligation in the XACML Policy file.
+to 3 by default. This is done as an obligation in the XACML Policy file.
 
 If the required authentication level is set to 4, you must define that the service owner can interact with it through
 level 3 authentication for Maskinporten.
 This is because Maskinporten is defined as level 3. See the rule library for examples.
 
-Example with authentication level 2
+Example with authentication level 3
 
 ```xml {linenos=false,hl_lines=[4]}
 <xacml:ObligationExpressions>
     <xacml:ObligationExpression FulfillOn="Permit" ObligationId="urn:altinn:obligation:authenticationLevel1">
       <xacml:AttributeAssignmentExpression AttributeId="urn:altinn:obligation1-assignment1" Category="urn:altinn:minimum-authenticationlevel">
-        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</xacml:AttributeValue>
+        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">3</xacml:AttributeValue>
       </xacml:AttributeAssignmentExpression>
     </xacml:ObligationExpression>
   </xacml:ObligationExpressions>

@@ -1,7 +1,6 @@
 ---
-draft: true
 title: Forhåndsutfylling - guider
-linktitle: 🎯 Guider
+linktitle: Guider
 description: Hvordan sette opp forhåndsutfylling
 tags: [needsReview]
 

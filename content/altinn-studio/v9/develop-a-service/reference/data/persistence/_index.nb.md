@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Lagring
 linktitle: Lagring
 description: Slik velger du format for skjemadata og hindrer at instanser blir slettet

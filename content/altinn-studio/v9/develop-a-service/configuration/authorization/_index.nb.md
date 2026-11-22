@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Definere autorisasjonspolicy
 linktitle: Autorisasjon
 description: I Altinn Studio designer kan applikasjonsutvikleren definere policyen for applikasjonen som er opprettet
@@ -127,12 +126,12 @@ App/config/authorization/policy.xml
 
 ## Obligation
 
-Obligation-delen av policy brukes til å definere informasjon som skal brukes av PEP. Det nødvendige autentiseringsnivået er satt til 2 som standard. Dette gjøres som en forpliktelse i XACML Policy-filen.
+Obligation-delen av policy brukes til å definere informasjon som skal brukes av PEP. Det nødvendige autentiseringsnivået er satt til 3 som standard. Dette gjøres som en forpliktelse i XACML Policy-filen.
 
 Hvis nødvendig autentiseringsnivå er satt til 4, må du definere at tjenesteeier kan samhandle med det gjennom nivå 3-autentisering for Maskinporten.
 Dette fordi Maskinporten er definert som nivå 3. Se regelbiblioteket for eksempler.
 
-Eksempel med autentiseringsnivå 2:
+Eksempel med autentiseringsnivå 3:
 
 {{< code-title >}}
 App/config/authorization/policy.xml
@@ -142,7 +141,7 @@ App/config/authorization/policy.xml
 <xacml:ObligationExpressions>
     <xacml:ObligationExpression FulfillOn="Permit" ObligationId="urn:altinn:obligation:authenticationLevel1">
       <xacml:AttributeAssignmentExpression AttributeId="urn:altinn:obligation1-assignment1" Category="urn:altinn:minimum-authenticationlevel">
-        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</xacml:AttributeValue>
+        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">3</xacml:AttributeValue>
       </xacml:AttributeAssignmentExpression>
     </xacml:ObligationExpression>
   </xacml:ObligationExpressions>

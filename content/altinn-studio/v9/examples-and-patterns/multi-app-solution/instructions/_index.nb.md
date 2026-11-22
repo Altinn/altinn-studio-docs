@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Utvikle en flerappsløsning i Altinn
 linktitle: Instruksjoner
 description: Slik går du frem for å lage en flerappsløsning

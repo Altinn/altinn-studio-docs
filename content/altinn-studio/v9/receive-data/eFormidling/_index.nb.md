@@ -1,5 +1,4 @@
 ---
-draft: true
 title: eFormidling
 description: Slik setter du opp eFormidling-integrasjon for appen din.
 tags: [eFormidling, needsReview]
@@ -49,9 +48,9 @@ Utvidelsesmetodene ligger i navnerommet `Altinn.App.Core.EFormidling.Extensions`
 ### Legge til eFormidling som en systemoppgave {#eFormidling-oppsett-servicetask}
 eFormidling legges til i prosessen som en systemoppgave, og meldingen sendes når prosessen når denne oppgaven. Plasser oppgaven der du vil at meldingen skal sendes, vanligvis etter oppgaven som produserer dataene du vil sende. Oppgaven må ha en innkommende og en utgående sekvensflyt.
 
-**Merk:** Du kan ennå ikke dra en eFormidling-oppgave direkte inn i Arbeidsflyt-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
+**Merk:** Du kan ennå ikke dra en eFormidling-oppgave direkte inn i Prosess-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
 
-1. Dra en vanlig dataoppgave inn i Arbeidsflyt-editoren.
+1. Dra en vanlig dataoppgave inn i Prosess-editoren.
 2. Del endringene i Studio.
 3. Rediger `process.bpmn` på din egen maskin.
 4. Gjør dataoppgaven om til en `bpmn:serviceTask` (se eksemplet nedenfor).
@@ -361,7 +360,7 @@ Det er `EformidlingDeliveryException` som gjør at en mottaker du ikke klarer å
 {{</content-version-selector>}}
 
 ### Vente på leveringsbekreftelsen {#eFormidling-oppsett-process}
-Systemoppgaven er ikke ferdig når meldingen er overlevert til integrasjonspunktet. Den er ferdig når integrasjonspunktet bekrefter at meldingen er levert. Oppgaven sender, og sjekker deretter leveringsstatusen selv – først etter 15 sekunder, så hvert minutt, så hvert femte minutt, og til slutt hvert kvarter. Prosessen går videre til neste steg først når leveringen er bekreftet.
+Systemoppgaven er ikke ferdig når meldingen er overlevert til integrasjonspunktet. Den er ferdig når integrasjonspunktet bekrefter at meldingen er levert. Oppgaven sender, og sjekker deretter leveringsstatusen selv – først etter 15 sekunder, så hvert minutt, så hvert femte minutt, og til slutt hvert kvarter. Prosessen går videre til neste steg først når leveringen er bekreftet. Samtidig bekrefter oppgaven på vegne av tjenesteeieren at dataene er mottatt, så du trenger ikke kalle `complete`-endepunktet selv. Se [Bekrefte at dataene er mottatt]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-mottak).
 
 Oppgaven venter i om lag to og en halv time til sammen. En melding har en egen levetid på to timer, og oppgaven venter med hensikt litt lenger enn det. Slik feiler en melding som går ut på tid, med integrasjonspunktets egen dom i stedet for et generisk tidsavbrudd.
 

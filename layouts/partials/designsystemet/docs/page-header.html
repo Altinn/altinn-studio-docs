@@ -1,0 +1,19 @@
+{{- /*
+  Sidehodet: tittel, ingress og en linje med Preview og Sist endret.
+  Preview vises når versjonen er en forhåndsversjon (params.preview i cascade på forsiden til versjonen).
+  Tar imot siden.
+*/ -}}
+<header class="docs-page-header">
+  <h1 class="ds-heading" data-size="lg">
+    {{- .Title }}{{ with .Params.titleSup }}<sup>{{ . }}</sup>{{ end -}}
+  </h1>
+  {{- with .Description }}
+  <p class="ds-paragraph docs-lead" data-size="lg">{{ . }}</p>
+  {{- end }}
+  <p class="ds-paragraph docs-page-meta" data-size="sm" data-pagefind-ignore>
+    {{- if .Params.preview }}
+    <span class="ds-tag" data-color="warning">{{ T "docs-preview" }}</span>
+    {{- end }}
+    <span>{{ T "docs-last-modified" }}: <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod | time.Format ":date_medium" }}</time></span>
+  </p>
+</header>

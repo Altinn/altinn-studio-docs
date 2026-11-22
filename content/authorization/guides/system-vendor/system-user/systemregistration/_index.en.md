@@ -43,6 +43,7 @@ Registration of an end-user system is done by calling Altinn's system registry A
 
       * Specify which services or access packages the system requires access to.
       * Use `rights` to specify individual resources (e.g., `urn:altinn:resource`).
+      * Each right names **one** resource: its `resource` list has one entry, with `"id": "urn:altinn:resource"`. To give access to several resources, add one right per resource, as in the example below. A right with several entries is rejected with `400 Bad Request`.
       * Use `accessPackages` to specify predefined access packages (e.g., `urn:altinn:accesspackage:skattegrunnlag`).
       * **Note:** These rights **must** be defined correctly *before* a system user can be created for this system.
 

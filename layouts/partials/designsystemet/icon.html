@@ -1,0 +1,9 @@
+{{- /*
+  Ikon fra Aksel (@navikt/aksel-icons), som Designsystemet bruker på designsystemet.no.
+  Tar imot navnet på ikonet, for eksempel "Paperclip". Ikonet er pynt og skjules for skjermlesere.
+*/ -}}
+{{- with resources.Get (printf "vendor/aksel-icons/%s.svg" .) -}}
+{{- replace .Content "<svg " `<svg aria-hidden="true" focusable="false" class="ds-site-icon" ` | safeHTML -}}
+{{- else -}}
+{{- errorf "Fant ikke ikonet %q i @navikt/aksel-icons. Kjør npm ci, eller sjekk navnet." . -}}
+{{- end -}}

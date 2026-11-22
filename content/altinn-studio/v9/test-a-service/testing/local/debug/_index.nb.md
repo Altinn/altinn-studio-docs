@@ -1,56 +1,43 @@
 ---
-draft: true
 title: Feilsøke i appen
 linktitle: Feilsøking
-description: Slik feilsøker du i appen lokalt ved hjelp av ulike verktøy.
+description: Slik feilsøker du i appen lokalt med Visual Studio Code.
 toc: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-Følgende beskrivelse forutsetter at du har klonet appen fra Altinn Studio Repositories og har filene liggende på lokal harddisk.
+Denne veiledningen forutsetter at du har [klonet appen og satt opp lokal utvikling]({{< relref "/altinn-studio/v9/getting-started/development/localtest/local-dev" >}}), og at den lokale testplattformen kjører (`studioctl env up`). Du trenger også utvidelsen **C# Dev Kit** i Visual Studio Code.
 
 ## Feilsøke i Visual Studio Code
 
-### Alternativ 1: Starte appen fra Visual Studio Code (.NET Core Launch)
+### Alternativ 1: Starte appen fra Visual Studio Code
 
-Denne metoden er den enkleste. Her vil Visual Studio Code starte appen og koble seg til i én og samme prosess.
+Dette er den enkleste metoden. Visual Studio Code starter appen og kobler feilsøkeren til i én og samme prosess.
 
-1. Åpne applikasjonsprosjektet i Visual Studio Code.
-2. Velg **Åpne mappe** og gå til der repositoriet er lagret på maskinen din.
-3. Velg Feilsøkingsikonet (Debugging-ikonet) til venstre i den vertikale menyen.
+1. Åpne mappen til appen i Visual Studio Code.
+2. Klikk på **Run and Debug** i menyen til venstre.
+3. Velg **C#: App** i nedtrekkslisten, og klikk på den grønne avspillingsknappen. Hvis **C#: App** ikke står i listen, velger du **C#** og deretter prosjektet **App**.
+   ![Run and Debug med C#: App i Visual Studio Code](./debug-start.png "Starte feilsøking")
+4. Appen starter. Du ser verktøylinjen for feilsøking øverst, og loggene i **Debug Console**.
+5. Åpne [local.altinn.cloud:8000](http://local.altinn.cloud:8000) i nettleseren, og start appen.
 
-   ![debug](debug1a.png "Starte feilsøking")
+### Alternativ 2: Koble til en app som allerede kjører
 
-4. Velg **.NET Core Launch** fra nedtrekkslisten.
-5. Klikk på den grønne **Play**-knappen.
-6. Applikasjonen starter og spør om du vil starte en nettleser. Velg **Close**.
+Bruk dette alternativet hvis du har startet appen med `studioctl run`.
 
-   ![debug](debug1aa.png "Feilsøking startet")
+1. Start appen fra mappen til appen:
+   ```bash
+   studioctl run
+   ```
+2. Trykk på **Cmd + Shift + P** (**Ctrl + Shift + P** på Windows) i Visual Studio Code.
+3. Skriv «Attach to a .NET», og velg **Debug: Attach to a .NET 5+ or .NET Core process**. Ikke velg **Attach** fra Docker-utvidelsen, som kobler til containere.
+4. Skriv **Altinn** i feltet, og velg prosessen som kjører **Altinn.Application**. Startet du appen med `studioctl run`, heter den vanligvis **dotnet**, med **Altinn.Application.dll** under.
+   ![Listen over prosesser med Altinn.Application](./debug-attach.png "Koble til appen")
 
-7. Åpne et nettleservindu og gå til http://local.altinn.cloud (forutsetter at du har startet lokal utviklingsplattform).
+## Legge til stoppunkter og analysere koden
 
-### Alternativ 2: Starte appen fra kommandovindu
+1. Klikk til venstre for linjenummeret der du vil at feilsøkeren skal stoppe, eller trykk på **F9**. Da ser du en rød prikk.
+   ![Et stoppunkt i Program.cs](./debug-breakpoint.png "Legge til et stoppunkt")
+2. Når appen kommer til linjen, stopper feilsøkeren. Da kan du se verdiene under **Variables** i **Run and Debug**, og finne ut hvordan koden fungerer.
 
-Dette forutsetter at du allerede har startet appen.
-
-1. Gå til mappen der appen ligger.
-2. Kjør kommando for å starte dotnet-prosessen.
-
-   ![debug](debug1.png "Starte .NET-applikasjon")
-
-3. Åpne mappen med applikasjonsprosjektet i Visual Studio Code.
-4. Koble deg til prosessen som heter **Altinn.App.exe**.
-
-   ![debug](debug2.png "Koble til applikasjonsprosess")
-
-## Legge til breakpoints og analysere kode
-
-1. Sett breakpoints i koden der du vil at feilsøkeren skal stoppe.
-
-   ![debug](debug3.png "Legge til breakpoint")
-
-2. Der feilsøkeren stopper kan du analysere lokale verdier på objekter for å finne ut hvordan koden fungerer og eventuelt finne feil.
-
-   ![debug](debug4.png "Se på lokale verdier")
-
-[Les mer om feilsøking i Visual Studio Code i dokumentasjonen](https://code.visualstudio.com/docs/editor/debugging).
+Les mer om [feilsøking i dokumentasjonen til Visual Studio Code](https://code.visualstudio.com/docs/debugtest/debugging).

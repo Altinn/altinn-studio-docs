@@ -1,0 +1,10 @@
+{{- /* Lenke for å endre siden i GitHub, som på resten av nettstedet. Tar imot siden. */ -}}
+{{- with .File }}
+{{- with $.Site.Params.editURL }}
+<footer class="docs-page-footer" data-pagefind-ignore>
+  <a class="ds-link" href="{{ . }}{{ replace $.File.Dir "\\" "/" }}{{ $.File.LogicalName }}">
+    {{- partial "designsystemet/icon.html" "Pencil" }}{{ T "Edit-this-page" -}}
+  </a>
+</footer>
+{{- end }}
+{{- end }}

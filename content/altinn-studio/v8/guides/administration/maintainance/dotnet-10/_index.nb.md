@@ -27,8 +27,8 @@ Slik ser `App/App.csproj` ut etter endringene:
   <TargetFramework>net10.0</TargetFramework>
 </PropertyGroup>
 <ItemGroup>
-  <PackageReference Include="Altinn.App.Api" Version="8.12.11" />
-  <PackageReference Include="Altinn.App.Core" Version="8.12.11" />
+  <PackageReference Include="Altinn.App.Api" Version="8.12.15" /> <!-- bruk siste 8.x-versjon -->
+  <PackageReference Include="Altinn.App.Core" Version="8.12.15" /> <!-- bruk siste 8.x-versjon -->
 </ItemGroup>
 ```
 

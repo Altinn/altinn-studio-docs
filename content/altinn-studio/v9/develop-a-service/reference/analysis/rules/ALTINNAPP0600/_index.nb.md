@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0600: enablePdfCreation støttes ikke"
 description: "enablePdfCreation på en dataType er ikke lenger støttet"
 weight: 60

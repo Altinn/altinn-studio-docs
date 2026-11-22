@@ -18,7 +18,7 @@ Technical guides for configuring signing can be found [here](/en/altinn-studio/v
 
 ### What is being signed?
 
-The service owner controls the selection of data elements that are to be signed and selects which authentication level (identification level) the end user must log in with before signing (level 1-4). One or more signing steps in sequence are possible.
+The service owner controls the selection of data elements that are to be signed and selects which authentication level (identification level) the end user must log in with before signing. One or more signing steps in sequence are possible.
 
 ### Signature
 

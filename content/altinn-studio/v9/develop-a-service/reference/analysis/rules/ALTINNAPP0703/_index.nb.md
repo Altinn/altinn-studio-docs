@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0703: postkassen blir aldri besvart"
 description: "En postkasse blir åpnet, men ingen behandler tar imot svarene"
 weight: 73

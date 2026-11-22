@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Designer
 description: Slik navigerer du i Altinn Studio Designer.
 toc: true
@@ -28,7 +27,7 @@ Bruk toppmenyen til å bygge og endre appen din. I toppmenyen velger du de områ
 - **Utforming**: Her velger du hvilke komponenter du vil ha med, for eksempel i et skjema du skal lage. Du setter blant annet opp rekkefølgen og kriteriene for hvordan feltene i skjemaet skal vises og oppføre seg for sluttbrukerne.
 - **Datamodell**: Her kan du velge å bruke eksisterende datamodeller eller lage nye.
 - **Språk**: Her kan du håndtere tekstene i appen din og oversette dem.
-- **Arbeidsflyt**: Arbeidsflyt gir deg oversikt over prosessene du vil ha med i appen din, for eksempel betaling og kvittering.
+- **Prosess**: Her får du oversikt over stegene i prosessen til appen din, for eksempel betaling og kvittering.
 - **Publiser**: Bruk Publiser til å bygge versjoner av appen din og publisere den til et miljø.
 - **Bibliotek**: I biblioteket finner du både ressurser du har lagret for appene dine og ressurser som er delt i organisasjonen, for eksempel kodelister og bilder.
 

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Kodeanalyse
 description: Referansedokumentasjon for kodeanalyse-regler i Altinn Studio.
 

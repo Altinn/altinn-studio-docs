@@ -2,14 +2,13 @@
 title: Hvordan konfigurere tilgang uten innlogging
 linktitle: Anonym tilgang
 description: Følg denne guiden for å konfigurere tilgang til appen uten innlogging.
-draft: true
 weight: 2
 tags: [needsReview]
 ---
 
 ## Før du starter
 Tilgang til en tjeneste uten innlogging (anonym tilgang) er kun mulig å sette opp for apper som er stateless.
-Følg ev. [guide for oppsett av en stateless app](./configure-stateless) før du starter på denne guiden.
+Følg ev. [guide for oppsett av en stateless app](/nb/altinn-studio/v9/develop-a-service/process/stateless/how-to/configure-stateless/) før du starter på denne guiden.
 
 {{%notice warning%}}
 Merk at skjemakomponenter som kan starte appens prosess (i praksis `Handlingsknapp` for instansiering) ikke vil fungere

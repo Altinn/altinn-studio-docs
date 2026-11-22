@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Tilpasse visninger av steg
 linktitle: Tilpasse visninger
 description: Slik tilpasser du visninger i forskjellige steg av en prosess.

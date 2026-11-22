@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Endre skjemadata automatisk
 linktitle: Dataprosessering
 description: Slik regner du ut verdier og endrer skjemadata automatisk på serveren

@@ -93,7 +93,7 @@ Generelle beskrivelser av hver applikasjonskomponent er gitt andre steder.
 Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener Altinn 3 Formidling:
 
 * [ID-porten](https://www.digdir.no/felleslosninger/id-porten/864): Autentisering av menneskelige sluttbrukere.
-* [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869): Autentisering og autorisering av 
+* [Maskinporten](https://samarbeid.digdir.no/maskinporten/dette-er-maskinporten/96): Autentisering og autorisering av
   maskiner (sluttbrukersystemer). Autorisasjonsfunksjonene realiseres i samarbeid med Altinn-autorisasjonskomponenten.
 * [Altinn Autorisasjon](/nb/authorization/). Registrer tjenesteressurser og autoriser tilgang.
 * Altinn Notifications. Varsler til menneskelige sluttbrukere via e-post og SMS.

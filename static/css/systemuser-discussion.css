@@ -13,6 +13,11 @@ strong, a { color: var(--accent); }
 table { width: 100%; border-collapse: collapse; font-size: clamp(16px, 1.6vw, 21px); line-height: 1.4; }
 th, td { text-align: left; padding: 13px 12px; border-bottom: 1px solid #c9d7e2; vertical-align: top; }
 th { background: #eaf4ff; }
+.slide img { display: block; max-width: min(100%, 960px); max-height: calc(100vh - 300px); width: auto; height: auto; margin: 8px 0; border: 1px solid #c9d7e2; border-radius: 6px; }
+@media (max-height: 600px) { .slide img { max-height: none; } }
+@media print { .slide img { max-height: 150mm; } }
+.slide a:has(> img) { display: inline-block; }
+.slide a:has(> img):focus-visible { outline-offset: 2px; }
 blockquote { border-left: 5px solid #1eaef7; margin: 24px 0; padding: 1px 24px; background: #f4f7fa; }
 code { font-size: .85em; overflow-wrap: anywhere; }
 pre { white-space: pre-wrap; padding: 20px; background: #f4f7fa; font-size: 19px; line-height: 1.5; }

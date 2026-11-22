@@ -10,13 +10,14 @@ Authorization contexts are an experimental feature and may change or be removed 
 
 ## Introduction
 
-An authorization context is an explicit description of the authorization question Dialogporten asks Altinn Authorization about one part of a dialog: which action, on which resource, on behalf of which parties.
+An authorization context is an explicit description of the authorization question Dialogporten asks Altinn Authorization about one part of a dialog: which action, on which resource, on behalf of which parties - and, for the dialog's own party, how the end user must have obtained their access.
 
 It replaces [authorization attributes]({{< relref "/dialogporten/getting-started/authorization/attributes" >}}), which encoded all of that in a single string whose meaning depended on its prefix, and which always evaluated a fixed action - `read` - that you could not choose yourself.
 
 The explicit shape buys you several things an authorization attribute could not express:
 
 - more than one party the check can be evaluated against
+- a requirement on *how* the end user got access to the dialog's party - for example only directly, or only through a client delegation from a particular intermediary such as an accounting firm - so several intermediaries acting for the same party can each see only the parts of the dialog meant for them
 - an action you name yourself, rather than one derived from the shape of a string
 - a resource override and a subresource attribute as separate fields, so a context can layer a subresource on top of the dialog's own resource without discarding it
 - control over what an unauthorized end user sees

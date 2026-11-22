@@ -1,7 +1,6 @@
 ---
-draft: true
 title: Prosess - referanse
-linktitle: 📚 Referanse
+linktitle: Referanse
 description: Prosessoppgaver i Altinn Studio
 tags: [needsReview]
 

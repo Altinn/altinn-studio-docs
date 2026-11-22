@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Forhåndsvalg
 description: Slik gjør du et av alternativene forhåndsvalgt
 weight: 250

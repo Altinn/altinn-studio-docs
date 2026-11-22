@@ -1,6 +1,5 @@
 ---
 title: AttachmentList
-draft: true
 ---
 
 ## Egenskaper

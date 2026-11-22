@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0601: gammel eFormidling-konfigurasjon støttes ikke"
 description: "eFormidling-blokken i applicationmetadata.json er ikke lenger støttet"
 weight: 61

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Sortering
 description: Slik sorterer du valgene i listen
 weight: 300

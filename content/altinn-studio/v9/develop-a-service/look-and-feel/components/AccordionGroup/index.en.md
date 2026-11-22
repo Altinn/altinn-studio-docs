@@ -1,6 +1,6 @@
 ---
-title: AccordionGroup
 draft: true
+title: AccordionGroup
 ---
 
 ## Properties

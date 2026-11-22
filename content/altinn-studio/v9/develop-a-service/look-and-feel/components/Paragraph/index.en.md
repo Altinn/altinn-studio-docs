@@ -1,6 +1,6 @@
 ---
-title: Paragraph
 draft: true
+title: Paragraph
 ---
 
 ## Properties

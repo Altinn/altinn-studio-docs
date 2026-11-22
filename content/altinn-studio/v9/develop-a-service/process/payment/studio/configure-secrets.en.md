@@ -1,6 +1,8 @@
 ---
 draft: true
 hidden: true
+tags: [Reviewed]
 ---
-> This step needs to be done manually. Support for configuration in Altinn Studio Designer will come during autumn 2024. 
-> Take a look at the "Manual setup"-tab for this section for guidance.
+
+> Altinn Studio has no settings for this. You connect the app to the Nets Easy agreement manually: you add the secret key from Nets to Azure Key Vault and add the settings to `appsettings.json`.
+> See the **Manual setup** tab for this step.

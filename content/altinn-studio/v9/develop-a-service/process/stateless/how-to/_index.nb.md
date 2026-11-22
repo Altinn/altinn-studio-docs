@@ -1,5 +1,4 @@
 ---
-title: 🎯 Guider
-draft: true
+title: Guider
 ---
 {{<children />}}

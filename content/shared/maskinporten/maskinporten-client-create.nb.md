@@ -19,7 +19,7 @@ Hvis du logget inn for å representere en syntetisk organisasjon, vil du også k
 ![Siden for å legge til Maskinporten-klient](/nb/shared/maskinporten/add_maskinporten_client_page.nb.png "Siden for å legge til Maskinporten-klient.")
 6. Du har nå opprettet en Maskinporten-klient for din organisasjon.
 For å bruke denne klienten må du legge til minst én autentiseringsnøkkel. Klienten støtter JWK- og PEM-nøkler.
-Start med å enten finne en eksisterende nøkkel eller opprette en ny. Du kan bruke [Altinn JWKS-verktøyet](https://github.com/Altinn/altinn-authorization-utils/tree/main/src/Altinn.Cli) eller annen nøkkelgenerator du ønsker til dette formålet.
+Start med å enten finne en eksisterende nøkkel eller opprette en ny. Du kan bruke [Altinn JWKS-verktøyet](https://github.com/Altinn/altinn-authorization-utils/tree/main/src/tools/Altinn.Cli) eller annen nøkkelgenerator du ønsker til dette formålet.
 Naviger deretter til nøkkelseksjonen på klientsiden din og velg `Legg til`.
 ![Velg nøkkelseksjonen på klientsiden din](/nb/shared/maskinporten/key_section.nb.png "Nøkler kan legges til i nøkkelseksjonen.")
 I feltet `JWK eller PEM format` lim inn din offentlige nøkkel og klikk `Lagre`. Nøkkelen er nå lagt til klienten.

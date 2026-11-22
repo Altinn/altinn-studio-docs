@@ -1,8 +1,7 @@
 ---
-draft: true
 hidden: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-> Du må gjøre dette steget i kode.
-> Se **Manuelt oppsett**-fanen for denne seksjonen for veiledning.
+> Altinn Studio har ikke innstillinger for dette. Du gjør dette steget i koden til appen.
+> Se fanen **Manuelt oppsett** for dette steget.

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Logo
 description: Slik legger du til og konfigurerer logoen i appen
 toc: true

@@ -55,7 +55,7 @@
       figure.querySelectorAll('[data-selection-mark]').forEach((mark) => { mark.textContent = input.checked ? '✓' : '–'; });
       figure.querySelector('[data-preset-status]').textContent = input.checked
         ? 'Hele settet er valgt: 1 tilgangspakke og 1 enkeltrettighet.'
-        : 'Ingen av de forhåndsdefinerte tilgangene er valgt.';
+        : 'Ingen av tilgangene i settet er valgt.';
     });
   });
   document.querySelectorAll('[data-free-option]').forEach((input) => {

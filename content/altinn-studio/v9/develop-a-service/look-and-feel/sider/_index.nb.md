@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Sider
 description: Slik setter du opp en app med flere sider og oppsummering.
 toc: true

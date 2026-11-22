@@ -1,6 +1,5 @@
 ---
 title: PARKERINGSPLASS
-draft: true
 hidden: true
 weight: 999
 ---

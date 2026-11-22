@@ -1,5 +1,4 @@
 ---
-draft: true
 title: App-infrastrukturtilganger
 linktitle: Apps
 description: Oversikt over rollene som gir tilgang til app-logger og hemmeligheter.

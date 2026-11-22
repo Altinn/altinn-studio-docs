@@ -1,6 +1,5 @@
 ---
 title: Cards
-draft: true
 ---
 
 ## Egenskaper

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Bunntekst
 description: Slik konfigurerer du bunnteksten i appen
 tags: [needsReview]

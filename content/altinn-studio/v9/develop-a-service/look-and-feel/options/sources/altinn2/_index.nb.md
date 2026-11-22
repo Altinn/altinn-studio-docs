@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Gjenbruk av svaralternativer fra Altinn 2
 linktitle: Fra Altinn 2
 description: Svaralternativer hentet fra Altinn 2

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0900: to felt deler samme id"
 description: "To oppføringer i presentationFields eller dataFields har samme id for samme dataTypeId"
 weight: 90

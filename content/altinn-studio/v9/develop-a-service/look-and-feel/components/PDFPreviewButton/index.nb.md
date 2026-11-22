@@ -1,6 +1,5 @@
 ---
 title: PDFPreviewButton
-draft: true
 ---
 
 ## Egenskaper

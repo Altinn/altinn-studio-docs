@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Definere applikasjonsprosess
 linktitle: Prosess
 description: Slik definerer du prosessen til en tjeneste.

@@ -1,0 +1,83 @@
+{{- /*
+  Forsiden for Altinn Studio v9, bygget med Designsystemet (https://designsystemet.no).
+  Brukes sammen med layout: designsystemet. Oppsettet ligger i assets/css/designsystemet-site.css.
+
+  Rekkefølgen følger det brukeren trenger:
+  1. Hva siden er, med én hovedhandling (Kom i gang) og én sekundær (Hva er nytt i v9).
+  2. Veivalg etter rolle.
+  3. Alle hoveddelene i dokumentasjonen, i samme rekkefølge som menyen. Tittel og beskrivelse hentes fra hver del.
+  4. Hva Altinn Studio gir deg, som bakgrunnsinformasjon til slutt.
+*/ -}}
+{{- $nb := eq .Page.Language.Lang "nb" -}}
+{{- $p := .Page -}}
+{{- $v8 := "" }}{{ with .Site.GetPage "/altinn-studio/v8" }}{{ $v8 = .RelPermalink }}{{ end -}}
+{{- /* Hoveddelene i dokumentasjonen, i samme rekkefølge som menyen. */ -}}
+{{- $sections := slice "this-is-as" "new-in-v9" "getting-started" "plan-a-service" "develop-a-service" "manage-a-service" "receive-data" "test-a-service/testing" "examples-and-patterns" "ordliste" -}}
+<div class="studio-hub">
+    <section class="studio-hero" aria-labelledby="studio-hero-title">
+        <div class="studio-wrap studio-hero-grid">
+            <div class="studio-stack">
+                <p class="ds-paragraph studio-eyebrow" data-size="sm">
+                    Altinn Studio v9
+                    <span class="ds-tag" data-color="warning">Preview</span>
+                </p>
+                <h1 class="ds-heading" data-size="xl" id="studio-hero-title">{{ if $nb }}Bygg tjenestene dine med Altinn Studio{{ else }}Build your services using Altinn Studio{{ end }}</h1>
+                <p class="ds-paragraph studio-lead" data-size="lg">{{ if $nb }}Alt du trenger for å utvikle, publisere og forvalte digitale tjenester
+                    for innbyggere og næringsliv.{{ else }}Everything you need to develop, publish and manage digital
+                    services for citizens and businesses.{{ end }}</p>
+                <div class="studio-actions">
+                    <a class="ds-button" data-variant="primary" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "getting-started") }}">{{ if $nb }}Kom i gang{{ else }}Get started{{ end }}</a>
+                    <a class="ds-button" data-variant="secondary" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "new-in-v9") }}">{{ if $nb }}Hva er nytt i v9{{ else }}What is new in v9{{ end }}</a>
+                </div>
+                <p class="ds-paragraph studio-current-version" data-size="sm">
+                    {{- if $nb }}Bruker appen din v8? Se <a class="ds-link" href="{{ $v8 }}">dokumentasjonen for v8</a>, som er gjeldende versjon.
+                    {{- else }}Does your app use v8? See the <a class="ds-link" href="{{ $v8 }}">documentation for v8</a>, the current version.{{ end }}
+                </p>
+            </div>
+            <div class="studio-hero-figure">
+                {{ partial "designsystemet/hero-illustration.html" (dict "nb" $nb) }}
+            </div>
+        </div>
+    </section>
+
+    <section class="studio-section studio-wrap" aria-labelledby="studio-roles-title">
+        <div class="studio-section-head">
+            <h2 class="ds-heading" data-size="md" id="studio-roles-title">{{ if $nb }}Velg rollen din{{ else }}Choose your role{{ end }}</h2>
+            <p class="ds-paragraph">{{ if $nb }}Vi leder deg til riktig løp og riktig detaljnivå.{{ else }}We will guide you to the right
+                journey and level of detail.{{ end }}</p>
+        </div>
+        <ul class="studio-grid studio-grid-2 ds-list--unstyled">
+            {{ partial "designsystemet/link-card.html" (dict "id" "studio-role-owner" "href" (partial "studio/v9-url.html" (dict "page" $p "path" "getting-started/serviceowner"))
+                "title" (cond $nb "Jeg er tjenesteeier" "I am a service owner")
+                "text" (cond $nb "Lag eller forvalt en digital tjeneste." "Create or manage a digital service.")) }}
+            {{ partial "designsystemet/link-card.html" (dict "id" "studio-role-vendor" "href" (partial "studio/v9-url.html" (dict "page" $p "path" "getting-started/vendor"))
+                "title" (cond $nb "Jeg er systemleverandør" "I am a system vendor")
+                "text" (cond $nb "Koble til en digital tjeneste." "Connect to a digital service.")) }}
+        </ul>
+    </section>
+
+    <section class="studio-section studio-soft" aria-labelledby="studio-sections-title">
+        <div class="studio-wrap">
+            <div class="studio-section-head">
+                <h2 class="ds-heading" data-size="md" id="studio-sections-title">{{ if $nb }}Finn fram i dokumentasjonen{{ else }}Find your way in the documentation{{ end }}</h2>
+            </div>
+            <ul class="studio-grid ds-list--unstyled">
+                {{- range $i, $path := $sections }}
+                {{- with $p.Site.GetPage (printf "/altinn-studio/v9/%s" $path) }}
+                {{ partial "designsystemet/link-card.html" (dict "id" (printf "studio-section-%d" $i) "href" .RelPermalink "title" .LinkTitle "text" .Description) }}
+                {{- end }}
+                {{- end }}
+            </ul>
+        </div>
+    </section>
+
+    <section class="studio-section studio-wrap" aria-labelledby="studio-features-title">
+        <div class="studio-section-head">
+            <h2 class="ds-heading" data-size="md" id="studio-features-title">{{ if $nb }}Dette får du med Altinn Studio{{ else }}What you get with Altinn Studio{{ end }}</h2>
+        </div>
+        <ul class="studio-features ds-list--unstyled">{{ partial "designsystemet/capabilities.html" (dict "nb" $nb) }}</ul>
+        <p class="ds-paragraph studio-more">
+            <a class="ds-link" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "this-is-as") }}">{{ if $nb }}Les mer om hva Altinn Studio gir deg{{ else }}Read more about what Altinn Studio gives you{{ end }}</a>
+        </p>
+    </section>
+</div>

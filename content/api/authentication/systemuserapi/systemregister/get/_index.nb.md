@@ -134,7 +134,7 @@ ID-en skal være i formatet {systemleverandørorgnr}\_{navn valgt av leverandør
                     "Resource": [
                         {
                             "id": "urn:altinn:resource",
-                            "value": "vegardtestressurs"
+                            "value": "ske-krav-og-betalinger"
                         }
                     ]
                 }

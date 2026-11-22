@@ -290,6 +290,7 @@ Bruk etterstilt pronomen på norsk — pronomenet kommer etter substantivet, ikk
 - Unngå "svulstig amerikansk stil" med superlativer
 - KI-norsk er ofte for formelt og stivt — løs det opp
 - Bruk "du" og "vi", ikke "bruker" og "man"
+- Når teksten omtaler sluttbrukeren, skriv "brukeren" eller flertall ("brukerne"). Trenger du et pronomen, bruk "de". Ikke bruk "hen", "han" eller "hun"
 
 ## Diátaxis-rammeverket
 

@@ -1,6 +1,6 @@
 ---
-title: Number
 draft: true
+title: Number
 ---
 
 ## Properties

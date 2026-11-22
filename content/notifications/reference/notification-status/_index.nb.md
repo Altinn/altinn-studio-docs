@@ -99,6 +99,8 @@ Status for ett enkelt e‑postvarsel til én mottaker.
 | `Failed_FilteredSpam`          | `Email_Failed_FilteredSpam`           | Filtrert som spam av leverandøren.                  | Endelig     |
 | `Failed_Quarantined`           | `Email_Failed_Quarantined`            | Satt i karantene hos leverandøren.                  | Endelig     |
 | `Failed_TTL`                   | `Email_Failed_TTL`                    | E‑posten utløp før den kunne leveres.               | Endelig     |
+| `Failed_PayloadTooLarge`       | `Email_Failed_PayloadTooLarge`        | Samlet størrelse på vedleggene er større enn e‑posttjenesten tillater. | Endelig     |
+| `Failed_ContentTooLarge`       | `Email_Failed_ContentTooLarge`        | E‑posten er for stor til å bli sendt videre til utsending. Se forklaringen under. | Endelig     |
 
 ## SmsNotificationResultType (SMS-resultat)
 
@@ -120,6 +122,21 @@ Status for én SMS til én mottaker.
 | `Failed_RecipientNotIdentified`| `SMS_Failed_RecipientNotIdentified` | Mottakeren kunne ikke identifiseres.                | Endelig     |
 | `Failed_Rejected`              | `SMS_Failed_Rejected`          | Avvist av leverandør eller operatør.                        | Endelig     |
 | `Failed_TTL`                   | `SMS_Failed_TTL`               | Varslingen nådde levetiden (TTL) i Altinn uten at en endelig leveringsrapport kom inn. Se forklaringen under. | Endelig     |
+| `Failed_ContentTooLarge`       | `SMS_Failed_ContentTooLarge`   | SMS-en er for stor til å bli sendt videre til utsending. Se forklaringen under. | Endelig     |
+
+## Når innholdet er for stort
+
+Før Altinn sender en e‑post eller SMS, legger plattformen meldingen i en meldingskø.
+Køen har en øvre grense for hvor stor en melding kan være. Er meldingen større enn det, får varselet
+den endelige statusen `Failed_ContentTooLarge` (`Email_Failed_ContentTooLarge` eller
+`SMS_Failed_ContentTooLarge` i API-et).
+
+- Varselet blir ikke sendt, og Altinn forsøker ikke å sende det på nytt.
+- Andre varsler i samme ordre påvirkes ikke.
+- En ny varslingsordre med kortere innhold kan lykkes.
+
+`Failed_ContentTooLarge` gjelder størrelsen på hele meldingen, inkludert emne og tekst.
+`Failed_PayloadTooLarge` gjelder bare den samlede størrelsen på vedleggene i en e‑post.
 
 ## Tolking av 'Delivered'-status
 
@@ -138,9 +155,16 @@ av hvilket endepunkt du bruker.
 ### Standard levetid på 48 timer
 
 Vanlige varslinger (bestilt via `/orders` og `/future/orders`) har en fast
-levetid på **48 timer** som tjenesteeiere **ikke kan konfigurere**. Altinn
-beregner utløpstidspunktet ut fra ønsket sendetidspunkt pluss 48 timer for både
-e‑post og SMS.
+levetid på **48 timer** som tjenesteeiere **ikke kan konfigurere**. For
+varslinger uten sendetidspolicyen `Daytime` beregner Altinn utløpstidspunktet ut
+fra ønsket sendetidspunkt pluss 48 timer for både e‑post og SMS.
+
+For varslinger med sendetidspolicyen `Daytime` er levetiden fortsatt 48 timer,
+men den telles fra det tidspunktet utsendelse først er tillatt. Hvis ønsket
+sendetidspunkt er utenfor dagtidsvinduet, starter de 48 timene når vinduet åpner
+neste gang. Hvis det er innenfor vinduet, starter de ved ønsket sendetidspunkt.
+Se avsnittene om sendevindu for e‑post og SMS i
+[Hva får du?](/nb/notifications/what-do-you-get/).
 
 Umiddelbare varslinger (endepunktene `/future/orders/instant/*`) styres
 annerledes:

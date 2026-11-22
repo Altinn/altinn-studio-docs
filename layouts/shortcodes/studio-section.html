@@ -1,0 +1,7 @@
+{{- /*
+  Oversiktsside for en del av dokumentasjonen for Altinn Studio v9, for eksempel Planlegge tjenester.
+  Viser undersidene som kort. Sidehodet (tittel og ingress) kommer fra rammen i designsystemet-docs.html.
+*/ -}}
+<div class="studio-hub docs-overview">
+    {{ partial "designsystemet/child-cards.html" (dict "page" .Page "prefix" "studio-child") }}
+</div>

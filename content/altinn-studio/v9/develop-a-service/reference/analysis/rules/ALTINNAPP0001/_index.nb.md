@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0001: Altinn-appprosjektet ble ikke funnet"
 description: "Analysen fant ikke prosjektkatalogen og ble ikke kjørt"
 weight: 1

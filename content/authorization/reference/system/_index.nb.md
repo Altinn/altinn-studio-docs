@@ -17,6 +17,7 @@ Altinn Autorisasjon knytter sammen identitet, part, ressurs, rettighet og kontek
 ## Leseguide
 
 - [Ny i teamet](onboarding/) gir nye utviklere en plan for første dag og første uke.
+- [Arbeidsprosessen](working-process/) beskriver hvordan teamet planlegger arbeidet og flytter det på den felles tavlen.
 
 - [Arkitektur](architecture/) beskriver systemkontekst, ansvar og overordnet oppbygning.
 - [Applikasjonsarkitektur](application-architecture/) beskriver intern oppbygning, teknologier og dataeierskap.

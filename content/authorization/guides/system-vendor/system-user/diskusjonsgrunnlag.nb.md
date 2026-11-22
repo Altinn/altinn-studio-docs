@@ -12,7 +12,7 @@ build:
 
 ## Vedtak og videre avklaringer
 
-Oppdatert 19. oktober 2026 etter møtet 16. oktober
+Oppdatert 10. november 2026. Vedtakene fra møtet 16. oktober er supplert med senere avklaringer.
 
 Én forespørsel for egen virksomhet og klienter. Tilgangsstyring på de vanlige bruker- og klientflatene.
 
@@ -34,82 +34,134 @@ Direkte klienttilknytning er fortsatt et eget behov. Utvidelsen av forespørsels
 
 Virksomheten skal kunne knytte sin Maskinporten-klient direkte til systembrukeren og gi pakker og enkeltrettigheter for både egen virksomhet og klienter.
 
-Med den nye flaggregelen betyr dette `withoutPredefinedRights=true` og fire tomme lister over påkrevde rettigheter. Den tekniske flyten for direkte klienttilknytning må fortsatt beskrives.
+Med den nye flaggregelen betyr dette `vendorLocked=false`, typisk uten krav i forespørselen. Den tekniske flyten for direkte klienttilknytning må fortsatt beskrives.
 
 ---
 ## Vedtatt: Vi kaller det systembruker
 
-**Vi utvider dagens endepunkt for forespørsel om opprettelse.**
+**Vi lager versjon 2 av endepunktet for forespørsel om opprettelse.**
 
 ```http
-POST /authentication/api/v1/systemuser/request/vendor
+POST /authentication/api/v2/systemuser/request/vendor
 ```
+
+Versjon 1 virker som før og får ingen nye felt. Systembrukere fra versjon 1 får `vendorLocked=true`.
 
 Vi omtaler brukeren som **systembruker**. Rettigheter for egen virksomhet og klienter beskrives i samme forespørsel.
 
 Autentiseringskoden ligger nå under `src/apps/Altinn.Authentication` i `altinn-auth`.
 
 ---
-## Vedtatt: Fire lister over påkrevde rettigheter
+## Vedtatt: Lister for egen virksomhet og rettighetssett for klienter
 
-| Liste | Hva den beskriver |
+| Felt | Hva det beskriver |
 |---|---|
 | `rights` | Enkeltrettigheter for egen virksomhet |
 | `accessPackages` | Tilgangspakker for egen virksomhet |
-| `clientRights`* | Enkeltrettigheter som kan delegeres for klienter |
-| `clientAccessPackages`* | Tilgangspakker som kan delegeres for klienter |
+| `clientAccessSets`* | Rettighetssett for klienter, med id som nøkkel og i prioritert rekkefølge |
 
-Leverandøren angir alle fire lister i forespørselen, uavhengig av rettighetskravene på systemet i systemregisteret. Klientlistene setter rammen for senere klientdelegering.
+Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på systemet i systemregisteret. Rettighetssettene setter rammen for senere klientdelegering.
 
-*Feltnavnene for klientlistene er forslag. Egne lister for begge rettighetstyper er vedtatt.*
+*Feltnavnet er et forslag. `clientAccessSets` erstatter forslagene `clientRights` og `clientAccessPackages`.*
+
+---
+## Vedtatt: Rettighetssett
+
+**Et rettighetssett er tilgangspakker og enkeltrettigheter som hører sammen.**
+
+- Klienten må oppfylle alt innenfor ett sett. Det holder å oppfylle ett av settene.
+- `clientAccessSets` er et objekt der nøkkelen er id-en til settet. Leverandøren velger id-en, og den må være unik på systembrukeren. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026).
+- Id-en ligger fast. Det valgfrie feltet `name` er teksten virksomheten ser. Når leverandøren oppdaterer settene, er samme id samme sett.
+- Rekkefølgen i objektet er prioriteten, uten indeksfelt. Oppfyller klienten flere sett, kan virksomheten velge et annet av dem, eller flere. Om Altinn forhåndsvelger det første, eller om virksomheten legger til alle klienter per sett, er åpent.
+- Vi lagrer settene på systembrukeren etter opprettelsen.
+
+**Konsekvens av at rekkefølgen i objektet er prioriteten:**
+
+- PostgreSQL-typen `jsonb` tar ikke vare på rekkefølgen av nøklene. Vi må lagre rekkefølgen på en annen måte, for eksempel som en liste med id internt eller som `json`.
+- JavaScript legger nøkler som bare er sifre, først. Id-en bør derfor ikke bare bestå av sifre.
+- Klienten og serveren må lese JSON-objektet slik at de beholder rekkefølgen. Det må stå tydelig i API-dokumentasjonen.
+- `action` støttes ikke i rettighetssett i første versjon. Behov for finere styring håndteres med tilgangspakker.
+
+Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: registrert regnskapsfører (rollen REGN), registrert revisor (rollen REVI) og uregistrert kunde (direkte delegering). Leverandøren trenger ikke vite kundeforholdet for å hente token, så lenge alle settene dekker de samme tjenestene.
+
+Åpent: hvilke tegn id-en kan ha, hvordan API-et for å knytte til en klient viser til id-en, og om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
+
+---
+## Vedtatt: Leverandøren kan oppdatere rettighetssettene
+
+**Leverandøren får et eget endepunkt for å oppdatere rettighetssettene på en systembruker, for eksempel når det kommer nye tilgangspakker.**
+
+Oppdateringen påvirker ikke hva som faktisk er delegert. Brukerflaten viser at settet ikke er komplett.
+
+Åpent: om kunden må godkjenne, hva «komplett» betyr med flere sett, hvordan virksomheten fullfører et sett, og hva som skjer når leverandøren fjerner en tilgang. Se #4845 og #4846 i altinn-auth.
+
+---
+## Vedtatt: Leverandøren kan be om flere tilganger for egen virksomhet
+
+**Leverandøren kan be kunden om flere tilganger for egen virksomhet med API-et for forespørsler om tilgang.**
+
+```http
+/accessmanagement/api/v1/enduser/request
+```
+
+Sluttbrukersystemer bruker det samme API-et i dag. Det gjelder både med `vendorLocked=true` og `vendorLocked=false`. Kunden godkjenner eller avviser forespørselen.
+
+Forespørsel om tilganger for klienter er ikke planlagt i denne endringen. Vedtatt 9. november 2026.
 
 ---
 ## Vedtatt: Tilganger ved aksept
 
 **Ved aksept opprettes systembrukeren, og de forespurte tilgangene for egen virksomhet delegeres.**
 
-Klientlistene tildeler ingen klienttilgang på dette tidspunktet. De definerer hvilke tilganger som kan delegeres senere.
+Rettighetssettene tildeler ingen klienttilgang på dette tidspunktet. De definerer hvilke tilganger som kan delegeres senere.
 
-For systembruker uten forhåndsdefinerte rettigheter krever aksept tilgangsstyringspakken. Tilgangene gis senere gjennom GUI.
+Aksept krever alltid at den som godkjenner er tilgangsstyrer, uansett flagg. Tilganger for egen virksomhet krever i tillegg myndighet til hver tilgang. Er listene for egen virksomhet tomme, er tilgangsstyrer det eneste Altinn kontrollerer ved aksept. Med `vendorLocked=false` kan virksomheten gi tilgangene senere i GUI.
 
 ---
 ## Vedtatt: Tilganger når klienten knyttes til
 
 **Klientrettighetene delegeres når klienten knyttes til systembrukeren.**
 
-For forhåndsdefinerte klienttilganger gjelder hele settet av klientpakker og enkeltrettigheter samlet. Tildelingen må være innenfor eiervirksomhetens fullmakter for den aktuelle klienten.
+Når leverandøren bestemmer, gir virksomheten hvert valgte rettighetssett samlet. Om det første settet klienten oppfyller fullt ut, er forhåndsvalgt, er åpent. Tildelingen må være innenfor eiervirksomhetens fullmakter for den aktuelle klienten.
 
 Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer slettes. Avhengigheten følger rettighetsgrunnlaget, uavhengig av type og flagg.
 
 ---
-## Vedtatt: Eksplisitt flagg for fri delegering
+## Vedtatt: Påkrevd flagg vendorLocked i versjon 2
 
 ```json
-{ "withoutPredefinedRights": true }
+{ "vendorLocked": false }
 ```
 
-Flagget sier at eiervirksomheten kan delegere pakker og enkeltrettigheter uten forhåndsdefinerte rettighetskrav.
+Med `false` styrer eiervirksomheten tilgangene etter aksept og kan legge til og fjerne pakker og enkeltrettigheter. Listene i forespørselen er da leverandørens initiale forslag.
 
 **Ett flagg gjelder både egen virksomhet og klienter.** Virksomhetens delegeringsmyndighet og fullmakter gjelder fortsatt.
 
-Vi bruker navnet `withoutPredefinedRights` i kontraktsforslaget. Tomme lister alene markerer ikke fri delegering.
+Flagget heter `vendorLocked` (tidligere forslag: `ownerControlledAccess` og `withoutPredefinedRights`). Det er påkrevd i versjon 2, så det har ingen standardverdi. Forespørsler til versjon 1 gir alltid `vendorLocked=true`. Vedtatt 9. november 2026, og vi sender det på høring. Tomme lister alene betyr ikke at virksomheten bestemmer.
+
+I grensesnittet heter de to måtene «Leverandøren bestemmer» (`vendorLocked=true`) og «Virksomheten bestemmer» (`vendorLocked=false`). Vedtatt 27. oktober 2026.
+
+Oppdatert 26. oktober 2026: flagget kan kombineres med lister, aksepten er alltid alt eller ingenting på listene, og flagget kan endres i etterkant.
 
 ---
-## Vedtatt: Validering av flagg og lister
+## Vedtatt: Validering av flagg og krav
 
-| Flagget | Innhold i de fire listene samlet | Resultat |
+Krav betyr tilganger i `rights` eller `accessPackages`, eller minst ett rettighetssett.
+
+| `vendorLocked` | Krav i forespørselen | Resultat |
 |---|---|---|
-| Ikke satt / `false` | Minst én pakke eller enkeltrettighet på minst én liste | Gyldig kombinasjon |
-| Ikke satt / `false` | Alle lister tomme | Valideringsfeil |
-| `true` | Alle lister tomme | Gyldig kombinasjon |
-| `true` | Innhold på én eller flere lister | Valideringsfeil |
+| `true` | Minst ett | Gyldig kombinasjon |
+| `true` | Ingen | Valideringsfeil |
+| `false` | Ingen | Gyldig kombinasjon |
+| `false` | Minst ett | Gyldig kombinasjon, kravene er initialt forslag |
+| Ikke satt | Uansett | Valideringsfeil i versjon 2 |
 
-«Gyldig kombinasjon» gjelder flagget og listene. Øvrig validering og autorisasjon må fortsatt bestås. Detaljer for utelatte lister og `null` må beskrives i kontrakten.
+«Gyldig kombinasjon» gjelder flagget og kravene. Øvrig validering og autorisasjon må fortsatt bestås. Detaljer for utelatte lister og `null` må beskrives i kontrakten.
 
 ---
 ## Vedtatt: Alle systembrukere vises i oversiktene
 
-**Synlighet er uavhengig av `withoutPredefinedRights`.**
+**Synlighet er uavhengig av `vendorLocked`.**
 
 Alle systembrukere skal vises i den vanlige brukeroversikten og i den relevante klientdelegeringsoversikten, også når de har forhåndsdefinerte rettigheter.
 
@@ -130,15 +182,19 @@ Disse systembrukerne åpnes og håndteres på den vanlige klientdelegeringssiden
 Begrunnelsen er at brukeren skal slippe å administrere denne delegeringen et eget sted.
 
 ---
-## Vedtatt: Hele klientsettet eller ingen
+## Vedtatt: Hele rettighetssettet eller ingen
 
-**Forhåndsdefinerte klientpakker og enkeltrettigheter er forhåndsvalgt.**
+**Når leverandøren bestemmer, gir virksomheten hele rettighetssett, og bare sett klienten oppfyller fullt ut.** Om Altinn forhåndsvelger det første settet, er åpent.
 
 - Hele settet delegeres samlet, eller ingen av tilgangene delegeres.
 - Man kan ikke velge en delmengde av settet.
-- Man kan ikke utvide det med pakker eller rettigheter utenfor klientlistene.
+- Oppfyller klienten flere sett, kan man velge et annet av dem, eller flere (vedtatt 10. november 2026).
+- Man kan ikke utvide det med pakker eller rettigheter utenfor settet.
+- Oppfyller klienten ingen av settene, kan den ikke knyttes til, og flaten viser hva som mangler.
 
-Dette gjelder per klient. Brukere uten forhåndsdefinerte rettigheter kan få tilganger valgt innenfor virksomhetens fullmakter.
+Dette gjelder per klient. Når virksomheten bestemmer, kan tilganger velges innenfor virksomhetens fullmakter.
+
+Har systembrukeren ingen rettighetssett, og virksomheten bestemmer, tilbyr flaten ikke **Legg til alle klienter**. Det finnes da ikke noe forslag som sier hva klientene skal gi, og flaten skal ikke legge til alt klienten har gitt (10. november 2026).
 
 ---
 ## Illustrasjon: Klienttilganger som ett sett
@@ -169,10 +225,10 @@ Man kan ikke fjerne en enkelt tilgangspakke eller enkeltrettighet separat på de
 
 | Hvordan starter opprettelsen? | Hvor kommer rettighetskravene fra? |
 |---|---|
-| Leverandøren sender en forespørsel | De fire listene i forespørselen |
+| Leverandøren sender en forespørsel | Listene og rettighetssettene i forespørselen |
 | Brukeren oppretter selv fra et synlig system | Listene på systemet i systemregisteret |
 
-Forespørselens lister skal verken fylles fra eller begrenses av listene i systemregisteret. Dette gjelder pakker og enkeltrettigheter for både egen virksomhet og klienter.
+Forespørselens krav skal verken fylles fra eller begrenses av listene i systemregisteret. Dette gjelder pakker og enkeltrettigheter for både egen virksomhet og klienter. Regelen gjelder versjon 2. Versjon 1 virker som før.
 
 Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder fortsatt. At et system er synlig ved opprettelse, er noe annet enn at alle opprettede systembrukere skal vises i brukeroversikten.
 
@@ -188,15 +244,13 @@ Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder 
 Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke uttrykkelig avklart i møtereferatet her.
 
 ---
-## Åpent valg: Endre tilgangsmodell etter opprettelse
+## Vedtatt: Låsen kan fjernes etter opprettelse
 
-**Skal flagget kunne endres på en eksisterende systembruker?**
+**Låsen kan fjernes på en eksisterende systembruker**, altså fra `vendorLocked=true` til `false`. Identiteten beholdes. En systembruker som har vært åpen, kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Vi vedtok at flagget kan endres 26. oktober 2026, og retningen 10. november 2026.
 
-**Tillat endring:** Beholder identiteten, men må håndtere lister over påkrevde rettigheter og eksisterende delegeringer.
+Fortsatt åpent: om virksomheten også kan fjerne låsen, og hvordan endringen audit-loggføres og varsles.
 
-**Krev ny systembruker:** Stabil modell gjennom levetiden, men nytt oppsett må etableres.
-
-Samlet sletting på brukersiden for forhåndsdefinerte rettigheter er vedtatt. En eventuell egen flyt for endring av modellen er fortsatt uavklart.
+Samlet sletting på brukersiden med `vendorLocked=true` er vedtatt. Flyten for å fjerne låsen er fortsatt uavklart.
 
 ---
 ## Åpent valg: Eksisterende Agent-brukere
@@ -208,6 +262,8 @@ Samlet sletting på brukersiden for forhåndsdefinerte rettigheter er vedtatt. E
 **Overfør:** Samler behandlingen, men krever mapping av klientpakker, typer og eksisterende delegeringer.
 
 Én ekstern betegnelse «systembruker» avgjør ikke alene intern enum, lagringsformat eller utfasing av Agent-endepunktet.
+
+**Avklart 5. november 2026:** Eksisterende klientkoblinger flyttes ikke automatisk. Klientene må knyttes til de nye systembrukerne som opprettes med rettighetssett. En klient kan være knyttet til mange systembrukere samtidig, så selskapene kan gå over gradvis.
 
 ---
 ## Åpent valg: Bytte Maskinporten-klient
@@ -228,7 +284,7 @@ De vedtatte reglene for flagg og tomme lister må gjennomføres i opprettelsesfl
 Vi må fortsatt beskrive:
 
 - Hvordan utelatte lister og `null` behandles.
-- Hvilke regler som gjelder for innholdet i egen- og klientlistene, inkludert validering ved aksept.
+- Hvilke regler som gjelder for innholdet i listene og rettighetssettene, inkludert validering ved aksept og tak på antall sett.
 - Hva som skjer når samme eksterne referanse sendes på nytt med endrede lister.
 
 Rettighetskravene i systemregisteret inngår ikke i innholdsvalideringen av forespørselens lister. Det skillet er vedtatt.
@@ -238,7 +294,7 @@ Rettighetskravene i systemregisteret inngår ikke i innholdsvalideringen av fore
 
 Forespørsel, lagring, svarmodeller og godkjenningsbilde må bevare skillet mellom egen- og klienttilganger. Aksept og senere delegering må bruke kravene fra forespørselen, også når systemets lister er tomme eller endres.
 
-Standard GUI må håndtere rettighetssettet samlet for klienter, samlet sletting for egen virksomhet og fri delegering når flagget er satt.
+Standard GUI må håndtere ett rettighetssett samlet for hver klient, samlet sletting for egen virksomhet og individuell delegering når virksomheten bestemmer.
 
 Direkte klienttilknytning, tokeninnhold uten registertilknytning og sporing av rettighetsgrunnlag må beskrives videre.
 
@@ -253,4 +309,4 @@ Vedtakene bygger på avklaringene med RUNLAR etter møtet 16. oktober og oppføl
 
 Illustrasjonene bruker dagens flater som visuell referanse. De viser foreslåtte UI-detaljer for vedtatt oppførsel, med fiktive eksempler. De dokumenterer ikke en implementert løsning.
 
-Oppdatert med Codex. Innhold og utforming skal gjennomgås av teamet.
+Oppdatert med Codex og Claude Code. Innhold og utforming skal gjennomgås av teamet.

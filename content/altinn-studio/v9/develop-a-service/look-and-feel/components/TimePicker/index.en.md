@@ -1,6 +1,6 @@
 ---
-title: TimePicker
 draft: true
+title: TimePicker
 ---
 
 ## Properties

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{{- /*
+  Layout for sider som bruker Designsystemet, foreløpig forsiden for Altinn Studio v9 (layout: designsystemet).
+  Topplinjen og bunnteksten er de samme som på resten av nettstedet (topbar.html og footer-content.html).
+  Innholdet bruker komponentene i Designsystemet. Se head.html for hvordan CSS-en er lagt i lag.
+*/ -}}
+<html lang="{{ .Language.Lang }}" data-color-scheme="light" data-size="sm">
+  <head>
+    {{- partial "designsystemet/head.html" . }}
+  </head>
+  <body class="a-page ds-site" data-url="{{ .RelPermalink }}">
+    {{- partial "topbar.html" . }}
+    <main id="content"{{ if not .Params.disablepagefind }} data-pagefind-body{{ end }}>
+      {{ .Content }}
+    </main>
+    {{- partial "footer-content.html" . }}
+    <script src="{{ "js/altinninfoportal.js" | relURL }}"></script>
+    <script src="{{ "js/altinndocs.js" | relURL }}"></script>
+  </body>
+</html>

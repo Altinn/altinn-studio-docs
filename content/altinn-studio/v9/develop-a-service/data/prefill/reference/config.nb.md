@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Felter i prefill.json-filen
 linktitle: prefill.json-filen
 description: Oversikt over felter i konfigurasjonsfil for forhåndsutfylling

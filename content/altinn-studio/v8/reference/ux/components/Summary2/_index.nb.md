@@ -108,6 +108,38 @@ For å gjøre dette, spesifiserer du ganske enkelt ```target.taskId``` slik:
 
 Konfigurasjonen er nøyaktig som før med hensyn til ```target.type``` og ```target.id```, bortsett fra at du i tillegg spesifiserer ```taskId```.
 
+## Innstillinger for hele oppsummeringen
+
+Disse egenskapene settes direkte på Summary2-komponenten og gjelder hele oppsummeringen:
+
+```json{hl_lines="6-"}
+{
+        "id": "MySummary2ID",
+        "type": "Summary2",
+        "target": {
+          "type": "layoutSet"
+        },
+        "hideEmptyFields": true,
+        "isCompact": true
+}
+```
+
+| Parameter           | Type    | Påkrevd | Beskrivelse                                                                                  |
+|---------------------|---------|---------|----------------------------------------------------------------------------------------------|
+| hideEmptyFields     | boolean | nei     | Ekskluder tomme felt fra oppsummeringen. Fungerer bare hvis feltet ikke er påkrevd.          |
+| isCompact           | boolean | nei     | Mulighet for å vise en kompakt versjon. (Map, Paragraph og Header har ikke støtte for dette) |
+| showPageInAccordion | boolean | nei     | Vis hver side i oppsummeringen som en accordion.                                             |
+
+Vil du vise en bestemt komponent selv om ```hideEmptyFields``` er satt, setter du ```forceShowInSummary``` på selve komponenten som oppsummeres:
+
+```json{hl_lines="6-"}
+{
+  "id": "MyInputFieldID",
+  "type": "Input",
+  "forceShowInSummary": true
+}
+```
+
 ## Overstyringer
 
 For hver komponent i oppsummeringen din kan du konfigurere forskjellige overstyringer for å passe dine behov.
@@ -135,12 +167,12 @@ Her er overstyringene som er felles for alle komponenter:
 
 | Parameter       | Type    | Påkrevd | Beskrivelse                                                                                                            |
 |-----------------|---------|---------|------------------------------------------------------------------------------------------------------------------------|
-| componentId     | string  | ja      | ID-en til komponenten du overstyrer                                                                                    |
+| componentId     | string  | ja*     | ID-en til komponenten du overstyrer                                                                                    |
+| componentType   | string  | ja*     | Komponenttypen du overstyrer, for eksempel ```Input```. Gjelder alle komponenter av denne typen                        |
 | hidden          | boolean | nei     | Ekskluder komponenten fra oppsummeringen                                                                               |
-| forceShowInSummary       | boolean | nei     | Vil tvangsvise komponenten i en oppsummering selv om hideEmptyFields er satt til true i oppsummeringskomponenten.      |
 | emptyFieldText  | string  | nei     | Egendefinert tekst som skal vises for tomme felt.                                                                       |
-| hideEmptyFields | boolean | nei     | Ekskluder tomme felt fra oppsummeringen. Fungerer bare hvis feltet ikke er påkrevd.                                    |
-| isCompact       | boolean | nei     | Mulighet for å vise en kompakt versjon. (Map, Paragraph og Header har ikke støtte for dette)                           |
+
+\* Bruk enten ```componentId``` eller ```componentType```, ikke begge.
 
 I tillegg støtter noen komponenter komponentspesifikke overstyringer:
 

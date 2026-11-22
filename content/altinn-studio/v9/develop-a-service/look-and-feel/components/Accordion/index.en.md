@@ -1,6 +1,6 @@
 ---
-title: Accordion
 draft: true
+title: Accordion
 ---
 
 ## Properties

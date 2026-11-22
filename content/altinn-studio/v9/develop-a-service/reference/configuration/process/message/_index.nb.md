@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Sette opp en melding
 linktitle: Melding
 description: Slik setter du opp en melding i Altinn Studio.

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Utvikle en flerappsløsning i Altinn
 linktitle: Flerappsløsning
 description: Slik vurderer du behov og går frem når du utvikler en flerappsløsning

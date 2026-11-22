@@ -1,6 +1,5 @@
 ---
 title: Group
-draft: true
 ---
 
 ## Egenskaper

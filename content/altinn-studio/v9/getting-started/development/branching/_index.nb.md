@@ -1,10 +1,9 @@
 ---
-draft: true
 title: Jobbe i grener
 linktitle: Grener
-description: Slik jobber du i egne grener av appen i Altinn Studio og fletter endringene inn i master
+description: Slik jobber du i egne grener av appen i Altinn Studio og fletter endringene inn i master.
 weight: 25
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 En gren er en egen utviklingslinje av appen. Du kan gjøre endringer i en gren uten at de påvirker hovedversjonen av appen. Hovedversjonen ligger i grenen `master`, som alle apper har.
@@ -21,25 +20,29 @@ Når du publiserer appen, bygger Altinn Studio den fra `master`. Endringer i en 
 
 Du finner grenvelgeren øverst til høyre i Altinn Studio. Den viser navnet på grenen du står i.
 
+![Grenvelgeren i Altinn Studio med valgene Ny gren og Bytt gren](./branch-menu.png "Grenvelgeren")
+
 1. Klikk på grenvelgeren.
 2. Klikk på **Ny gren**.
 3. Skriv et navn på grenen, for eksempel `feature/betaling`.
 4. Klikk på **Opprett gren**.
 
+![Dialogboksen Opprett gren med feltet Navn på gren](./new-branch-dialog.png "Opprett en ny gren")
+
 Altinn Studio bytter til den nye grenen.
 
-Den nye grenen tar alltid utgangspunkt i `master` slik den ligger i Gitea. Det gjelder også når du står i en annen gren, selv om dialogboksen sier at grenen er basert på grenen du står i. Endringer du ikke har delt, blir ikke med.
+Den nye grenen tar alltid utgangspunkt i det som er delt i `master`, også når du står i en annen gren. Endringer du ikke har delt, blir ikke med.
 
 {{% notice info %}}
 Del endringene dine med **Del dine endringer**, eller slett dem, før du lager en ny gren. Har du endringer du ikke har delt, lager Altinn Studio grenen, men du blir stående i grenen du var i. Du får da spørsmål om du vil slette endringene og bytte gren.
 {{% /notice %}}
 
-## Bytte gren
+## Bytt gren
 
 1. Klikk på grenvelgeren.
-2. Velg grenen du vil bytte til, under **Bytt gren**. Listen vises når appen har mer enn én gren.
+2. Velg grenen du vil bytte til, under **Bytt gren**. Du ser listen bare når appen har mer enn én gren.
 
-Siden lastes inn på nytt, og du står i grenen du valgte.
+Altinn Studio laster inn siden på nytt, og du står i grenen du valgte.
 
 Har du endringer du ikke har delt, kan du ikke bytte gren. Du får spørsmål om du vil slette endringene og bytte gren. Vil du beholde endringene, klikker du på **Nei, avbryt** og deler dem med **Del dine endringer** først.
 
@@ -51,10 +54,10 @@ Når du klikker på **Del dine endringer**, havner endringene i grenen du står 
 
 Du fletter grenen inn i `master` i Gitea, med en trekkforespørsel (pull request).
 
-### Lage en trekkforespørsel
+### Lag en trekkforespørsel
 
 1. Del endringene dine i grenen.
-2. Åpne menyen med tre prikker øverst til høyre i Altinn Studio, og klikk på **Repositorium**. Repoet åpnes i Gitea.
+2. Åpne menyen med tre prikker øverst til høyre i Altinn Studio, og klikk på **Repositorium**. Gitea åpner repositoriet.
 3. Gå til fanen **Trekkforespørsler**, og klikk på **New Pull Request**.
 4. Velg `master` under **merge into** og grenen din under **pull from**.
 5. Skriv en tittel og en beskrivelse av endringene.
@@ -64,14 +67,14 @@ Du fletter grenen inn i `master` i Gitea, med en trekkforespørsel (pull request
 
 Du kan flette trekkforespørselen selv, eller be en kollega se over den først. Det avhenger av hvordan teamet ditt jobber.
 
-Gitea kan vise flere måter å flette på, avhengig av innstillingene for repoet. Her beskriver vi to av dem.
+Gitea kan vise flere måter å flette på, avhengig av innstillingene for repositoriet. Her beskriver vi to av dem.
 
 1. Velg hvordan du vil flette:
    - **Create merge commit** beholder alle endringene i grenen som egne punkter i historikken.
    - **Create squash commit** slår sammen alle endringene i grenen til ett punkt i historikken.
 2. Klikk på knappen for å flette.
 
-Gitea viser meldingen `Pull request successfully merged and closed`, og du kan slette grenen. Det er lurt å slette grener du ikke trenger lenger, så de ikke hoper seg opp.
+Gitea viser meldingen `Pull request successfully merged and closed`, og du kan slette grenen. Det er lurt å slette grener du ikke trenger lenger, slik at de ikke hoper seg opp.
 
 Gå tilbake til Altinn Studio, bytt til `master` og klikk på **Hent endringer** for å få med deg det du har flettet inn.
 

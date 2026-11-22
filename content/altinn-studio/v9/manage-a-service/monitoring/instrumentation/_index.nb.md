@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Legge til sporing og målinger
 linktitle: Legge til sporing og målinger
 description: Slik legger du til sporing og målinger i Altinn-appen din, både automatisk og manuelt.

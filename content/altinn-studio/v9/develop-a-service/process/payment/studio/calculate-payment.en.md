@@ -1,7 +1,8 @@
 ---
 draft: true
 hidden: true
+tags: [Reviewed]
 ---
 
-> This step needs to be done in the app code. 
-> Take a look at the "Manual setup" tab for this section for guidance.
+> Altinn Studio has no settings for this. You do this step in the app's code.
+> See the **Manual setup** tab for this step.

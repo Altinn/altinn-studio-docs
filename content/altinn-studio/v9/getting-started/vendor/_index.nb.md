@@ -1,7 +1,6 @@
 ---
 title: Kom i gang for systemleverandører
 linktitle: For systemleverandører
-draft: true
 weight: 99
 ---
 

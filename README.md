@@ -10,13 +10,14 @@ There are two ways to edit and test your changes to the docs:
 
 > See [CONTRIBUTING](./CONTRIBUTING.md) for even more details.
 
-1. Install the required software ([Git](https://git-scm.com/downloads), [Hugo](https://gohugo.io/installation/) and [Visual Studio Code](https://code.visualstudio.com/))
+1. Install the required software ([Git](https://git-scm.com/downloads), [Hugo](https://gohugo.io/installation/), [Node.js](https://nodejs.org/) and [Visual Studio Code](https://code.visualstudio.com/))
 2. Clone the repo
    ```shell
    git clone https://github.com/altinn/altinn-studio-docs
    ```
-3. Navigate to repo folder and run Hugo
+3. Navigate to repo folder, install the npm dependencies (Designsystemet) and run Hugo
    ```shell
+   npm ci
    hugo server --navigateToChanged
    ```
   PS: If you want to test search locally, generate index with `npx -y pagefind --site "public"`

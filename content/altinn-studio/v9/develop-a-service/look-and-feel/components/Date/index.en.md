@@ -1,6 +1,6 @@
 ---
-title: Date
 draft: true
+title: Date
 ---
 
 ## Properties

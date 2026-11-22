@@ -3,7 +3,6 @@ title: Legge til egendefinert CSS og JavaScript
 linktitle: Egendefinert CSS og JavaScript
 description: Slik legger du til egne stilark og skript i en app.
 weight: 90
-draft: true
 ---
 
 Du kan legge til egne CSS- og JavaScript-filer i appen. Appen finner filene ved oppstart og legger dem inn etter appens egne ressurser.

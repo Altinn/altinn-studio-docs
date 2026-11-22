@@ -1,6 +1,5 @@
 ---
 title: Tabs
-draft: true
 ---
 
 ## Egenskaper

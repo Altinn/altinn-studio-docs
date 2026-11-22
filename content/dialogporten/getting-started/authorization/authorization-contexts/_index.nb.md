@@ -10,13 +10,14 @@ Autorisasjonskontekster er en eksperimentell funksjon og kan endres eller fjerne
 
 ## Introduksjon
 
-En autorisasjonskontekst er en eksplisitt beskrivelse av autorisasjonsspørsmålet Dialogporten stiller Altinn Authorization om én del av en dialog: hvilken handling, på hvilken ressurs, på vegne av hvilke parter.
+En autorisasjonskontekst er en eksplisitt beskrivelse av autorisasjonsspørsmålet Dialogporten stiller Altinn Authorization om én del av en dialog: hvilken handling, på hvilken ressurs, på vegne av hvilke parter - og, for dialogens egen part, hvordan sluttbrukeren må ha fått tilgangen sin.
 
 Den erstatter [autorisasjonsattributter]({{< relref "/dialogporten/getting-started/authorization/attributes" >}}), som kodet alt dette inn i én streng der betydningen avhang av prefikset, og som alltid evaluerte en fast handling - `read` - som du selv ikke kunne velge.
 
 Den eksplisitte formen gir deg flere ting et autorisasjonsattributt ikke kunne uttrykke:
 
 - flere enn én part sjekken kan evalueres mot
+- et krav til *hvordan* sluttbrukeren fikk tilgang til dialogens part - for eksempel bare direkte, eller bare gjennom en klientdelegering fra en bestemt mellommann som et regnskapsbyrå - slik at flere mellommenn som opptrer for den samme parten hver bare ser de delene av dialogen som er ment for dem
 - en handling du selv navngir, i stedet for én utledet fra formen på en streng
 - en ressursoverstyring og et underressursattributt som separate felt, slik at en kontekst kan legge en underressurs oppå dialogens egen ressurs uten å forkaste den
 - kontroll over hva en uautorisert sluttbruker ser

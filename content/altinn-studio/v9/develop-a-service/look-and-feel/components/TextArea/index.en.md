@@ -1,6 +1,6 @@
 ---
-title: TextArea
 draft: true
+title: TextArea
 ---
 
 ## Properties

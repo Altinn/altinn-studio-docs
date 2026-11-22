@@ -1,6 +1,6 @@
 ---
-title: ButtonGroup
 draft: true
+title: ButtonGroup
 ---
 
 ## Properties

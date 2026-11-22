@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Signering
 description: Signering lar brukere bekrefte data med autentisert elektronisk signatur.
 weight: 50

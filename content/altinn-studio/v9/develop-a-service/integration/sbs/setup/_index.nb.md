@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Oppsett og konfigurasjon
 description: Slik setter du opp og konfigurerer app og infrastruktur for sluttbrukersystemintegrasjon
 weight: 10

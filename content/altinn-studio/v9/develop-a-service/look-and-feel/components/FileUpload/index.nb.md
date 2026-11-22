@@ -1,6 +1,5 @@
 ---
 title: FileUpload
-draft: true
 ---
 
 ## Egenskaper

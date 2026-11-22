@@ -1,6 +1,6 @@
 ---
-title: Divider
 draft: true
+title: Divider
 ---
 
 ## Properties

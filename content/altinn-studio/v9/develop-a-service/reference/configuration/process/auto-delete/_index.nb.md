@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Slette en tjeneste automatisk
 linktitle: Automatisk sletting
 description: Slik konfigurerer du automatisk sletting av en tjeneste når prosessen er slutt.
@@ -12,7 +11,7 @@ Hvis du ønsker å begrense sluttbrukerens tilgang til en instans eller data ett
 
 Hvis sluttbrukeren forsøker å få tilgang til en slettet ressurs med en direkte lenke, får de `404 - Not found` i respons. Ressursen vises heller ikke i meldingsboksen eller i API-responser.
 
-Når tjenesteeieren bekrefter at instansen er mottatt på deres side (complete confirmed), blir instansen markert som klar for sletting og fjernet fra Altinns database i løpet av sju dager.
+Når tjenesteeieren bekrefter at instansen er mottatt på deres side (complete confirmed), blir instansen markert som klar for sletting og fjernet fra Altinns database i løpet av sju dager. Se [Bekrefte at dataene er mottatt]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-mottak) for hvordan tjenesteeieren bekrefter.
 
 Du konfigurerer automatisk sletting i `applicationmetadata.json` med flagget `"autoDeleteOnProcessEnd": true`.
 
@@ -43,7 +42,7 @@ App/config/applicationmetadata.json
         "autoCreate": true,
         "classRef": "Altinn.App.Models.Skjema"
       },
-      "taskId": "Task_1",
+      "taskIds": ["Task_1"],
       "maxCount": 1,
       "minCount": 1
     },
@@ -58,7 +57,7 @@ App/config/applicationmetadata.json
     {
       "id": "6aa7d237-f20f-4d42-9361-0c84cf1a8ed0",
       "allowedContentTypes": [],
-      "taskId": "Task_1",
+      "taskIds": ["Task_1"],
       "maxSize": 1,
       "maxCount": 3,
       "minCount": 1
@@ -99,7 +98,7 @@ App/config/applicationmetadata.json
 			"allowAnonymousOnStateless": false,
 			"autoDeleteOnProcessEnd": true
 		},
-		"taskId": "Task_1",
+		"taskIds": ["Task_1"],
 		"maxCount": 1,
 		"minCount": 1
 	},
@@ -113,7 +112,7 @@ App/config/applicationmetadata.json
 	},
 	{
 		"id": "vedleggA",
-		"taskId": "Task_1",
+		"taskIds": ["Task_1"],
 		"maxSize": 25,
 		"maxCount": 1,
 		"minCount": 1,

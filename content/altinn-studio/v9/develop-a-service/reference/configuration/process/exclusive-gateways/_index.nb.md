@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Definere egne gateways
 linktitle: Exclusive Gateways
 description: Slik skriver du kode som avgjør flyten ut av en exclusive gateway.

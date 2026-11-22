@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Prosesshandlinger
 linktitle: Prosesshandlinger
 description: Slik autoriserer du handlinger og skriver tilpasset logikk for prosesshandlinger.

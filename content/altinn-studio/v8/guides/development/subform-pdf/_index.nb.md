@@ -23,12 +23,12 @@ Krever minst versjon 8.9.0 av Altinn NuGet-pakkene.
 
 ### Process.bpmn
 
-For å aktivere PDF-generering for underskjema, må du legge til en `serviceTask` av type `subformPdf` i arbeidsflyten din.
+For å aktivere PDF-generering for underskjema, må du legge til en `serviceTask` av type `subformPdf` i prosessen din.
 
-**NB!** På sikt vil det være mulig å dra inn underskjema-PDF direkte via arbeidsflyt-editoren i Altinn Studio, men denne funksjonaliteten er foreløpig ikke tilgjengelig.
+**NB!** På sikt vil det være mulig å dra inn underskjema-PDF direkte via prosess-editoren i Altinn Studio, men denne funksjonaliteten er foreløpig ikke tilgjengelig.
 
 Inntil videre anbefaler vi følgende fremgangsmåte:
-1. Dra inn en vanlig dataoppgave i arbeidsflyt-editoren.
+1. Dra inn en vanlig dataoppgave i prosess-editoren.
 2. Del endringene i Studio.
 3. Rediger `process.bpmn` manuelt på egen maskin.
 4. Konverter dataoppgaven til en `bpmn:serviceTask` (se eksempel nedenfor).
@@ -263,7 +263,7 @@ ui/underskjemaPdf/layout/ServiceTask.json
 ```
 ## Test
 
-Fyll ut hovedskjemaet og legg til ett eller flere eksemplarer av underskjemaet. Når du når underskjema-PDF-systemoppgaven i arbeidsflyten, genererer appen en PDF for hvert eksemplar av underskjemaet og går automatisk videre til neste steg i prosessen, for eksempel kvittering.
+Fyll ut hovedskjemaet og legg til ett eller flere eksemplarer av underskjemaet. Når du når underskjema-PDF-systemoppgaven i prosessen, genererer appen en PDF for hvert eksemplar av underskjemaet og går automatisk videre til neste steg i prosessen, for eksempel kvittering.
 
 ## Feilsøking
 

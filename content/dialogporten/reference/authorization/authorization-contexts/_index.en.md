@@ -41,6 +41,21 @@ This applies to the dialog create and update endpoints, and to the dedicated cre
 
 GraphQL follows the same pattern: it exposes `isAuthorized` and the `excluded*` collections on the end-user entities, but not the authorization context itself.
 
+## Without an authorization context
+
+`authorizationContext` is optional on every surface. Leaving it out means the entity follows the dialog's own access, evaluated on behalf of the dialog's own party, exactly as before authorization contexts existed:
+
+| Surface | Without `authorizationContext` |
+|---|---|
+| API and GUI actions | The top-level `action` (required in this case) is evaluated against the dialog's main resource, or against `authorizationAttribute` if one is set. |
+| Transmissions | `read` is evaluated against `authorizationAttribute` if one is set. Otherwise the transmission follows the dialog's own access. |
+| Dialog attachments | Follow the dialog's own access. |
+| Transmission attachments and navigational actions | Follow the transmission they belong to. |
+
+Such an entity is not listed in the dialog token's `e` claim; actions are expressed in the `a` claim, as before.
+
+Note the difference between leaving the context out and a context with only `parties`: leaving it out grants the same access as the dialog, while a context with only `parties` evaluates the listed parties alone, and excludes the dialog party's own people unless a [`dialogPartyChecks`](#dialogpartychecks) entry includes them.
+
 ## Fields
 
 ### `serviceResource`
@@ -67,22 +82,75 @@ Must not start with `urn:altinn:resource:` - use `serviceResource` for that. It 
 
 Type array of `string`, optional.
 
-The parties the check is evaluated on behalf of, in addition to (or instead of) the dialog's own party - see `includeDialogParty` below. Access is granted if the PDP permits **any one** of the listed parties (OR semantics), not all of them.
+Other parties than the dialog's own that the check is evaluated on behalf of, each at its own party and without any access restriction. Access is granted if the PDP permits **any one** of the listed parties, or any of the [`dialogPartyChecks`](#dialogpartychecks) (OR semantics), not all of them.
 
-- Maximum 3 entries. With `includeDialogParty: true`, the effective maximum number of parties evaluated per entity is 4.
+- Together with `dialogPartyChecks`, at least 1 and at most 4 entries.
 - Entries must be unique.
-- Must contain at least one entry unless `includeDialogParty` is `true`.
+- Must not contain the dialog's own party. Use a `dialogPartyChecks` entry with `accessRestriction: "None"` for that - it evaluates exactly the same thing, and keeps the dialog's party in one place, where an access restriction can apply to it.
 - Each entry must be a valid party identifier: `urn:altinn:organization:identifier-no:{orgnr}`, `urn:altinn:person:identifier-no:{fnr/dnr}`, `urn:altinn:party-identifier:username:{username}`, or an ID-porten e-mail identifier.
 
-An authorization check with no parties to evaluate can never be authorized - it fails closed rather than granting access implicitly.
+An authorization check with no parties or dialog party checks to evaluate can never be authorized - it fails closed rather than granting access implicitly.
 
-### `includeDialogParty`
+### `dialogPartyChecks`
 
-Type `boolean`, default `false`.
+Type array of objects, optional.
 
-When `true`, adds the dialog's own party to the set of parties being evaluated, in addition to any parties listed in `parties`.
+Checks evaluated on behalf of the dialog's own party. Each check can require that the end user's access to the dialog's party was obtained in a particular way, and can name its own resource and action. Access is granted if **any** check, or any entry in `parties`, permits. If the field is omitted, or the list is empty, the dialog's own party is not evaluated at all - access is then granted only through the parties in `parties`. For the dialog party's own people to have access, the context needs a check, for example `{ "accessRestriction": "None" }`.
 
-`includeDialogParty: true` combined with `additionalResourceAttribute` is the direct replacement for a legacy subresource authorization attribute - the same party, narrowed to a subresource. `includeDialogParty: false` combined with an explicit `parties` list is the new capability: granting access to a part of the dialog for a party other than the dialog's own.
+Each check has the following fields:
+
+| Field | Type | Description |
+|---|---|---|
+| `accessRestriction` | `string` enum, **required** | How the end user's access at the dialog's party must have been obtained for the check to permit. See the table below. |
+| `viaParty` | `string` | The organization the end user's access must have been client delegated through, as `urn:altinn:organization:identifier-no:{orgnr}`. Required when `accessRestriction` is `ClientDelegation`, and not allowed otherwise. Cannot be the dialog's own party. |
+| `serviceResource` | `string` | A service resource to evaluate instead of the context's. Falls back to the context's `serviceResource`, and then to the dialog's own resource. Same rules as the context's [`serviceResource`](#serviceresource), including that you must own it. |
+| `action` | `string` | The action to evaluate instead of the context's. Falls back to the context's `action`, and then to `read`. |
+
+The context's `additionalResourceAttribute`, if set, is layered on every check's effective resource.
+
+| `accessRestriction` | Permits when the end user has access at the dialog's party ... |
+|---|---|
+| `None` | ... in any way. This is what the dialog's own party has always been evaluated as, and the replacement for the former `includeDialogParty: true`. |
+| `DirectAndHierarchy` | ... that does not pass through another organization: rights granted directly at the dialog's party, ER roles at the dialog's party and the rights they map to, and access inherited from its main unit. Access the end user holds through a client delegation, for example as an employee of an accounting firm, does not count. |
+| `ClientDelegation` | ... only through a client delegation made through the organization in `viaParty`. Access the end user holds directly, or through another intermediary, does not count. |
+
+The restriction is evaluated by Altinn Authorization as part of the same decision request, so a check with a restriction costs one evaluation, just like an unrestricted one.
+
+A typical use is a dialog where several intermediaries act for the same party, and each intermediary should only see "its" transmissions:
+
+```jsonc
+{
+  "transmissions": [
+    {
+      // Visible to the dialog party's own people, and to whoever acts for it through accounting firm 1
+      "authorizationContext": {
+        "dialogPartyChecks": [
+          { "accessRestriction": "DirectAndHierarchy" },
+          { "accessRestriction": "ClientDelegation", "viaParty": "urn:altinn:organization:identifier-no:912345678" }
+        ],
+        "unauthorizedPresentation": "Excluded"
+      }
+    },
+    {
+      // Visible to the dialog party's own people, and to whoever acts for it through accounting firm 2
+      "authorizationContext": {
+        "dialogPartyChecks": [
+          { "accessRestriction": "DirectAndHierarchy" },
+          { "accessRestriction": "ClientDelegation", "viaParty": "urn:altinn:organization:identifier-no:987654321" }
+        ],
+        "unauthorizedPresentation": "Excluded"
+      }
+    }
+  ]
+}
+```
+
+Rules for the list as a whole:
+
+- Two checks cannot evaluate the same thing: checks with the same `accessRestriction`, `viaParty`, effective `serviceResource` and effective `action` are rejected as duplicates. When comparing, a check's `serviceResource` and `action` fall back to the context's, and `action` further to `read`. The dialog's own resource is not filled in, because a check that names it explicitly is evaluated without the dialog's instance reference, and is therefore a different request (see [`serviceResource`](#serviceresource)).
+- A `DirectAndHierarchy` or `ClientDelegation` check is rejected if a `None` check for the same effective resource and action is also present, since the `None` check already permits everything the restricted one would.
+
+`includeDialogParty: true` combined with `additionalResourceAttribute` used to be the direct replacement for a legacy subresource authorization attribute; the equivalent is now `dialogPartyChecks: [{ "accessRestriction": "None" }]` combined with `additionalResourceAttribute`.
 
 ### `action`
 
@@ -210,8 +278,9 @@ If the caller cannot read the dialog's main resource at all, `GET /dialogs/{id}`
 
 ## Multi-party evaluation
 
-- Access to a check is granted if **any** of its permitted parties is granted - OR semantics across parties, same as within `parties` itself.
-- Each check is evaluated once per party it's associated with. Identical resource/action pairs across parties are consolidated into a single evaluation, but the party cap (3, or 4 with `includeDialogParty`) is still a real cost control: every distinct combination of resource, action and party is one evaluation against Altinn Authorization, and a dialog with many authorization contexts multiplies this quickly.
+- Access to a check is granted if **any** of its evaluations permits - OR semantics across `parties` and `dialogPartyChecks` alike.
+- Each entry in `parties` and each dialog party check is one evaluation. Identical evaluations, within or across entities, are consolidated into one, but the cap of 4 entries per context is still a real cost control: every distinct combination of resource, action, party and access restriction is one evaluation against Altinn Authorization, and a dialog with many authorization contexts multiplies this quickly.
+- Access restrictions only apply to the evaluation they are set on. Since evaluations are combined with OR, an unrestricted evaluation of the dialog's own party next to a restricted one would make the restriction meaningless - which is why `parties` cannot contain the dialog's own party, and why a restricted check cannot be combined with a `None` check for the same right.
 - If the correlation between requested checks and returned decisions doesn't line up as expected for any reason, every check for the affected request is denied - the system fails closed rather than guessing.
 - A self-identified (system) user's *own* party is evaluated using its system user identity; parties named directly in a context's `parties` list are evaluated as themselves and will simply be denied if the PDP does not recognise them as delegatable to the caller - a system user cannot represent an arbitrary party by naming it in a context.
 
@@ -229,12 +298,12 @@ The same rules apply on the update endpoints and on the dedicated create/update-
 
 | Legacy `authorizationAttribute` | Legacy derived action | Equivalent `authorizationContext` |
 |---|---|---|
-| `urn:altinn:subresource:foo` (transmission) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:subresource:foo", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
-| `urn:altinn:task:Task_1` (transmission) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:task:Task_1", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
-| `urn:altinn:resource:other` (transmission) | `read` | `{ "serviceResource": "urn:altinn:resource:other", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
-| `foo` (bare, transmission) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:subresource:foo", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
-| Action `sign` + attribute `urn:altinn:task:Task_1` (GUI/API action) | `sign` on that attribute | `{ "action": "sign", "additionalResourceAttribute": "urn:altinn:task:Task_1", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` - remove the top-level `action` |
-| Action `write`, no attribute (GUI/API action) | `write` on main resource | `{ "action": "write", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
+| `urn:altinn:subresource:foo` (transmission) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:subresource:foo", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
+| `urn:altinn:task:Task_1` (transmission) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:task:Task_1", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
+| `urn:altinn:resource:other` (transmission) | `read` | `{ "serviceResource": "urn:altinn:resource:other", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
+| `foo` (bare, transmission) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:subresource:foo", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
+| Action `sign` + attribute `urn:altinn:task:Task_1` (GUI/API action) | `sign` on that attribute | `{ "action": "sign", "additionalResourceAttribute": "urn:altinn:task:Task_1", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` - remove the top-level `action` |
+| Action `write`, no attribute (GUI/API action) | `write` on main resource | `{ "action": "write", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
 
 The `action: "elementread"` on the first, second and fourth rows is a deliberate choice, not a fixed name - see the next point.
 
@@ -250,9 +319,16 @@ Five things to be aware of when migrating:
 
 | Payload problem | Message |
 |---|---|
-| More than 3 entries in `parties` | `'Parties' cannot contain more than 3 parties.` |
+| No entries, or more than 4, in `parties` and `dialogPartyChecks` together | `'Parties' and 'DialogPartyChecks' must together contain at least 1 and at most 4 entries.` |
 | The same party listed twice in `parties` | `Can not contain duplicate items: [...].` |
-| `parties: []` with `includeDialogParty: false` | `'Parties' must contain at least one party when 'IncludeDialogParty' is false.` |
+| The dialog's own party in `parties` | `'Parties' cannot contain the dialog's own party ('...'); use a 'DialogPartyChecks' entry with 'AccessRestriction' 'None' instead.` |
+| `accessRestriction` omitted or unknown | `'AccessRestriction' is required and must be one of 'None', 'DirectAndHierarchy' or 'ClientDelegation'.` |
+| `viaParty` omitted with `ClientDelegation` | `'ViaParty' is required when 'AccessRestriction' is 'ClientDelegation'.` |
+| `viaParty` set with another `accessRestriction` | `'ViaParty' is only allowed when 'AccessRestriction' is 'ClientDelegation'.` |
+| `viaParty` not an organization identifier | `'ViaParty' must be on format 'urn:altinn:organization:identifier-no:{norwegian org-nr}' with a valid organization number.` |
+| `viaParty` is the dialog's own party | `'ViaParty' cannot be the dialog's own party ('...').` |
+| Two checks evaluating the same thing | `'DialogPartyChecks' cannot contain duplicate checks (same access restriction, via party, effective service resource and effective action).` |
+| A restricted check next to a `None` check for the same right | `'DialogPartyChecks' cannot contain a 'DirectAndHierarchy' or 'ClientDelegation' check for the same effective service resource and action as a 'None' check, which already covers it.` |
 | `additionalResourceAttribute` starting with `urn:altinn:resource:` | `'AdditionalResourceAttribute' cannot contain a service resource reference ('urn:altinn:resource:...'); use 'ServiceResource' instead.` |
 | `additionalResourceAttribute` referencing an app | `'AdditionalResourceAttribute' cannot reference an app (the 'urn:altinn:app:' namespace, or a value expanding into an 'app_{org}_{appId}' identifier); 'ServiceResource' already carries the resource-registry entry for an app, and there is no equivalent per-app override for this field.` |
 | `additionalResourceAttribute` referencing an organization | `'AdditionalResourceAttribute' cannot reference an organization (the 'urn:altinn:org:' namespace); the organization owning the effective resource is derived from the resource itself.` |
@@ -261,12 +337,16 @@ Five things to be aware of when migrating:
 | Top-level `action` combined with `authorizationContext` on a GUI or API action | `'Action' cannot be combined with 'AuthorizationContext'; use 'AuthorizationContext.Action' instead.` |
 | Top-level `action` omitted on a GUI or API action with no `authorizationContext` | `'Action' must not be empty when 'AuthorizationContext' is not supplied.` |
 | `authorizationAttribute` combined with `authorizationContext` | `'AuthorizationAttribute' cannot be combined with 'AuthorizationContext'.` |
-| `serviceResource` referencing a resource the caller does not own | `403 Forbidden`, `Not allowed to reference the following unowned resources: [...]` |
+| `serviceResource`, on the context or on a dialog party check, referencing a resource the caller does not own | `403 Forbidden`, `Not allowed to reference the following unowned resources: [...]` |
 | `additionalResourceAttribute` referencing an app the caller does not own | `403 Forbidden`, `Not allowed to reference the following unowned apps: [...]` |
 
 ## Contract reference
 
 {{<swaggerdisplayentity "V1CommonAuthorizationContexts_AuthorizationContext">}}
+
+A single entry in `dialogPartyChecks`:
+
+{{<swaggerdisplayentity "V1CommonAuthorizationContexts_DialogPartyCheck">}}
 
 The stub used in the six `excluded*` collections on the end-user API:
 

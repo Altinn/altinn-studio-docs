@@ -1,6 +1,5 @@
 ---
 title: IFrame
-draft: true
 ---
 
 ## Egenskaper

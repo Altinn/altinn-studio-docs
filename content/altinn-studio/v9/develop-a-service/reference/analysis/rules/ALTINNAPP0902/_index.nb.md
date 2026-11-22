@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0902: automatisk sletting sammen med slettesperre"
 description: "applicationmetadata.json har både autoDeleteOnProcessEnd og preventInstanceDeletionForDays"
 weight: 92

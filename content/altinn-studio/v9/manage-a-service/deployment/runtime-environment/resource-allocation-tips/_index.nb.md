@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Tips til ressursfordeling
 description: Hva kan og bør du gjøre utover standard innstillinger?
 

@@ -38,7 +38,7 @@ For services that run outside Altinn you must call Altinn Authorization for acce
 {{< stepcard step="1" title="Maskinporten onboarding" >}}
 System users build on Maskinporten, which lets the service owner secure authentication and manage access to the service through scopes. The Maskinporten token also carries the system-user information used when Altinn Authorization evaluates access.
 
-You need a Norwegian organisation number to get access to Maskinporten. See [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869) for details.
+You need a Norwegian organisation number to get access to Maskinporten. See [Maskinporten](https://samarbeid.digdir.no/maskinporten/dette-er-maskinporten/96) for details.
 
 By signing the [terms of use for Maskinporten and ID-porten](https://samarbeid.digdir.no/maskinporten/bruksvilkar-private-virksomheter/73#21_generelt) you receive access to both the test and production environments.
 

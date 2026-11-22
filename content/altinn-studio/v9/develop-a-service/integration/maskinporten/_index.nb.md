@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Integrere Altinn-app med Maskinporten
 linktitle: Maskinporten
 description: Slik setter du opp en integrasjon mellom en Altinn-app og Maskinporten.
@@ -88,7 +87,7 @@ public class HentTokenVedOppgaveslutt(IMaskinportenClient maskinporten)
 {
   public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
 
-  public async Task<HookResult> Execute(OnTaskEndingContext context)
+  public async Task<HandlerResult> Execute(OnTaskEndingContext context)
   {
     string[] scopes = ["scope1", "scope2"];
     var token = await maskinporten.GetAccessToken(scopes, context.CancellationToken);
@@ -97,7 +96,7 @@ public class HentTokenVedOppgaveslutt(IMaskinportenClient maskinporten)
 
     // ...
 
-    return HookResult.Success();
+    return HandlerResult.Success();
   }
 }
 {{< / highlight >}}

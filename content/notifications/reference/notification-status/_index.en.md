@@ -102,6 +102,8 @@ Status for a single email notification to one recipient.
 | `Failed_FilteredSpam`          | `Email_Failed_FilteredSpam`       | Filtered as spam by the provider.                            | Final       |
 | `Failed_Quarantined`           | `Email_Failed_Quarantined`        | Placed in quarantine by the provider.                        | Final       |
 | `Failed_TTL`                   | `Email_Failed_TTL`                | The email expired before it could be delivered.              | Final       |
+| `Failed_PayloadTooLarge`       | `Email_Failed_PayloadTooLarge`    | The total size of the attachments exceeds the email service limit. | Final       |
+| `Failed_ContentTooLarge`       | `Email_Failed_ContentTooLarge`    | The email is too large to be queued for sending. See [When the content is too large](#when-the-content-is-too-large). | Final       |
 
 ## SmsNotificationResultType (SMS result)
 
@@ -123,6 +125,21 @@ Status for a single SMS to one recipient.
 | `Failed_RecipientNotIdentified`| `SMS_Failed_RecipientNotIdentified` | The recipient could not be identified.                  | Final       |
 | `Failed_Rejected`              | `SMS_Failed_Rejected`             | Rejected by provider or operator.                            | Final       |
 | `Failed_TTL`                   | `SMS_Failed_TTL`                  | The notification reached its time-to-live (TTL) in Altinn without a final delivery report arriving. See the explanation below. | Final       |
+| `Failed_ContentTooLarge`       | `SMS_Failed_ContentTooLarge`      | The SMS is too large to be queued for sending. See [When the content is too large](#when-the-content-is-too-large). | Final       |
+
+## When the content is too large
+
+Before Altinn sends an email or SMS, the platform places the message in a message queue.
+The queue has a maximum message size. If the message is larger, the notification
+gets the final status `Failed_ContentTooLarge` (`Email_Failed_ContentTooLarge` or
+`SMS_Failed_ContentTooLarge` in the API).
+
+- The notification is not sent, and Altinn does not try to send it again.
+- Other notifications in the same order are not affected.
+- A new notification order with shorter content may succeed.
+
+`Failed_ContentTooLarge` applies to the size of the whole message, including subject and body.
+`Failed_PayloadTooLarge` applies only to the total size of the attachments in an email.
 
 ## Understanding 'Delivered' status
 
@@ -141,9 +158,16 @@ control it yourself, depends on which endpoint you use.
 ### Default lifetime of 48 hours
 
 Regular notifications (ordered through `/orders` and `/future/orders`) have a
-fixed lifetime of **48 hours** that service owners **cannot configure**. Altinn
-calculates the expiry time from the requested send time plus 48 hours for both
-email and SMS.
+fixed lifetime of **48 hours** that service owners **cannot configure**. For
+notifications without the `Daytime` sending time policy, Altinn calculates the
+expiry time from the requested send time plus 48 hours for both email and SMS.
+
+For notifications with the `Daytime` sending time policy, the lifetime is still
+48 hours, but it is counted from when sending is first allowed. If the requested
+send time is outside the daytime window, the 48 hours start when the window next
+opens. If it is inside the window, they start at the requested send time. See
+the send window sections for email and SMS in
+[What do you get?](/en/notifications/what-do-you-get/).
 
 Instant notifications (the `/future/orders/instant/*` endpoints) are handled
 differently:

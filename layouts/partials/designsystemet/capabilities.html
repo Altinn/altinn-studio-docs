@@ -1,0 +1,21 @@
+{{ $nb := .nb }}
+{{ $cards := slice
+  (dict "path" "altinn-studio/v9" "icon" "Figure" "nb" "Tilgjengelige tjenester" "en" "Accessible services" "nbDesc" "Vi bruker komponenter fra Designsystemet, som gir en enhetlig brukeropplevelse og tjenester som er enkle å bruke." "enDesc" "We use components from the Design System that ensure a consistent user experience and good, user-friendly services.")
+  (dict "path" "altinn-studio/v9" "icon" "Paperplane" "nb" "Innsending med både skjema og API" "en" "For GUI and API at the same time" "nbDesc" "Tjenestene støtter som standard innsending av data både med skjema og via API." "enDesc" "Our services support both form-based and API-based submission of data as standard.")
+  (dict "path" "altinn-studio/v9" "icon" "CheckmarkCircle" "nb" "Skjemakontroll" "en" "Validation" "nbDesc" "Appen sjekker at påkrevde felt er fylt ut, og du kan legge til egne regler med uttrykk eller kode." "enDesc" "The app checks that required fields are filled in, and you can add your own rules with expressions or code.")
+  (dict "path" "altinn-studio/v9" "icon" "Paperclip" "nb" "Vedlegg" "en" "Attachments" "nbDesc" "Brukerne kan laste opp vedlegg, både direkte i skjemaet og via API." "enDesc" "We support uploading attachments, both directly in a form and via API.")
+  (dict "path" "altinn-studio/v9" "icon" "PencilWriting" "nb" "Forhåndsutfylte data" "en" "Prefill of data" "nbDesc" "Du kan hjelpe brukeren ved å fylle ut skjemaet på forhånd med data du allerede har." "enDesc" "You can help the user along by pre-filling forms with data already available.")
+  (dict "path" "altinn-studio/v9" "icon" "BulletList" "nb" "Kodelister" "en" "Code lists" "nbDesc" "Du kan hente valgmuligheter fra felles kodelister, kodelister fra Altinn 2 og organisasjonsbiblioteket." "enDesc" "You can fetch options from shared code lists, Altinn 2 code lists and the organisation library.")
+  (dict "path" "altinn-studio/v9" "icon" "Code" "nb" "Dynamiske uttrykk" "en" "Dynamic expressions" "nbDesc" "Med dynamiske uttrykk skriver du logikk og valideringer i et enkelt JSON-basert språk." "enDesc" "Dynamic expressions allow you to express logic and validations in a simple JSON-based language.")
+  (dict "path" "altinn-studio/v9" "icon" "Wrench" "nb" "Full fleksibilitet" "en" "Complete flexibility" "nbDesc" "Hver tjeneste er en fullstendig webapplikasjon, så du kan tilpasse den slik du trenger." "enDesc" "Each service is a complete web application, providing great flexibility.")
+  (dict "path" "altinn-studio/v9" "icon" "Branching" "nb" "Prosess" "en" "Process" "nbDesc" "Hver tjeneste har en prosessflyt som du kan sette opp selv." "enDesc" "Each service comes with a configurable process flow.")
+  (dict "path" "altinn-studio/v9" "icon" "OpenSource" "nb" "Utvikling" "en" "Development" "nbDesc" "Altinn Studio er åpen kildekode, og vi legger ut ny funksjonalitet og feilrettinger fortløpende." "enDesc" "Altinn Studio is open source, and new features and bug fixes are released continuously.") }}
+{{ range $cards }}
+<li class="studio-feature">
+  {{ partial "designsystemet/icon.html" .icon }}
+  <div class="studio-feature-text">
+    <h3 class="ds-heading" data-size="2xs">{{ if $nb }}{{ .nb }}{{ else }}{{ .en }}{{ end }}</h3>
+    <p class="ds-paragraph" data-size="sm">{{ if $nb }}{{ .nbDesc }}{{ else }}{{ .enDesc }}{{ end }}</p>
+  </div>
+</li>
+{{ end }}

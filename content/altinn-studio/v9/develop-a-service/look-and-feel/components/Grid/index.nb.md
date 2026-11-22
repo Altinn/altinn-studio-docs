@@ -1,6 +1,5 @@
 ---
 title: Grid
-draft: true
 ---
 
 ## Egenskaper

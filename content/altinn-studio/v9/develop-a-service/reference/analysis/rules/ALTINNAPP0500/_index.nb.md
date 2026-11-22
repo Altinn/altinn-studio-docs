@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0500: farlig bruk av IHttpContextAccessor"
 description: "IHttpContextAccessor.HttpContext bør ikke brukes i konstruktører"
 weight: 50

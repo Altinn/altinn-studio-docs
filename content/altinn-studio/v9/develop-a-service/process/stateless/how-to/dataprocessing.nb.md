@@ -3,7 +3,6 @@ title: Hvordan forhåndsutfylle og/eller prosessere data
 linktitle: Dataprosessering
 description: Følg stegene i denne guiden for å forhåndsutfylle data og/eller gjøre beregninger og annen dataprosessering for en stateless app.
 weight: 3
-draft: true
 tags: [needsReview]
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Alert
-draft: true
 ---
 
 ## Egenskaper
