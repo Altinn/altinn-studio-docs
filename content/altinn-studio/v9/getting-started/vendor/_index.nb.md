@@ -5,7 +5,7 @@ weight: 99
 ---
 
 ## For deg som skal integrere mot en tjeneste på Altinn Studio plattformen
-- [Send inn data via API]({{< relref "/altinn-studio/v9/getting-started/use-apis" >}})
+- [Send inn data via API]({{< relref "/altinn-studio/v9/develop-a-service/integration/sbs/apis" >}})
 - [Hent ut data via API]({{< relref "/altinn-studio/v9/getting-started/receive-data" >}})
 
 ## For deg som vil lage løsninger på Altinn Studio
