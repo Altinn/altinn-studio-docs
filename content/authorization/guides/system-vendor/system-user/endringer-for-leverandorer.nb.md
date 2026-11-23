@@ -489,7 +489,7 @@ De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere
 
 - Dette er skisser for å forstå problemet, ikke designforslag. Både utformingen og funksjonaliteten kan endre seg, og vi vil gjerne ha innspill.
 - Alle skissene følger oppsettet UX-teamet har foreslått. Innholdet står i grupper, byrået åpner en klient i listen, og siden har ingen dialoger bortsett fra bekreftelser.
-- Skissene for «Leverandøren bestemmer» viser én liste der Altinn krysser av for det første alternativet, og én **Legg til alle klienter**. Vi har siden bestemt at listen skal ha én gruppe per alternativ, hver med sin egen **Legg til alle**. Skissene er ikke oppdatert ennå.
+- Når leverandøren bestemmer, har listen én gruppe per alternativ, hver med sin egen **Legg til alle**. Altinn krysser ikke av for noe alternativ på forhånd.
 - Skissene kaller rettighetssettene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Vi ser for oss at du kan gi settene navn, som i scenario 2. Si gjerne fra om du ønsker det.
 - Reglene bak skissene står til slutt i presentasjonen.
 
@@ -516,13 +516,13 @@ Virksomheten ser tilgangene, men kan ikke fjerne eller legge til enkelttilganger
 ---
 ## Klienter når leverandøren bestemmer
 
-Byrået åpner en klient i listen. Der ser byrået hva klienten har gitt, og hva som mangler til hvert alternativ.
+Listen har én gruppe per alternativ, med egen **Legg til alle** for hver. Altinn krysser ikke av for noe alternativ på forhånd.
 
-- Listen skal ha én gruppe per alternativ, med egen **Legg til alle** for hver. Skissene viser fortsatt én felles liste der Altinn krysser av for det første alternativet.
+- Byrået åpner en klient i en gruppe og legger klienten til det alternativet.
 - Systembrukeren får alle tilgangene i alternativet, både tilgangspakker og enkelttjenester, eller ingen av dem.
-- For en klient systembrukeren har, viser siden bare alternativene den har. De andre ligger bak en lenke.
+- For en klient systembrukeren har, viser siden alternativene den har.
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Siden for Personalportalen med Havbris Fiskeoppdrett AS åpen: alternativ 2 er krysset av, og alternativ 1 og 3 viser hva som mangler"></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Nordavind Bygg AS åpen: alternativ 3 er krysset av, og alternativ 1 og 2 viser hva som mangler"></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS, som Personalportalen allerede har: bare alternativ 1 vises, med knappen Fjern klienten fra systembrukeren og lenken Se de andre alternativene"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Personalportalen der leverandøren bestemmer: Eksempelklient AS under Har disse klientene, én gruppe per alternativ med knappen Legg til alle, Fjellvik Bygg AS under både alternativ 1 og 3, og tre klienter som ikke kan legges til ennå"></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS åpen under Har disse klientene: alternativ 1 vises, med knappen Fjern klienten fra systembrukeren"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -533,9 +533,8 @@ Fjellvik Bygg AS oppfyller alternativ 1 og 3, og står derfor i gruppene for beg
 
 - Klienten står ikke i gruppen for alternativ 2, fordi den mangler Revisormedarbeider.
 - Er klienten knyttet til flere alternativer, får systembrukeren alle tilgangene i dem.
-- Skissen viser fortsatt alle alternativene i én åpen klient, slik det var før vi bestemte én gruppe per alternativ.
 
-<div style="max-width:460px"><a href="/images/authorization/systemuser/2026-11-09/ux-flere-alternativer.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-flere-alternativer.png" alt="Fjellvik Bygg AS åpen der leverandøren bestemmer: alternativ 1 er krysset av, alternativ 3 har en tom avkrysningsboks, og alternativ 2 mangler Revisormedarbeider og kan ikke velges"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen under alternativ 1, med knappen Legg klienten til alternativ 1 og linjen Klienten står også under alternativ 3"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -544,18 +543,16 @@ Fjellvik Bygg AS oppfyller alternativ 1 og 3, og står derfor i gruppene for beg
 
 Gir du rettighetssettene navn med feltet `name`, ser byrået navnene i stedet for «Alternativ 1», «Alternativ 2» og så videre. Si gjerne fra om du ønsker dette.
 
-<div style="max-width:460px"><a href="/images/authorization/systemuser/2026-11-09/ux-navn-pa-alternativer.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-navn-pa-alternativer.png" alt="Havbris Fiskeoppdrett AS åpen, der alternativene heter Registrert regnskapsfører, Registrert revisor og Uregistrert kunde, og Registrert revisor er krysset av"></a></div>
-
-*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+Vi har ikke laget skisse av dette ennå.
 
 ---
 ## Virksomheten legger til mange klienter samtidig
 
 Hvert alternativ har sin egen **Legg til alle**. Knappen knytter klientene i gruppen til alternativet, hvis de ikke er knyttet til det fra før. Har byrået fått tre nye klienter som oppfyller alternativet, legger knappen til de tre. Siden spør først.
 
-En klient som oppfyller flere alternativer, blir bare knyttet til alternativet byrået bruker knappen for. Skissen viser fortsatt én knapp for hele listen.
+En klient som oppfyller flere alternativer, blir bare knyttet til alternativet byrået bruker knappen for.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" alt="Bekreftelsen Legge til 2 klienter? Personalportalen får tilgangene i det første alternativet hver klient oppfyller"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" alt="Bekreftelsen Legge til 2 klienter i alternativ 3? Personalportalen får tilgangene i alternativ 3 for Nordavind Bygg AS og Fjellvik Bygg AS"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -586,7 +583,7 @@ For hver klient velger virksomheten hvilke av klientens tilganger systembrukeren
 
 - Tjenester klienten har gitt gjennom en tilgangspakke, kan virksomheten ikke gi alene.
 - Trekker en klient tilbake en tilgang, mister systembrukeren den samtidig. Linjen under Eksempelklient AS viser hva som skjedde.
-- Siden har ikke **Legg til alle klienter** når virksomheten bestemmer. Skissen viser fortsatt knappen.
+- Siden har ikke **Legg til alle klienter** når virksomheten bestemmer.
 
 <div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-klienter.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-klienter.png" alt="Personalportalen der virksomheten bestemmer: Eksempelklient AS har ikke alt leverandøren foreslår fordi klienten trakk tilbake en tilgang, to klienter kan legges til, og Elvebakken Kafé AS har ikke gitt det leverandøren foreslår"></a></div>
 
