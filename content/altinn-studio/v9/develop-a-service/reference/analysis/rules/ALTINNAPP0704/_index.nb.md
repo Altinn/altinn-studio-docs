@@ -82,15 +82,15 @@ public class ArchiveTask : TaskBase, IProcessTask
 }
 ```
 
-Regelen melder ikke en metode som noe i appen kaller, for eksempel en hjelpemetode
+Regelen melder ikke fra om en metode som noe i appen kaller, for eksempel en hjelpemetode
 `ValidateConfiguration(ArchiveSettings settings)` som `DefineExecute` bruker, eller en beskyttet
-hjelpemetode i en baseklasse som en avledet oppgave kaller. Den melder heller
-ikke andre metoder med samme navn når klassen allerede implementerer medlemmet, for eksempel en
+hjelpemetode i en baseklasse som en avledet oppgave kaller. Den melder heller ikke fra om
+andre metoder med samme navn når klassen allerede implementerer medlemmet, for eksempel en
 privat hjelpemetode med flere parametere.
 
-Regelen melder heller ikke en metode som overstyrer en metode i en baseklasse (`override`), eller
+Regelen melder heller ikke fra om en metode som overstyrer en metode i en baseklasse (`override`), eller
 som implementerer et medlem med samme navn i et annet grensesnitt. Signaturen til en slik metode
 er bestemt et annet sted. Overstyrer du en metode i en baseklasse som er en del av appen, melder
-regelen metoden i baseklassen i stedet.
+regelen fra om metoden i baseklassen i stedet.
 
 Se [hvordan du lager en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
