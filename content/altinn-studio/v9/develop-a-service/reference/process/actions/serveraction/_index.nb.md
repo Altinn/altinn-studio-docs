@@ -169,7 +169,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 - `UserActionResult.SuccessResult()`: Handlingen lyktes.
 - `UserActionResult.FailureResult(new ActionError { Message = "..." })`: Handlingen mislyktes, og API-et returnerer en feil til brukeren. `errorType` bestemmer statuskoden, for eksempel `ProcessErrorType.BadRequest` for 400. Standard er 500.
-- `UserActionResult.FailureResult(validationIssues)`: Handlingen mislyktes på grunn av en liste med valideringsmeldinger. API-et svarer med statuskode 400 og meldingene i `validationIssues`. Appen oversetter `CustomTextKey` til `Description` på samme måte som for validering, og brukeren ser den første meldingen som feilmelding.
+- `UserActionResult.FailureResult(validationIssues)`: Handlingen mislyktes på grunn av en liste med valideringsmeldinger. API-et svarer med statuskode 400 og meldingene i `error.validationIssues`. Appen oversetter `CustomTextKey` til `Description` på samme måte som for validering, og brukeren ser den første meldingen som feilmelding.
 - `UserActionResult.RedirectResult(uri)`: Appen sender brukeren videre til en annen URL.
 
 I motsetning til prosesshandlinger flytter serverhandlinger **ikke** prosessen til neste oppgave. Hvis prosessen skal gå videre, bruker du en [prosesshandling]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions/process-actions" >}}) i stedet.
