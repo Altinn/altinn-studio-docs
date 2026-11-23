@@ -60,7 +60,7 @@ graph TD
   CREATE --> OWN["Forespurte tilganger for egen virksomhet delegeres"]
   CREATE --> CLIENTCONFIG["Rettighetssettene lagres på systembrukeren som ramme for senere delegering"]
   CLIENTCONFIG --> LINK["En klient knyttes til systembrukeren"]
-  LINK --> CHECK["Brukeren velger ett eller flere sett klienten oppfyller fullt ut. Om Altinn forhåndsvelger det første, er åpent"]
+  LINK --> CHECK["Klienten står i en gruppe for hvert sett den oppfyller fullt ut. Brukeren knytter den til ett sett om gangen, eller med Legg til alle for settet"]
   CHECK --> DELEGATE["Deleger hele settet samlet"]
 {{< /mermaid >}}
 
@@ -118,6 +118,10 @@ Dette gjelder både enkeltrettigheter og tilgangspakker, uavhengig av systembruk
 
 Vedtatt 9. november 2026, og vi sender det på høring. Flagget heter `vendorLocked` og er påkrevd i versjon 2 av forespørselen, så det har ingen standardverdi. Forespørsler til versjon 1 gir alltid `vendorLocked=true`. Navnet erstatter forslaget `ownerControlledAccess`.
 
+## Vedtatt: Legg til alle per sett
+
+Vedtatt 23. november 2026. Klientlisten har én gruppe per rettighetssett, og en klient står i gruppen for hvert sett den oppfyller fullt ut. Brukeren knytter klienter til ett sett om gangen, én og én eller med **Legg til alle** for settet. Knappen knytter bare klienter i gruppen som ikke er knyttet til settet fra før. En klient kan være knyttet til flere sett. **Legg til alle** finnes bare med `vendorLocked=true`. Se #5055, #5056 og #5057 i altinn-auth.
+
 ## Fortsatt åpent: Ett valg om gangen
 
 | Valg | Alternativer som må avklares |
@@ -126,7 +130,6 @@ Vedtatt 9. november 2026, og vi sender det på høring. Flagget heter `vendorLoc
 | Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Vedtatt 10. november 2026: bare fra `vendorLocked=true` til `false`. En åpen systembruker kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Åpent: om virksomheten også kan fjerne låsen |
 | Eksisterende Agent-brukere | Intern representasjon: videreføre med kompatibilitet eller overføre til utvidet modell. Klientene flyttes ikke automatisk |
 | Oppdatering av rettighetssett | Om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når leverandøren fjerner en tilgang |
-| Knytte klienter til sett | Altinn forhåndsvelger det første settet klienten oppfyller, eller virksomheten legger til alle klienter per sett. Se #5055, #5056 og #5057 i altinn-auth |
 | Navn på rettighetssett | Valgfritt `name` fra leverandøren, eller bare «Alternativ 1», «Alternativ 2» i grensesnittet. Vi spør leverandørene i høringen |
 | Levetid for versjon 1 | Antatt minst to år, ikke bekreftet. Leverandørene får god dokumentasjon, men ikke annen hjelp til overgangen |
 | Delvis tilbakekalling | Fjerne hele klienttilknytningen, beholde resten, eller bytte til et annet sett |
