@@ -20,7 +20,8 @@ Category `Deprecation`, severity **error**. The rule therefore fails the build.
 Move the code into the method that takes an `IInstanceDataMutator`, and use
 `instanceDataMutator.Instance` where you used `instance`. Then delete the old method. If the code
 adds or changes data elements, do it through `instanceDataMutator` instead of `IDataClient`.
-`studioctl app upgrade v9` makes the change for you.
+If the class has both methods, `studioctl app upgrade v9` deletes the old one but does not move its
+code. If the code in the old method should run, move it yourself before you upgrade.
 
 The rule does not report the old method when the app calls it itself, such as from the new method.
 

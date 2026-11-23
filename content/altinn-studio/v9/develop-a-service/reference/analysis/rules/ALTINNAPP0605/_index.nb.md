@@ -19,7 +19,8 @@ Kategori `Deprecation`, alvorlighetsgrad **feil**. Regelen stopper altså bygget
 Flytt koden inn i metoden som tar en `IInstanceDataMutator`, og bruk `instanceDataMutator.Instance`
 der du brukte `instance`. Slett deretter den gamle metoden. Legger koden til eller endrer
 dataelementer, gjør du det gjennom `instanceDataMutator` i stedet for `IDataClient`.
-`studioctl app upgrade v9` gjør endringen for deg.
+Har klassen begge metodene, sletter `studioctl app upgrade v9` den gamle, men flytter ikke koden.
+Skal koden i den gamle metoden kjøre, må du flytte den selv før du oppgraderer.
 
 Kaller appen den gamle metoden selv, for eksempel fra den nye metoden, melder ikke regelen fra.
 
