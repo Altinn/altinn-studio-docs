@@ -71,29 +71,34 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 
 - Klienten må oppfylle alt innenfor ett sett. Det holder å oppfylle ett av settene.
 - `clientAccessSets` er et objekt der nøkkelen er id-en til settet. Leverandøren velger id-en, og den må være unik på systembrukeren. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026).
-- Id-en ligger fast. Det valgfrie feltet `name` er teksten virksomheten ser. Når leverandøren oppdaterer settene, er samme id samme sett.
-- Rekkefølgen i objektet er prioriteten, uten indeksfelt. Klienten står i en gruppe for hvert sett den oppfyller, og virksomheten knytter den til ett sett om gangen. En klient kan være knyttet til flere sett.
+- Id-en ligger fast. Det valgfrie feltet `name` er teksten virksomheten ser. Leverandøren kan ikke endre eller slette et sett, bare legge til nye med ny id (vedtatt 23. november 2026).
+- Rekkefølgen i objektet bestemmer rekkefølgen på radene i brukerlisten, uten indeksfelt (vedtatt 23. november 2026). Nye sett kommer etter dem som finnes. Klienten står i en gruppe for hvert sett den oppfyller, og virksomheten knytter den til ett sett om gangen. En klient kan være knyttet til flere sett.
 - Vi lagrer settene på systembrukeren etter opprettelsen.
+- Rettighetssett er bare lov med `vendorLocked=true`. Med `false` gir de valideringsfeil, og når leverandøren fjerner låsen, sletter Altinn settene uten å fjerne tilganger (vedtatt 23. november 2026).
 
-**Konsekvens av at rekkefølgen i objektet er prioriteten:**
+**Konsekvens av at rekkefølgen i objektet betyr noe:**
 
 - PostgreSQL-typen `jsonb` tar ikke vare på rekkefølgen av nøklene. Vi må lagre rekkefølgen på en annen måte, for eksempel som en liste med id internt eller som `json`.
 - JavaScript legger nøkler som bare er sifre, først. Id-en bør derfor ikke bare bestå av sifre.
 - Klienten og serveren må lese JSON-objektet slik at de beholder rekkefølgen. Det må stå tydelig i API-dokumentasjonen.
-- `action` støttes ikke i rettighetssett i første versjon. Behov for finere styring håndteres med tilgangspakker.
+- Rettighetssett støtter ikke `action` i første versjon. Behov for finere styring dekker vi med tilgangspakker.
 
 Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: registrert regnskapsfører (rollen REGN), registrert revisor (rollen REVI) og uregistrert kunde (direkte delegering). Leverandøren trenger ikke vite kundeforholdet for å hente token, så lenge alle settene dekker de samme tjenestene.
 
-Åpent: hvilke tegn id-en kan ha, hvordan API-et for å knytte til en klient viser til id-en, og om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
+API-et for å knytte en klient viser til systembrukeren, id-en til settet og klienten (vedtatt 23. november 2026).
+
+Åpent: hvilke tegn id-en kan ha, og om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
 
 ---
-## Vedtatt: Leverandøren kan oppdatere rettighetssettene
+## Vedtatt: Leverandøren kan legge til nye rettighetssett
 
-**Leverandøren får et eget endepunkt for å oppdatere rettighetssettene på en systembruker, for eksempel når det kommer nye tilgangspakker.**
+**Leverandøren får et eget endepunkt for å legge til nye rettighetssett på en systembruker, for eksempel når det kommer nye tilgangspakker.**
 
-Oppdateringen påvirker ikke hva som faktisk er delegert. Brukerflaten viser at settet ikke er komplett.
+Leverandøren kan ikke endre eller slette et sett, bare legge til nye (vedtatt 23. november 2026). Et nytt sett blir en ny rad i brukerlisten, og virksomheten legger klientene til selv. Det som er delegert, endrer seg ikke. Altinn vurderer «komplett» per sett. Endepunktet gir valideringsfeil når `vendorLocked=false` (vedtatt 23. november 2026).
 
-Åpent: om kunden må godkjenne, hva «komplett» betyr med flere sett, hvordan virksomheten fullfører et sett, og hva som skjer når leverandøren fjerner en tilgang. Se #4845 og #4846 i altinn-auth.
+Uansett hvilket sett virksomheten åpner, viser flaten på klienten tilganger systembrukeren har fra klienten gjennom andre sett.
+
+Åpent: om kunden må godkjenne, hvordan virksomheten fullfører et sett, og hva som skjer når leverandøren fjerner en tilgang fra et sett. Se #4845 og #4846 i altinn-auth.
 
 ---
 ## Vedtatt: Leverandøren kan be om flere tilganger for egen virksomhet
@@ -133,7 +138,7 @@ Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videred
 { "vendorLocked": false }
 ```
 
-Med `false` styrer eiervirksomheten tilgangene etter aksept og kan legge til og fjerne pakker og enkeltrettigheter. Listene i forespørselen er da leverandørens initiale forslag.
+Med `false` styrer eiervirksomheten tilgangene etter aksept og kan legge til og fjerne pakker og enkeltrettigheter. Listene for egen virksomhet er da leverandørens initiale forslag. Forespørselen kan ikke ha rettighetssett for klienter (vedtatt 23. november 2026).
 
 **Ett flagg gjelder både egen virksomhet og klienter.** Virksomhetens delegeringsmyndighet og fullmakter gjelder fortsatt.
 
@@ -153,7 +158,8 @@ Krav betyr tilganger i `rights` eller `accessPackages`, eller minst ett rettighe
 | `true` | Minst ett | Gyldig kombinasjon |
 | `true` | Ingen | Valideringsfeil |
 | `false` | Ingen | Gyldig kombinasjon |
-| `false` | Minst ett | Gyldig kombinasjon, kravene er initialt forslag |
+| `false` | Minst ett i `rights` eller `accessPackages`, ingen rettighetssett | Gyldig kombinasjon, listene er initialt forslag |
+| `false` | Minst ett rettighetssett | Valideringsfeil (vedtatt 23. november 2026) |
 | Ikke satt | Uansett | Valideringsfeil i versjon 2 |
 
 «Gyldig kombinasjon» gjelder flagget og kravene. Øvrig validering og autorisasjon må fortsatt bestås. Detaljer for utelatte lister og `null` må beskrives i kontrakten.
@@ -166,6 +172,19 @@ Krav betyr tilganger i `rights` eller `accessPackages`, eller minst ett rettighe
 Alle systembrukere skal vises i den vanlige brukeroversikten og i den relevante klientdelegeringsoversikten, også når de har forhåndsdefinerte rettigheter.
 
 Flagget styrer handlingsrommet for delegering. Det er ikke et filter for hvilke systembrukere brukeren får se.
+
+---
+## Vedtatt: Én rad per rettighetssett
+
+**Alle brukerlister viser en systembruker med flere rettighetssett som én rad per sett.** Det gjelder **Brukere**, **Klientadministrasjon** og klientens oversikt over byråets systembrukere. Vedtatt 23. november 2026.
+
+- Radene er bare visning. Det er fortsatt én systembruker, ett token og én `externalRef`. BFF-en i frontend lager radene, og vi endrer ikke API-et i Authentication for listene.
+- Tilganger for egen virksomhet får en egen rad. Med `vendorLocked=false` har systembrukeren én rad for egen virksomhet og én for klienter.
+- Raden heter system + `name` på settet, ellers «Alternativ N».
+- En åpnet rad viser bare det settet, med én **Legg til alle**.
+- Virksomheten kan knytte samme klient til flere rader. Systembrukeren får summen.
+- Sletter virksomheten fra en rad, sletter de hele systembrukeren.
+- Altinn vurderer «komplett» per rad, og flaten viser alltid tilganger systembrukeren har fra klienten utenfor settet.
 
 ---
 ## Illustrasjon: Felles brukeroversikt
@@ -184,7 +203,7 @@ Begrunnelsen er at brukeren skal slippe å administrere denne delegeringen et eg
 ---
 ## Vedtatt: Hele rettighetssettet eller ingen
 
-**Når leverandøren bestemmer, gir virksomheten hele rettighetssett, og bare sett klienten oppfyller fullt ut.** Klientlisten har én gruppe per sett, med **Legg til alle** for hvert sett. **Legg til alle** finnes bare når leverandøren bestemmer (vedtatt 23. november 2026).
+**Når leverandøren bestemmer, gir virksomheten hele rettighetssett, og bare sett klienten oppfyller fullt ut.** Hvert sett er en egen rad i brukerlisten, med **Legg til alle** når raden er åpnet. **Legg til alle** finnes bare når leverandøren bestemmer (vedtatt 23. november 2026).
 
 - Hele settet delegeres samlet, eller ingen av tilgangene delegeres.
 - Man kan ikke velge en delmengde av settet.
@@ -194,7 +213,7 @@ Begrunnelsen er at brukeren skal slippe å administrere denne delegeringen et eg
 
 Dette gjelder per klient. Når virksomheten bestemmer, kan tilganger velges innenfor virksomhetens fullmakter.
 
-Har systembrukeren ingen rettighetssett, og virksomheten bestemmer, tilbyr flaten ikke **Legg til alle klienter**. Det finnes da ikke noe forslag som sier hva klientene skal gi, og flaten skal ikke legge til alt klienten har gitt (10. november 2026).
+Når virksomheten bestemmer, har systembrukeren ingen rettighetssett, og flaten tilbyr ikke **Legg til alle klienter**. Det finnes ikke noe som sier hva klientene skal gi, og flaten skal ikke legge til alt klienten har gitt (10. og 23. november 2026).
 
 ---
 ## Illustrasjon: Klienttilganger som ett sett
@@ -247,6 +266,8 @@ Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke utt
 ## Vedtatt: Låsen kan fjernes etter opprettelse
 
 **Låsen kan fjernes på en eksisterende systembruker**, altså fra `vendorLocked=true` til `false`. Identiteten beholdes. En systembruker som har vært åpen, kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Vi vedtok at flagget kan endres 26. oktober 2026, og retningen 10. november 2026.
+
+Når leverandøren fjerner låsen, sletter Altinn rettighetssettene. Klientene beholder det som er delegert, og virksomheten kan endre fritt etterpå. Ingen tilganger forsvinner (vedtatt 23. november 2026).
 
 Fortsatt åpent: om virksomheten også kan fjerne låsen, og hvordan endringen audit-loggføres og varsles.
 
