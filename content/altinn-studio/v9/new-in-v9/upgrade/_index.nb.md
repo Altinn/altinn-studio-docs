@@ -323,7 +323,7 @@ Appen har ikke lenger endepunktet `GET .../data/{dataGuid}/validate`. Bruk `GET 
 
 Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det er greit å kjenne til dem:
 
-- Serverhandlinger legger ikke lenger endrede data i resultatet med `AddUpdatedDataModel`. Har handlingen hentet modellen med `context.DataMutator.GetFormData`, fanger appen opp endringene i den, og oppgraderingen fjerner kallet. Er modellen hentet på en annen måte, for eksempel med `IDataClient`, gjør oppgraderingen om kallet til `await context.DataMutator.ReplaceFormData(...)`. Oppgraderingen viser som TODO-er kall den ikke kan gjøre om. Se [Endre data i handlingen]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions/serveraction#endre-data-i-handlingen" >}}).
+- Serverhandlinger legger ikke lenger endrede data i resultatet med `AddUpdatedDataModel`. Oppgraderingen gjør om kallene til `await context.DataMutator.ReplaceFormData(...)` og legger til en kommentar over dem. Har handlingen hentet modellen med `context.DataMutator.GetFormData`, fanger appen opp endringene i den selv, og da kan du fjerne kallet. Oppgraderingen viser som TODO-er kall den ikke kan gjøre om. Se [Endre data i handlingen]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions/serveraction#endre-data-i-handlingen" >}}).
 - Komponenten `NavigationButtons` viser nå tilbake-knappen som standard. Tidligere måtte du slå den på selv. Oppgraderingen legger ikke til `"showBackButton": false` for deg, så vil du skjule knappen, må du sette det selv.
 - Komponenten `OrganisationLookup` heter nå `OrganizationLookup`.
 - Komponenten `Header` heter nå `Heading`.
