@@ -6,8 +6,9 @@ weight: 74
 
 Denne diagnostikken melder fra når en klasse som implementerer `IProcessTask` eller
 `IServiceTask`, har en metode som heter `DefineStart`, `DefineEnd`, `DefineAbandon` eller
-`ValidateConfiguration`, men som ikke implementerer medlemmet med samme navn i `IProcessTask`.
-Meldingen navngir metoden og medlemmet, og viser signaturen metoden skal ha.
+`ValidateConfiguration`, men som ikke implementerer medlemmet med samme navn i `IProcessTask`,
+og som klassen heller ikke kaller selv. Meldingen navngir metoden og medlemmet, og viser
+signaturen metoden skal ha.
 
 `IProcessTask` har en standardimplementasjon av alle de fire medlemmene, så klassen kompilerer
 likevel. Appen kaller aldri metoden din, men kjører standardimplementasjonen i stedet.
@@ -81,11 +82,14 @@ public class ArchiveTask : TaskBase, IProcessTask
 }
 ```
 
-Regelen melder ikke andre metoder med samme navn når klassen allerede implementerer medlemmet,
-for eksempel en privat hjelpemetode med flere parametere. Den melder heller ikke en metode som
-overstyrer en metode i en baseklasse (`override`), eller som implementerer et medlem med samme
-navn i et annet grensesnitt. Signaturen til en slik metode er bestemt et annet sted. Overstyrer
-du en metode i en baseklasse som er en del av appen, melder regelen metoden i baseklassen i
-stedet.
+Regelen melder ikke en metode som klassen kaller selv, for eksempel en hjelpemetode
+`ValidateConfiguration(ArchiveSettings settings)` som `DefineExecute` bruker. Den melder heller
+ikke andre metoder med samme navn når klassen allerede implementerer medlemmet, for eksempel en
+privat hjelpemetode med flere parametere.
+
+Regelen melder heller ikke en metode som overstyrer en metode i en baseklasse (`override`), eller
+som implementerer et medlem med samme navn i et annet grensesnitt. Signaturen til en slik metode
+er bestemt et annet sted. Overstyrer du en metode i en baseklasse som er en del av appen, melder
+regelen metoden i baseklassen i stedet.
 
 Se [hvordan du lager en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
