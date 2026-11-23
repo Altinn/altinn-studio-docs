@@ -108,7 +108,7 @@ Bruk en tekst som finnes fra før ved å klikke på fanen **Søk**. Søk etter t
 
 ### Legge til og endre tekster i repoet
 
-Skal du endre mange tekster samtidig, anbefaler vi at du redigerer dem direkte i repoet — enten i Gitea eller i en lokal klone i kodeeditoren du selv velger.
+Skal du endre mange tekster samtidig, anbefaler vi at du redigerer dem direkte i repoet — enten i Gitea eller i en lokal kopi i den kodeeditoren du selv velger.
 
 Du finner tekstene i `App/config/texts`.
 
@@ -180,7 +180,7 @@ App/config/texts/resource.{language}.json
 Du kan hente verdier fra fire ulike datakilder:
 
 1. **Datamodell**  
-   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan du hente verdier fra felt i skjemaet som brukeren fyller ut. Du kan hente data fra felt uavhengig av om de er synlige eller ikke. Endrer brukeren data i et felt en variabel refererer til, oppdaterer appen teksten når brukeren slutter å skrive i feltet. Bruk `dataModel.default` for å hente fra standarddatamodellen til oppgaven.
+   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan du hente verdier fra felt i skjemaet som brukeren fyller ut. Du kan hente data fra felt enten de er synlige eller ikke. Endrer brukeren data i et felt som en variabel refererer til, oppdaterer appen teksten når brukeren slutter å skrive i feltet. Bruk `dataModel.default` for å hente fra standarddatamodellen til oppgaven.
 2. **Innstillinger**  
    Ved å angi `applicationSettings` som datakilde kan du hente verdier fra en egen seksjon i `appsettings.{miljø}.json`-filene, kalt `FrontEndSettings`. Du kan legge til nye verdier uten å endre koden, og ha ulike verdier i hvert miljø. Skriv nøkkelen nøyaktig slik den står i `FrontEndSettings`. Legg merke til at `FrontEndSettings` og `applicationSettings` bruker stor forbokstav forskjellig.
 
@@ -197,7 +197,7 @@ Du kan hente verdier fra fire ulike datakilder:
    Ved å angi `instanceContext` som datakilde kan du hente enkelte verdier fra den aktive instansen — du har ikke tilgang til hele instansobjektet. Så langt kan du hente disse egenskapene:
    1. `instanceOwnerPartyId` inneholder aktørens party-ID.
    2. `instanceId` inneholder ID-en til den aktive instansen.
-   3. `appId` inneholder ID-en til appen instansen hører til.
+   3. `appId` inneholder ID-en til appen som instansen hører til.
    4. `instanceOwnerPartyType` inneholder typen aktør: `org`, `person`, `selfIdentified` eller `unknown`.
    5. `instanceOwnerName` inneholder navnet på aktøren.
 4. **Egendefinerte tekstparametere**  
@@ -297,11 +297,11 @@ App/config/texts/resource.{language}.json
 }
 ```
 
-Du kan fritt kombinere variabler fra felt i en repeterende gruppe med variabler fra felt utenfor den repeterende gruppen. Vi anbefaler ikke å kombinere variabler fra felt i _forskjellige_ repeterende grupper, med mindre du er helt sikker på at rekkefølgen på oppføringene i gruppene alltid blir helt lik.
+Du kan fritt kombinere variabler fra felt i en repeterende gruppe med variabler fra felt utenfor den repeterende gruppen. Vi anbefaler at du ikke kombinerer variabler fra felt i _forskjellige_ repeterende grupper, med mindre du er helt sikker på at rekkefølgen på oppføringene i gruppene alltid blir helt lik.
 
 ## Legge til hjelpetekst
 
-En hjelpetekst forklarer kort hva brukeren skal fylle ut i et felt.
+En hjelpetekst forklarer kort hva brukeren skal fylle ut i et felt. Den skal ikke gjenta ledeteksten. Bruk den når du har nyttig informasjon som du ikke får frem i ledeteksten.
 
 I Altinn Studio Designer legger du til en hjelpetekst på siden **Utforming**: Velg komponenten, og klikk på **Hjelpetekst** under **Tekst** i panelet til høyre. Vil du gjøre det i koden, følger du stegene under.
 
