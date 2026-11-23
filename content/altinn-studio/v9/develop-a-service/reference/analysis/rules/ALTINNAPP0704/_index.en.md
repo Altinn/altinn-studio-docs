@@ -7,8 +7,9 @@ weight: 74
 
 This diagnostic is reported when a class that implements `IProcessTask` or `IServiceTask` has a
 method named `DefineStart`, `DefineEnd`, `DefineAbandon` or `ValidateConfiguration` that does not
-implement the `IProcessTask` member of that name, and that the class does not call itself. The
-message names the method and the member, and shows the signature the method should have.
+implement the `IProcessTask` member of that name, and that no code in the app calls. The message
+names the method and the member, and shows the signature the method should have. The rule looks
+at the whole app, so it reports when the app is built.
 
 `IProcessTask` has a default implementation of all four members, so the class still compiles.
 The app never calls your method, and runs the default implementation instead. The defaults for
@@ -82,8 +83,9 @@ public class ArchiveTask : TaskBase, IProcessTask
 }
 ```
 
-The rule does not report a method the class calls itself, such as a helper method
-`ValidateConfiguration(ArchiveSettings settings)` that `DefineExecute` uses. Nor does it report
+The rule does not report a method that something in the app calls, such as a helper method
+`ValidateConfiguration(ArchiveSettings settings)` that `DefineExecute` uses, or a protected helper
+in a base class that a derived task calls. Nor does it report
 other methods of the same name once the class implements the member, such as a private helper
 method with more parameters.
 

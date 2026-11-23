@@ -7,8 +7,8 @@ weight: 74
 Denne diagnostikken melder fra når en klasse som implementerer `IProcessTask` eller
 `IServiceTask`, har en metode som heter `DefineStart`, `DefineEnd`, `DefineAbandon` eller
 `ValidateConfiguration`, men som ikke implementerer medlemmet med samme navn i `IProcessTask`,
-og som klassen heller ikke kaller selv. Meldingen navngir metoden og medlemmet, og viser
-signaturen metoden skal ha.
+og som ingen kode i appen kaller. Meldingen navngir metoden og medlemmet, og viser signaturen
+metoden skal ha. Regelen ser på hele appen, så den melder fra når appen bygges.
 
 `IProcessTask` har en standardimplementasjon av alle de fire medlemmene, så klassen kompilerer
 likevel. Appen kaller aldri metoden din, men kjører standardimplementasjonen i stedet.
@@ -82,8 +82,9 @@ public class ArchiveTask : TaskBase, IProcessTask
 }
 ```
 
-Regelen melder ikke en metode som klassen kaller selv, for eksempel en hjelpemetode
-`ValidateConfiguration(ArchiveSettings settings)` som `DefineExecute` bruker. Den melder heller
+Regelen melder ikke en metode som noe i appen kaller, for eksempel en hjelpemetode
+`ValidateConfiguration(ArchiveSettings settings)` som `DefineExecute` bruker, eller en beskyttet
+hjelpemetode i en baseklasse som en avledet oppgave kaller. Den melder heller
 ikke andre metoder med samme navn når klassen allerede implementerer medlemmet, for eksempel en
 privat hjelpemetode med flere parametere.
 
