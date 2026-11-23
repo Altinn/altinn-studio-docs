@@ -173,6 +173,8 @@ Alle systembrukere skal vises i den vanlige brukeroversikten og i den relevante 
 
 Flagget styrer handlingsrommet for delegering. Det er ikke et filter for hvilke systembrukere brukeren får se.
 
+På **Brukere** står systembrukere i samme liste som personer og virksomheter, og alltid, også når **Vis brukere med klienttilgang** er slått av. Fanen **Brukere** i Klientadministrasjon er én liste over brukere med klienttilgang, som i dag (vedtatt 23. november 2026).
+
 ---
 ## Vedtatt: Én rad per rettighetssett
 
@@ -189,7 +191,9 @@ Flagget styrer handlingsrommet for delegering. Det er ikke et filter for hvilke 
 ---
 ## Illustrasjon: Felles brukeroversikt
 
-{{< systemuser-ui "overview" >}}
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-brukere.png" alt="Brukere for Nordlys Regnskap AS: én liste der personer og systembrukere står sammen, med én rad per alternativ og egen virksomhet"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" alt="Klientadministrasjon, fanen Brukere: én liste over brukere med klienttilgang, med personer og radene for systembrukere som kan ha klienter"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
 ## Vedtatt: Klientdelegering på én felles side
@@ -218,7 +222,9 @@ Når virksomheten bestemmer, har systembrukeren ingen rettighetssett, og flaten 
 ---
 ## Illustrasjon: Klienttilganger som ett sett
 
-{{< systemuser-ui "preset-client" >}}
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Alternativ 1 åpnet, med gruppene Har disse klientene, Kan få disse klientene med Legg til alle, og Kan ikke få disse klientene ennå"></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for alternativ 1, med knappen Legg klienten til og tilgangene i alternativet uten knapper per tilgang"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
 ## Vedtatt: Forhåndsdefinerte tilganger på brukersiden
@@ -232,12 +238,18 @@ Man kan ikke fjerne en enkelt tilgangspakke eller enkeltrettighet separat på de
 ---
 ## Illustrasjon: Samlet sletting fra brukersiden
 
-{{< systemuser-ui "preset-own" >}}
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" alt="Regnskap Pluss – Egen virksomhet der leverandøren bestemmer: tilgangene uten knapper, og Slett systembruker"></a><a href="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" alt="Bekreftelsen Slette systembrukeren Personalportalen? Alle de tre radene forsvinner"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
-## Illustrasjon: Uten forhåndsdefinerte rettigheter
+## Illustrasjon: Når virksomheten bestemmer
 
-{{< systemuser-ui "free" >}}
+For klientene er systembrukeren lik en ansatt som byrået har gitt klienttilganger, og siden følger siden for en ansatt i Klientadministrasjon (vedtatt 23. november 2026).
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" alt="Egen integrasjon – Egen virksomhet der virksomheten bestemmer, med knappen Fjern på hver tilgang"></a><a href="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" alt="Rapportrobot – Klienter med Havbris Fiskeoppdrett AS åpen: Gi fullmakt og Slett fullmakt per tilgang, og Gi alle og Slett alle"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
 ## Vedtatt: Rettighetskrav følger opprettelsesflyten

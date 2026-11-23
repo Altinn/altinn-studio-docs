@@ -495,7 +495,7 @@ De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere
 - Alle skissene følger oppsettet UX-teamet har foreslått. Innholdet står i grupper, byrået åpner en klient i listen, og siden har ingen dialoger bortsett fra bekreftelser.
 - Alle brukerlister viser en systembruker med flere rettighetssett som én rad per sett. Tilganger for egen virksomhet har en egen rad. Det er fortsatt én systembruker.
 - Når byrået åpner raden for et sett, viser siden bare det settet, med én **Legg til alle**. Altinn krysser ikke av for noe sett på forhånd.
-- Når virksomheten bestemmer, finnes det ingen rettighetssett, og ingenting er krysset av.
+- Når virksomheten bestemmer, finnes det ingen rettighetssett. For klientene er systembrukeren lik en ansatt med klienttilganger.
 - Skissene kaller rettighetssettene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Vi ser for oss at du kan gi settene navn, som i scenario 2. Si gjerne fra om du ønsker det.
 - Reglene bak skissene står til slutt i presentasjonen.
 
