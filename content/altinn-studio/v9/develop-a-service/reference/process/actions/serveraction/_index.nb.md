@@ -197,5 +197,4 @@ Du trenger ikke lagre dataene selv eller legge dem i resultatet.
 - Vil du bytte ut hele datamodellen, bruker du `await context.DataMutator.ReplaceFormData(dataElement, nyModell)`.
 - Med `AddFormDataElement`, `AddBinaryDataElement` og `RemoveDataElement` legger du til og fjerner dataelementer.
 - Returnerer handlingen `FailureResult`, lagrer appen ingen av endringene.
-- Kaller du `context.DataMutator.AbandonAllChanges(issues)`, feiler handlingen som om den returnerte `FailureResult(issues)`.
 - [Dataprosessorene]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing" >}}) kjører ikke for endringene handlingen gjør.
