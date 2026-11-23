@@ -60,7 +60,7 @@ graph TD
   CREATE --> OWN["Forespurte tilganger for egen virksomhet delegeres"]
   CREATE --> CLIENTCONFIG["Rettighetssettene lagres på systembrukeren som ramme for senere delegering"]
   CLIENTCONFIG --> LINK["En klient knyttes til systembrukeren"]
-  LINK --> CHECK["Det første rettighetssettet klienten oppfyller fullt ut, er forhåndsvalgt. Brukeren kan velge andre sett klienten oppfyller, også flere"]
+  LINK --> CHECK["Klienten står i en gruppe for hvert sett den oppfyller fullt ut. Brukeren knytter den til ett sett om gangen, eller med Legg til alle for settet"]
   CHECK --> DELEGATE["Deleger hele settet samlet"]
 {{< /mermaid >}}
 
@@ -75,7 +75,7 @@ graph TD
   OPEN["Åpne systembrukeren på vanlig bruker- eller klientflate"] --> MODE{"vendorLocked?"}
   MODE -->|false| CHOOSE["Velg pakker og enkeltrettigheter innenfor virksomhetens fullmakter"]
   MODE -->|true| CONTEXT{"Hvilke forhåndsdefinerte tilganger håndteres?"}
-  CONTEXT -->|Klient| SET["Det første oppfylte rettighetssettet er forhåndsvalgt på vanlig klientdelegeringsside"]
+  CONTEXT -->|Klient| SET["Brukeren velger blant oppfylte rettighetssett på vanlig klientdelegeringsside"]
   SET --> ALL["Deleger hele settet samlet"]
   SET --> NONE["Velg ingen av tilgangene"]
   CONTEXT -->|Egen virksomhet| VIEW["Se forhåndsdefinerte tilganger på vanlig brukerside"]
@@ -117,6 +117,10 @@ Dette gjelder både enkeltrettigheter og tilgangspakker, uavhengig av systembruk
 ## Vedtatt: Flagget heter vendorLocked
 
 Vedtatt 9. november 2026, og vi sender det på høring. Flagget heter `vendorLocked` og er påkrevd i versjon 2 av forespørselen, så det har ingen standardverdi. Forespørsler til versjon 1 gir alltid `vendorLocked=true`. Navnet erstatter forslaget `ownerControlledAccess`.
+
+## Vedtatt: Legg til alle per sett
+
+Vedtatt 23. november 2026. Klientlisten har én gruppe per rettighetssett, og en klient står i gruppen for hvert sett den oppfyller fullt ut. Brukeren knytter klienter til ett sett om gangen, én og én eller med **Legg til alle** for settet. Knappen knytter bare klienter i gruppen som ikke er knyttet til settet fra før. En klient kan være knyttet til flere sett. **Legg til alle** finnes bare med `vendorLocked=true`. Se #5055, #5056 og #5057 i altinn-auth.
 
 ## Fortsatt åpent: Ett valg om gangen
 
