@@ -7,7 +7,7 @@ aliases:
   - nb/authentication/guides/systemvendor/
 ---
 
-En systembruker er en virtuell bruker som en virksomhet kan opprette i Altinn. Den gir systemer og programvare, for eksempel et regnskapsprogram, tilgang til å hente og sende inn data på vegne av virksomheten. Handlinger utført via systembruker registreres som gjort av systembrukeren, og kan derfor ikke knyttes til en navngitt person. Dersom det kreves personlig ansvar, må man logge inn med vanlig Altinn-innlogging.
+En systembruker er en virtuell bruker som en virksomhet kan opprette i Altinn. Den gir systemer og programvare, for eksempel et regnskapsprogram, fullmakt til å hente og sende inn data på vegne av virksomheten. Handlinger utført via systembruker registreres som gjort av systembrukeren, og kan derfor ikke knyttes til en navngitt person. Dersom det kreves personlig ansvar, må man logge inn med vanlig Altinn-innlogging.
 
 ## Før du setter i gang
 
@@ -22,15 +22,15 @@ Opprettelse kan skje via sluttbrukerstyrt opprettelse eller leverandørstyrt opp
 
 Ved en brukerstyrt opprettelse er det sluttbrukeren selv som initierer prosessen ved å logge inn i Altinn. Der velger brukeren hvilket system de ønsker å opprette en systembruker for.
 
-Sluttbrukeren blir presentert for de forhåndsdefinerte tilgangene som systemet krever. Når disse aksepteres, godkjennes tilgangene direkte, og systembrukeren blir opprettet uten at det genereres en separat forespørsel. Denne prosessen forutsetter at sluttbrukeren har myndighet til å delegere alle tilgangene systemet ber om.
+Sluttbrukeren blir presentert for de forhåndsdefinerte fullmaktene som systemet krever. Når disse aksepteres, godkjennes fullmaktene direkte, og systembrukeren blir opprettet uten at det genereres en separat forespørsel. Denne prosessen forutsetter at sluttbrukeren har myndighet til å delegere alle fullmaktene systemet ber om.
 
 #### Leverandørstyrt opprettelse
 
 Ved en leverandørstyrt opprettelse er det sluttbrukersystem-leverandøren (SBSL) som initierer prosessen. Dette skjer ved at leverandøren, ofte fra sitt eget fagsystem, sender en forespørsel til Altinn om å opprette en systembruker.
 
-Forespørselen spesifiserer hvilke tilganger systembrukeren trenger. Denne forespørselen må deretter godkjennes av sluttbrukeren (kunden) i Altinn for at systembrukeren skal bli opprettet.
+Forespørselen spesifiserer hvilke fullmakter systembrukeren trenger. Denne forespørselen må deretter godkjennes av sluttbrukeren (kunden) i Altinn for at systembrukeren skal bli opprettet.
 
-Denne metoden baserer seg på et "OG-forhold". Det innebærer at sluttbrukeren må ha myndighet til å delegere samtlige tilganger som leverandøren etterspør. Hvis brukeren mangler myndighet for selv én av tilgangene, kan ikke forespørselen godkjennes i sin helhet.
+Denne metoden baserer seg på et "OG-forhold". Det innebærer at sluttbrukeren må ha myndighet til å delegere samtlige fullmakter som leverandøren etterspør. Hvis brukeren mangler myndighet for selv én av fullmaktene, kan ikke forespørselen godkjennes i sin helhet.
 
 ## Systembruker for eget system
 
@@ -91,7 +91,7 @@ Når tjenesteleverandøren har mottatt fullmakten, kan deres klientadministrator
 
 - Brukeren kan rapportere på vegne av flere virksomheter.
 - Klientene må ha gitt nødvendige rettigheter/delegeringer.
-- Systemet må sikre korrekt tilgang og identifisering av hvem det rapporteres for.
+- Systemet må sikre korrekt fullmakt og identifisering av hvem det rapporteres for.
 - Dersom kundeforholdet fjernes/slettes fra Enhetsregisteret eller virksomhetsdelegeringen revokeres av kunden vil alle klientdelegeringer for den aktuelle fullmakten automatisk fjernes.
 - Klientdelegering til systembruker kan gjøres via GUI eller eget API
 

@@ -52,36 +52,36 @@ Vi omtaler brukeren som **systembruker**. Rettigheter for egen virksomhet og kli
 Autentiseringskoden ligger nå under `src/apps/Altinn.Authentication` i `altinn-auth`.
 
 ---
-## Vedtatt: Lister for egen virksomhet og rettighetssett for klienter
+## Vedtatt: Lister for egen virksomhet og fullmaktssett for klienter
 
 | Felt | Hva det beskriver |
 |---|---|
 | `rights` | Enkeltrettigheter for egen virksomhet |
 | `accessPackages` | Tilgangspakker for egen virksomhet |
-| `clientAccessSets`* | Rettighetssett for klienter, med id som nøkkel og i prioritert rekkefølge |
+| `clientAccessSets`* | Fullmaktssett for klienter, med id som nøkkel og i prioritert rekkefølge |
 
-Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på systemet i systemregisteret. Rettighetssettene setter rammen for senere klientdelegering.
+Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på systemet i systemregisteret. Fullmaktssettene setter rammen for senere klientdelegering.
 
 *Feltnavnet er et forslag. `clientAccessSets` erstatter forslagene `clientRights` og `clientAccessPackages`.*
 
 ---
-## Vedtatt: Rettighetssett
+## Vedtatt: Fullmaktssett
 
-**Et rettighetssett er tilgangspakker og enkeltrettigheter som hører sammen.**
+**Et fullmaktssett er tilgangspakker og enkeltrettigheter som hører sammen.**
 
 - Klienten må oppfylle alt innenfor ett sett. Det holder å oppfylle ett av settene.
 - `clientAccessSets` er et objekt der nøkkelen er id-en til settet. Leverandøren velger id-en, og den må være unik på systembrukeren. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026).
 - Id-en ligger fast. Det valgfrie feltet `name` er teksten virksomheten ser. Leverandøren kan ikke endre eller slette et sett, bare legge til nye med ny id (vedtatt 23. november 2026).
 - Rekkefølgen i objektet bestemmer rekkefølgen på radene i brukerlisten, uten indeksfelt (vedtatt 23. november 2026). Nye sett kommer etter dem som finnes. Klienten står i en gruppe for hvert sett den oppfyller, og virksomheten knytter den til ett sett om gangen. En klient kan være knyttet til flere sett.
 - Vi lagrer settene på systembrukeren etter opprettelsen.
-- Rettighetssett er bare lov med `vendorLocked=true`. Med `false` gir de valideringsfeil, og når leverandøren fjerner låsen, sletter Altinn settene uten å fjerne tilganger (vedtatt 23. november 2026).
+- Fullmaktssett er bare lov med `vendorLocked=true`. Med `false` gir de valideringsfeil, og når leverandøren fjerner låsen, sletter Altinn settene uten å fjerne fullmakter (vedtatt 23. november 2026).
 
 **Konsekvens av at rekkefølgen i objektet betyr noe:**
 
 - PostgreSQL-typen `jsonb` tar ikke vare på rekkefølgen av nøklene. Vi må lagre rekkefølgen på en annen måte, for eksempel som en liste med id internt eller som `json`.
 - JavaScript legger nøkler som bare er sifre, først. Id-en bør derfor ikke bare bestå av sifre.
 - Klienten og serveren må lese JSON-objektet slik at de beholder rekkefølgen. Det må stå tydelig i API-dokumentasjonen.
-- Rettighetssett støtter ikke `action` i første versjon. Behov for finere styring dekker vi med tilgangspakker.
+- Fullmaktssett støtter ikke `action` i første versjon. Behov for finere styring dekker vi med tilgangspakker.
 
 Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: registrert regnskapsfører (rollen REGN), registrert revisor (rollen REVI) og uregistrert kunde (direkte delegering). Leverandøren trenger ikke vite kundeforholdet for å hente token, så lenge alle settene dekker de samme tjenestene.
 
@@ -90,20 +90,20 @@ API-et for å knytte en klient viser til systembrukeren, id-en til settet og kli
 Åpent: hvilke tegn id-en kan ha, og om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
 
 ---
-## Vedtatt: Leverandøren kan legge til nye rettighetssett
+## Vedtatt: Leverandøren kan legge til nye fullmaktssett
 
-**Leverandøren får et eget endepunkt for å legge til nye rettighetssett på en systembruker, for eksempel når det kommer nye tilgangspakker.**
+**Leverandøren får et eget endepunkt for å legge til nye fullmaktssett på en systembruker, for eksempel når det kommer nye tilgangspakker.**
 
 Leverandøren kan ikke endre eller slette et sett, bare legge til nye (vedtatt 23. november 2026). Et nytt sett blir en ny rad i brukerlisten, og virksomheten legger klientene til selv. Det som er delegert, endrer seg ikke. Altinn vurderer «komplett» per sett. Endepunktet gir valideringsfeil når `vendorLocked=false` (vedtatt 23. november 2026).
 
-Uansett hvilket sett virksomheten åpner, viser flaten på klienten tilganger systembrukeren har fra klienten gjennom andre sett.
+Uansett hvilket sett virksomheten åpner, viser flaten på klienten fullmakter systembrukeren har fra klienten gjennom andre sett.
 
-Åpent: om kunden må godkjenne, hvordan virksomheten fullfører et sett, og hva som skjer når leverandøren fjerner en tilgang fra et sett. Se #4845 og #4846 i altinn-auth.
+Åpent: om kunden må godkjenne, hvordan virksomheten fullfører et sett, og hva som skjer når leverandøren fjerner en fullmakt fra et sett. Se #4845 og #4846 i altinn-auth.
 
 ---
-## Vedtatt: Leverandøren kan be om flere tilganger for egen virksomhet
+## Vedtatt: Leverandøren kan be om flere fullmakter for egen virksomhet
 
-**Leverandøren kan be kunden om flere tilganger for egen virksomhet med API-et for forespørsler om tilgang.**
+**Leverandøren kan be kunden om flere fullmakter for egen virksomhet med API-et for forespørsler om fullmakt.**
 
 ```http
 /accessmanagement/api/v1/enduser/request
@@ -111,23 +111,23 @@ Uansett hvilket sett virksomheten åpner, viser flaten på klienten tilganger sy
 
 Sluttbrukersystemer bruker det samme API-et i dag. Det gjelder både med `vendorLocked=true` og `vendorLocked=false`. Kunden godkjenner eller avviser forespørselen.
 
-Forespørsel om tilganger for klienter er ikke planlagt i denne endringen. Vedtatt 9. november 2026.
+Forespørsel om fullmakter for klienter er ikke planlagt i denne endringen. Vedtatt 9. november 2026.
 
 ---
-## Vedtatt: Tilganger ved aksept
+## Vedtatt: Fullmakter ved aksept
 
-**Ved aksept opprettes systembrukeren, og de forespurte tilgangene for egen virksomhet delegeres.**
+**Ved aksept opprettes systembrukeren, og de forespurte fullmaktene for egen virksomhet delegeres.**
 
-Rettighetssettene tildeler ingen klienttilgang på dette tidspunktet. De definerer hvilke tilganger som kan delegeres senere.
+Fullmaktssettene tildeler ingen klienttilgang på dette tidspunktet. De definerer hvilke fullmakter som kan delegeres senere.
 
-Aksept krever alltid at den som godkjenner er tilgangsstyrer, uansett flagg. Tilganger for egen virksomhet krever i tillegg myndighet til hver tilgang. Er listene for egen virksomhet tomme, er tilgangsstyrer det eneste Altinn kontrollerer ved aksept. Med `vendorLocked=false` kan virksomheten gi tilgangene senere i GUI.
+Aksept krever alltid at den som godkjenner er tilgangsstyrer, uansett flagg. Fullmakter for egen virksomhet krever i tillegg myndighet til hver fullmakt. Er listene for egen virksomhet tomme, er tilgangsstyrer det eneste Altinn kontrollerer ved aksept. Med `vendorLocked=false` kan virksomheten gi fullmaktene senere i GUI.
 
 ---
-## Vedtatt: Tilganger når klienten knyttes til
+## Vedtatt: Fullmakter når klienten knyttes til
 
 **Klientrettighetene delegeres når klienten knyttes til systembrukeren.**
 
-Når leverandøren bestemmer, gir virksomheten hvert valgte rettighetssett samlet. Virksomheten velger settet, for én klient om gangen eller med **Legg til alle** for settet. Tildelingen må være innenfor eiervirksomhetens fullmakter for den aktuelle klienten.
+Når leverandøren bestemmer, gir virksomheten hvert valgte fullmaktssett samlet. Virksomheten velger settet, for én klient om gangen eller med **Legg til alle** for settet. Tildelingen må være innenfor eiervirksomhetens fullmakter for den aktuelle klienten.
 
 Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer slettes. Avhengigheten følger rettighetsgrunnlaget, uavhengig av type og flagg.
 
@@ -138,7 +138,7 @@ Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videred
 { "vendorLocked": false }
 ```
 
-Med `false` styrer eiervirksomheten tilgangene etter aksept og kan legge til og fjerne pakker og enkeltrettigheter. Listene for egen virksomhet er da leverandørens initiale forslag. Forespørselen kan ikke ha rettighetssett for klienter (vedtatt 23. november 2026).
+Med `false` styrer eiervirksomheten fullmaktene etter aksept og kan legge til og fjerne pakker og enkeltrettigheter. Listene for egen virksomhet er da leverandørens initiale forslag. Forespørselen kan ikke ha fullmaktssett for klienter (vedtatt 23. november 2026).
 
 **Ett flagg gjelder både egen virksomhet og klienter.** Virksomhetens delegeringsmyndighet og fullmakter gjelder fortsatt.
 
@@ -151,15 +151,15 @@ Oppdatert 26. oktober 2026: flagget kan kombineres med lister, aksepten er allti
 ---
 ## Vedtatt: Validering av flagg og krav
 
-Krav betyr tilganger i `rights` eller `accessPackages`, eller minst ett rettighetssett.
+Krav betyr fullmakter i `rights` eller `accessPackages`, eller minst ett fullmaktssett.
 
 | `vendorLocked` | Krav i forespørselen | Resultat |
 |---|---|---|
 | `true` | Minst ett | Gyldig kombinasjon |
 | `true` | Ingen | Valideringsfeil |
 | `false` | Ingen | Gyldig kombinasjon |
-| `false` | Minst ett i `rights` eller `accessPackages`, ingen rettighetssett | Gyldig kombinasjon, listene er initialt forslag |
-| `false` | Minst ett rettighetssett | Valideringsfeil (vedtatt 23. november 2026) |
+| `false` | Minst ett i `rights` eller `accessPackages`, ingen fullmaktssett | Gyldig kombinasjon, listene er initialt forslag |
+| `false` | Minst ett fullmaktssett | Valideringsfeil (vedtatt 23. november 2026) |
 | Ikke satt | Uansett | Valideringsfeil i versjon 2 |
 
 «Gyldig kombinasjon» gjelder flagget og kravene. Øvrig validering og autorisasjon må fortsatt bestås. Detaljer for utelatte lister og `null` må beskrives i kontrakten.
@@ -176,17 +176,17 @@ Flagget styrer handlingsrommet for delegering. Det er ikke et filter for hvilke 
 På **Brukere** står systembrukere i samme liste som personer og virksomheter, og alltid, også når **Vis brukere med klienttilgang** er slått av. Fanen **Brukere** i Klientadministrasjon er én liste over brukere med klienttilgang, som i dag (vedtatt 23. november 2026).
 
 ---
-## Vedtatt: Én rad per rettighetssett
+## Vedtatt: Én rad per fullmaktssett
 
-**Alle brukerlister viser en systembruker med flere rettighetssett som én rad per sett.** Det gjelder **Brukere**, **Klientadministrasjon** og klientens oversikt over byråets systembrukere. Vedtatt 23. november 2026.
+**Alle brukerlister viser en systembruker med flere fullmaktssett som én rad per sett.** Det gjelder **Brukere**, **Klientadministrasjon** og klientens oversikt over byråets systembrukere. Vedtatt 23. november 2026.
 
 - Radene er bare visning. Det er fortsatt én systembruker, ett token og én `externalRef`. BFF-en i frontend lager radene, og vi endrer ikke API-et i Authentication for listene.
-- Tilganger for egen virksomhet får en egen rad. Med `vendorLocked=false` har systembrukeren én rad for egen virksomhet og én for klienter.
+- Fullmakter for egen virksomhet får en egen rad. Med `vendorLocked=false` har systembrukeren én rad for egen virksomhet og én for klienter.
 - Raden heter system + `name` på settet, ellers «Alternativ N».
 - En åpnet rad viser bare det settet, med én **Legg til alle**.
 - Virksomheten kan knytte samme klient til flere rader. Systembrukeren får summen.
 - Sletter virksomheten fra en rad, sletter de hele systembrukeren.
-- Altinn vurderer «komplett» per rad, og flaten viser alltid tilganger systembrukeren har fra klienten utenfor settet.
+- Altinn vurderer «komplett» per rad, og flaten viser alltid fullmakter systembrukeren har fra klienten utenfor settet.
 
 ---
 ## Illustrasjon: Felles brukeroversikt
@@ -205,29 +205,29 @@ Disse systembrukerne åpnes og håndteres på den vanlige klientdelegeringssiden
 Begrunnelsen er at brukeren skal slippe å administrere denne delegeringen et eget sted.
 
 ---
-## Vedtatt: Hele rettighetssettet eller ingen
+## Vedtatt: Hele fullmaktssettet eller ingen
 
-**Når leverandøren bestemmer, gir virksomheten hele rettighetssett, og bare sett klienten oppfyller fullt ut.** Hvert sett er en egen rad i brukerlisten, med **Legg til alle** når raden er åpnet. **Legg til alle** finnes bare når leverandøren bestemmer (vedtatt 23. november 2026).
+**Når leverandøren bestemmer, gir virksomheten hele fullmaktssett, og bare sett klienten oppfyller fullt ut.** Hvert sett er en egen rad i brukerlisten, med **Legg til alle** når raden er åpnet. **Legg til alle** finnes bare når leverandøren bestemmer (vedtatt 23. november 2026).
 
-- Hele settet delegeres samlet, eller ingen av tilgangene delegeres.
+- Hele settet delegeres samlet, eller ingen av fullmaktene delegeres.
 - Man kan ikke velge en delmengde av settet.
 - Oppfyller klienten flere sett, kan man knytte den til flere av dem (vedtatt 10. november 2026).
 - Man kan ikke utvide det med pakker eller rettigheter utenfor settet.
 - Oppfyller klienten ingen av settene, kan den ikke knyttes til, og flaten viser hva som mangler.
 
-Dette gjelder per klient. Når virksomheten bestemmer, kan tilganger velges innenfor virksomhetens fullmakter.
+Dette gjelder per klient. Når virksomheten bestemmer, kan fullmakter velges innenfor virksomhetens fullmakter.
 
-Når virksomheten bestemmer, har systembrukeren ingen rettighetssett, og flaten tilbyr ikke **Legg til alle klienter**. Det finnes ikke noe som sier hva klientene skal gi, og flaten skal ikke legge til alt klienten har gitt (10. og 23. november 2026).
+Når virksomheten bestemmer, har systembrukeren ingen fullmaktssett, og flaten tilbyr ikke **Legg til alle klienter**. Det finnes ikke noe som sier hva klientene skal gi, og flaten skal ikke legge til alt klienten har gitt (10. og 23. november 2026).
 
 ---
 ## Illustrasjon: Klienttilganger som ett sett
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Alternativ 1 åpnet, med gruppene Har disse klientene, Kan få disse klientene med Legg til alle, og Kan ikke få disse klientene ennå"></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for alternativ 1, med knappen Legg klienten til og tilgangene i alternativet uten knapper per tilgang"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Alternativ 1 åpnet, med gruppene Har disse klientene, Kan få disse klientene med Legg til alle, og Kan ikke få disse klientene ennå"></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for alternativ 1, med knappen Legg klienten til og fullmaktene i alternativet uten knapper per fullmakt"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
-## Vedtatt: Forhåndsdefinerte tilganger på brukersiden
+## Vedtatt: Forhåndsdefinerte fullmakter på brukersiden
 
 **Systembrukeren kan åpnes fra den vanlige brukersiden.**
 
@@ -238,7 +238,7 @@ Man kan ikke fjerne en enkelt tilgangspakke eller enkeltrettighet separat på de
 ---
 ## Illustrasjon: Samlet sletting fra brukersiden
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" alt="Regnskap Pluss – Egen virksomhet der leverandøren bestemmer: tilgangene uten knapper, og Slett systembruker"></a><a href="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" alt="Bekreftelsen Slette systembrukeren Personalportalen? Alle de tre radene forsvinner"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" alt="Regnskap Pluss – Egen virksomhet der leverandøren bestemmer: fullmaktene uten knapper, og Slett systembruker"></a><a href="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" alt="Bekreftelsen Slette systembrukeren Personalportalen? Alle de tre radene forsvinner"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -247,7 +247,7 @@ Man kan ikke fjerne en enkelt tilgangspakke eller enkeltrettighet separat på de
 
 For klientene er systembrukeren lik en ansatt som byrået har gitt klienttilganger, og siden følger siden for en ansatt i Klientadministrasjon (vedtatt 23. november 2026).
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" alt="Egen integrasjon – Egen virksomhet der virksomheten bestemmer, med knappen Fjern på hver tilgang"></a><a href="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" alt="Rapportrobot – Klienter med Havbris Fiskeoppdrett AS åpen: Gi fullmakt og Slett fullmakt per tilgang, og Gi alle og Slett alle"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" alt="Egen integrasjon – Egen virksomhet der virksomheten bestemmer, med knappen Fjern på hver fullmakt"></a><a href="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" alt="Rapportrobot – Klienter med Havbris Fiskeoppdrett AS åpen: Gi fullmakt og Slett fullmakt per fullmakt, og Gi alle og Slett alle"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -256,7 +256,7 @@ For klientene er systembrukeren lik en ansatt som byrået har gitt klienttilgang
 
 | Hvordan starter opprettelsen? | Hvor kommer rettighetskravene fra? |
 |---|---|
-| Leverandøren sender en forespørsel | Listene og rettighetssettene i forespørselen |
+| Leverandøren sender en forespørsel | Listene og fullmaktssettene i forespørselen |
 | Brukeren oppretter selv fra et synlig system | Listene på systemet i systemregisteret |
 
 Forespørselens krav skal verken fylles fra eller begrenses av listene i systemregisteret. Dette gjelder pakker og enkeltrettigheter for både egen virksomhet og klienter. Regelen gjelder versjon 2. Versjon 1 virker som før.
@@ -279,7 +279,7 @@ Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke utt
 
 **Låsen kan fjernes på en eksisterende systembruker**, altså fra `vendorLocked=true` til `false`. Identiteten beholdes. En systembruker som har vært åpen, kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Vi vedtok at flagget kan endres 26. oktober 2026, og retningen 10. november 2026.
 
-Når leverandøren fjerner låsen, sletter Altinn rettighetssettene. Klientene beholder det som er delegert, og virksomheten kan endre fritt etterpå. Ingen tilganger forsvinner (vedtatt 23. november 2026).
+Når leverandøren fjerner låsen, sletter Altinn fullmaktssettene. Klientene beholder det som er delegert, og virksomheten kan endre fritt etterpå. Ingen fullmakter forsvinner (vedtatt 23. november 2026).
 
 Fortsatt åpent: om virksomheten også kan fjerne låsen, og hvordan endringen audit-loggføres og varsles.
 
@@ -296,14 +296,14 @@ Samlet sletting på brukersiden med `vendorLocked=true` er vedtatt. Flyten for �
 
 Én ekstern betegnelse «systembruker» avgjør ikke alene intern enum, lagringsformat eller utfasing av Agent-endepunktet.
 
-**Avklart 5. november 2026:** Eksisterende klientkoblinger flyttes ikke automatisk. Klientene må knyttes til de nye systembrukerne som opprettes med rettighetssett. En klient kan være knyttet til mange systembrukere samtidig, så selskapene kan gå over gradvis.
+**Avklart 5. november 2026:** Eksisterende klientkoblinger flyttes ikke automatisk. Klientene må knyttes til de nye systembrukerne som opprettes med fullmaktssett. En klient kan være knyttet til mange systembrukere samtidig, så selskapene kan gå over gradvis.
 
 ---
 ## Åpent valg: Bytte Maskinporten-klient
 
 **Skal en eksisterende systembruker kunne få en annen Maskinporten-klient?**
 
-**Tillat bytte:** Bevarer identiteten og tilgangene. Ny tilknytning må verifiseres og gammel tilknytning avsluttes.
+**Tillat bytte:** Bevarer identiteten og fullmaktene. Ny tilknytning må verifiseres og gammel tilknytning avsluttes.
 
 **Krev ny systembruker:** Stabil tilknytning, men kunden må etablere oppsettet på nytt.
 
@@ -317,7 +317,7 @@ De vedtatte reglene for flagg og tomme lister må gjennomføres i opprettelsesfl
 Vi må fortsatt beskrive:
 
 - Hvordan utelatte lister og `null` behandles.
-- Hvilke regler som gjelder for innholdet i listene og rettighetssettene, inkludert validering ved aksept og tak på antall sett.
+- Hvilke regler som gjelder for innholdet i listene og fullmaktssettene, inkludert validering ved aksept og tak på antall sett.
 - Hva som skjer når samme eksterne referanse sendes på nytt med endrede lister.
 
 Rettighetskravene i systemregisteret inngår ikke i innholdsvalideringen av forespørselens lister. Det skillet er vedtatt.
@@ -327,7 +327,7 @@ Rettighetskravene i systemregisteret inngår ikke i innholdsvalideringen av fore
 
 Forespørsel, lagring, svarmodeller og godkjenningsbilde må bevare skillet mellom egen- og klienttilganger. Aksept og senere delegering må bruke kravene fra forespørselen, også når systemets lister er tomme eller endres.
 
-Standard GUI må håndtere ett rettighetssett samlet for hver klient, samlet sletting for egen virksomhet og individuell delegering når virksomheten bestemmer.
+Standard GUI må håndtere ett fullmaktssett samlet for hver klient, samlet sletting for egen virksomhet og individuell delegering når virksomheten bestemmer.
 
 Direkte klienttilknytning, tokeninnhold uten registertilknytning og sporing av rettighetsgrunnlag må beskrives videre.
 
