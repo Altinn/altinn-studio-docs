@@ -115,7 +115,9 @@ Hvis `.html` eller `public/` vises: `git reset` og rens opp.
 2. **Test Hugo-bygg** (sjekk for REF_NOT_FOUND-feil):
    ```bash
    hugo
+   hugo -D
    ```
+   De engelske v9-sidene er utkast (`draft: true`) til den engelske dokumentasjonen er klar. `hugo` uten `-D` hopper over dem, også i CI, mens `hugo -D` bygger dem og finner feilene. En ny v9-side får `draft: true` på den engelske versjonen, ikke på den norske.
 
 3. **Push og lag PR:**
    ```bash
@@ -359,6 +361,8 @@ Hugo har to typer:
 - **Lenker**:
   - Interne: `{{< relref "path/to/file" >}}`
   - Beskrivende lenketekst
+  - En `relref` fra en engelsk side til en side som bare finnes på norsk, gir `REF_NOT_FOUND`. Lenk i stedet absolutt til `/nb/...`, og skriv «(documentation available in Norwegian only)» etter lenken.
+  - markdownlint (MD051) melder feil på lenker til egne ankere med store bokstaver, som `{#ProcessTask}`. Hugo bruker id-en slik den står, så lenken er riktig. Ikke endre store og små bokstaver.
 - **Bilder**:
   - Stier med `./`
   - Riktig page bundle-struktur
