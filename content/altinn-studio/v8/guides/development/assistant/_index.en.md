@@ -23,10 +23,7 @@ The assistant is specially adapted for Altinn and app development, and is not su
 
 ## Access
 
-Who can use the assistant depends on who owns the app:
-
-- If a service owner owns the app, the service owner must be in the beta and you must be a member of it.
-- If you own the app yourself, you must be a member of at least one service owner that is in the beta.
+You can use the assistant if you are a member of a service owner that is in the closed beta. You can then use it in that service owner's apps and in apps you own yourself.
 
 If you do not have access, Studio shows a message when you open **Assistent**.
 

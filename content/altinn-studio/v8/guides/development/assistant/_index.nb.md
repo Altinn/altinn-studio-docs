@@ -23,10 +23,7 @@ Assistenten er spesielt tilpasset Altinn og apputvikling, og egner seg ikke for 
 
 ## Tilgang
 
-Hvem som kan bruke assistenten, avhenger av hvem som eier appen:
-
-- Eier en tjenesteeier appen, må tjenesteeieren være med i betaen, og du må være medlem av den.
-- Eier du appen selv, må du være medlem av minst én tjenesteeier som er med i betaen.
+Du kan bruke assistenten hvis du er medlem av en tjenesteeier som er med i den lukkede betaen. Da kan du bruke den i appene til tjenesteeieren og i apper du eier selv.
 
 Har du ikke tilgang, viser Studio en melding om det når du åpner **Assistent**.
 
