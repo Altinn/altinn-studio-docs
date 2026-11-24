@@ -100,6 +100,8 @@ Id-en kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Utelatt `cli
 
 Leverandøren kan ikke endre eller slette et sett, bare legge til nye (vedtatt 23. november 2026). Et nytt sett blir en ny rad i brukerlisten, og virksomheten legger klientene til selv. Det som er delegert, endrer seg ikke. Altinn vurderer «komplett» per sett. Endepunktet gir valideringsfeil når `vendorLocked=false` (vedtatt 23. november 2026).
 
+Altinn sammenligner tilgangspakkene i settet med pakkene klienten har gitt byrået, ikke tjenestene pakkene gir tilgang til. En annen pakke som gir tilgang til de samme tjenestene, teller ikke. Enkelttjenester i settet må klienten ha gitt som enkelttjenester. Grunnen er at Altinn gir klientfullmakter videre per pakke, og at innholdet i pakkene kan endre seg over tid (vedtatt 24. november 2026).
+
 Kunden trenger ikke godkjenne et nytt sett, og et sett kan ikke stoppes for bruk. Alle settene står i brukerlisten så lenge systembrukeren finnes. Modellen har ingen måte å si at et nytt sett erstatter et gammelt, så bare navnene kan vise det. En id som finnes på systembrukeren fra før, gir 200 uten endring når innholdet er likt, og 409 når innholdet er ulikt. Det er ingen grense for hvor mange sett en systembruker kan ha, men mange rader gjør brukerlisten tung, og det må UX ta høyde for (vedtatt 24. november 2026).
 
 Uansett hvilket sett virksomheten åpner, viser flaten på klienten fullmakter systembrukeren har fra klienten gjennom andre sett.

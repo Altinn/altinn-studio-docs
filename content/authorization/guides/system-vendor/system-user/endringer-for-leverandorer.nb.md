@@ -139,6 +139,7 @@ Kunden godkjenner én systembruker. Fullmaktene for egen virksomhet får systemb
 Tre regler gjelder:
 
 - Virksomheten kan bare gi videre enkelttjenester den har fått som enkelttjeneste fra klienten. Tjenester den har fått gjennom en tilgangspakke, kan den ikke gi videre én og én.
+- Altinn sammenligner tilgangspakkene i settet med pakkene klienten har gitt byrået, ikke tjenestene pakkene gir tilgang til. Skal en annen pakke også godtas, legger du til et eget sett med den pakken.
 - Du oppgir ikke `action` i fullmaktssett i første versjon. Sender du `action`, svarer Altinn 400. Trenger du finere styring, bruker du tilgangspakker.
 - Utelater du `clientAccessSets` eller sender `null`, har systembrukeren ingen fullmaktssett. Et tomt objekt, et sett uten tilganger og samme tilgangspakke to ganger i ett sett gir 400.
 - Systembrukeren får de samme handlingene, for eksempel lese og skrive, som klienten har gitt virksomheten.
@@ -270,7 +271,6 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Hvordan du kan lese hvilke fullmakter systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Hva som skjer når klienten trekker tilbake bare en del av settet. Vi foreslår at klienten blir stående i raden, og at raden viser hva som mangler. Altinn flytter ikke klienten til et annet sett.
 - Om navn på fullmaktssett skal være påkrevd, og hvilket språk Altinn viser når navnet ikke finnes på brukerens språk.
-- Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
 - Hvilke virksomheter listen viser. Skissene forutsetter at listen viser en virksomhet først når den har gitt byrået en fullmakt.
 - Om systembrukeren fortsatt har fullmakt for en klient som er slettet i Enhetsregisteret.
