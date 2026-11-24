@@ -266,7 +266,7 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Hvordan du fjerner låsen på en systembruker, og hvordan virksomheten får vite det.
 - Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer fullmaktene. Du kan uansett be om flere fullmakter for egen virksomhet med en forespørsel om fullmakt.
 - Hvordan du kan lese hvilke fullmakter systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
-- Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
+- Hva som skjer når klienten trekker tilbake bare en del av settet. Vi foreslår at klienten blir stående i raden, og at raden viser hva som mangler. Altinn flytter ikke klienten til et annet sett.
 - Hvilke tegn id-en til et fullmaktssett kan ha.
 - Om navn på fullmaktssett skal være påkrevd, og hvilket språk Altinn viser når navnet ikke finnes på brukerens språk.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.

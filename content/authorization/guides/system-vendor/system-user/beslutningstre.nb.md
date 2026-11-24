@@ -170,7 +170,7 @@ Vedtatt 23. november 2026.
 | Navn på fullmaktssett | Foreslått 24. november 2026: valgfritt `name` på ett eller flere språk (`nb`, `nn`, `en`), uten krav om oversettelse. Finnes ikke brukerens språk, viser Altinn det første språket i feltet. Uten navn: «Alternativ 1», «Alternativ 2». Vi spør leverandørene i høringen om navn skal være påkrevd |
 | Navn og merker i grensesnittet | Om grensesnittet skal si «systembruker» i stedet for «systemtilgang», og hvordan det viser om leverandøren eller virksomheten bestemmer. Kom fra UX 24. november 2026 |
 | Levetid for versjon 1 | Antatt minst to år, ikke bekreftet. Leverandørene får god dokumentasjon, men ikke annen hjelp til overgangen |
-| Delvis tilbakekalling | Fjerne hele klienttilknytningen, beholde resten, eller bytte til et annet sett |
+| Delvis tilbakekalling | Forslag 24. november 2026, som RUNLAR støtter: klienten blir stående knyttet til settet, og raden viser hva som mangler. Altinn flytter ikke klienten til et annet sett av seg selv. Forslaget skal drøftes med resten av teamet før det blir vedtatt. Alternativene var å fjerne hele klienttilknytningen, beholde resten eller bytte til et annet sett |
 | Bytte Maskinporten-klient | Tillate bytte eller kreve ny bruker |
 
 Presentasjonen har ett åpent valg per lysbilde. Ingen av disse alternativene er markert som vedtatt.
