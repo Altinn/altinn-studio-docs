@@ -58,7 +58,7 @@ Autentiseringskoden ligger nå under `src/apps/Altinn.Authentication` i `altinn-
 |---|---|
 | `rights` | Enkeltrettigheter for egen virksomhet |
 | `accessPackages` | Tilgangspakker for egen virksomhet |
-| `clientAccessSets`* | Fullmaktssett for klienter, med id som nøkkel og i prioritert rekkefølge |
+| `clientAccessSets`* | Fullmaktssett for klienter, med id som nøkkel. Rekkefølgen bestemmer rekkefølgen på radene |
 
 Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på systemet i systemregisteret. Fullmaktssettene setter rammen for senere klientdelegering.
 
