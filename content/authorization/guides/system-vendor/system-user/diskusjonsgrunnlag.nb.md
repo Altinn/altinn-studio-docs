@@ -58,7 +58,7 @@ Autentiseringskoden ligger nå under `src/apps/Altinn.Authentication` i `altinn-
 |---|---|
 | `rights` | Enkeltrettigheter for egen virksomhet |
 | `accessPackages` | Tilgangspakker for egen virksomhet |
-| `clientAccessSets`* | Fullmaktssett for klienter, med id som nøkkel og i prioritert rekkefølge |
+| `clientAccessSets`* | Fullmaktssett for klienter, med id som nøkkel. Rekkefølgen bestemmer rekkefølgen på radene |
 
 Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på systemet i systemregisteret. Fullmaktssettene setter rammen for senere klientdelegering.
 
@@ -87,7 +87,9 @@ Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: regis
 
 API-et for å knytte en klient viser til systembrukeren, id-en til settet og klienten (vedtatt 23. november 2026).
 
-Åpent: hvilke tegn id-en kan ha, og om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
+Foreslått 24. november 2026: hvert sett kan ha et navn i det valgfrie feltet `name`, på ett eller flere av språkene `nb`, `nn` og `en`, som navn i systemregisteret. Oversettelse er ikke påkrevd. Finnes ikke navnet på brukerens språk, viser Altinn det første språket i feltet. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre.
+
+Åpent: hvilke tegn id-en kan ha, og om navn skal være påkrevd. Vi spør leverandørene i høringen.
 
 ---
 ## Vedtatt: Leverandøren kan legge til nye fullmaktssett
@@ -191,7 +193,7 @@ På **Brukere** står systembrukere i samme liste som personer og virksomheter, 
 ---
 ## Illustrasjon: Felles brukeroversikt
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-brukere.png" alt="Brukere for Tallmakerne AS: én liste der personer og systembrukere står sammen, med én rad per alternativ og egen virksomhet: Personalportalen – Alternativ 1 og 2, SmartRegnskap – Egen virksomhet, Egen integrasjon – Egen virksomhet og Rapportrobot – Klienter"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" alt="Klientadministrasjon, fanen Brukere: én liste over brukere med klienttilgang, med Kari Nordmann, Ada Eksempel, Personalportalen – Alternativ 1 og 2 og Rapportrobot – Klienter. Radene for egen virksomhet står ikke her"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-brukere.png" alt="Brukere for Tallmakerne AS: én liste der personer og systembrukere står sammen, med én rad per alternativ og egen virksomhet: Personalportalen – Registrert regnskapsfører og Personalportalen – Uten regnskapsførerrolle, SmartRegnskap – Egen virksomhet, Egen integrasjon – Egen virksomhet og Rapportrobot – Klienter"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" alt="Klientadministrasjon, fanen Brukere: én liste over brukere med klienttilgang, med Kari Nordmann, Ada Eksempel, Personalportalen – Registrert regnskapsfører og Personalportalen – Uten regnskapsførerrolle og Rapportrobot – Klienter. Radene for egen virksomhet står ikke her"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -222,7 +224,7 @@ Når virksomheten bestemmer, har systembrukeren ingen fullmaktssett, og flaten t
 ---
 ## Illustrasjon: Klienttilganger som ett sett
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Alternativ 1 åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i Alternativ 2."></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for alternativ 1, med knappen Legg klienten til og linjen Personalportalen har allerede Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori fra klienten, gjennom Alternativ 2"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Registrert regnskapsfører åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i «Uten regnskapsførerrolle»."></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for «Registrert regnskapsfører», med knappen Legg klienten til og linjen Personalportalen har allerede Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori fra klienten, gjennom «Uten regnskapsførerrolle»"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 

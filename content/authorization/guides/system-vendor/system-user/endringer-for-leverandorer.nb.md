@@ -125,6 +125,7 @@ Et **fullmaktssett** er tilgangspakker og enkeltrettigheter som hører sammen. D
 | `rights` | Enkeltrettigheter for egen virksomhet | Finnes i dag |
 | `clientAccessSets` | Fullmaktssett for klienter, med id som nøkkel. Rekkefølgen bestemmer rekkefølgen på radene | Nytt, foreløpig navn |
 | `vendorLocked` | Hvem som bestemmer fullmaktene etter godkjenning | Nytt, påkrevd |
+| `name` i hvert fullmaktssett | Navnet virksomheten ser, på ett eller flere språk | Nytt, valgfritt, foreslått |
 
 Kunden godkjenner én systembruker. Fullmaktene for egen virksomhet får systembrukeren når kunden godkjenner. Fullmaktene for klienter får den når virksomheten knytter klienter til systembrukeren.
 
@@ -265,7 +266,7 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Om du kan stoppe et gammelt fullmaktssett for nye klienter, når du ikke kan slette det.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
 - Hvor mange fullmaktssett du kan oppgi, og hvilke tegn id-en til et sett kan ha.
-- Om du skal kunne gi fullmaktssettene navn med feltet `name`.
+- Om navn på fullmaktssett skal være påkrevd, og hvilket språk Altinn viser når navnet ikke finnes på brukerens språk.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
 - Hvilke virksomheter listen viser. Skissene forutsetter at listen viser en virksomhet først når den har gitt byrået en fullmakt.
@@ -382,7 +383,10 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
 ```json
 "clientAccessSets": {
   "regnskapsforer": {
-    "name": "Registrert regnskapsfører",
+    "name": {
+      "nb": "Registrert regnskapsfører",
+      "en": "Registered accountant"
+    },
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:regnskapsforer-lonn" },
       { "urn": "urn:altinn:accesspackage:lonn-personopplysninger-saerlig-kategori" }
@@ -392,7 +396,10 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
     ]
   },
   "uregistrert": {
-    "name": "Uten regnskapsførerrolle",
+    "name": {
+      "nb": "Uten regnskapsførerrolle",
+      "en": "No accountant role"
+    },
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:a-ordning" },
       { "urn": "urn:altinn:accesspackage:lonn" },
@@ -405,7 +412,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
 }
 ```
 
-Id-en er nøkkelen og ligger fast. Feltet `name` er teksten virksomheten ser. Feltet er valgfritt, og navnet på feltet er foreløpig. Gir du settene navn, ser virksomheten navnene i stedet for «Alternativ 1» og «Alternativ 2».
+Id-en er nøkkelen og ligger fast. Feltet `name` er navnet virksomheten ser. Det er et objekt med ett eller flere av språkene `nb`, `nn` og `en`, slik navn er i systemregisteret. Du trenger ikke oversette navnet. Finnes ikke navnet på språket brukeren har valgt i Altinn, viser Altinn det første språket i feltet. Uten `name` ser virksomheten «Alternativ 1», «Alternativ 2» og så videre. I eksempelet ser en bruker som har valgt nynorsk, det bokmålske navnet. Feltet er valgfritt, og navnet på feltet er foreløpig.
 
 En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
 
@@ -501,7 +508,7 @@ De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere
 - Alle brukerlister viser en systembruker med flere fullmaktssett som én rad per sett. Fullmakter for egen virksomhet har en egen rad. Det er fortsatt én systembruker.
 - Når byrået åpner raden for et sett, viser siden bare det settet, med én **Legg til alle**. Altinn krysser ikke av for noe sett på forhånd.
 - Når virksomheten bestemmer, finnes det ingen fullmaktssett. For klientene er systembrukeren lik en ansatt med klienttilganger.
-- Skissene kaller fullmaktssettene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Vi ser for oss at du kan gi settene navn, som i scenario 2. Si gjerne fra om du ønsker det.
+- Skissene bruker navnene fra scenario 2: «Registrert regnskapsfører» og «Uten regnskapsførerrolle». Uten navn kaller Altinn settene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem.
 - Reglene bak skissene står til slutt i presentasjonen.
 
 Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
@@ -511,12 +518,12 @@ Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
 
 Systembrukerne står i den samme listen som personer og virksomheter på den vanlige brukersiden, og i fanen **Brukere** i Klientadministrasjon. Det skal gå fram hvem som bestemmer fullmaktene, men vi har ikke bestemt hvordan. Klientadministrasjon viser bare en liste over brukere med klienttilgang, som i dag, og radene for systembrukeren står i den listen.
 
-- En systembruker med to fullmaktssett er to rader, for eksempel «Personalportalen – Alternativ 1». Med feltet `name` står navnet på settet i stedet.
+- En systembruker med to fullmaktssett er to rader, for eksempel «Personalportalen – Registrert regnskapsfører». Uten navn heter raden «Personalportalen – Alternativ 1».
 - Fullmakter for egen virksomhet har en egen rad.
 - Systembrukerne står alltid i listen, også når **Vis brukere med klienttilgang** er slått av.
 - Sletter byrået systembrukeren fra en av radene, forsvinner alle radene. Bekreftelsen sier det.
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-brukere.png" alt="Brukere for Tallmakerne AS: én liste der personer og systembrukere står sammen, med én rad per alternativ og egen virksomhet: Personalportalen – Alternativ 1 og 2, SmartRegnskap – Egen virksomhet, Egen integrasjon – Egen virksomhet og Rapportrobot – Klienter"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" alt="Klientadministrasjon, fanen Brukere: én liste over brukere med klienttilgang, med Kari Nordmann, Ada Eksempel, Personalportalen – Alternativ 1 og 2 og Rapportrobot – Klienter. Radene for egen virksomhet står ikke her"></a><a href="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" alt="Bekreftelsen Slette systembrukeren Personalportalen? Begge radene for Personalportalen forsvinner, og Personalportalen mister alle fullmaktene for 2 klienter"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-brukere.png" alt="Brukere for Tallmakerne AS: én liste der personer og systembrukere står sammen, med én rad per alternativ og egen virksomhet: Personalportalen – Registrert regnskapsfører og Personalportalen – Uten regnskapsførerrolle, SmartRegnskap – Egen virksomhet, Egen integrasjon – Egen virksomhet og Rapportrobot – Klienter"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" alt="Klientadministrasjon, fanen Brukere: én liste over brukere med klienttilgang, med Kari Nordmann, Ada Eksempel, Personalportalen – Registrert regnskapsfører og Personalportalen – Uten regnskapsførerrolle og Rapportrobot – Klienter. Radene for egen virksomhet står ikke her"></a><a href="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" alt="Bekreftelsen Slette systembrukeren Personalportalen? Begge radene for Personalportalen forsvinner, og Personalportalen mister alle fullmaktene for 2 klienter"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -539,28 +546,39 @@ Byrået åpner raden for ett alternativ i brukerlisten. Siden viser bare det alt
 - Byrået vil se et annet alternativ, går de tilbake til listen og åpner en annen rad.
 - Altinn vurderer hvert alternativ for seg. En klient kan være komplett i ett alternativ og mangle noe i et annet.
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Alternativ 1 åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i Alternativ 2."></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS åpen i raden for alternativ 1: de tre fullmaktene i alternativet på blå bakgrunn, og knappen Fjern klienten fra alternativet"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Registrert regnskapsfører åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i «Uten regnskapsførerrolle»."></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS åpen i raden for «Registrert regnskapsfører»: de tre fullmaktene i alternativet på blå bakgrunn, og knappen Fjern klienten fra alternativet"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
 ## Klienten oppfyller flere alternativer
 
-Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten til i begge radene. Klienten er knyttet til alternativ 2, og står som mulig klient i raden for alternativ 1. Byrået knytter klienten til ett alternativ om gangen, og kan knytte den til begge.
+Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten til i begge radene. Klienten er knyttet til «Uten regnskapsførerrolle», og står som mulig klient i raden for «Registrert regnskapsfører». Byrået knytter klienten til ett alternativ om gangen, og kan knytte den til begge.
 
 - Er klienten knyttet til flere alternativer, får systembrukeren alle fullmaktene i dem.
 - Uansett hvilken rad byrået åpner, viser klienten fullmakter systembrukeren har fra klienten utenfor alternativet. Det gjelder fullmakter fra andre alternativer. Ingen fullmakt skal være skjult.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for alternativ 1, med knappen Legg klienten til og linjen Personalportalen har allerede Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori fra klienten, gjennom Alternativ 2"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for «Registrert regnskapsfører», med knappen Legg klienten til og linjen Personalportalen har allerede Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori fra klienten, gjennom «Uten regnskapsførerrolle»"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Alternativene kan ha navn
 
-Gir du fullmaktssettene navn med feltet `name`, ser byrået navnene i stedet for «Alternativ 1», «Alternativ 2» og så videre. Si gjerne fra om du ønsker dette.
+Skissene viser fullmaktssett med navn, for eksempel «Personalportalen – Registrert regnskapsfører». Gir du ikke settene navn, ser byrået «Alternativ 1», «Alternativ 2» og så videre.
 
-Vi har ikke laget skisse av dette ennå.
+- **Navnet kan ha flere språk:** `nb`, `nn` og `en`, som navn i systemregisteret.
+- **Du trenger ikke oversette.** Finnes ikke navnet på språket brukeren har valgt, viser Altinn det første språket i feltet.
+- **Hold navnet kort.** Det står etter navnet på systemet i brukerlisten.
+
+```json
+"name": {
+  "nb": "Registrert regnskapsfører",
+  "en": "Registered accountant"
+}
+```
+
+Feltet er et forslag. Si gjerne fra om du ønsker det, og om du vil bruke flere språk.
 
 ---
 ## Virksomheten legger til mange klienter samtidig
@@ -569,7 +587,7 @@ Raden for hvert alternativ har sin egen **Legg til alle**. Knappen knytter klien
 
 En klient som oppfyller flere alternativer, blir bare knyttet til alternativet byrået bruker knappen for.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" alt="Bekreftelsen Legge til 2 klienter i Personalportalen – Alternativ 2? Personalportalen får fullmaktene i Alternativ 2 for Nordavind Bygg AS og Solvang Transport AS"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-legg-til-alle.png" alt="Bekreftelsen Legge til 2 klienter i Personalportalen – Uten regnskapsførerrolle? Personalportalen får fullmaktene i «Uten regnskapsførerrolle» for Nordavind Bygg AS og Solvang Transport AS"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -611,10 +629,10 @@ Når virksomheten bestemmer, har systembrukeren ingen fullmaktssett. Brukerliste
 
 På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra klienten, og hvilke som kan få det, som i Klientadministrasjon i dag. Systembrukerne står i de samme listene som personene. En systembruker med flere fullmaktssett står med én rad per sett. En rad som ikke kan få klienten, viser det som mangler, på samme måte som siden for raden.
 
-- Solvang Transport AS: «Personalportalen – Alternativ 2» kan få klienten. Raden for alternativ 1 viser at Regnskapsfører lønn mangler. Rapportrobot – Klienter kan også få klienten.
+- Solvang Transport AS: «Personalportalen – Uten regnskapsførerrolle» kan få klienten. Raden for «Registrert regnskapsfører» viser at Regnskapsfører lønn mangler. Rapportrobot – Klienter kan også få klienten.
 - Elvebakken Kafé AS har bare gitt Merverdiavgift. Rapportrobot – Klienter kan få klienten, fordi virksomheten bestemmer. Begge radene for Personalportalen viser hva som mangler, og byrået må kontakte klienten.
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" alt="Siden for Solvang Transport AS: ingen brukere har fullmakt fra klienten ennå. Under Brukere som kan få fullmakt viser Personalportalen – Alternativ 1 at Regnskapsfører lønn mangler, og Personalportalen – Alternativ 2 er åpen med Legg klienten til"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" alt="Siden for Elvebakken Kafé AS: ingen brukere har fullmakt fra klienten, og begge radene for Personalportalen viser at klienten ikke har gitt noe av det alternativet krever"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" alt="Siden for Solvang Transport AS: ingen brukere har fullmakt fra klienten ennå. Under Brukere som kan få fullmakt viser Personalportalen – Registrert regnskapsfører at Regnskapsfører lønn mangler, og Personalportalen – Uten regnskapsførerrolle er åpen med Legg klienten til"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" alt="Siden for Elvebakken Kafé AS: ingen brukere har fullmakt fra klienten, og begge radene for Personalportalen viser at klienten ikke har gitt noe av det alternativet krever"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -625,7 +643,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 
 **Det byrået gjør:** Åpner klienten i en av radene, avklarer kundeforholdet, og ber klienten gi det som mangler. Merverdiavgift-pakken påvirker ikke Personalportalen.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" alt="Elvebakken Kafé AS åpen i raden for alternativ 1: klienten har bare gitt Merverdiavgift, og alle tre fullmaktene i alternativet mangler"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" alt="Elvebakken Kafé AS åpen i raden for «Registrert regnskapsfører»: klienten har bare gitt Merverdiavgift, og alle tre fullmaktene i alternativet mangler"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -636,18 +654,18 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 
 **Det byrået gjør:** Åpner klienten i listen, ser hva klienten ga, og ber klienten gi riktig pakke. Da slipper byrået å gå via support. Når pakken er gitt, kan byrået legge til klienten.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" alt="Fjordbakeriet AS åpen i raden for alternativ 1: klienten har gitt Sykefravær, som er en annen tilgangspakke enn Sykefravær med personopplysninger av særlig kategori"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" alt="Fjordbakeriet AS åpen i raden for «Registrert regnskapsfører»: klienten har gitt Sykefravær, som er en annen tilgangspakke enn Sykefravær med personopplysninger av særlig kategori"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Scenario: klienten mangler like mye til flere alternativer
 
-**Situasjon:** Kystlinjen Eiendom AS har gitt Lønn og begge pakkene med særlig kategori. Hvert alternativ mangler én fullmakt: Regnskapsfører lønn til alternativ 1 og A-ordningen til alternativ 2. Klienten står blant dem som mangler noe i begge radene. Altinn peker ikke på et bestemt alternativ.
+**Situasjon:** Kystlinjen Eiendom AS har gitt Lønn og begge pakkene med særlig kategori. Hvert alternativ mangler én fullmakt: Regnskapsfører lønn til «Registrert regnskapsfører» og A-ordningen til «Uten regnskapsførerrolle». Klienten står blant dem som mangler noe i begge radene. Altinn peker ikke på et bestemt alternativ.
 
 **Det byrået gjør:** Avklarer kundeforholdet. Er byrået regnskapsfører, registrerer klienten det i Enhetsregisteret. Ellers kan klienten gi A-ordningen direkte.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" alt="Kystlinjen Eiendom AS åpen i raden for alternativ 1: Regnskapsfører lønn mangler og kommer fra regnskapsførerrollen, og klienten mangler også A-ordningen til alternativ 2"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" alt="Kystlinjen Eiendom AS åpen i raden for «Registrert regnskapsfører»: Regnskapsfører lønn mangler og kommer fra regnskapsførerrollen, og klienten mangler også A-ordningen til «Uten regnskapsførerrolle»"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -696,7 +714,7 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 - Fullmakter fra revisor- eller regnskapsførerrollen forsvinner bare hvis klienten endrer rollen i Enhetsregisteret.
 - Er klienten knyttet til flere fullmaktssett på samme systembruker, ser klienten én rad per sett.
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-klienten-ser-byraa.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klienten-ser-byraa.png" alt="Brukere hos Fjellvik Bygg AS med Vis brukere med klienttilgang slått på: én flat liste med to ansatte i Fjellvik, Tallmakerne AS med merket Regnskapsfører, Ola Nordmann og Personalportalen – Alternativ 2 med merket Systembruker, der de to siste har linjen Regnskapsfører for Tallmakerne AS"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klienten-ser-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klienten-ser-systembruker.png" alt="Siden for Personalportalen – Alternativ 2 sett fra Fjellvik Bygg AS: de fire fullmaktene i alternativet gjennom Tallmakerne AS, uten knapper for å fjerne dem"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-klienten-ser-byraa.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klienten-ser-byraa.png" alt="Brukere hos Fjellvik Bygg AS med Vis brukere med klienttilgang slått på: én flat liste med to ansatte i Fjellvik, Tallmakerne AS med merket Regnskapsfører, Ola Nordmann og Personalportalen – Uten regnskapsførerrolle med merket Systembruker, der de to siste har linjen Regnskapsfører for Tallmakerne AS"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klienten-ser-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klienten-ser-systembruker.png" alt="Siden for Personalportalen – Uten regnskapsførerrolle sett fra Fjellvik Bygg AS: de fire fullmaktene i alternativet gjennom Tallmakerne AS, uten knapper for å fjerne dem"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
