@@ -167,7 +167,7 @@ Vedtatt 23. november 2026.
 | Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Vedtatt 10. november 2026: bare fra `vendorLocked=true` til `false`. En åpen systembruker kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Åpent: om virksomheten også kan fjerne låsen |
 | Eksisterende Agent-brukere | Intern representasjon: videreføre med kompatibilitet eller overføre til utvidet modell. Klientene flyttes ikke automatisk |
 | Nye fullmaktssett | Om kunden må godkjenne et nytt sett, og om leverandøren kan stoppe et gammelt sett for nye klienter. Vedtatt 23. november 2026: «komplett» per sett, og leverandøren kan ikke endre eller slette sett, bare legge til nye |
-| Navn på fullmaktssett | Valgfritt `name` fra leverandøren, eller bare «Alternativ 1», «Alternativ 2» i grensesnittet. Vi spør leverandørene i høringen |
+| Navn på fullmaktssett | Foreslått 24. november 2026: valgfritt `name` på ett eller flere språk (`nb`, `nn`, `en`), uten krav om oversettelse. Finnes ikke brukerens språk, viser Altinn det første språket i feltet. Uten navn: «Alternativ 1», «Alternativ 2». Vi spør leverandørene i høringen om navn skal være påkrevd |
 | Navn og merker i grensesnittet | Om grensesnittet skal si «systembruker» i stedet for «systemtilgang», og hvordan det viser om leverandøren eller virksomheten bestemmer. Kom fra UX 24. november 2026 |
 | Levetid for versjon 1 | Antatt minst to år, ikke bekreftet. Leverandørene får god dokumentasjon, men ikke annen hjelp til overgangen |
 | Delvis tilbakekalling | Fjerne hele klienttilknytningen, beholde resten, eller bytte til et annet sett |

@@ -87,7 +87,9 @@ Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: regis
 
 API-et for å knytte en klient viser til systembrukeren, id-en til settet og klienten (vedtatt 23. november 2026).
 
-Åpent: hvilke tegn id-en kan ha, og om leverandøren skal kunne gi hvert sett et navn med det valgfrie feltet `name`. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre. Vi spør leverandørene i høringen.
+Foreslått 24. november 2026: hvert sett kan ha et navn i det valgfrie feltet `name`, på ett eller flere av språkene `nb`, `nn` og `en`, som navn i systemregisteret. Oversettelse er ikke påkrevd. Finnes ikke navnet på brukerens språk, viser Altinn det første språket i feltet. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre.
+
+Åpent: hvilke tegn id-en kan ha, og om navn skal være påkrevd. Vi spør leverandørene i høringen.
 
 ---
 ## Vedtatt: Leverandøren kan legge til nye fullmaktssett

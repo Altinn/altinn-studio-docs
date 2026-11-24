@@ -125,6 +125,7 @@ Et **fullmaktssett** er tilgangspakker og enkeltrettigheter som hører sammen. D
 | `rights` | Enkeltrettigheter for egen virksomhet | Finnes i dag |
 | `clientAccessSets` | Fullmaktssett for klienter, med id som nøkkel. Rekkefølgen bestemmer rekkefølgen på radene | Nytt, foreløpig navn |
 | `vendorLocked` | Hvem som bestemmer fullmaktene etter godkjenning | Nytt, påkrevd |
+| `name` i hvert fullmaktssett | Navnet virksomheten ser, på ett eller flere språk | Nytt, valgfritt, foreslått |
 
 Kunden godkjenner én systembruker. Fullmaktene for egen virksomhet får systembrukeren når kunden godkjenner. Fullmaktene for klienter får den når virksomheten knytter klienter til systembrukeren.
 
@@ -265,7 +266,7 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Om du kan stoppe et gammelt fullmaktssett for nye klienter, når du ikke kan slette det.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
 - Hvor mange fullmaktssett du kan oppgi, og hvilke tegn id-en til et sett kan ha.
-- Om du skal kunne gi fullmaktssettene navn med feltet `name`.
+- Om navn på fullmaktssett skal være påkrevd, og hvilket språk Altinn viser når navnet ikke finnes på brukerens språk.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
 - Hvilke virksomheter listen viser. Skissene forutsetter at listen viser en virksomhet først når den har gitt byrået en fullmakt.
@@ -382,7 +383,10 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
 ```json
 "clientAccessSets": {
   "regnskapsforer": {
-    "name": "Registrert regnskapsfører",
+    "name": {
+      "nb": "Registrert regnskapsfører",
+      "en": "Registered accountant"
+    },
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:regnskapsforer-lonn" },
       { "urn": "urn:altinn:accesspackage:lonn-personopplysninger-saerlig-kategori" }
@@ -392,7 +396,10 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
     ]
   },
   "uregistrert": {
-    "name": "Uten regnskapsførerrolle",
+    "name": {
+      "nb": "Uten regnskapsførerrolle",
+      "en": "No accountant role"
+    },
     "accessPackages": [
       { "urn": "urn:altinn:accesspackage:a-ordning" },
       { "urn": "urn:altinn:accesspackage:lonn" },
@@ -405,7 +412,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
 }
 ```
 
-Id-en er nøkkelen og ligger fast. Feltet `name` er teksten virksomheten ser. Feltet er valgfritt, og navnet på feltet er foreløpig. Gir du settene navn, ser virksomheten navnene i stedet for «Alternativ 1» og «Alternativ 2».
+Id-en er nøkkelen og ligger fast. Feltet `name` er navnet virksomheten ser. Det er et objekt med ett eller flere av språkene `nb`, `nn` og `en`, slik navn er i systemregisteret. Du trenger ikke oversette navnet. Finnes ikke navnet på språket brukeren har valgt i Altinn, viser Altinn det første språket i feltet. Uten `name` ser virksomheten «Alternativ 1», «Alternativ 2» og så videre. I eksempelet ser en bruker som har valgt nynorsk, det bokmålske navnet. Feltet er valgfritt, og navnet på feltet er foreløpig.
 
 En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
 
@@ -501,7 +508,7 @@ De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere
 - Alle brukerlister viser en systembruker med flere fullmaktssett som én rad per sett. Fullmakter for egen virksomhet har en egen rad. Det er fortsatt én systembruker.
 - Når byrået åpner raden for et sett, viser siden bare det settet, med én **Legg til alle**. Altinn krysser ikke av for noe sett på forhånd.
 - Når virksomheten bestemmer, finnes det ingen fullmaktssett. For klientene er systembrukeren lik en ansatt med klienttilganger.
-- Skissene kaller fullmaktssettene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem. Vi ser for oss at du kan gi settene navn, som i scenario 2. Si gjerne fra om du ønsker det.
+- Skissene bruker navnene fra scenario 2: «Registrert regnskapsfører» og «Uten regnskapsførerrolle». Uten navn kaller Altinn settene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem.
 - Reglene bak skissene står til slutt i presentasjonen.
 
 Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
@@ -511,7 +518,7 @@ Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
 
 Systembrukerne står i den samme listen som personer og virksomheter på den vanlige brukersiden, og i fanen **Brukere** i Klientadministrasjon. Det skal gå fram hvem som bestemmer fullmaktene, men vi har ikke bestemt hvordan. Klientadministrasjon viser bare en liste over brukere med klienttilgang, som i dag, og radene for systembrukeren står i den listen.
 
-- En systembruker med to fullmaktssett er to rader, for eksempel «Personalportalen – Alternativ 1». Med feltet `name` står navnet på settet i stedet.
+- En systembruker med to fullmaktssett er to rader, for eksempel «Personalportalen – Registrert regnskapsfører». Uten navn heter raden «Personalportalen – Alternativ 1».
 - Fullmakter for egen virksomhet har en egen rad.
 - Systembrukerne står alltid i listen, også når **Vis brukere med klienttilgang** er slått av.
 - Sletter byrået systembrukeren fra en av radene, forsvinner alle radene. Bekreftelsen sier det.
@@ -546,7 +553,7 @@ Byrået åpner raden for ett alternativ i brukerlisten. Siden viser bare det alt
 ---
 ## Klienten oppfyller flere alternativer
 
-Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten til i begge radene. Klienten er knyttet til alternativ 2, og står som mulig klient i raden for alternativ 1. Byrået knytter klienten til ett alternativ om gangen, og kan knytte den til begge.
+Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten til i begge radene. Klienten er knyttet til «Uten regnskapsførerrolle», og står som mulig klient i raden for «Registrert regnskapsfører». Byrået knytter klienten til ett alternativ om gangen, og kan knytte den til begge.
 
 - Er klienten knyttet til flere alternativer, får systembrukeren alle fullmaktene i dem.
 - Uansett hvilken rad byrået åpner, viser klienten fullmakter systembrukeren har fra klienten utenfor alternativet. Det gjelder fullmakter fra andre alternativer. Ingen fullmakt skal være skjult.
@@ -558,9 +565,20 @@ Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten t
 ---
 ## Alternativene kan ha navn
 
-Gir du fullmaktssettene navn med feltet `name`, ser byrået navnene i stedet for «Alternativ 1», «Alternativ 2» og så videre. Si gjerne fra om du ønsker dette.
+Skissene viser fullmaktssett med navn, for eksempel «Personalportalen – Registrert regnskapsfører». Gir du ikke settene navn, ser byrået «Alternativ 1», «Alternativ 2» og så videre.
 
-Vi har ikke laget skisse av dette ennå.
+- **Navnet kan ha flere språk:** `nb`, `nn` og `en`, som navn i systemregisteret.
+- **Du trenger ikke oversette.** Finnes ikke navnet på språket brukeren har valgt, viser Altinn det første språket i feltet.
+- **Hold navnet kort.** Det står etter navnet på systemet i brukerlisten.
+
+```json
+"name": {
+  "nb": "Registrert regnskapsfører",
+  "en": "Registered accountant"
+}
+```
+
+Feltet er et forslag. Si gjerne fra om du ønsker det, og om du vil bruke flere språk.
 
 ---
 ## Virksomheten legger til mange klienter samtidig
@@ -611,7 +629,7 @@ Når virksomheten bestemmer, har systembrukeren ingen fullmaktssett. Brukerliste
 
 På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra klienten, og hvilke som kan få det, som i Klientadministrasjon i dag. Systembrukerne står i de samme listene som personene. En systembruker med flere fullmaktssett står med én rad per sett. En rad som ikke kan få klienten, viser det som mangler, på samme måte som siden for raden.
 
-- Solvang Transport AS: «Personalportalen – Alternativ 2» kan få klienten. Raden for alternativ 1 viser at Regnskapsfører lønn mangler. Rapportrobot – Klienter kan også få klienten.
+- Solvang Transport AS: «Personalportalen – Uten regnskapsførerrolle» kan få klienten. Raden for «Registrert regnskapsfører» viser at Regnskapsfører lønn mangler. Rapportrobot – Klienter kan også få klienten.
 - Elvebakken Kafé AS har bare gitt Merverdiavgift. Rapportrobot – Klienter kan få klienten, fordi virksomheten bestemmer. Begge radene for Personalportalen viser hva som mangler, og byrået må kontakte klienten.
 
 <div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" alt="Siden for Solvang Transport AS: ingen brukere har fullmakt fra klienten ennå. Under Brukere som kan få fullmakt viser Personalportalen – Alternativ 1 at Regnskapsfører lønn mangler, og Personalportalen – Alternativ 2 er åpen med Legg klienten til"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" alt="Siden for Elvebakken Kafé AS: ingen brukere har fullmakt fra klienten, og begge radene for Personalportalen viser at klienten ikke har gitt noe av det alternativet krever"></a></div>
@@ -643,7 +661,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 ---
 ## Scenario: klienten mangler like mye til flere alternativer
 
-**Situasjon:** Kystlinjen Eiendom AS har gitt Lønn og begge pakkene med særlig kategori. Hvert alternativ mangler én fullmakt: Regnskapsfører lønn til alternativ 1 og A-ordningen til alternativ 2. Klienten står blant dem som mangler noe i begge radene. Altinn peker ikke på et bestemt alternativ.
+**Situasjon:** Kystlinjen Eiendom AS har gitt Lønn og begge pakkene med særlig kategori. Hvert alternativ mangler én fullmakt: Regnskapsfører lønn til «Registrert regnskapsfører» og A-ordningen til «Uten regnskapsførerrolle». Klienten står blant dem som mangler noe i begge radene. Altinn peker ikke på et bestemt alternativ.
 
 **Det byrået gjør:** Avklarer kundeforholdet. Er byrået regnskapsfører, registrerer klienten det i Enhetsregisteret. Ellers kan klienten gi A-ordningen direkte.
 
