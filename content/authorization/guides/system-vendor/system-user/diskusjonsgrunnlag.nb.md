@@ -81,7 +81,7 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 - PostgreSQL-typen `jsonb` tar ikke vare på rekkefølgen av nøklene. Vi må lagre rekkefølgen på en annen måte, for eksempel som en liste med id internt eller som `json`.
 - JavaScript legger nøkler som bare er sifre, først. Id-en bør derfor ikke bare bestå av sifre.
 - Klienten og serveren må lese JSON-objektet slik at de beholder rekkefølgen. Det må stå tydelig i API-dokumentasjonen.
-- Fullmaktssett støtter ikke `action` i første versjon. Behov for finere styring dekker vi med tilgangspakker.
+- Fullmaktssett støtter ikke `action` i første versjon, og `action` i et sett gir 400 (vedtatt 24. november 2026). Behov for finere styring dekker vi med tilgangspakker.
 
 Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: registrert regnskapsfører (rollen REGN), registrert revisor (rollen REVI) og uregistrert kunde (direkte delegering). Leverandøren trenger ikke vite kundeforholdet for å hente token, så lenge alle settene dekker de samme tjenestene.
 
@@ -89,7 +89,9 @@ API-et for å knytte en klient viser til systembrukeren, id-en til settet og kli
 
 Foreslått 24. november 2026: hvert sett kan ha et navn i det valgfrie feltet `name`, på ett eller flere av språkene `nb`, `nn` og `en`, som navn i systemregisteret. Oversettelse er ikke påkrevd. Finnes ikke navnet på brukerens språk, viser Altinn det første språket i feltet. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre.
 
-Åpent: hvilke tegn id-en kan ha, og om navn skal være påkrevd. Vi spør leverandørene i høringen.
+Id-en kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Utelatt `clientAccessSets` og `null` betyr ingen fullmaktssett. Et tomt objekt, et sett uten tilganger og samme tilgangspakke to ganger i ett sett gir 400 (vedtatt 24. november 2026).
+
+Åpent: om navn skal være påkrevd. Vi spør leverandørene i høringen.
 
 ---
 ## Vedtatt: Leverandøren kan legge til nye fullmaktssett
@@ -97,6 +99,10 @@ Foreslått 24. november 2026: hvert sett kan ha et navn i det valgfrie feltet `n
 **Leverandøren får et eget endepunkt for å legge til nye fullmaktssett på en systembruker, for eksempel når det kommer nye tilgangspakker.**
 
 Leverandøren kan ikke endre eller slette et sett, bare legge til nye (vedtatt 23. november 2026). Et nytt sett blir en ny rad i brukerlisten, og virksomheten legger klientene til selv. Det som er delegert, endrer seg ikke. Altinn vurderer «komplett» per sett. Endepunktet gir valideringsfeil når `vendorLocked=false` (vedtatt 23. november 2026).
+
+Altinn sammenligner tilgangspakkene i settet med pakkene klienten har gitt byrået, ikke tjenestene pakkene gir tilgang til. En annen pakke som gir tilgang til de samme tjenestene, teller ikke. Enkelttjenester i settet må klienten ha gitt som enkelttjenester. Grunnen er at Altinn gir klientfullmakter videre per pakke, og at innholdet i pakkene kan endre seg over tid (vedtatt 24. november 2026).
+
+Kunden trenger ikke godkjenne et nytt sett, og et sett kan ikke stoppes for bruk. Alle settene står i brukerlisten så lenge systembrukeren finnes. Modellen har ingen måte å si at et nytt sett erstatter et gammelt, så bare navnene kan vise det. En id som finnes på systembrukeren fra før, gir 200 uten endring når innholdet er likt, og 409 når innholdet er ulikt. Det er ingen grense for hvor mange sett en systembruker kan ha, men mange rader gjør brukerlisten tung, og det må UX ta høyde for (vedtatt 24. november 2026).
 
 Uansett hvilket sett virksomheten åpner, viser flaten på klienten fullmakter systembrukeren har fra klienten gjennom andre sett.
 
@@ -224,7 +230,7 @@ Når virksomheten bestemmer, har systembrukeren ingen fullmaktssett, og flaten t
 ---
 ## Illustrasjon: Klienttilganger som ett sett
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Registrert regnskapsfører åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i «Uten regnskapsførerrolle»."></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for «Registrert regnskapsfører», med knappen Legg klienten til og linjen Personalportalen har allerede Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori fra klienten, gjennom «Uten regnskapsførerrolle»"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Registrert regnskapsfører åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i «Uten regnskapsførerrolle»."></a><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for «Registrert regnskapsfører», med knappen Legg klienten til. Regnskapsfører lønn er grå, fordi byrået har den, men ikke har gitt den til Personalportalen. De to pakkene med særlig kategori er blå, fordi Personalportalen har dem gjennom «Uten regnskapsførerrolle»"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -283,7 +289,9 @@ Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke utt
 
 Når leverandøren fjerner låsen, sletter Altinn fullmaktssettene. Klientene beholder det som er delegert, og virksomheten kan endre fritt etterpå. Ingen fullmakter forsvinner (vedtatt 23. november 2026).
 
-Fortsatt åpent: om virksomheten også kan fjerne låsen, og hvordan endringen audit-loggføres og varsles.
+Bare leverandøren kan fjerne låsen. Virksomheten kan ikke fjerne den, med mindre virksomheten selv er leverandør av systemet. Da fjerner den låsen som leverandør (vedtatt 24. november 2026).
+
+Fortsatt åpent: hvordan endringen audit-loggføres og varsles.
 
 Samlet sletting på brukersiden med `vendorLocked=true` er vedtatt. Flyten for å fjerne låsen er fortsatt uavklart.
 
@@ -318,8 +326,8 @@ De vedtatte reglene for flagg og tomme lister må gjennomføres i opprettelsesfl
 
 Vi må fortsatt beskrive:
 
-- Hvordan utelatte lister og `null` behandles.
-- Hvilke regler som gjelder for innholdet i listene og fullmaktssettene, inkludert validering ved aksept og tak på antall sett.
+- Hvordan utelatte lister og `null` behandles i listene for egen virksomhet. For fullmaktssettene er det vedtatt.
+- Hvilke regler som gjelder for innholdet i listene og fullmaktssettene, inkludert validering ved aksept.
 - Hva som skjer når samme eksterne referanse sendes på nytt med endrede lister.
 
 Rettighetskravene i systemregisteret inngår ikke i innholdsvalideringen av forespørselens lister. Det skillet er vedtatt.

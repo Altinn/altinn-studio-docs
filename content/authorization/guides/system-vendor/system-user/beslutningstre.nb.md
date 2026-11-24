@@ -54,7 +54,15 @@ graph TD
 
 Fullmaktssett (`clientAccessSets`) er bare lov med `vendorLocked=true` (vedtatt 23. november 2026). Når virksomheten bestemmer, velger byrået selv hva hver klient gir, så settene har ingen funksjon.
 
-Gyldig kombinasjon betyr at reglene for flagg og lister er oppfylt. Øvrig validering og autorisasjon gjelder fortsatt. Behandling av `null` og utelatte lister må beskrives i kontrakten.
+Gyldig kombinasjon betyr at reglene for flagg og lister er oppfylt. Øvrig validering og autorisasjon gjelder fortsatt.
+
+For fullmaktssettene gjelder dette (vedtatt 24. november 2026):
+
+- Utelatt `clientAccessSets` og `null` betyr ingen fullmaktssett. Et tomt objekt, et sett uten tilganger og samme tilgangspakke to ganger i ett sett gir 400.
+- `action` i et fullmaktssett gir 400.
+- Id-en kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn.
+
+Behandling av `null` og utelatte lister for egen virksomhet må beskrives i kontrakten.
 
 ## Vedtatt: Aksept og senere klientdelegering
 
@@ -101,7 +109,7 @@ graph TD
   ROW --> CLIENTS["Virksomheten legger klientene til selv"]
 {{< /mermaid >}}
 
-Leverandøren kan ikke endre eller slette et fullmaktssett, bare legge til nye (vedtatt 23. november 2026). Det som er delegert, endrer seg ikke. Endepunktet gjelder bare `vendorLocked=true`. Mot en systembruker med `vendorLocked=false` gir det valideringsfeil. Altinn vurderer «komplett» per sett: en klient kan være komplett i ett sett og mangle noe i et annet (vedtatt 23. november 2026).
+Leverandøren kan ikke endre eller slette et fullmaktssett, bare legge til nye (vedtatt 23. november 2026). Det som er delegert, endrer seg ikke. Kunden trenger ikke godkjenne et nytt sett, et sett kan ikke stoppes for bruk, og modellen har ingen måte å si at et nytt sett erstatter et gammelt. Det er ingen grense for hvor mange sett en systembruker kan ha, så flaten må tåle mange rader. En id som finnes på systembrukeren fra før, gir 200 uten endring når innholdet er likt, og 409 når innholdet er ulikt (vedtatt 24. november 2026). Endepunktet gjelder bare `vendorLocked=true`. Mot en systembruker med `vendorLocked=false` gir det valideringsfeil. Altinn vurderer «komplett» per sett: en klient kan være komplett i ett sett og mangle noe i et annet (vedtatt 23. november 2026). Altinn sammenligner tilgangspakkene i settet med pakkene klienten har gitt byrået, ikke tjenestene pakkene gir tilgang til. En annen pakke som gir tilgang til de samme tjenestene, teller ikke. Enkelttjenester i settet må klienten ha gitt som enkelttjenester. Grunnen er at Altinn gir klientfullmakter videre per pakke, og at innholdet i pakkene kan endre seg over tid (vedtatt 24. november 2026).
 
 Fullmaktene skal aldri bli usynlige. Uansett hvilket sett virksomheten åpner, viser flaten på klienten at systembrukeren har fullmakter fra klienten gjennom andre sett.
 
@@ -156,6 +164,7 @@ graph TD
 Vedtatt 23. november 2026.
 
 - En forespørsel med `vendorLocked=false` og `clientAccessSets` gir valideringsfeil. Listene for egen virksomhet er fortsatt lov.
+- Bare leverandøren kan fjerne låsen. Virksomheten kan ikke fjerne den, med mindre virksomheten selv er leverandør av systemet. Da fjerner den låsen som leverandør (vedtatt 24. november 2026). En systembruker som har vært åpen, kan ikke låses igjen (vedtatt 10. november 2026).
 - Fjerner leverandøren låsen (fra `true` til `false`), sletter Altinn fullmaktssettene. Klientene beholder det som er delegert, og virksomheten kan deretter endre fritt. Ingen fullmakter forsvinner.
 - Endepunktet for å legge til fullmaktssett gir valideringsfeil når `vendorLocked=false`.
 
@@ -164,20 +173,19 @@ Vedtatt 23. november 2026.
 | Valg | Alternativer som må avklares |
 |---|---|
 | Kombinasjoner på samme system | Tillate eller avvise samtidig bruk med og uten forhåndsdefinerte rettigheter |
-| Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Vedtatt 10. november 2026: bare fra `vendorLocked=true` til `false`. En åpen systembruker kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Åpent: om virksomheten også kan fjerne låsen |
+| Fjerne låsen | Vedtatt 26. oktober, 10. november og 24. november 2026: bare leverandøren kan fjerne låsen, bare fra `vendorLocked=true` til `false`, og en åpen systembruker kan ikke låses igjen. Åpent: hvordan vi logger og varsler at låsen er fjernet |
 | Eksisterende Agent-brukere | Intern representasjon: videreføre med kompatibilitet eller overføre til utvidet modell. Klientene flyttes ikke automatisk |
-| Nye fullmaktssett | Om kunden må godkjenne et nytt sett, og om leverandøren kan stoppe et gammelt sett for nye klienter. Vedtatt 23. november 2026: «komplett» per sett, og leverandøren kan ikke endre eller slette sett, bare legge til nye |
 | Navn på fullmaktssett | Foreslått 24. november 2026: valgfritt `name` på ett eller flere språk (`nb`, `nn`, `en`), uten krav om oversettelse. Finnes ikke brukerens språk, viser Altinn det første språket i feltet. Uten navn: «Alternativ 1», «Alternativ 2». Vi spør leverandørene i høringen om navn skal være påkrevd |
 | Navn og merker i grensesnittet | Om grensesnittet skal si «systembruker» i stedet for «systemtilgang», og hvordan det viser om leverandøren eller virksomheten bestemmer. Kom fra UX 24. november 2026 |
 | Levetid for versjon 1 | Antatt minst to år, ikke bekreftet. Leverandørene får god dokumentasjon, men ikke annen hjelp til overgangen |
-| Delvis tilbakekalling | Fjerne hele klienttilknytningen, beholde resten, eller bytte til et annet sett |
+| Delvis tilbakekalling | Forslag 24. november 2026, som RUNLAR støtter: klienten blir stående knyttet til settet, og raden viser hva som mangler. Altinn flytter ikke klienten til et annet sett av seg selv. Forslaget skal drøftes med resten av teamet før det blir vedtatt. Alternativene var å fjerne hele klienttilknytningen, beholde resten eller bytte til et annet sett |
 | Bytte Maskinporten-klient | Tillate bytte eller kreve ny bruker |
 
 Presentasjonen har ett åpent valg per lysbilde. Ingen av disse alternativene er markert som vedtatt.
 
 ## Tekniske detaljer som må beskrives videre
 
-- Behandling av utelatte lister og `null`, og endrede forespørsler med samme eksterne referanse.
+- Behandling av utelatte lister og `null` for egen virksomhet, og endrede forespørsler med samme eksterne referanse.
 - Innholdsvalidering av lister og fullmaktssett ved forespørsel og aksept, uten sammenligning mot systemets rettighetskrav.
 - Lagring, svarmodeller, godkjenningsbilde og kobling til standard bruker- og klientflater.
 - Direkte Maskinporten-tilknytning, tokeninnhold og sporing av rettighetsgrunnlaget.

@@ -74,7 +74,7 @@ Når virksomheten bestemmer, blir systembrukeren likere vanlige brukere. Virksom
 | Kan kunden legge til fullmakter | Nei | Ja, men bare det de selv har lov til å gi |
 | Kan du be om flere fullmakter for egen virksomhet | Ja, med en forespørsel om fullmakt | Ja, med en forespørsel om fullmakt |
 
-Du kan fjerne låsen etter at systembrukeren er opprettet, altså gå fra `vendorLocked: true` til `false`. Virksomheten trenger ikke godkjenne det. Altinn sletter da fullmaktssettene, men klientene beholder det de har gitt systembrukeren, og virksomheten kan endre det fritt. Du kan ikke låse en systembruker som har vært åpen. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
+Du kan fjerne låsen etter at systembrukeren er opprettet, altså gå fra `vendorLocked: true` til `false`. Virksomheten trenger ikke godkjenne det. Bare du som leverandør kan fjerne låsen. Virksomheten kan ikke fjerne den selv, med mindre den selv er leverandør av systemet. Altinn sletter da fullmaktssettene, men klientene beholder det de har gitt systembrukeren, og virksomheten kan endre det fritt. Du kan ikke låse en systembruker som har vært åpen. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
 
 Fullmaktssett forklarer vi på de neste lysbildene.
 
@@ -139,7 +139,9 @@ Kunden godkjenner én systembruker. Fullmaktene for egen virksomhet får systemb
 Tre regler gjelder:
 
 - Virksomheten kan bare gi videre enkelttjenester den har fått som enkelttjeneste fra klienten. Tjenester den har fått gjennom en tilgangspakke, kan den ikke gi videre én og én.
-- Du oppgir ikke `action` i fullmaktssett i første versjon. Trenger du finere styring, bruker du tilgangspakker.
+- Altinn sammenligner tilgangspakkene i settet med pakkene klienten har gitt byrået, ikke tjenestene pakkene gir tilgang til. Skal en annen pakke også godtas, legger du til et eget sett med den pakken.
+- Du oppgir ikke `action` i fullmaktssett i første versjon. Sender du `action`, svarer Altinn 400. Trenger du finere styring, bruker du tilgangspakker.
+- Utelater du `clientAccessSets` eller sender `null`, har systembrukeren ingen fullmaktssett. Et tomt objekt, et sett uten tilganger og samme tilgangspakke to ganger i ett sett gir 400.
 - Systembrukeren får de samme handlingene, for eksempel lese og skrive, som klienten har gitt virksomheten.
 
 ---
@@ -171,7 +173,12 @@ POST /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 ```
 
 - **Du kan ikke endre eller slette et sett.** Trenger du andre fullmakter, legger du til et nytt sett med en ny id.
+- **Du kan trygt sende samme kall på nytt.** Sender du en id som finnes fra før, med likt innhold, svarer Altinn 200 og endrer ingenting. Er innholdet ulikt, svarer Altinn 409.
 - **Det nye settet blir en ny rad i brukerlisten,** etter radene for settene du har fra før.
+- **Det er ingen grense for hvor mange sett du kan legge til.** Men hvert sett er en rad i brukerlisten hos byrået, og mange rader gjør listen tung å bruke. Legg derfor bare til et nytt sett når du må.
+- **Kunden trenger ikke godkjenne det nye settet.** Settet gir ingen fullmakt før virksomheten knytter klienter til det.
+- **Du kan ikke stoppe et sett for bruk.** Alle settene står i brukerlisten så lenge systembrukeren finnes, og byrået kan fortsatt knytte nye klienter til et gammelt sett. Gi derfor settene navn som viser hvilket byrået bør bruke.
+- **Du kan ikke si at et nytt sett erstatter et gammelt.** Altinn har ingen kobling mellom settene, så bare navnene kan vise byrået hvilket sett som er det nye.
 - **Altinn knytter ingen klienter til det nye settet.** Virksomheten åpner raden og legger klientene til, én og én eller med **Legg til alle**.
 - **Klientene i de gamle settene beholder det de har.** Altinn verken gir eller fjerner fullmakter. Virksomheten kan selv fjerne klienter fra et gammelt sett.
 - **Endepunktet gjelder bare når leverandøren bestemmer.** Med `vendorLocked: false` gir det valideringsfeil.
@@ -259,15 +266,11 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Om grensesnittet skal bruke navnet «systembruker» i stedet for «systemtilgang», nå som systembrukeren står i brukerlisten. Det kan påvirke tekstene i dine egne flyter.
 - Hvordan grensesnittet viser om leverandøren eller virksomheten bestemmer fullmaktene.
 - Hvor lenge versjon 1 av forespørselen virker. Vi regner med minst to år, men det er ikke bekreftet.
-- Hvordan du fjerner låsen på en systembruker, og om virksomheten også kan fjerne den selv.
+- Hvordan du fjerner låsen på en systembruker, og hvordan virksomheten får vite det.
 - Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer fullmaktene. Du kan uansett be om flere fullmakter for egen virksomhet med en forespørsel om fullmakt.
 - Hvordan du kan lese hvilke fullmakter systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
-- Om kunden må godkjenne når du legger til et nytt fullmaktssett.
-- Om du kan stoppe et gammelt fullmaktssett for nye klienter, når du ikke kan slette det.
-- Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
-- Hvor mange fullmaktssett du kan oppgi, og hvilke tegn id-en til et sett kan ha.
+- Hva som skjer når klienten trekker tilbake bare en del av settet. Vi foreslår at klienten blir stående i raden, og at raden viser hva som mangler. Altinn flytter ikke klienten til et annet sett.
 - Om navn på fullmaktssett skal være påkrevd, og hvilket språk Altinn viser når navnet ikke finnes på brukerens språk.
-- Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
 - Hvilke virksomheter listen viser. Skissene forutsetter at listen viser en virksomhet først når den har gitt byrået en fullmakt.
 - Om systembrukeren fortsatt har fullmakt for en klient som er slettet i Enhetsregisteret.
@@ -412,7 +415,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
 }
 ```
 
-Id-en er nøkkelen og ligger fast. Feltet `name` er navnet virksomheten ser. Det er et objekt med ett eller flere av språkene `nb`, `nn` og `en`, slik navn er i systemregisteret. Du trenger ikke oversette navnet. Finnes ikke navnet på språket brukeren har valgt i Altinn, viser Altinn det første språket i feltet. Uten `name` ser virksomheten «Alternativ 1», «Alternativ 2» og så videre. I eksempelet ser en bruker som har valgt nynorsk, det bokmålske navnet. Feltet er valgfritt, og navnet på feltet er foreløpig.
+Id-en er nøkkelen og ligger fast. Den kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Feltet `name` er navnet virksomheten ser. Det er et objekt med ett eller flere av språkene `nb`, `nn` og `en`, slik navn er i systemregisteret. Du trenger ikke oversette navnet. Finnes ikke navnet på språket brukeren har valgt i Altinn, viser Altinn det første språket i feltet. Uten `name` ser virksomheten «Alternativ 1», «Alternativ 2» og så videre. I eksempelet ser en bruker som har valgt nynorsk, det bokmålske navnet. Feltet er valgfritt, og navnet på feltet er foreløpig.
 
 En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
 
@@ -546,7 +549,7 @@ Byrået åpner raden for ett alternativ i brukerlisten. Siden viser bare det alt
 - Byrået vil se et annet alternativ, går de tilbake til listen og åpner en annen rad.
 - Altinn vurderer hvert alternativ for seg. En klient kan være komplett i ett alternativ og mangle noe i et annet.
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Registrert regnskapsfører åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i «Uten regnskapsførerrolle»."></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS åpen i raden for «Registrert regnskapsfører»: de tre fullmaktene i alternativet på blå bakgrunn, og knappen Fjern klienten fra alternativet"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Registrert regnskapsfører åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i «Uten regnskapsførerrolle»."></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS åpen i raden for «Registrert regnskapsfører»: de tre fullmaktene i alternativet er blå, fordi Personalportalen har dem, og knappen Fjern klienten fra alternativet"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -558,7 +561,24 @@ Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten t
 - Er klienten knyttet til flere alternativer, får systembrukeren alle fullmaktene i dem.
 - Uansett hvilken rad byrået åpner, viser klienten fullmakter systembrukeren har fra klienten utenfor alternativet. Det gjelder fullmakter fra andre alternativer. Ingen fullmakt skal være skjult.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for «Registrert regnskapsfører», med knappen Legg klienten til og linjen Personalportalen har allerede Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori fra klienten, gjennom «Uten regnskapsførerrolle»"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for «Registrert regnskapsfører», med knappen Legg klienten til. Regnskapsfører lønn er grå, fordi byrået har den, men ikke har gitt den til Personalportalen. De to pakkene med særlig kategori er blå, fordi Personalportalen har dem gjennom «Uten regnskapsførerrolle»"></a></div>
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Klienten har allerede et annet alternativ
+
+**Situasjon:** Eksempelklient AS er knyttet til «Registrert regnskapsfører», så Personalportalen har de tre fullmaktene i det alternativet. Klienten har også gitt Tallmakerne AS A-ordningen, men ikke Lønn. Byrået åpner raden for «Uten regnskapsførerrolle».
+
+**Det byrået ser:** Klienten står blant dem som mangler noe. Når byrået åpner klienten, viser fargen hvor hver fullmakt står:
+
+- **Blå:** Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori. Personalportalen har dem allerede, gjennom «Registrert regnskapsfører».
+- **Grå:** A-ordningen. Byrået har den fra klienten, men har ikke gitt den til Personalportalen.
+- **Rød, med merket Mangler:** Lønn. Klienten har ikke gitt den til byrået.
+
+**Det byrået gjør:** Ingenting, så lenge klienten er komplett i «Registrert regnskapsfører». Skal klienten også inn i «Uten regnskapsførerrolle», må klienten gi Lønn først.
+
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient-annet-alternativ.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient-annet-alternativ.png" alt="Eksempelklient AS åpen i raden for «Uten regnskapsførerrolle»: A-ordningen grå, Lønn rød med merket Mangler, og Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori blå, fordi Personalportalen har dem gjennom «Registrert regnskapsfører»"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -632,7 +652,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 - Solvang Transport AS: «Personalportalen – Uten regnskapsførerrolle» kan få klienten. Raden for «Registrert regnskapsfører» viser at Regnskapsfører lønn mangler. Rapportrobot – Klienter kan også få klienten.
 - Elvebakken Kafé AS har bare gitt Merverdiavgift. Rapportrobot – Klienter kan få klienten, fordi virksomheten bestemmer. Begge radene for Personalportalen viser hva som mangler, og byrået må kontakte klienten.
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" alt="Siden for Solvang Transport AS: ingen brukere har fullmakt fra klienten ennå. Under Brukere som kan få fullmakt viser Personalportalen – Registrert regnskapsfører at Regnskapsfører lønn mangler, og Personalportalen – Uten regnskapsførerrolle er åpen med Legg klienten til"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" alt="Siden for Elvebakken Kafé AS: ingen brukere har fullmakt fra klienten, og begge radene for Personalportalen viser at klienten ikke har gitt noe av det alternativet krever"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" alt="Siden for Solvang Transport AS: ingen brukere har fullmakt fra klienten ennå. Under Brukere som kan få fullmakt viser Personalportalen – Registrert regnskapsfører at Regnskapsfører lønn mangler, og Personalportalen – Uten regnskapsførerrolle er åpen med Legg klienten til og de fire fullmaktene i grått, fordi byrået har dem, men ikke har gitt dem videre"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" alt="Siden for Elvebakken Kafé AS: ingen brukere har fullmakt fra klienten. Raden Personalportalen – Registrert regnskapsfører er åpen med alle tre fullmaktene røde og merket Mangler, og begge radene for Personalportalen viser at klienten ikke har gitt noe av det alternativet krever"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -643,7 +663,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 
 **Det byrået gjør:** Åpner klienten i en av radene, avklarer kundeforholdet, og ber klienten gi det som mangler. Merverdiavgift-pakken påvirker ikke Personalportalen.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" alt="Elvebakken Kafé AS åpen i raden for «Registrert regnskapsfører»: klienten har bare gitt Merverdiavgift, og alle tre fullmaktene i alternativet mangler"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" alt="Elvebakken Kafé AS åpen i raden for «Registrert regnskapsfører»: klienten har bare gitt Merverdiavgift, og alle tre fullmaktene i alternativet er røde med merket Mangler"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -654,7 +674,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 
 **Det byrået gjør:** Åpner klienten i listen, ser hva klienten ga, og ber klienten gi riktig pakke. Da slipper byrået å gå via support. Når pakken er gitt, kan byrået legge til klienten.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" alt="Fjordbakeriet AS åpen i raden for «Registrert regnskapsfører»: klienten har gitt Sykefravær, som er en annen tilgangspakke enn Sykefravær med personopplysninger av særlig kategori"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" alt="Fjordbakeriet AS åpen i raden for «Registrert regnskapsfører»: Regnskapsfører lønn og Lønn med personopplysninger av særlig kategori er grå, og Sykefravær med personopplysninger av særlig kategori er rød med merket Mangler, fordi klienten har gitt Sykefravær, som er en annen tilgangspakke"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -665,7 +685,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 
 **Det byrået gjør:** Avklarer kundeforholdet. Er byrået regnskapsfører, registrerer klienten det i Enhetsregisteret. Ellers kan klienten gi A-ordningen direkte.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" alt="Kystlinjen Eiendom AS åpen i raden for «Registrert regnskapsfører»: Regnskapsfører lønn mangler og kommer fra regnskapsførerrollen, og klienten mangler også A-ordningen til «Uten regnskapsførerrolle»"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" alt="Kystlinjen Eiendom AS åpen i raden for «Registrert regnskapsfører»: Regnskapsfører lønn er rød med merket Mangler og kommer fra regnskapsførerrollen, de to pakkene med særlig kategori er grå, og klienten mangler også A-ordningen til «Uten regnskapsførerrolle»"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -751,6 +771,7 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 | R8 | Siden for en rad viser bare det fullmaktssettet. Virksomheten knytter klienten til settet og gir hele settet. En klient kan være knyttet til flere sett, altså flere rader. |
 | R8a | Leverandøren kan ikke endre eller slette et fullmaktssett, bare legge til nye. Et nytt sett blir en ny rad etter de andre radene for systembrukeren, uten klienter. Unntaket er når leverandøren fjerner låsen. Da sletter Altinn alle settene (R25). |
 | R9 | Virksomheten kan ikke knytte en klient til et sett klienten ikke oppfyller. Siden for raden viser klienten likevel. Når byrået åpner klienten, ser de hva klienten har gitt, og hva som mangler til settet. Altinn vurderer hvert sett for seg. |
+| R9a | Når byrået åpner en klient i en rad, har hver fullmakt i alternativet én av tre farger. Blå: systembrukeren har den fra klienten, også gjennom et annet alternativ. Grå: byrået har den fra klienten, men har ikke gitt den til systembrukeren. Rød med merket **Mangler**: klienten har ikke gitt den til byrået. Tekstene under forklarer fargene, så de kan leses uten farge. |
 | R10 | Virksomheten kan fjerne en klient fra settet i raden. Fullmakter som også ligger i et annet sett klienten er knyttet til, beholder systembrukeren. Dette er ikke bekreftet. |
 | R11 | Virksomheten kan knytte mange klienter til settet i raden samtidig, med **Legg til alle**. Knappen gjelder bare klienter som ikke er knyttet til settet fra før. |
 | R11a | Uansett hvilken rad virksomheten åpner, viser klienten fullmakter systembrukeren har fra klienten gjennom andre sett. Ingen fullmakt skal være skjult. |
@@ -779,4 +800,4 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 | R22 | Bare den som har myndighet, ser handlingene. Den som ikke er tilgangsstyrer eller klientadministrator, ser det samme som i dag. |
 | R23 | Lenker fra siden **Systembrukere** leder til de nye sidene, ikke til den gamle klientsiden. |
 | R24 | Systembrukerens side viser hvem som bestemmer fullmaktene. Hvordan, har vi ikke bestemt. |
-| R25 | Leverandøren kan fjerne låsen uten at virksomheten må godkjenne det. Da bestemmer virksomheten fullmaktene, og Altinn sletter fullmaktssettene uten å fjerne fullmakter. En systembruker som har vært åpen, kan ikke bli låst igjen. Om virksomheten også kan fjerne låsen selv, er ikke avklart. |
+| R25 | Leverandøren kan fjerne låsen uten at virksomheten må godkjenne det. Da bestemmer virksomheten fullmaktene, og Altinn sletter fullmaktssettene uten å fjerne fullmakter. En systembruker som har vært åpen, kan ikke bli låst igjen. Bare leverandøren kan fjerne låsen. Virksomheten kan ikke fjerne den selv, med mindre den selv er leverandør av systemet. |
