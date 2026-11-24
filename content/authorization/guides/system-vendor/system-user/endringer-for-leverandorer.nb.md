@@ -172,6 +172,7 @@ POST /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 
 - **Du kan ikke endre eller slette et sett.** Trenger du andre fullmakter, legger du til et nytt sett med en ny id.
 - **Det nye settet blir en ny rad i brukerlisten,** etter radene for settene du har fra før.
+- **Det er ingen grense for hvor mange sett du kan legge til.** Men hvert sett er en rad i brukerlisten hos byrået, og mange rader gjør listen tung å bruke. Legg derfor bare til et nytt sett når du må.
 - **Kunden trenger ikke godkjenne det nye settet.** Settet gir ingen fullmakt før virksomheten knytter klienter til det.
 - **Du kan ikke stoppe et sett for bruk.** Alle settene står i brukerlisten så lenge systembrukeren finnes, og byrået kan fortsatt knytte nye klienter til et gammelt sett. Gi derfor settene navn som viser hvilket byrået bør bruke.
 - **Du kan ikke si at et nytt sett erstatter et gammelt.** Altinn har ingen kobling mellom settene, så bare navnene kan vise byrået hvilket sett som er det nye.
@@ -266,7 +267,7 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer fullmaktene. Du kan uansett be om flere fullmakter for egen virksomhet med en forespørsel om fullmakt.
 - Hvordan du kan lese hvilke fullmakter systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
-- Hvor mange fullmaktssett du kan oppgi, og hvilke tegn id-en til et sett kan ha.
+- Hvilke tegn id-en til et fullmaktssett kan ha.
 - Om navn på fullmaktssett skal være påkrevd, og hvilket språk Altinn viser når navnet ikke finnes på brukerens språk.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.

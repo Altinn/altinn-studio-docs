@@ -101,7 +101,7 @@ graph TD
   ROW --> CLIENTS["Virksomheten legger klientene til selv"]
 {{< /mermaid >}}
 
-Leverandøren kan ikke endre eller slette et fullmaktssett, bare legge til nye (vedtatt 23. november 2026). Det som er delegert, endrer seg ikke. Kunden trenger ikke godkjenne et nytt sett, et sett kan ikke stoppes for bruk, og modellen har ingen måte å si at et nytt sett erstatter et gammelt (vedtatt 24. november 2026). Endepunktet gjelder bare `vendorLocked=true`. Mot en systembruker med `vendorLocked=false` gir det valideringsfeil. Altinn vurderer «komplett» per sett: en klient kan være komplett i ett sett og mangle noe i et annet (vedtatt 23. november 2026).
+Leverandøren kan ikke endre eller slette et fullmaktssett, bare legge til nye (vedtatt 23. november 2026). Det som er delegert, endrer seg ikke. Kunden trenger ikke godkjenne et nytt sett, et sett kan ikke stoppes for bruk, og modellen har ingen måte å si at et nytt sett erstatter et gammelt. Det er ingen grense for hvor mange sett en systembruker kan ha, så flaten må tåle mange rader (vedtatt 24. november 2026). Endepunktet gjelder bare `vendorLocked=true`. Mot en systembruker med `vendorLocked=false` gir det valideringsfeil. Altinn vurderer «komplett» per sett: en klient kan være komplett i ett sett og mangle noe i et annet (vedtatt 23. november 2026).
 
 Fullmaktene skal aldri bli usynlige. Uansett hvilket sett virksomheten åpner, viser flaten på klienten at systembrukeren har fullmakter fra klienten gjennom andre sett.
 
