@@ -91,7 +91,7 @@ Når tjenesteleverandøren har mottatt fullmakten, kan deres klientadministrator
 
 - Brukeren kan rapportere på vegne av flere virksomheter.
 - Klientene må ha gitt nødvendige rettigheter/delegeringer.
-- Systemet må sikre korrekt fullmakt og identifisering av hvem det rapporteres for.
+- Systemet må sikre korrekt tilgang og identifisering av hvem det rapporteres for.
 - Dersom kundeforholdet fjernes/slettes fra Enhetsregisteret eller virksomhetsdelegeringen revokeres av kunden vil alle klientdelegeringer for den aktuelle fullmakten automatisk fjernes.
 - Klientdelegering til systembruker kan gjøres via GUI eller eget API
 
