@@ -98,6 +98,8 @@ Foreslått 24. november 2026: hvert sett kan ha et navn i det valgfrie feltet `n
 
 Leverandøren kan ikke endre eller slette et sett, bare legge til nye (vedtatt 23. november 2026). Et nytt sett blir en ny rad i brukerlisten, og virksomheten legger klientene til selv. Det som er delegert, endrer seg ikke. Altinn vurderer «komplett» per sett. Endepunktet gir valideringsfeil når `vendorLocked=false` (vedtatt 23. november 2026).
 
+Kunden trenger ikke godkjenne et nytt sett, og et sett kan ikke stoppes for bruk. Alle settene står i brukerlisten så lenge systembrukeren finnes (vedtatt 24. november 2026).
+
 Uansett hvilket sett virksomheten åpner, viser flaten på klienten fullmakter systembrukeren har fra klienten gjennom andre sett.
 
 Åpent: om kunden må godkjenne, hvordan virksomheten fullfører et sett, og hva som skjer når leverandøren fjerner en fullmakt fra et sett. Se #4845 og #4846 i altinn-auth.

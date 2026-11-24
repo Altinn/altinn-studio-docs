@@ -172,6 +172,8 @@ POST /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 
 - **Du kan ikke endre eller slette et sett.** Trenger du andre fullmakter, legger du til et nytt sett med en ny id.
 - **Det nye settet blir en ny rad i brukerlisten,** etter radene for settene du har fra før.
+- **Kunden trenger ikke godkjenne det nye settet.** Settet gir ingen fullmakt før virksomheten knytter klienter til det.
+- **Du kan ikke stoppe et sett for bruk.** Alle settene står i brukerlisten så lenge systembrukeren finnes, og byrået kan fortsatt knytte nye klienter til et gammelt sett. Gi derfor settene navn som viser hvilket byrået bør bruke.
 - **Altinn knytter ingen klienter til det nye settet.** Virksomheten åpner raden og legger klientene til, én og én eller med **Legg til alle**.
 - **Klientene i de gamle settene beholder det de har.** Altinn verken gir eller fjerner fullmakter. Virksomheten kan selv fjerne klienter fra et gammelt sett.
 - **Endepunktet gjelder bare når leverandøren bestemmer.** Med `vendorLocked: false` gir det valideringsfeil.
@@ -262,8 +264,7 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Hvordan du fjerner låsen på en systembruker, og om virksomheten også kan fjerne den selv.
 - Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer fullmaktene. Du kan uansett be om flere fullmakter for egen virksomhet med en forespørsel om fullmakt.
 - Hvordan du kan lese hvilke fullmakter systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
-- Om kunden må godkjenne når du legger til et nytt fullmaktssett.
-- Om du kan stoppe et gammelt fullmaktssett for nye klienter, når du ikke kan slette det.
+- Om du skal kunne si at et nytt fullmaktssett erstatter et gammelt, slik at flaten kan vise det.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
 - Hvor mange fullmaktssett du kan oppgi, og hvilke tegn id-en til et sett kan ha.
 - Om navn på fullmaktssett skal være påkrevd, og hvilket språk Altinn viser når navnet ikke finnes på brukerens språk.
