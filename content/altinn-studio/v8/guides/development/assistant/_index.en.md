@@ -21,6 +21,15 @@ The assistant has access to the Studio documentation and can also answer questio
 The assistant is specially adapted for Altinn and app development, and is not suited to other uses. It can give answers that are not always precise, so always check the changes before you publish the app.
 {{% /notice %}}
 
+## Access
+
+Who can use the assistant depends on who owns the app:
+
+- If a service owner owns the app, the service owner must be in the beta and you must be a member of it.
+- If you own the app yourself, you must be a member of at least one service owner that is in the beta.
+
+If you do not have access, Studio shows a message when you open **Assistent**.
+
 ## Turn on the assistant
 
 The assistant is hidden behind a feature flag while it is in closed beta. To turn it on:
@@ -38,6 +47,16 @@ When **Tillat endringer i appen** is off, the assistant works as a chatbot and a
 When **Tillat endringer i appen** is on, the assistant makes changes to the app based on your instructions. The clearer your instructions are, the better the result.
 
 The assistant saves all changes to a separate branch. You must merge the branch into the `master` branch before you can publish the changes. Read more about [how to work with branches in Altinn Studio]({{< relref "../branching" >}}).
+
+## Attaching files
+
+You can attach files to your messages, for example a PDF form you want to turn into an app. Click **Last opp vedlegg** and choose the files. The assistant accepts:
+
+- PDF files (`.pdf`)
+- text files (`.md` and `.txt`)
+- images (`.png`, `.jpg`, `.jpeg`, `.gif` and `.webp`)
+
+You cannot attach other file types. Each file can be up to 20 MB, and all the attachments in one message can be up to 45 MB in total.
 
 ## Threads
 
