@@ -549,7 +549,7 @@ Byrået åpner raden for ett alternativ i brukerlisten. Siden viser bare det alt
 - Byrået vil se et annet alternativ, går de tilbake til listen og åpner en annen rad.
 - Altinn vurderer hvert alternativ for seg. En klient kan være komplett i ett alternativ og mangle noe i et annet.
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Registrert regnskapsfører åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i «Uten regnskapsførerrolle»."></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS åpen i raden for «Registrert regnskapsfører»: de tre fullmaktene i alternativet på blå bakgrunn, og knappen Fjern klienten fra alternativet"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-havbris.png" alt="Raden Personalportalen – Registrert regnskapsfører åpnet: Eksempelklient AS under Har disse klientene, Fjellvik Bygg AS under Kan få disse klientene med Legg til alle, og seks klienter som ikke kan legges til ennå, for eksempel Nordavind Bygg AS med linjen Mangler Regnskapsfører lønn. Kan legges til i «Uten regnskapsførerrolle»."></a><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient.png" alt="Eksempelklient AS åpen i raden for «Registrert regnskapsfører»: de tre fullmaktene i alternativet er blå, fordi Personalportalen har dem, og knappen Fjern klienten fra alternativet"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -561,7 +561,24 @@ Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten t
 - Er klienten knyttet til flere alternativer, får systembrukeren alle fullmaktene i dem.
 - Uansett hvilken rad byrået åpner, viser klienten fullmakter systembrukeren har fra klienten utenfor alternativet. Det gjelder fullmakter fra andre alternativer. Ingen fullmakt skal være skjult.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for «Registrert regnskapsfører», med knappen Legg klienten til og linjen Personalportalen har allerede Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori fra klienten, gjennom «Uten regnskapsførerrolle»"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-nordavind.png" alt="Fjellvik Bygg AS åpen i raden for «Registrert regnskapsfører», med knappen Legg klienten til. Regnskapsfører lønn er grå, fordi byrået har den, men ikke har gitt den til Personalportalen. De to pakkene med særlig kategori er blå, fordi Personalportalen har dem gjennom «Uten regnskapsførerrolle»"></a></div>
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Klienten har allerede et annet alternativ
+
+**Situasjon:** Eksempelklient AS er knyttet til «Registrert regnskapsfører», så Personalportalen har de tre fullmaktene i det alternativet. Klienten har også gitt Tallmakerne AS A-ordningen, men ikke Lønn. Byrået åpner raden for «Uten regnskapsførerrolle».
+
+**Det byrået ser:** Klienten står blant dem som mangler noe. Når byrået åpner klienten, viser fargen hvor hver fullmakt står:
+
+- **Blå:** Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori. Personalportalen har dem allerede, gjennom «Registrert regnskapsfører».
+- **Grå:** A-ordningen. Byrået har den fra klienten, men har ikke gitt den til Personalportalen.
+- **Rød, med merket Mangler:** Lønn. Klienten har ikke gitt den til byrået.
+
+**Det byrået gjør:** Ingenting, så lenge klienten er komplett i «Registrert regnskapsfører». Skal klienten også inn i «Uten regnskapsførerrolle», må klienten gi Lønn først.
+
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-eksempelklient-annet-alternativ.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-eksempelklient-annet-alternativ.png" alt="Eksempelklient AS åpen i raden for «Uten regnskapsførerrolle»: A-ordningen grå, Lønn rød med merket Mangler, og Lønn med personopplysninger av særlig kategori og Sykefravær med personopplysninger av særlig kategori blå, fordi Personalportalen har dem gjennom «Registrert regnskapsfører»"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -635,7 +652,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 - Solvang Transport AS: «Personalportalen – Uten regnskapsførerrolle» kan få klienten. Raden for «Registrert regnskapsfører» viser at Regnskapsfører lønn mangler. Rapportrobot – Klienter kan også få klienten.
 - Elvebakken Kafé AS har bare gitt Merverdiavgift. Rapportrobot – Klienter kan få klienten, fordi virksomheten bestemmer. Begge radene for Personalportalen viser hva som mangler, og byrået må kontakte klienten.
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" alt="Siden for Solvang Transport AS: ingen brukere har fullmakt fra klienten ennå. Under Brukere som kan få fullmakt viser Personalportalen – Registrert regnskapsfører at Regnskapsfører lønn mangler, og Personalportalen – Uten regnskapsførerrolle er åpen med Legg klienten til"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" alt="Siden for Elvebakken Kafé AS: ingen brukere har fullmakt fra klienten, og begge radene for Personalportalen viser at klienten ikke har gitt noe av det alternativet krever"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-havbris.png" alt="Siden for Solvang Transport AS: ingen brukere har fullmakt fra klienten ennå. Under Brukere som kan få fullmakt viser Personalportalen – Registrert regnskapsfører at Regnskapsfører lønn mangler, og Personalportalen – Uten regnskapsførerrolle er åpen med Legg klienten til og de fire fullmaktene i grått, fordi byrået har dem, men ikke har gitt dem videre"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klient-elvebakken.png" alt="Siden for Elvebakken Kafé AS: ingen brukere har fullmakt fra klienten. Raden Personalportalen – Registrert regnskapsfører er åpen med alle tre fullmaktene røde og merket Mangler, og begge radene for Personalportalen viser at klienten ikke har gitt noe av det alternativet krever"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -646,7 +663,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 
 **Det byrået gjør:** Åpner klienten i en av radene, avklarer kundeforholdet, og ber klienten gi det som mangler. Merverdiavgift-pakken påvirker ikke Personalportalen.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" alt="Elvebakken Kafé AS åpen i raden for «Registrert regnskapsfører»: klienten har bare gitt Merverdiavgift, og alle tre fullmaktene i alternativet mangler"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-elvebakken.png" alt="Elvebakken Kafé AS åpen i raden for «Registrert regnskapsfører»: klienten har bare gitt Merverdiavgift, og alle tre fullmaktene i alternativet er røde med merket Mangler"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -657,7 +674,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 
 **Det byrået gjør:** Åpner klienten i listen, ser hva klienten ga, og ber klienten gi riktig pakke. Da slipper byrået å gå via support. Når pakken er gitt, kan byrået legge til klienten.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" alt="Fjordbakeriet AS åpen i raden for «Registrert regnskapsfører»: klienten har gitt Sykefravær, som er en annen tilgangspakke enn Sykefravær med personopplysninger av særlig kategori"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-fjordbakeriet.png" alt="Fjordbakeriet AS åpen i raden for «Registrert regnskapsfører»: Regnskapsfører lønn og Lønn med personopplysninger av særlig kategori er grå, og Sykefravær med personopplysninger av særlig kategori er rød med merket Mangler, fordi klienten har gitt Sykefravær, som er en annen tilgangspakke"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -668,7 +685,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 
 **Det byrået gjør:** Avklarer kundeforholdet. Er byrået regnskapsfører, registrerer klienten det i Enhetsregisteret. Ellers kan klienten gi A-ordningen direkte.
 
-<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" alt="Kystlinjen Eiendom AS åpen i raden for «Registrert regnskapsfører»: Regnskapsfører lønn mangler og kommer fra regnskapsførerrollen, og klienten mangler også A-ordningen til «Uten regnskapsførerrolle»"></a></div>
+<div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-kystlinjen.png" alt="Kystlinjen Eiendom AS åpen i raden for «Registrert regnskapsfører»: Regnskapsfører lønn er rød med merket Mangler og kommer fra regnskapsførerrollen, de to pakkene med særlig kategori er grå, og klienten mangler også A-ordningen til «Uten regnskapsførerrolle»"></a></div>
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -754,6 +771,7 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 | R8 | Siden for en rad viser bare det fullmaktssettet. Virksomheten knytter klienten til settet og gir hele settet. En klient kan være knyttet til flere sett, altså flere rader. |
 | R8a | Leverandøren kan ikke endre eller slette et fullmaktssett, bare legge til nye. Et nytt sett blir en ny rad etter de andre radene for systembrukeren, uten klienter. Unntaket er når leverandøren fjerner låsen. Da sletter Altinn alle settene (R25). |
 | R9 | Virksomheten kan ikke knytte en klient til et sett klienten ikke oppfyller. Siden for raden viser klienten likevel. Når byrået åpner klienten, ser de hva klienten har gitt, og hva som mangler til settet. Altinn vurderer hvert sett for seg. |
+| R9a | Når byrået åpner en klient i en rad, har hver fullmakt i alternativet én av tre farger. Blå: systembrukeren har den fra klienten, også gjennom et annet alternativ. Grå: byrået har den fra klienten, men har ikke gitt den til systembrukeren. Rød med merket **Mangler**: klienten har ikke gitt den til byrået. Tekstene under forklarer fargene, så de kan leses uten farge. |
 | R10 | Virksomheten kan fjerne en klient fra settet i raden. Fullmakter som også ligger i et annet sett klienten er knyttet til, beholder systembrukeren. Dette er ikke bekreftet. |
 | R11 | Virksomheten kan knytte mange klienter til settet i raden samtidig, med **Legg til alle**. Knappen gjelder bare klienter som ikke er knyttet til settet fra før. |
 | R11a | Uansett hvilken rad virksomheten åpner, viser klienten fullmakter systembrukeren har fra klienten gjennom andre sett. Ingen fullmakt skal være skjult. |
