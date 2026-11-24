@@ -307,6 +307,16 @@ Hvis appen din har en klasse som implementerer `IProcessEnd`, må du flytte kode
 
 Se [Prosess-hooks]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) for detaljene.
 
+### Vi har fjernet `DataCreation` med `Instance` fra `IInstantiationProcessor`
+
+`IInstantiationProcessor` har ikke lenger `DataCreation(Instance instance, object data, Dictionary<string, string>? prefill)`. Appen kaller bare `DataCreation(IInstanceDataMutator instanceDataMutator, object data, Dictionary<string, string>? prefill)`, også når noen kopierer en instans.
+
+`studioctl app upgrade v9` endrer metoden for deg. Den gamle parameteren blir en lokal variabel med `instanceDataMutator.Instance`, så resten av koden kan stå som før. Hadde klassen begge metodene, sletter oppgraderingen den gamle hvis ingenting i appen kaller den, men flytter ikke koden. Det oppgraderingen ikke kan endre selv, lister den som oppgaver du må gjøre.
+
+Skriver koden data med `IDataClient`, viser oppgraderingen hvor i `DataCreation`, og du må endre den koden selv. Oppgraderingen ser ikke i metoder som `DataCreation` kaller, så dem må du sjekke selv. Appen avviser det når koden skriver med `IDataClient` mens prosessen går inn i en ny oppgave, og det er da `DataCreation` kjører. Legg til og endre dataelementer gjennom `instanceDataMutator` i stedet.
+
+Står den gamle metoden igjen ved siden av den nye, stopper bygget med [ALTINNAPP0605]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0605" >}}).
+
 ### Vi har fjernet `process/completeProcess`
 
 Appen har ikke lenger endepunktet `PUT .../process/completeProcess`. Bruker systemet deres det til å avslutte en tilbakemeldingsoppgave når dere har behandlet innsendingen, kaller dere `PUT .../process/next` i stedet.

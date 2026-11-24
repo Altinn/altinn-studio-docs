@@ -450,13 +450,12 @@ Hvis du trenger mer kontroll, kan du bruke verdiene for forhåndsutfylling i met
 ```c#
 using Altinn.App.Core.Features;
 using Altinn.App.Models.model; // Navnerommet til datamodellen din, vanligvis Altinn.App.Models.<modellnavn>
-using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.Logic;
 
 public class InstantiationProcessor : IInstantiationProcessor
 {
-    public async Task DataCreation(Instance instance, object data, Dictionary<string, string>? prefill)
+    public async Task DataCreation(IInstanceDataMutator instanceDataMutator, object data, Dictionary<string, string>? prefill)
     {
         if (data is MessageV1 skjema && prefill is not null)
         {
