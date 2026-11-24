@@ -137,6 +137,9 @@ Hvis det ikke finnes kontaktinformasjon for en mottaker, vil meldingen fortsatt 
 Informasjon om varslingen kan sees ved å hente detaljer om den spesifikke meldingen.
 Det er planlagt forbedringer for å gi tilbakemelding omkring dette under opprettelsen av en melding.
 
+Hvis varselet feiler, for eksempel fordi e-posten kommer i retur (bounce), sender Altinn hendelsen `correspondencenotificationfailed` eller `correspondencenotificationallfailed`.
+Se [hendelser](/nb/correspondence/getting-started/developer-guides/events/) for hva hendelsene betyr.
+
 ## Valgfri mottakere for varsling
 
 For meldinger som er opprettet med varsling aktivert vil mottakeren av varslingen være den samme som mottakeren av meldingen.

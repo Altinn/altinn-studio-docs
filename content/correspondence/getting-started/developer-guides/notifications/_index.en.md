@@ -138,6 +138,9 @@ If no contact information is available for a recipient, the message will still b
 Information about the notification can be viewed by retrieving the details about the specific correspondence.
 Improvements are planned to provide feedback on this during the creation of a message.
 
+If the notification fails, for example because the email bounces, Altinn publishes the event `correspondencenotificationfailed` or `correspondencenotificationallfailed`.
+See [events](/en/correspondence/getting-started/developer-guides/events/) for what the events mean.
+
 ## Custom recipients for Notifications
 
 For all correspondences created with Notifications enabled, the notifications will be sent to the recipient specified in the creation of the correspondence.
