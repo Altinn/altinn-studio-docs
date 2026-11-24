@@ -74,7 +74,7 @@ Når virksomheten bestemmer, blir systembrukeren likere vanlige brukere. Virksom
 | Kan kunden legge til fullmakter | Nei | Ja, men bare det de selv har lov til å gi |
 | Kan du be om flere fullmakter for egen virksomhet | Ja, med en forespørsel om fullmakt | Ja, med en forespørsel om fullmakt |
 
-Du kan fjerne låsen etter at systembrukeren er opprettet, altså gå fra `vendorLocked: true` til `false`. Virksomheten trenger ikke godkjenne det. Altinn sletter da fullmaktssettene, men klientene beholder det de har gitt systembrukeren, og virksomheten kan endre det fritt. Du kan ikke låse en systembruker som har vært åpen. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
+Du kan fjerne låsen etter at systembrukeren er opprettet, altså gå fra `vendorLocked: true` til `false`. Virksomheten trenger ikke godkjenne det. Bare du som leverandør kan fjerne låsen. Virksomheten kan ikke fjerne den selv, med mindre den selv er leverandør av systemet. Altinn sletter da fullmaktssettene, men klientene beholder det de har gitt systembrukeren, og virksomheten kan endre det fritt. Du kan ikke låse en systembruker som har vært åpen. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
 
 Fullmaktssett forklarer vi på de neste lysbildene.
 
@@ -263,7 +263,7 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Om grensesnittet skal bruke navnet «systembruker» i stedet for «systemtilgang», nå som systembrukeren står i brukerlisten. Det kan påvirke tekstene i dine egne flyter.
 - Hvordan grensesnittet viser om leverandøren eller virksomheten bestemmer fullmaktene.
 - Hvor lenge versjon 1 av forespørselen virker. Vi regner med minst to år, men det er ikke bekreftet.
-- Hvordan du fjerner låsen på en systembruker, og om virksomheten også kan fjerne den selv.
+- Hvordan du fjerner låsen på en systembruker, og hvordan virksomheten får vite det.
 - Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer fullmaktene. Du kan uansett be om flere fullmakter for egen virksomhet med en forespørsel om fullmakt.
 - Hvordan du kan lese hvilke fullmakter systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
@@ -781,4 +781,4 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 | R22 | Bare den som har myndighet, ser handlingene. Den som ikke er tilgangsstyrer eller klientadministrator, ser det samme som i dag. |
 | R23 | Lenker fra siden **Systembrukere** leder til de nye sidene, ikke til den gamle klientsiden. |
 | R24 | Systembrukerens side viser hvem som bestemmer fullmaktene. Hvordan, har vi ikke bestemt. |
-| R25 | Leverandøren kan fjerne låsen uten at virksomheten må godkjenne det. Da bestemmer virksomheten fullmaktene, og Altinn sletter fullmaktssettene uten å fjerne fullmakter. En systembruker som har vært åpen, kan ikke bli låst igjen. Om virksomheten også kan fjerne låsen selv, er ikke avklart. |
+| R25 | Leverandøren kan fjerne låsen uten at virksomheten må godkjenne det. Da bestemmer virksomheten fullmaktene, og Altinn sletter fullmaktssettene uten å fjerne fullmakter. En systembruker som har vært åpen, kan ikke bli låst igjen. Bare leverandøren kan fjerne låsen. Virksomheten kan ikke fjerne den selv, med mindre den selv er leverandør av systemet. |

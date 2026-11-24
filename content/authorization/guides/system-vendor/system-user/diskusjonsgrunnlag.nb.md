@@ -285,7 +285,9 @@ Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke utt
 
 Når leverandøren fjerner låsen, sletter Altinn fullmaktssettene. Klientene beholder det som er delegert, og virksomheten kan endre fritt etterpå. Ingen fullmakter forsvinner (vedtatt 23. november 2026).
 
-Fortsatt åpent: om virksomheten også kan fjerne låsen, og hvordan endringen audit-loggføres og varsles.
+Bare leverandøren kan fjerne låsen. Virksomheten kan ikke fjerne den, med mindre virksomheten selv er leverandør av systemet. Da fjerner den låsen som leverandør (vedtatt 24. november 2026).
+
+Fortsatt åpent: hvordan endringen audit-loggføres og varsles.
 
 Samlet sletting på brukersiden med `vendorLocked=true` er vedtatt. Flyten for å fjerne låsen er fortsatt uavklart.
 

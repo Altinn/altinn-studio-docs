@@ -156,6 +156,7 @@ graph TD
 Vedtatt 23. november 2026.
 
 - En forespørsel med `vendorLocked=false` og `clientAccessSets` gir valideringsfeil. Listene for egen virksomhet er fortsatt lov.
+- Bare leverandøren kan fjerne låsen. Virksomheten kan ikke fjerne den, med mindre virksomheten selv er leverandør av systemet. Da fjerner den låsen som leverandør (vedtatt 24. november 2026). En systembruker som har vært åpen, kan ikke låses igjen (vedtatt 10. november 2026).
 - Fjerner leverandøren låsen (fra `true` til `false`), sletter Altinn fullmaktssettene. Klientene beholder det som er delegert, og virksomheten kan deretter endre fritt. Ingen fullmakter forsvinner.
 - Endepunktet for å legge til fullmaktssett gir valideringsfeil når `vendorLocked=false`.
 
@@ -164,7 +165,7 @@ Vedtatt 23. november 2026.
 | Valg | Alternativer som må avklares |
 |---|---|
 | Kombinasjoner på samme system | Tillate eller avvise samtidig bruk med og uten forhåndsdefinerte rettigheter |
-| Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Vedtatt 10. november 2026: bare fra `vendorLocked=true` til `false`. En åpen systembruker kan ikke låses. Leverandøren kan fjerne låsen uten at virksomheten er involvert. Åpent: om virksomheten også kan fjerne låsen |
+| Fjerne låsen | Vedtatt 26. oktober, 10. november og 24. november 2026: bare leverandøren kan fjerne låsen, bare fra `vendorLocked=true` til `false`, og en åpen systembruker kan ikke låses igjen. Åpent: hvordan vi logger og varsler at låsen er fjernet |
 | Eksisterende Agent-brukere | Intern representasjon: videreføre med kompatibilitet eller overføre til utvidet modell. Klientene flyttes ikke automatisk |
 | Navn på fullmaktssett | Foreslått 24. november 2026: valgfritt `name` på ett eller flere språk (`nb`, `nn`, `en`), uten krav om oversettelse. Finnes ikke brukerens språk, viser Altinn det første språket i feltet. Uten navn: «Alternativ 1», «Alternativ 2». Vi spør leverandørene i høringen om navn skal være påkrevd |
 | Navn og merker i grensesnittet | Om grensesnittet skal si «systembruker» i stedet for «systemtilgang», og hvordan det viser om leverandøren eller virksomheten bestemmer. Kom fra UX 24. november 2026 |
