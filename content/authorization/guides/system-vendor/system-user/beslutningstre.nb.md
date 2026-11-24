@@ -54,7 +54,15 @@ graph TD
 
 Fullmaktssett (`clientAccessSets`) er bare lov med `vendorLocked=true` (vedtatt 23. november 2026). Når virksomheten bestemmer, velger byrået selv hva hver klient gir, så settene har ingen funksjon.
 
-Gyldig kombinasjon betyr at reglene for flagg og lister er oppfylt. Øvrig validering og autorisasjon gjelder fortsatt. Behandling av `null` og utelatte lister må beskrives i kontrakten.
+Gyldig kombinasjon betyr at reglene for flagg og lister er oppfylt. Øvrig validering og autorisasjon gjelder fortsatt.
+
+For fullmaktssettene gjelder dette (vedtatt 24. november 2026):
+
+- Utelatt `clientAccessSets` og `null` betyr ingen fullmaktssett. Et tomt objekt, et sett uten tilganger og samme tilgangspakke to ganger i ett sett gir 400.
+- `action` i et fullmaktssett gir 400.
+- Id-en kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn.
+
+Behandling av `null` og utelatte lister for egen virksomhet må beskrives i kontrakten.
 
 ## Vedtatt: Aksept og senere klientdelegering
 
@@ -101,7 +109,7 @@ graph TD
   ROW --> CLIENTS["Virksomheten legger klientene til selv"]
 {{< /mermaid >}}
 
-Leverandøren kan ikke endre eller slette et fullmaktssett, bare legge til nye (vedtatt 23. november 2026). Det som er delegert, endrer seg ikke. Kunden trenger ikke godkjenne et nytt sett, et sett kan ikke stoppes for bruk, og modellen har ingen måte å si at et nytt sett erstatter et gammelt. Det er ingen grense for hvor mange sett en systembruker kan ha, så flaten må tåle mange rader (vedtatt 24. november 2026). Endepunktet gjelder bare `vendorLocked=true`. Mot en systembruker med `vendorLocked=false` gir det valideringsfeil. Altinn vurderer «komplett» per sett: en klient kan være komplett i ett sett og mangle noe i et annet (vedtatt 23. november 2026).
+Leverandøren kan ikke endre eller slette et fullmaktssett, bare legge til nye (vedtatt 23. november 2026). Det som er delegert, endrer seg ikke. Kunden trenger ikke godkjenne et nytt sett, et sett kan ikke stoppes for bruk, og modellen har ingen måte å si at et nytt sett erstatter et gammelt. Det er ingen grense for hvor mange sett en systembruker kan ha, så flaten må tåle mange rader. En id som finnes på systembrukeren fra før, gir 200 uten endring når innholdet er likt, og 409 når innholdet er ulikt (vedtatt 24. november 2026). Endepunktet gjelder bare `vendorLocked=true`. Mot en systembruker med `vendorLocked=false` gir det valideringsfeil. Altinn vurderer «komplett» per sett: en klient kan være komplett i ett sett og mangle noe i et annet (vedtatt 23. november 2026).
 
 Fullmaktene skal aldri bli usynlige. Uansett hvilket sett virksomheten åpner, viser flaten på klienten at systembrukeren har fullmakter fra klienten gjennom andre sett.
 
@@ -177,7 +185,7 @@ Presentasjonen har ett åpent valg per lysbilde. Ingen av disse alternativene er
 
 ## Tekniske detaljer som må beskrives videre
 
-- Behandling av utelatte lister og `null`, og endrede forespørsler med samme eksterne referanse.
+- Behandling av utelatte lister og `null` for egen virksomhet, og endrede forespørsler med samme eksterne referanse.
 - Innholdsvalidering av lister og fullmaktssett ved forespørsel og aksept, uten sammenligning mot systemets rettighetskrav.
 - Lagring, svarmodeller, godkjenningsbilde og kobling til standard bruker- og klientflater.
 - Direkte Maskinporten-tilknytning, tokeninnhold og sporing av rettighetsgrunnlaget.

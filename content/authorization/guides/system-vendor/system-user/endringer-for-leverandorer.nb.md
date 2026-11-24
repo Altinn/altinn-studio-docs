@@ -139,7 +139,8 @@ Kunden godkjenner én systembruker. Fullmaktene for egen virksomhet får systemb
 Tre regler gjelder:
 
 - Virksomheten kan bare gi videre enkelttjenester den har fått som enkelttjeneste fra klienten. Tjenester den har fått gjennom en tilgangspakke, kan den ikke gi videre én og én.
-- Du oppgir ikke `action` i fullmaktssett i første versjon. Trenger du finere styring, bruker du tilgangspakker.
+- Du oppgir ikke `action` i fullmaktssett i første versjon. Sender du `action`, svarer Altinn 400. Trenger du finere styring, bruker du tilgangspakker.
+- Utelater du `clientAccessSets` eller sender `null`, har systembrukeren ingen fullmaktssett. Et tomt objekt, et sett uten tilganger og samme tilgangspakke to ganger i ett sett gir 400.
 - Systembrukeren får de samme handlingene, for eksempel lese og skrive, som klienten har gitt virksomheten.
 
 ---
@@ -171,6 +172,7 @@ POST /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 ```
 
 - **Du kan ikke endre eller slette et sett.** Trenger du andre fullmakter, legger du til et nytt sett med en ny id.
+- **Du kan trygt sende samme kall på nytt.** Sender du en id som finnes fra før, med likt innhold, svarer Altinn 200 og endrer ingenting. Er innholdet ulikt, svarer Altinn 409.
 - **Det nye settet blir en ny rad i brukerlisten,** etter radene for settene du har fra før.
 - **Det er ingen grense for hvor mange sett du kan legge til.** Men hvert sett er en rad i brukerlisten hos byrået, og mange rader gjør listen tung å bruke. Legg derfor bare til et nytt sett når du må.
 - **Kunden trenger ikke godkjenne det nye settet.** Settet gir ingen fullmakt før virksomheten knytter klienter til det.
@@ -267,7 +269,6 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer fullmaktene. Du kan uansett be om flere fullmakter for egen virksomhet med en forespørsel om fullmakt.
 - Hvordan du kan lese hvilke fullmakter systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Hva som skjer når klienten trekker tilbake bare en del av settet. Vi foreslår at klienten blir stående i raden, og at raden viser hva som mangler. Altinn flytter ikke klienten til et annet sett.
-- Hvilke tegn id-en til et fullmaktssett kan ha.
 - Om navn på fullmaktssett skal være påkrevd, og hvilket språk Altinn viser når navnet ikke finnes på brukerens språk.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
@@ -414,7 +415,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
 }
 ```
 
-Id-en er nøkkelen og ligger fast. Feltet `name` er navnet virksomheten ser. Det er et objekt med ett eller flere av språkene `nb`, `nn` og `en`, slik navn er i systemregisteret. Du trenger ikke oversette navnet. Finnes ikke navnet på språket brukeren har valgt i Altinn, viser Altinn det første språket i feltet. Uten `name` ser virksomheten «Alternativ 1», «Alternativ 2» og så videre. I eksempelet ser en bruker som har valgt nynorsk, det bokmålske navnet. Feltet er valgfritt, og navnet på feltet er foreløpig.
+Id-en er nøkkelen og ligger fast. Den kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Feltet `name` er navnet virksomheten ser. Det er et objekt med ett eller flere av språkene `nb`, `nn` og `en`, slik navn er i systemregisteret. Du trenger ikke oversette navnet. Finnes ikke navnet på språket brukeren har valgt i Altinn, viser Altinn det første språket i feltet. Uten `name` ser virksomheten «Alternativ 1», «Alternativ 2» og så videre. I eksempelet ser en bruker som har valgt nynorsk, det bokmålske navnet. Feltet er valgfritt, og navnet på feltet er foreløpig.
 
 En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
 

@@ -81,7 +81,7 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 - PostgreSQL-typen `jsonb` tar ikke vare på rekkefølgen av nøklene. Vi må lagre rekkefølgen på en annen måte, for eksempel som en liste med id internt eller som `json`.
 - JavaScript legger nøkler som bare er sifre, først. Id-en bør derfor ikke bare bestå av sifre.
 - Klienten og serveren må lese JSON-objektet slik at de beholder rekkefølgen. Det må stå tydelig i API-dokumentasjonen.
-- Fullmaktssett støtter ikke `action` i første versjon. Behov for finere styring dekker vi med tilgangspakker.
+- Fullmaktssett støtter ikke `action` i første versjon, og `action` i et sett gir 400 (vedtatt 24. november 2026). Behov for finere styring dekker vi med tilgangspakker.
 
 Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: registrert regnskapsfører (rollen REGN), registrert revisor (rollen REVI) og uregistrert kunde (direkte delegering). Leverandøren trenger ikke vite kundeforholdet for å hente token, så lenge alle settene dekker de samme tjenestene.
 
@@ -89,7 +89,9 @@ API-et for å knytte en klient viser til systembrukeren, id-en til settet og kli
 
 Foreslått 24. november 2026: hvert sett kan ha et navn i det valgfrie feltet `name`, på ett eller flere av språkene `nb`, `nn` og `en`, som navn i systemregisteret. Oversettelse er ikke påkrevd. Finnes ikke navnet på brukerens språk, viser Altinn det første språket i feltet. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre.
 
-Åpent: hvilke tegn id-en kan ha, og om navn skal være påkrevd. Vi spør leverandørene i høringen.
+Id-en kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Utelatt `clientAccessSets` og `null` betyr ingen fullmaktssett. Et tomt objekt, et sett uten tilganger og samme tilgangspakke to ganger i ett sett gir 400 (vedtatt 24. november 2026).
+
+Åpent: om navn skal være påkrevd. Vi spør leverandørene i høringen.
 
 ---
 ## Vedtatt: Leverandøren kan legge til nye fullmaktssett
@@ -98,7 +100,7 @@ Foreslått 24. november 2026: hvert sett kan ha et navn i det valgfrie feltet `n
 
 Leverandøren kan ikke endre eller slette et sett, bare legge til nye (vedtatt 23. november 2026). Et nytt sett blir en ny rad i brukerlisten, og virksomheten legger klientene til selv. Det som er delegert, endrer seg ikke. Altinn vurderer «komplett» per sett. Endepunktet gir valideringsfeil når `vendorLocked=false` (vedtatt 23. november 2026).
 
-Kunden trenger ikke godkjenne et nytt sett, og et sett kan ikke stoppes for bruk. Alle settene står i brukerlisten så lenge systembrukeren finnes. Modellen har ingen måte å si at et nytt sett erstatter et gammelt, så bare navnene kan vise det. Det er ingen grense for hvor mange sett en systembruker kan ha, men mange rader gjør brukerlisten tung, og det må UX ta høyde for (vedtatt 24. november 2026).
+Kunden trenger ikke godkjenne et nytt sett, og et sett kan ikke stoppes for bruk. Alle settene står i brukerlisten så lenge systembrukeren finnes. Modellen har ingen måte å si at et nytt sett erstatter et gammelt, så bare navnene kan vise det. En id som finnes på systembrukeren fra før, gir 200 uten endring når innholdet er likt, og 409 når innholdet er ulikt. Det er ingen grense for hvor mange sett en systembruker kan ha, men mange rader gjør brukerlisten tung, og det må UX ta høyde for (vedtatt 24. november 2026).
 
 Uansett hvilket sett virksomheten åpner, viser flaten på klienten fullmakter systembrukeren har fra klienten gjennom andre sett.
 
@@ -322,7 +324,7 @@ De vedtatte reglene for flagg og tomme lister må gjennomføres i opprettelsesfl
 
 Vi må fortsatt beskrive:
 
-- Hvordan utelatte lister og `null` behandles.
+- Hvordan utelatte lister og `null` behandles i listene for egen virksomhet. For fullmaktssettene er det vedtatt.
 - Hvilke regler som gjelder for innholdet i listene og fullmaktssettene, inkludert validering ved aksept.
 - Hva som skjer når samme eksterne referanse sendes på nytt med endrede lister.
 
