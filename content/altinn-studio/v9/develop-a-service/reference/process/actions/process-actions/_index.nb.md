@@ -148,7 +148,7 @@ App/config/authorization/policy.xml
 
 Systemet utfører den tilpassede koden du har knyttet til en prosesshandling før prosessen flyttes til neste oppgave.
 
-For å skrive tilpasset logikk, opprett en ny klasse som implementerer `Altinn.App.Core.Models.UserAction.IUserAction`.
+For å skrive tilpasset logikk, opprett en ny klasse som implementerer `Altinn.App.Core.Features.IUserAction`.
 
 Dette grensesnittet krever at du definerer en `Id` og en utføring av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Systemet bruker ID-en for å finne riktig C#-utføring av handlingen som er definert i prosessfilen.
 
@@ -182,4 +182,6 @@ public class MyDemoAction: IUserAction
 
 ```
 
-Hvis handlingen returnerer en `UserActionResult` med feltet "success" satt til true, flytter systemet prosessen til neste oppgave. Ellers flytter ikke systemet prosessen, og API-en returnerer en feil til brukeren.
+Returnerer handlingen `UserActionResult.FailureResult(...)`, flytter ikke systemet prosessen, og API-et returnerer en feil til brukeren. Ellers flytter systemet prosessen til neste oppgave.
+
+Endringer du gjør gjennom `context.DataMutator`, lagrer appen før prosessen går videre. Returnerer handlingen `FailureResult`, lagrer appen ingen av dem. Se [Endre data i handlingen]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions/serveraction#endre-data-i-handlingen" >}}).
