@@ -13,7 +13,7 @@ build:
 
 ## Hva endrer seg for systemleverandører og virksomheter?
 
-Oppdatert 23. november 2026
+Oppdatert 25. november 2026
 
 **Det du har laget i dag, virker som før.** Endringene gir nye muligheter som du kan ta i bruk når du vil.
 

@@ -12,7 +12,7 @@ build:
 
 ## Vedtak og videre avklaringer
 
-Oppdatert 10. november 2026. Vedtakene fra møtet 16. oktober er supplert med senere avklaringer.
+Oppdatert 25. november 2026. Vedtakene fra møtet 16. oktober er supplert med senere avklaringer.
 
 Én forespørsel for egen virksomhet og klienter. Tilgangsstyring på de vanlige bruker- og klientflatene.
 
