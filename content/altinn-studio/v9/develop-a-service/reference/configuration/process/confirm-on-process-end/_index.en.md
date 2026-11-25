@@ -54,18 +54,6 @@ If the organisation lacks `complete` for the end event, Storage refuses the conf
 - If the app sends events, `app.instance.process.completed` does not arrive.
 - Neither the end user nor a system that reads the process sees the failure. The app reports that the process has ended, with no trace of the failure.
 
-The instance stays that way until you have corrected `policy.xml` and restarted the workflow. The app's `process/resume` endpoint refuses a process that has ended, so neither the end user nor a system can restart the workflow from there.
+The instance stays that way until you have corrected `policy.xml` and restarted the workflow. The app's `process/resume` endpoint refuses a process that has ended, so neither the end user nor a system can restart the workflow from there. You restart it yourself, on the **Publiserte apper** page in Altinn Studio. See [Restart a workflow that has failed]({{< relref "/altinn-studio/v9/manage-a-service/failed-workflows" >}}).
 
 So test the confirmation in a test environment before you publish to production. Submit an instance, and check that it has a confirmation in `completeConfirmations` with your organisation in `stakeholderId`.
-
-### Restart the workflow
-
-You restart the workflow yourself, in the administration area of Altinn Studio. You must be a member of the team for the environment in your organisation, **Admin-TT02** or **Admin-Production**. See [Standardteam i Altinn Studio](/nb/altinn-studio/v9/develop-a-service/reference/administration/access-management/studio/#admin-tt02-og-admin-production) (documentation available in Norwegian only) for what the two teams give access to.
-
-The page **Instanser med problemer** in the administration area lists the instances where a workflow has failed. Once you have corrected `policy.xml`, do this:
-
-1. Open the instance in the administration area.
-2. Click **Prøv på nytt** on the workflow that failed.
-3. Click **Prøv arbeidsflyten på nytt** to confirm.
-
-The workflow continues from the step that failed, so the app tries to confirm once more.

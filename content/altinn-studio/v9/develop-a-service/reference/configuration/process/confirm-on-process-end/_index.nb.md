@@ -53,18 +53,6 @@ Mangler organisasjonen `complete` for sluttilstanden, avviser Storage bekreftels
 - Sender appen hendelser, kommer ikke `app.instance.process.completed`.
 - Verken brukeren eller et system som leser prosessen, ser feilen. Appen melder at prosessen er avsluttet, uten spor av feilen.
 
-Instansen blir stående slik til du har rettet tilgangsfilen og startet arbeidsflyten på nytt. Endepunktet `process/resume` i appen avviser en prosess som er avsluttet, så verken brukeren eller et system kan starte arbeidsflyten på nytt derfra.
+Instansen blir stående slik til du har rettet tilgangsfilen og startet arbeidsflyten på nytt. Endepunktet `process/resume` i appen avviser en prosess som er avsluttet, så verken brukeren eller et system kan starte arbeidsflyten på nytt derfra. Du starter den på nytt selv, på siden **Publiserte apper** i Altinn Studio. Se [Starte en arbeidsflyt som har feilet, på nytt]({{< relref "/altinn-studio/v9/manage-a-service/failed-workflows" >}}).
 
 Test derfor bekreftelsen i et testmiljø før du publiserer til produksjon. Send inn en instans, og kontroller at den har fått en bekreftelse i `completeConfirmations` med organisasjonen din i `stakeholderId`.
-
-### Starte arbeidsflyten på nytt
-
-Du starter arbeidsflyten på nytt selv, i administrasjonen i Altinn Studio. Du må være med i teamet for miljøet i organisasjonen din, **Admin-TT02** eller **Admin-Production**. Se [hva teamene Admin-TT02 og Admin-Production gir tilgang til]({{< relref "/altinn-studio/v9/develop-a-service/reference/administration/access-management/studio" >}}#admin-tt02-og-admin-production).
-
-Siden **Instanser med problemer** i administrasjonen viser instansene der en arbeidsflyt har feilet. Når du har rettet tilgangsfilen, gjør du slik:
-
-1. Åpne instansen i administrasjonen.
-2. Klikk på **Prøv på nytt** på arbeidsflyten som feilet.
-3. Klikk på **Prøv arbeidsflyten på nytt** for å bekrefte.
-
-Arbeidsflyten fortsetter fra steget som feilet, så appen prøver å bekrefte en gang til.

@@ -15,6 +15,7 @@ Det er som regel utvikleren eller leverandøren din som kjører oppgraderingen. 
 
 - avtale med dem når appen skal oppgraderes
 - lese [Dette endrer oppgraderingen i appen din](#dette-endrer-oppgraderingen-i-appen-din) og vurdere hva endringene betyr for brukerne
+- lese [Instanser som er underveis når du publiserer](#instanser-som-er-underveis-når-du-publiserer) hvis appen har instanser fra v8 i miljøet
 - teste appen grundig i testmiljøet før dere publiserer den i produksjon
 
 ## 1. Sett opp studioctl og hent appen
@@ -232,6 +233,35 @@ I tillegg kjører plattformen systemoppgaver på en ny måte i v9. I v8 kjørte 
 
 Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}) for hele oppsettet, og [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}) hvis oppgaven sender noe og venter på svar.
 
+## Instanser som er underveis når du publiserer
+
+Instanser som brukerne startet i v8, lever videre når du publiserer v9-versjonen av appen. Les dette før du publiserer til et miljø der appen har instanser fra før.
+
+### Instanser som stod i en systemoppgave i v8, kjører oppgaven på nytt
+
+Hadde appen systemoppgaver i v8, for eksempel en PDF-oppgave, kan det finnes instanser som står i en slik oppgave når du publiserer v9-versjonen. I v8 ble instansen stående i systemoppgaven når oppgaven feilet, og appen kjørte oppgaven på nytt ved neste kall til `process/next`. I v9 kjører arbeidsflytmotoren systemoppgavene, og den har ingen arbeidsflyt for en oppgave som startet i v8.
+
+Appen kjenner igjen disse instansene og behandler dem som en systemoppgave som har feilet:
+
+- Brukeren ser siden «Noe gikk galt» med knappen **Prøv igjen**.
+- **Prøv igjen** starter oppgaven på nytt. Det samme gjør et system som kaller `process/next` eller `process/resume`. Når oppgaven er ferdig, går prosessen videre som vanlig.
+- Instansen går ikke videre av seg selv. Den blir stående til brukeren klikker på **Prøv igjen**, eller til et system kaller ett av de to endepunktene.
+
+Oppgaven starter som et nytt besøk i oppgaven. Det betyr dette:
+
+- Har oppgaven en `IOnTaskStartingHandler`, kjører den, selv om oppgaven allerede startet én gang i v8.
+- Appen registrerer at oppgaven har startet en gang til. Sender appen hendelser, kommer `app.instance.process.movedTo.{taskId}` også en gang til.
+- Appen fjerner det som et tidligere forsøk laget i oppgaven, for eksempel en PDF, før oppgaven lager det på nytt.
+- Lager oppgaven en PDF etter at brukeren har klikket på **Prøv igjen**, får PDF-en språket fra brukerprofilen, ikke språket brukeren har valgt i appen.
+
+Dette må du passe på:
+
+- **Behold systemoppgaven i `process.bpmn`.** Fjerner du oppgaven eller gjør den om til noe annet enn en systemoppgave, svarer appen `409 Conflict` og kjører den ikke. Da blir instansen stående.
+- **Kontroller at koden tåler å kjøre en gang til.** Spør utviklerne om start-hooken og systemoppgaven tåler å kjøre på nytt for en instans som feilet i v8, uten å sende den samme meldingen eller opprette den samme saken to ganger.
+- **Kontroller systemer som sender handlinger med `process/next`.** Tillater prosessen `reject` fra oppgaven, avbryter `reject` oppgaven uten å kjøre den, som i v8. Alle andre handlinger enn `write` og navnet på oppgavetypen avviser appen med `409 Conflict`.
+
+Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}) for hvem som kan bruke **Prøv igjen**.
+
 ## Breaking changes
 
 ### Vi har flyttet egendefinerte oppgave-hooker, og de har fått ny funksjonsmåte
@@ -318,31 +348,6 @@ Appen har ikke lenger endepunktet `GET .../data/{dataGuid}/validate`. Bruk `GET 
 - `onlyIncrementalValidators`: `true` kjører bare validatorene for inkrementell validering, `false` bare de andre. Uten parameteren kjører alle.
 - `ignoredValidators`: en kommaseparert liste med `ValidationSource` for validatorer som ikke skal kjøre.
 - `language`: språket på valideringsmeldingene.
-
-### Instanser som stod i en systemoppgave i v8, kjører oppgaven på nytt
-
-Hadde appen systemoppgaver i v8, for eksempel en PDF-oppgave, kan det finnes instanser som står i en slik oppgave når du publiserer v9-versjonen. I v8 ble instansen stående i systemoppgaven når oppgaven feilet, og appen kjørte oppgaven på nytt ved neste kall til `process/next`. I v9 kjører arbeidsflytmotoren systemoppgavene, og den har ingen arbeidsflyt for en oppgave som startet i v8.
-
-Appen kjenner igjen disse instansene og behandler dem som en systemoppgave som har feilet:
-
-- Brukeren ser siden «Noe gikk galt» med knappen **Prøv igjen**.
-- **Prøv igjen** starter oppgaven på nytt. Det samme gjør et system som kaller `process/next` eller `process/resume`. Når oppgaven er ferdig, går prosessen videre som vanlig.
-- Instansen går ikke videre av seg selv. Den blir stående til brukeren klikker på **Prøv igjen**, eller til et system kaller ett av de to endepunktene.
-
-Oppgaven starter som et nytt besøk i oppgaven. Det betyr dette:
-
-- Har oppgaven en `IOnTaskStartingHandler`, kjører den, selv om oppgaven allerede startet én gang i v8.
-- Appen registrerer at oppgaven har startet en gang til. Sender appen hendelser, kommer `app.instance.process.movedTo.{taskId}` også en gang til.
-- Appen fjerner det som et tidligere forsøk laget i oppgaven, for eksempel en PDF, før oppgaven lager det på nytt.
-- Lager oppgaven en PDF etter at brukeren har klikket på **Prøv igjen**, får PDF-en språket fra brukerprofilen, ikke språket brukeren har valgt i appen.
-
-Dette må du passe på:
-
-- **Behold systemoppgaven i `process.bpmn`.** Fjerner du oppgaven eller gjør den om til noe annet enn en systemoppgave, svarer appen `409 Conflict` og kjører den ikke. Da blir instansen stående.
-- **Kontroller at koden tåler å kjøre en gang til.** Spør utviklerne om start-hooken og systemoppgaven tåler å kjøre på nytt for en instans som feilet i v8, uten å sende den samme meldingen eller opprette den samme saken to ganger.
-- **Kontroller systemer som sender handlinger med `process/next`.** Tillater prosessen `reject` fra oppgaven, avbryter `reject` oppgaven uten å kjøre den, som i v8. Alle andre handlinger enn `write` og navnet på oppgavetypen avviser appen med `409 Conflict`.
-
-Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}) for hvem som kan bruke **Prøv igjen**.
 
 ### Mindre endringer
 
