@@ -5,6 +5,7 @@ toc: true
 tags: [needsReview]
 aliases:
   - /altinn-studio/v9/develop-a-service/look-and-feel/components/organisationlookup/
+  - /nb/altinn-studio/v9/develop-a-service/look-and-feel/components/organizationlookup/
 ---
 
 Med komponenten **Finn virksomhet** (`OrganizationLookup`) kan brukerne slå opp en virksomhet i Enhetsregisteret med organisasjonsnummer. Appen lagrer organisasjonsnummeret og navnet på virksomheten i datamodellen.

@@ -126,7 +126,7 @@ App/ui/{taskId}/layouts/{page}.json
 
 ## Egenskaper
 
-Tabellen viser de viktigste egenskapene. [Komponentsiden for `RepeatingGroup`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/RepeatingGroup" >}}) har den fullstendige listen.
+Tabellen viser de viktigste egenskapene. [Komponentsiden for `RepeatingGroup`]({{< relref "/altinn-studio/v9/develop-a-service/components/RepeatingGroup" >}}) har den fullstendige listen.
 
 | Egenskap                                                        | Påkrevd | Beskrivelse                                                                                                                                                  |
 |-----------------------------------------------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|

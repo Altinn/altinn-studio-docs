@@ -3,6 +3,8 @@ title: PersonLookup
 description: Slik lar du brukerne slå opp en person i Folkeregisteret.
 toc: true
 tags: [needsReview]
+aliases:
+  - /nb/altinn-studio/v9/develop-a-service/look-and-feel/components/personlookup/
 ---
 
 Med komponenten **Finn person** (`PersonLookup`) kan brukerne slå opp en person i Folkeregisteret. Appen lagrer opplysningene om personen i datamodellen.

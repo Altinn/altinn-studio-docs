@@ -59,7 +59,7 @@ Med `mode` bestemmer du om tabellen med alle radene skal være synlig mens bruke
 | `"showAll"`   | Appen viser ingen tabell, men viser alle radene åpne under hverandre. Brukeren ser ingen knapp for å lagre og lukke en rad, men appen lagrer dataene uansett.                    |
 | `"onlyTable"` | Appen viser tabellen, men brukeren kan aldri åpne en rad. Passer sammen med [redigering direkte i tabellen]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/table#redigere-direkte-i-tabellen" >}}).             |
 
-I eldre apper kunne `mode` også være `"likert"`. Den verdien finnes ikke i v9. Bruk [Likert-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Likert" >}}) i stedet.
+I eldre apper kunne `mode` også være `"likert"`. Den verdien finnes ikke i v9. Bruk [Likert-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Likert" >}}) i stedet.
 
 ## addButton
 

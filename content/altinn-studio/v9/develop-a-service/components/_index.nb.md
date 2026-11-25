@@ -1,7 +1,10 @@
 ---
 title: Komponenter
+weight: 25
 description: Under arbeid - komponentoversikt basert på Altinn Studio GUI
 tags: [needsReview, under-construction]
+aliases:
+  - /nb/altinn-studio/v9/develop-a-service/look-and-feel/components/
 ---
 
 ## Skjema
@@ -13,7 +16,7 @@ Komponenter for datainnsamling.
 
 ![Input](./input/Input.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Input" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Input" >}})
 
 ---
 
@@ -23,7 +26,7 @@ Komponenter for datainnsamling.
 
 ![TextArea](./textarea/TextArea.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/TextArea" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/TextArea" >}})
 
 ---
 
@@ -33,13 +36,13 @@ Komponenter for datainnsamling.
 
 ![Datepicker](./datepicker/Datepicker.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Datepicker" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Datepicker" >}})
 
 ---
 
 ### Tidsvelger (`TimePicker`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/TimePicker" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/TimePicker" >}})
 
 ---
 
@@ -49,7 +52,7 @@ Komponenter for datainnsamling.
 
 ![OrganizationLookup](./organizationlookup/OrganizationLookup.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/OrganizationLookup" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/OrganizationLookup" >}})
 
 ---
 
@@ -59,7 +62,7 @@ Komponenter for datainnsamling.
 
 ![PersonLookup](./personlookup/PersonLookup.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/PersonLookup" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/PersonLookup" >}})
 
 ---
 
@@ -74,7 +77,7 @@ Komponenter for å vise tekst og informasjon.
 
 ![Heading](./heading/Heading.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Heading" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Heading" >}})
 
 ---
 
@@ -84,7 +87,7 @@ Komponenter for å vise tekst og informasjon.
 
 ![Paragraph](./paragraph/Paragraph.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Paragraph" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Paragraph" >}})
 
 ---
 
@@ -95,7 +98,7 @@ dekker hele bredden til siden.
 
 ![Panel](./panel/Panel.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Panel" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Panel" >}})
 
 ---
 
@@ -106,7 +109,7 @@ brukernes oppmerksomhet. Teksten i varselet skal være kort og tydelig.
 
 ![Alert](./alert/Alert.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Alert" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Alert" >}})
 
 ---
 
@@ -117,7 +120,7 @@ tilgjengelig bredde.
 
 ![Divider](./divider/Divider.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Divider" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Divider" >}})
 
 ---
 
@@ -127,13 +130,13 @@ tilgjengelig bredde.
 
 ![Text](./text/Text.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Text" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Text" >}})
 
 ---
 
 ### Tall (`Number`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Number" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Number" >}})
 
 ---
 
@@ -143,7 +146,7 @@ tilgjengelig bredde.
 
 ![Date](./date/Date.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Date" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Date" >}})
 
 ---
 
@@ -157,7 +160,7 @@ brukeren skal bekrefte noe.
 
 ![Checkboxes](./checkboxes/Checkboxes.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Checkboxes" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Checkboxes" >}})
 
 ---
 
@@ -167,7 +170,7 @@ kun velge ett.
 
 ![RadioButtons](./radiobuttons/RadioButtons.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/RadioButtons" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/RadioButtons" >}})
 
 ---
 
@@ -176,7 +179,7 @@ kun velge ett.
 
 ![Dropdown](./dropdown/Dropdown.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Dropdown" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Dropdown" >}})
 
 ---
 
@@ -185,7 +188,7 @@ kun velge ett.
 
 ![MultipleSelect](./dropdown/Dropdown.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/MultipleSelect" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/MultipleSelect" >}})
 
 ---
 
@@ -201,7 +204,7 @@ Komponenter for å vise tilleggsinformasjon.
 
 ### Informasjon om eksemplaret (InstanceInformation)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/InstanceInformation" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/InstanceInformation" >}})
 
 ---
 
@@ -210,19 +213,19 @@ Komponenter for å vise tilleggsinformasjon.
 
 ![Image](./image/Image.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Image" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Image" >}})
 
 ---
 
 ### Lyd (`Audio`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Audio" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Audio" >}})
 
 ---
 
 ### Video (`Video`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Video" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Video" >}})
 
 ---
 
@@ -231,13 +234,13 @@ Komponenter for å vise tilleggsinformasjon.
 
 ![Link](./link/Link.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Link" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Link" >}})
 
 ---
 
 ### IFrame (IFrame)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/IFrame" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/IFrame" >}})
 
 ---
 
@@ -248,7 +251,7 @@ Den kan tilpasses for å dekke dine behov, og brukes også for å generere PDF.
 
 ![Summary2](./summary2/Summary2.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Summary" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Summary" >}})
 
 ---
 
@@ -261,7 +264,7 @@ Handlingsknapper og navigasjon.
 
 ![Button](./button/Button.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Button" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Button" >}})
 
 ---
 
@@ -270,13 +273,13 @@ Handlingsknapper og navigasjon.
 
 ![CustomButton](./button/Button.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/CustomButton" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/CustomButton" >}})
 
 ---
 
 ### Navigasjonslinje (`NavigationBar`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/NavigationBar" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/NavigationBar" >}})
 
 ---
 
@@ -286,7 +289,7 @@ legger til en ny side i Altinn Studio verktøyet.
 
 ![NavigationButtons](./navigationbuttons/NavigationButtons.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/NavigationButtons" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/NavigationButtons" >}})
 
 ---
 
@@ -295,13 +298,13 @@ legger til en ny side i Altinn Studio verktøyet.
 
 ![PrintButton](./printbutton/PrintButton.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/PrintButton" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/PrintButton" >}})
 
 ---
 
 ### Forhåndsvis PDF (`PDFPreviewButton`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/PDFPreviewButton" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/PDFPreviewButton" >}})
 
 ---
 
@@ -311,7 +314,7 @@ legger til en ny side i Altinn Studio verktøyet.
 
 ![InstantiationButton](./button/Button.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/InstantiationButton" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/InstantiationButton" >}})
 
 ---
 
@@ -321,7 +324,7 @@ Oppgaven kan for eksempel være signering, bekreftelse eller avvisning.
 
 ![ActionButton](./button/Button.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/ActionButton" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/ActionButton" >}})
 
 ---
 
@@ -333,7 +336,7 @@ Komponenter for filopplasting.
 `AttachmentList` viser en liste over vedlegg som er lastet opp i skjemaet, for den oppgaven de jobber på. Velg om alle
 vedlegg skal vises, eller kun et utvalg.
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/AttachmentList" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/AttachmentList" >}})
 
 ---
 
@@ -342,7 +345,7 @@ vedlegg skal vises, eller kun et utvalg.
 
 ![FileUpload](./fileupload/FileUpload.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/FileUpload" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/FileUpload" >}})
 
 ---
 
@@ -351,7 +354,7 @@ vedlegg skal vises, eller kun et utvalg.
 
 ![ImageUpload](./imageupload/ImageUpload.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/ImageUpload" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/ImageUpload" >}})
 
 ---
 
@@ -361,13 +364,13 @@ Komponenter for betalingsflyt.
 
 ### Betaling (`Payment`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Payment" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Payment" >}})
 
 ---
 
 ### Betalingsdetaljer (`PaymentDetails`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/PaymentDetails" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/PaymentDetails" >}})
 
 ---
 
@@ -377,19 +380,19 @@ Komponenter for signeringsflyt.
 
 ### Signatarliste (`SigneeList`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SigneeList" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/SigneeList" >}})
 
 ---
 
 ### Signeringshandlinger (`SigningActions`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SigningActions" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/SigningActions" >}})
 
 ---
 
 ### Signeringsdokumenter (`SigningDocumentList`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SigningDocumentList" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/SigningDocumentList" >}})
 
 ---
 
@@ -401,7 +404,7 @@ Komponenter for å strukturere skjemaet.
 
 `Group` brukes til å gruppere komponenter visuelt eller logisk.
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Group" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Group" >}})
 
 ---
 
@@ -410,7 +413,7 @@ Komponenter for å strukturere skjemaet.
 
 ![Grid](./grid/Grid.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Grid" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Grid" >}})
 
 ---
 
@@ -420,19 +423,19 @@ Komponenter for å strukturere skjemaet.
 
 ![Accordion](./accordion/Accordion.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Accordion" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Accordion" >}})
 
 ---
 
 ### Nestet trekkspilliste (`AccordionGroup`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/AccordionGroup" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/AccordionGroup" >}})
 
 ---
 
 ### Knappegruppe (`ButtonGroup`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/ButtonGroup" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/ButtonGroup" >}})
 
 ---
 
@@ -443,19 +446,19 @@ støtter søk, sortering og paginering.
 
 ![List](./list/List.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/List" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/List" >}})
 
 ---
 
 ### Repeterende gruppe (`RepeatingGroup`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/RepeatingGroup" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/RepeatingGroup" >}})
 
 ---
 
 ### Enkel tabell (`SimpleTable`)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SimpleTable" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/SimpleTable" >}})
 
 ---
 
@@ -465,7 +468,7 @@ informasjon, bilder, lydklipp, videoer, og skjemakomponenter.
 
 ![Cards](./cards/Cards.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Cards" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Cards" >}})
 
 ---
 
@@ -475,7 +478,7 @@ plasseffektiv og ryddig måte å presentere informasjon på.
 
 ![Tabs](./tabs/Tabs.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Tabs" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Tabs" >}})
 
 ---
 
@@ -487,7 +490,7 @@ Spesialiserte komponenter for avanserte bruksområder.
 
 ![Address](./address/Address.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Address" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Address" >}})
 
 ---
 
@@ -495,7 +498,7 @@ Spesialiserte komponenter for avanserte bruksområder.
 
 ![Map](./map/Map.png)
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Map" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Map" >}})
 
 ---
 
@@ -509,6 +512,6 @@ Spesialiserte komponenter for avanserte bruksområder.
 
 `Subform` viser oppføringene i et underskjema som en tabell i hovedskjemaet. Brukeren kan legge til, endre og slette oppføringer. [Slik setter du opp et underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform" >}}).
 
-[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Subform" >}})
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Subform" >}})
 
 ---
