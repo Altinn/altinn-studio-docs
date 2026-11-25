@@ -56,6 +56,8 @@ public class ExampleServiceTask : IServiceTask
 
 Du leser og endrer data gjennom `context.InstanceDataMutator`. Plattformen lagrer endringene når oppgaven svarer at den gikk bra. Husk at dataelementer fra tidligere oppgaver er låst.
 
+`DefineExecute` kjører når plattformen planlegger oppgaven, foran hvert steg og når appen starter. Den skal bare sette sammen stegene, ikke gjøre noe arbeid selv. Arbeidet hører hjemme i `Execute`.
+
 ## Registrere systemoppgaven
 
 Registrer klassen i `Program.cs`, slik at plattformen finner den:
@@ -106,7 +108,7 @@ Brukeren kan ikke hoppe over oppgaven. Så lenge oppgaven jobber, venter eller h
 
 ## Hva oppgaven kan svare
 
-`Execute` svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre. Et svar som sier at oppgaven er ferdig, flytter alltid prosessen videre:
+Avslutningen, `Execute` i eksempelet over, svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre. Et svar som sier at oppgaven er ferdig, flytter alltid prosessen videre:
 
 | Svar | Dette skjer |
 | --- | --- |
@@ -139,7 +141,7 @@ Uansett hvilken av dem du velger, kan ingen hoppe over ventingen. Brukeren ser l
 Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en melding, oppretter en sak eller trekker et beløp, må den kjenne igjen arbeid den allerede har gjort:
 
 - Bruk `context.StepId` som nøkkel mot systemet du kaller. Verdien er den samme gjennom alle forsøk på det samme steget, og ny neste gang prosessen kommer til oppgaven.
-- Bruk `context.WorkflowId` når du trenger å skille et nytt besøk i oppgaven fra et nytt forsøk på det samme besøket.
+- Ikke bruk `context.WorkflowId` som nøkkel. Verdien er felles for alle stegene i prosessovergangen, og skiller ikke ett kall fra et annet.
 - Ikke la koden avgjøre noe ut fra `context.Attempt` eller `context.Wait` for å hindre dobbeltarbeid. Et forsøk som rakk å sende noe før det stoppet, kjører på nytt med de samme verdiene.
 - Trenger oppgaven varig spor av noe den har gjort, lagrer du det i instansdataene gjennom `context.InstanceDataMutator`.
 
