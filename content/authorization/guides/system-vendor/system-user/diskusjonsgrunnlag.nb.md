@@ -45,7 +45,7 @@ Med den nye flaggregelen betyr dette `vendorLocked=false`, typisk uten krav i fo
 POST /authentication/api/v2/systemuser/request/vendor
 ```
 
-Versjon 1 virker som før og får ingen nye felt. Systembrukere fra versjon 1 får `vendorLocked=true`.
+Versjon 1 virker som før og får ingen nye felt. Systembrukere fra versjon 1 får `vendorLocked=true`. Vi varsler minst seks måneder før vi slutter å støtte versjon 1 (vedtatt 25. november 2026).
 
 Vi omtaler brukeren som **systembruker**. Rettigheter for egen virksomhet og klienter beskrives i samme forespørsel.
 
@@ -71,7 +71,7 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 
 - Klienten må oppfylle alt innenfor ett sett. Det holder å oppfylle ett av settene.
 - `clientAccessSets` er et objekt der nøkkelen er id-en til settet. Leverandøren velger id-en, og den må være unik på systembrukeren. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026).
-- Id-en ligger fast. Det valgfrie feltet `name` er teksten virksomheten ser. Leverandøren kan ikke endre eller slette et sett, bare legge til nye med ny id (vedtatt 23. november 2026).
+- Id-en ligger fast. Det påkrevde feltet `name` er teksten virksomheten ser, og navnet kan endres (vedtatt 25. november 2026). Leverandøren kan ikke endre tilgangene i et sett eller slette det, bare legge til nye med ny id (vedtatt 23. november 2026).
 - Rekkefølgen i objektet bestemmer rekkefølgen på radene i brukerlisten, uten indeksfelt (vedtatt 23. november 2026). Nye sett kommer etter dem som finnes. Klienten står i en gruppe for hvert sett den oppfyller, og virksomheten knytter den til ett sett om gangen. En klient kan være knyttet til flere sett.
 - Vi lagrer settene på systembrukeren etter opprettelsen.
 - Fullmaktssett er bare lov med `vendorLocked=true`. Med `false` gir de valideringsfeil, og når leverandøren fjerner låsen, sletter Altinn settene uten å fjerne fullmakter (vedtatt 23. november 2026).
@@ -85,9 +85,15 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 
 Fordelen er at ett selskap kan bruke én systembruker for alle kundetyper: registrert regnskapsfører (rollen REGN), registrert revisor (rollen REVI) og uregistrert kunde (direkte delegering). Leverandøren trenger ikke vite kundeforholdet for å hente token, så lenge alle settene dekker de samme tjenestene.
 
+Settene trenger ikke dekke de samme tjenestene. En leverandør kan for eksempel bruke ett sett per produkt eller modul den har solgt til kundene. Oftest vil settene trolig gjelde ulike kundetyper, men det har vi ikke fått tilbakemelding på ennå (vedtatt 25. november 2026).
+
 API-et for å knytte en klient viser til systembrukeren, id-en til settet og klienten (vedtatt 23. november 2026).
 
-Foreslått 24. november 2026: hvert sett kan ha et navn i det valgfrie feltet `name`, på ett eller flere av språkene `nb`, `nn` og `en`, som navn i systemregisteret. Oversettelse er ikke påkrevd. Finnes ikke navnet på brukerens språk, viser Altinn det første språket i feltet. Uten navn viser grensesnittet «Alternativ 1», «Alternativ 2» og så videre.
+Hvert fullmaktssett må ha et navn i feltet `name`. Navnet er et objekt med språkene `nb`, `nn` og `en`. `nb` er påkrevd, og `nn` og `en` er valgfrie. Andre språkkoder gir 400. Hvert navn kan ha høyst 100 tegn. Det er ren tekst uten linjeskift og HTML, og det kan ikke være tomt. Altinn fjerner mellomrom først og sist. Altinn viser navnet på språket brukeren har valgt, og ellers bokmål. To sett på samme systembruker kan ikke ha samme navn på samme språk, og ikke det samme innholdet. Altinn skiller ikke mellom store og små bokstaver i navnet, og ser bort fra rekkefølgen på tilgangspakkene og enkeltrettighetene. I en forespørsel gir det 400, og mot et sett som finnes fra før, gir det 409. Navnet kan endres. Sender leverandøren en id som finnes fra før, med de samme tilgangene og et annet navn, endrer Altinn navnet og svarer 200. Leverandøren kan ikke endre tilgangene i settet (vedtatt 25. november 2026).
+
+Endringsforespørselen virker ikke på fullmaktssett, og leverandøren kan ikke be om fullmakt for klienter. Når virksomheten bestemmer, må leverandøren derfor selv gi virksomheten beskjed når systemet trenger nye fullmakter for klienter, og virksomheten gir dem i Tilgangsstyring (vedtatt 25. november 2026).
+
+Når virksomheten bestemmer, gir endringsforespørselen 400. Leverandøren ber i stedet om flere fullmakter for egen virksomhet med API-et for forespørsler om fullmakt. Systembrukeren sender forespørselen selv, med et token leverandøren henter fra Maskinporten (vedtatt 25. november 2026).
 
 Id-en kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Utelatt `clientAccessSets` og `null` betyr ingen fullmaktssett. Et tomt objekt, et sett uten tilganger og samme tilgangspakke to ganger i ett sett gir 400 (vedtatt 24. november 2026).
 
@@ -190,7 +196,7 @@ På **Brukere** står systembrukere i samme liste som personer og virksomheter, 
 
 - Radene er bare visning. Det er fortsatt én systembruker, ett token og én `externalRef`. BFF-en i frontend lager radene, og vi endrer ikke API-et i Authentication for listene.
 - Fullmakter for egen virksomhet får en egen rad. Med `vendorLocked=false` har systembrukeren én rad for egen virksomhet og én for klienter.
-- Raden heter system + `name` på settet, ellers «Alternativ N».
+- Raden heter system + `name` på settet.
 - En åpnet rad viser bare det settet, med én **Legg til alle**.
 - Virksomheten kan knytte samme klient til flere rader. Systembrukeren får summen.
 - Sletter virksomheten fra en rad, sletter de hele systembrukeren.
@@ -272,7 +278,7 @@ Forespørselens krav skal verken fylles fra eller begrenses av listene i systemr
 Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder fortsatt. At et system er synlig ved opprettelse, er noe annet enn at alle opprettede systembrukere skal vises i brukeroversikten.
 
 ---
-## Åpent valg: Kombinasjoner på samme system
+## Vedtatt: Kombinasjoner på samme system
 
 **Skal samme registrerte system kunne ha brukere med og uten forhåndsdefinerte rettigheter samtidig?**
 
@@ -280,7 +286,7 @@ Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder 
 
 **Nei:** Separate oppsett. Som avklart tidligere vil en leverandør som støtter begge, trenge to forskjellige Maskinporten-klienter.
 
-Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke uttrykkelig avklart i møtereferatet her.
+Felles brukeroversikt er vedtatt. Samme system kan ha systembrukere med `vendorLocked=true` og systembrukere med `vendorLocked=false`. Låsen hører til hver systembruker (vedtatt 25. november 2026).
 
 ---
 ## Vedtatt: Låsen kan fjernes etter opprettelse
@@ -289,11 +295,11 @@ Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke utt
 
 Når leverandøren fjerner låsen, sletter Altinn fullmaktssettene. Klientene beholder det som er delegert, og virksomheten kan endre fritt etterpå. Ingen fullmakter forsvinner (vedtatt 23. november 2026).
 
-Bare leverandøren kan fjerne låsen. Virksomheten kan ikke fjerne den, med mindre virksomheten selv er leverandør av systemet. Da fjerner den låsen som leverandør (vedtatt 24. november 2026).
+Bare leverandøren kan fjerne låsen. Virksomheten kan ikke fjerne den, med mindre virksomheten selv er leverandør av systemet. Da fjerner den låsen som leverandør (vedtatt 24. november 2026). En endringsforespørsel som venter når leverandøren fjerner låsen, blir ugyldig, og kunden kan ikke godkjenne den (vedtatt 25. november 2026).
 
-Fortsatt åpent: hvordan endringen audit-loggføres og varsles.
+Leverandøren fjerner låsen med et eget endepunkt. Altinn logger det som en handling fra leverandøren, og tilgangsstyreren hos virksomheten får et varsel (vedtatt 25. november 2026).
 
-Samlet sletting på brukersiden med `vendorLocked=true` er vedtatt. Flyten for å fjerne låsen er fortsatt uavklart.
+Samlet sletting på brukersiden med `vendorLocked=true` er vedtatt.
 
 ---
 ## Åpent valg: Eksisterende Agent-brukere

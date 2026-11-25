@@ -49,7 +49,7 @@ Det du har laget i dag, virker som før. Du tar i bruk det nye når du er klar.
 |---|---|
 | Forespørsel om systembruker for eget system med `rights` og `accessPackages` | Virker som før i versjon 1. De nye feltene finnes bare i versjon 2. |
 | Forespørsel om systembruker for klientsystem (`/request/vendor/agent`) | Virker som før. |
-| Endringsforespørsel (`/changerequest/vendor`) | Virker som før. |
+| Endringsforespørsel (`/changerequest/vendor`) | Virker som før når leverandøren bestemmer. Den virker ikke på fullmaktssett. Når virksomheten bestemmer, gir den 400. |
 | Klientdelegerings-API-et | Virker som før. |
 | Systembrukere kundene dine allerede har godkjent | Beholder fullmaktene og oppførselen sin, og får `vendorLocked: true`. Ingen systembruker går over til «Virksomheten bestemmer» av seg selv. |
 | Klienter som er knyttet til systembrukerne dine | Blir der de er. Altinn flytter dem ikke automatisk. |
@@ -74,7 +74,7 @@ Når virksomheten bestemmer, blir systembrukeren likere vanlige brukere. Virksom
 | Kan kunden legge til fullmakter | Nei | Ja, men bare det de selv har lov til å gi |
 | Kan du be om flere fullmakter for egen virksomhet | Ja, med en forespørsel om fullmakt | Ja, med en forespørsel om fullmakt |
 
-Du kan fjerne låsen etter at systembrukeren er opprettet, altså gå fra `vendorLocked: true` til `false`. Virksomheten trenger ikke godkjenne det. Bare du som leverandør kan fjerne låsen. Virksomheten kan ikke fjerne den selv, med mindre den selv er leverandør av systemet. Altinn sletter da fullmaktssettene, men klientene beholder det de har gitt systembrukeren, og virksomheten kan endre det fritt. Du kan ikke låse en systembruker som har vært åpen. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
+Du kan fjerne låsen etter at systembrukeren er opprettet, altså gå fra `vendorLocked: true` til `false`. Virksomheten trenger ikke godkjenne det. Bare du som leverandør kan fjerne låsen. Virksomheten kan ikke fjerne den selv, med mindre den selv er leverandør av systemet. Altinn sletter da fullmaktssettene, men klientene beholder det de har gitt systembrukeren, og virksomheten kan endre det fritt. Du fjerner låsen med et eget endepunkt. Altinn logger at du har gjort det, og tilgangsstyreren hos virksomheten får et varsel. Du kan ikke låse en systembruker som har vært åpen. En endringsforespørsel som venter når du fjerner låsen, blir ugyldig, og kunden kan ikke godkjenne den. Låsen hører til hver systembruker, så samme system kan ha systembrukere med `vendorLocked: true` og systembrukere med `vendorLocked: false`. Flagget gjelder bare forespørsler du sender selv. Forespørsler til versjon 1 får alltid `true`.
 
 Fullmaktssett forklarer vi på de neste lysbildene.
 
@@ -103,7 +103,8 @@ Et **fullmaktssett** er tilgangspakker og enkeltrettigheter som hører sammen. D
 - Du kan ikke endre eller slette et sett etter at kunden har godkjent forespørselen. Du kan legge til nye sett.
 - Altinn bruker id-en når virksomheten knytter en klient til systembrukeren. Da er det klart hvilket sett klienten har fått.
 - Du henter token på samme måte for alle klienter.
-- Alle settene bør dekke de samme tjenestene. Ellers må du fortsatt vite hvilket sett klienten fikk.
+- Settene trenger ikke dekke de samme tjenestene. Du kan for eksempel bruke ett sett per produkt eller modul du har solgt til kundene. Da må systemet ditt vite hvilket sett klienten er knyttet til.
+- Fortell oss gjerne hvordan du vil bruke settene: for ulike kundetyper, for ulike produkter, eller begge deler.
 
 **Det skjer når virksomheten legger til en klient:**
 
@@ -125,7 +126,7 @@ Et **fullmaktssett** er tilgangspakker og enkeltrettigheter som hører sammen. D
 | `rights` | Enkeltrettigheter for egen virksomhet | Finnes i dag |
 | `clientAccessSets` | Fullmaktssett for klienter, med id som nøkkel. Rekkefølgen bestemmer rekkefølgen på radene | Nytt, foreløpig navn |
 | `vendorLocked` | Hvem som bestemmer fullmaktene etter godkjenning | Nytt, påkrevd |
-| `name` i hvert fullmaktssett | Navnet virksomheten ser, på ett eller flere språk | Nytt, valgfritt, foreslått |
+| `name` i hvert fullmaktssett | Navnet virksomheten ser. Bokmål er påkrevd, nynorsk og engelsk er valgfrie | Nytt, påkrevd |
 
 Kunden godkjenner én systembruker. Fullmaktene for egen virksomhet får systembrukeren når kunden godkjenner. Fullmaktene for klienter får den når virksomheten knytter klienter til systembrukeren.
 
@@ -141,7 +142,7 @@ Tre regler gjelder:
 - Virksomheten kan bare gi videre enkelttjenester den har fått som enkelttjeneste fra klienten. Tjenester den har fått gjennom en tilgangspakke, kan den ikke gi videre én og én.
 - Altinn sammenligner tilgangspakkene i settet med pakkene klienten har gitt byrået, ikke tjenestene pakkene gir tilgang til. Skal en annen pakke også godtas, legger du til et eget sett med den pakken.
 - Du oppgir ikke `action` i fullmaktssett i første versjon. Sender du `action`, svarer Altinn 400. Trenger du finere styring, bruker du tilgangspakker.
-- Utelater du `clientAccessSets` eller sender `null`, har systembrukeren ingen fullmaktssett. Et tomt objekt, et sett uten tilganger og samme tilgangspakke to ganger i ett sett gir 400.
+- Utelater du `clientAccessSets` eller sender `null`, har systembrukeren ingen fullmaktssett. Et tomt objekt, et sett uten tilganger, et sett uten navn på bokmål, samme tilgangspakke to ganger i ett sett og to sett med samme navn eller samme innhold gir 400.
 - Systembrukeren får de samme handlingene, for eksempel lese og skrive, som klienten har gitt virksomheten.
 
 ---
@@ -172,8 +173,10 @@ Altinn kontrollerer fortsatt at rettighetene finnes, at det går an å delegere 
 POST /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 ```
 
-- **Du kan ikke endre eller slette et sett.** Trenger du andre fullmakter, legger du til et nytt sett med en ny id.
-- **Du kan trygt sende samme kall på nytt.** Sender du en id som finnes fra før, med likt innhold, svarer Altinn 200 og endrer ingenting. Er innholdet ulikt, svarer Altinn 409.
+- **Du kan ikke endre tilgangene i et sett eller slette det.** Trenger du andre fullmakter, legger du til et nytt sett med en ny id.
+- **Du kan endre navnet på et sett.** Send samme id med de samme tilgangene og det nye navnet. Altinn endrer navnet og svarer 200.
+- **Du kan trygt sende samme kall på nytt.** Sender du en id som finnes fra før, med likt innhold, svarer Altinn 200 og endrer ingenting. Er tilgangene ulike, svarer Altinn 409.
+- **Et nytt sett kan ikke ha samme navn eller samme innhold som et sett du har fra før.** Da svarer Altinn 409. Det gjelder også når du endrer navnet.
 - **Det nye settet blir en ny rad i brukerlisten,** etter radene for settene du har fra før.
 - **Det er ingen grense for hvor mange sett du kan legge til.** Men hvert sett er en rad i brukerlisten hos byrået, og mange rader gjør listen tung å bruke. Legg derfor bare til et nytt sett når du må.
 - **Kunden trenger ikke godkjenne det nye settet.** Settet gir ingen fullmakt før virksomheten knytter klienter til det.
@@ -181,7 +184,8 @@ POST /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 - **Du kan ikke si at et nytt sett erstatter et gammelt.** Altinn har ingen kobling mellom settene, så bare navnene kan vise byrået hvilket sett som er det nye.
 - **Altinn knytter ingen klienter til det nye settet.** Virksomheten åpner raden og legger klientene til, én og én eller med **Legg til alle**.
 - **Klientene i de gamle settene beholder det de har.** Altinn verken gir eller fjerner fullmakter. Virksomheten kan selv fjerne klienter fra et gammelt sett.
-- **Endepunktet gjelder bare når leverandøren bestemmer.** Med `vendorLocked: false` gir det valideringsfeil.
+- **Byrået får ikke varsel om nye sett eller endrede navn i første versjon.** Det nye settet står som en ny rad i brukerlisten.
+- **Endepunktet gjelder bare når leverandøren bestemmer.** Med `vendorLocked: false` gir det valideringsfeil. Endringsforespørselen virker heller ikke på fullmaktssett. Når virksomheten bestemmer og systemet trenger nye fullmakter for klienter, må du selv gi virksomheten beskjed. Virksomheten gir fullmaktene i Tilgangsstyring.
 - **Systemet ditt må tåle at klientene står i ulike sett.** Til virksomheten har lagt klienten til i det nye settet, kan kall til den nye tjenesten bli avvist for klienten.
 - **Du kan ikke be klientene om fullmaktene gjennom API-et.** Det er ikke planlagt i denne endringen. Virksomheten må be klientene om det som mangler.
 
@@ -190,7 +194,7 @@ POST /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 
 **I dag** kan du bare be om nye fullmakter til en systembruker med en endringsforespørsel.
 
-**Etter endringen** kan du også be kunden om flere fullmakter for egen virksomhet med API-et for forespørsler om fullmakt. Sluttbrukersystemer bruker det samme API-et i dag.
+**Etter endringen** kan du også be kunden om flere fullmakter for egen virksomhet med API-et for forespørsler om fullmakt. Sluttbrukersystemer bruker det samme API-et i dag. Det er systembrukeren selv som sender forespørselen: systemet ditt logger på med Maskinporten og bruker tokenet til systembrukeren.
 
 ```http
 /accessmanagement/api/v1/enduser/request
@@ -198,6 +202,8 @@ POST /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 
 - Du kan be om tilgangspakker og enkeltrettigheter.
 - Det gjelder både når leverandøren bestemmer og når virksomheten bestemmer.
+- Når virksomheten bestemmer, er dette den eneste måten å be om flere fullmakter på. En endringsforespørsel gir da 400.
+- En fullmakt kunden godkjenner på denne måten, får merket «Lagt til av virksomheten».
 - Kunden godkjenner eller avviser forespørselen i Altinn.
 - Du kan ikke be om fullmakter for klienter på denne måten. Det er ikke planlagt i denne endringen.
 
@@ -253,7 +259,7 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 
 **Trenger vi ikke systemregisteret lenger?** Jo, registeret består, og du må fortsatt registrere systemet. Det er bare rettighetene som er frikoblet. I versjon 2 begrenser ikke listene over rettigheter på systemet forespørslene dine.
 
-**Må vi gå over til versjon 2?** Ikke nå. Versjon 1 virker som før. Vi regner med at den virker i minst to år, men det er ikke bekreftet.
+**Må vi gå over til versjon 2?** Ikke nå. Versjon 1 virker som før. Vi varsler minst seks måneder før vi slutter å støtte den.
 
 **Hjelper dere oss med å gå over fra versjon 1 til versjon 2?** Vi lager god dokumentasjon for overgangen. Utover det må du gjøre overgangen selv. Lysbildet «Slik går du over til én systembruker» viser stegene.
 
@@ -265,16 +271,8 @@ I versjon 2 avviser Altinn forespørselen hvis `vendorLocked` mangler. Altinn av
 - Endelig navn på `clientAccessSets`.
 - Om grensesnittet skal bruke navnet «systembruker» i stedet for «systemtilgang», nå som systembrukeren står i brukerlisten. Det kan påvirke tekstene i dine egne flyter.
 - Hvordan grensesnittet viser om leverandøren eller virksomheten bestemmer fullmaktene.
-- Hvor lenge versjon 1 av forespørselen virker. Vi regner med minst to år, men det er ikke bekreftet.
-- Hvordan du fjerner låsen på en systembruker, og hvordan virksomheten får vite det.
-- Om endringsforespørselen skal virke for en systembruker der virksomheten bestemmer fullmaktene. Du kan uansett be om flere fullmakter for egen virksomhet med en forespørsel om fullmakt.
 - Hvordan du kan lese hvilke fullmakter systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Hva som skjer når klienten trekker tilbake bare en del av settet. Vi foreslår at klienten blir stående i raden, og at raden viser hva som mangler. Altinn flytter ikke klienten til et annet sett.
-- Om navn på fullmaktssett skal være påkrevd, og hvilket språk Altinn viser når navnet ikke finnes på brukerens språk.
-- Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
-- Hvilke virksomheter listen viser. Skissene forutsetter at listen viser en virksomhet først når den har gitt byrået en fullmakt.
-- Om systembrukeren fortsatt har fullmakt for en klient som er slettet i Enhetsregisteret.
-- Om klienten kan fjerne én ansatt eller systembruker hos byrået helt, uten å trekke fullmakten fra byrået.
 - Når funksjonaliteten blir tilgjengelig i testmiljøet og i produksjon.
 
 Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjonaliteten blir tilgjengelig.
@@ -415,7 +413,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
 }
 ```
 
-Id-en er nøkkelen og ligger fast. Den kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Feltet `name` er navnet virksomheten ser. Det er et objekt med ett eller flere av språkene `nb`, `nn` og `en`, slik navn er i systemregisteret. Du trenger ikke oversette navnet. Finnes ikke navnet på språket brukeren har valgt i Altinn, viser Altinn det første språket i feltet. Uten `name` ser virksomheten «Alternativ 1», «Alternativ 2» og så videre. I eksempelet ser en bruker som har valgt nynorsk, det bokmålske navnet. Feltet er valgfritt, og navnet på feltet er foreløpig.
+Id-en er nøkkelen og ligger fast. Den kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Feltet `name` er navnet virksomheten ser, og det er påkrevd. Det er et objekt med språkene `nb`, `nn` og `en`, slik navn er i systemregisteret. `nb` må være med, og du trenger ikke oversette. Finnes ikke navnet på språket brukeren har valgt i Altinn, viser Altinn bokmål. I eksempelet ser en bruker som har valgt nynorsk, det bokmålske navnet. Navnet på feltet er foreløpig.
 
 En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
 
@@ -432,7 +430,7 @@ I tabellen er «Lønn med særlig kategori» og «Sykefravær med særlig katego
 | Regnskapsførerrollen, Lønn med særlig kategori og pakken Sykefravær | Ingen | Flaten viser at klienten har gitt en annen sykefraværspakke, og at Sykefravær med særlig kategori mangler |
 | Lønn, Lønn med særlig kategori og Sykefravær med særlig kategori | Ingen | Flaten viser at klienten mangler én fullmakt til hvert sett: Regnskapsfører lønn til sett 1 og A-ordningen til sett 2 |
 | Revisorrollen og Sykefravær med særlig kategori | Ingen | Flaten viser hva som mangler. Lønnssystemet har ikke noe sett for revisorkunder |
-| Bare en annen pakke, for eksempel Merverdiavgift | Ingen | Flaten viser at klienten ikke har gitt noe av det systemet krever |
+| Bare en annen pakke, for eksempel Merverdiavgift | Ingen | Flaten viser at klienten ikke har gitt noe av det alternativet krever |
 
 Klienten kan ikke delegere Regnskapsfører lønn direkte. En klient uten regnskapsførerrolle kan derfor bare oppfylle sett 2.
 
@@ -511,7 +509,7 @@ De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere
 - Alle brukerlister viser en systembruker med flere fullmaktssett som én rad per sett. Fullmakter for egen virksomhet har en egen rad. Det er fortsatt én systembruker.
 - Når byrået åpner raden for et sett, viser siden bare det settet, med én **Legg til alle**. Altinn krysser ikke av for noe sett på forhånd.
 - Når virksomheten bestemmer, finnes det ingen fullmaktssett. For klientene er systembrukeren lik en ansatt med klienttilganger.
-- Skissene bruker navnene fra scenario 2: «Registrert regnskapsfører» og «Uten regnskapsførerrolle». Uten navn kaller Altinn settene «Alternativ 1», «Alternativ 2» og så videre, i den rekkefølgen du oppgir dem.
+- Skissene bruker navnene fra scenario 2: «Registrert regnskapsfører» og «Uten regnskapsførerrolle».
 - Reglene bak skissene står til slutt i presentasjonen.
 
 Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
@@ -521,7 +519,7 @@ Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
 
 Systembrukerne står i den samme listen som personer og virksomheter på den vanlige brukersiden, og i fanen **Brukere** i Klientadministrasjon. Det skal gå fram hvem som bestemmer fullmaktene, men vi har ikke bestemt hvordan. Klientadministrasjon viser bare en liste over brukere med klienttilgang, som i dag, og radene for systembrukeren står i den listen.
 
-- En systembruker med to fullmaktssett er to rader, for eksempel «Personalportalen – Registrert regnskapsfører». Uten navn heter raden «Personalportalen – Alternativ 1».
+- En systembruker med to fullmaktssett er to rader, for eksempel «Personalportalen – Registrert regnskapsfører».
 - Fullmakter for egen virksomhet har en egen rad.
 - Systembrukerne står alltid i listen, også når **Vis brukere med klienttilgang** er slått av.
 - Sletter byrået systembrukeren fra en av radene, forsvinner alle radene. Bekreftelsen sier det.
@@ -542,7 +540,7 @@ Virksomheten ser fullmaktene, men kan ikke fjerne eller legge til enkelte fullma
 ---
 ## Klienter når leverandøren bestemmer
 
-Byrået åpner raden for ett alternativ i brukerlisten. Siden viser bare det alternativet: klienter som er lagt til, klienter byrået kan legge til, og klienter som mangler noe. Altinn krysser ikke av for noe alternativ på forhånd.
+Byrået åpner raden for ett alternativ i brukerlisten. Siden viser bare det alternativet, med tre grupper: **Har disse klientene**, **Kan få disse klientene** og **Du mangler fullmakter fra disse klientene**. Den siste gruppen skiller ikke mellom en rolle som mangler og en fullmakt som mangler. Altinn krysser ikke av for noe alternativ på forhånd.
 
 - Byrået legger en klient til alternativet, eller bruker **Legg til alle**.
 - Systembrukeren får alle fullmaktene i alternativet, både tilgangspakker og enkelttjenester, eller ingen av dem.
@@ -585,11 +583,15 @@ Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten t
 ---
 ## Alternativene kan ha navn
 
-Skissene viser fullmaktssett med navn, for eksempel «Personalportalen – Registrert regnskapsfører». Gir du ikke settene navn, ser byrået «Alternativ 1», «Alternativ 2» og så videre.
+Hvert fullmaktssett må ha et navn. Byrået ser navnet etter navnet på systemet, for eksempel «Personalportalen – Registrert regnskapsfører».
 
-- **Navnet kan ha flere språk:** `nb`, `nn` og `en`, som navn i systemregisteret.
-- **Du trenger ikke oversette.** Finnes ikke navnet på språket brukeren har valgt, viser Altinn det første språket i feltet.
-- **Hold navnet kort.** Det står etter navnet på systemet i brukerlisten.
+- **Bokmål er påkrevd.** Nynorsk (`nn`) og engelsk (`en`) er valgfrie, som navn i systemregisteret. Andre språk gir 400.
+- **Du trenger ikke oversette.** Finnes ikke navnet på språket brukeren har valgt, viser Altinn bokmål.
+- **Høyst 100 tegn per språk.** Navnet er ren tekst uten linjeskift og HTML, og kan ikke være tomt.
+- **Hold navnet kort likevel.** Et langt navn kan bli kuttet i brukerlisten.
+- **To sett kan ikke ha samme navn.** Altinn skiller ikke mellom store og små bokstaver, og sammenligner hvert språk for seg.
+- **To sett kan ikke ha det samme innholdet.** Har to sett de samme tilgangspakkene og enkeltrettighetene, svarer Altinn 400 i forespørselen og 409 når du legger til et sett. Rekkefølgen spiller ingen rolle.
+- **Du kan endre navnet senere.** Send samme id med de samme tilgangene og det nye navnet.
 
 ```json
 "name": {
@@ -598,7 +600,7 @@ Skissene viser fullmaktssett med navn, for eksempel «Personalportalen – Regis
 }
 ```
 
-Feltet er et forslag. Si gjerne fra om du ønsker det, og om du vil bruke flere språk.
+Navnet på feltet er foreløpig. Si gjerne fra om 100 tegn er nok.
 
 ---
 ## Virksomheten legger til mange klienter samtidig
@@ -659,7 +661,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 ---
 ## Scenario: klienten har gitt en helt annen pakke
 
-**Situasjon:** Elvebakken Kafé AS har bare gitt Merverdiavgift. Klienten mangler alt systemet krever, og Altinn kan ikke vite hvilket kundeforhold klienten skal ha. Derfor står klienten blant dem som mangler noe i raden for hvert alternativ.
+**Situasjon:** Elvebakken Kafé AS har bare gitt Merverdiavgift. Klienten har ikke gitt noe av det alternativene krever, og Altinn kan ikke vite hvilket kundeforhold klienten skal ha. Derfor står klienten blant dem som mangler noe i raden for hvert alternativ.
 
 **Det byrået gjør:** Åpner klienten i en av radene, avklarer kundeforholdet, og ber klienten gi det som mangler. Merverdiavgift-pakken påvirker ikke Personalportalen.
 
@@ -681,7 +683,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 ---
 ## Scenario: klienten mangler like mye til flere alternativer
 
-**Situasjon:** Kystlinjen Eiendom AS har gitt Lønn og begge pakkene med særlig kategori. Hvert alternativ mangler én fullmakt: Regnskapsfører lønn til «Registrert regnskapsfører» og A-ordningen til «Uten regnskapsførerrolle». Klienten står blant dem som mangler noe i begge radene. Altinn peker ikke på et bestemt alternativ.
+**Situasjon:** Kystlinjen Eiendom AS har gitt Lønn og begge pakkene med særlig kategori. Hvert alternativ mangler én fullmakt: Regnskapsfører lønn til «Registrert regnskapsfører» og A-ordningen til «Uten regnskapsførerrolle». Klienten står blant dem som mangler noe i begge radene. Listen viser hva som mangler for hvert alternativ, og Altinn peker ikke på et bestemt alternativ.
 
 **Det byrået gjør:** Avklarer kundeforholdet. Er byrået regnskapsfører, registrerer klienten det i Enhetsregisteret. Ellers kan klienten gi A-ordningen direkte.
 
@@ -692,7 +694,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 ---
 ## Scenario: klienten står ikke i listen
 
-**Situasjon:** Byrået finner ikke Granly Hage. Det kan skyldes en skrivefeil, at virksomheten ikke har gitt noe, eller at de har gitt fullmakten til en annen virksomhet. Siden viser ikke noe om virksomheten.
+**Situasjon:** Byrået finner ikke Granly Hage. Det kan skyldes en skrivefeil, at virksomheten ikke har gitt noe, eller at de har gitt fullmakten til en annen virksomhet. Listen viser bare virksomheter som har gitt byrået en fullmakt, så siden viser ikke noe om virksomheten.
 
 **Det byrået gjør:** Sjekker søket, og ber virksomheten sjekke at de har gitt fullmakten til riktig organisasjonsnummer.
 
@@ -705,7 +707,7 @@ På siden for en klient ser virksomheten hvilke brukere som har fullmakt fra kli
 
 **Situasjon:** Siden skjuler slettede klienter til byrået slår på **Vis slettede**. Byrået kan ikke legge dem til. Enhetsregisteret slettet Gamle Verksted AS mens klienten var knyttet til Personalportalen.
 
-**Det byrået gjør:** Fjerner klienten fra systembrukeren. Vi har ikke avklart om systembrukeren fortsatt har fullmakt for en slettet klient.
+**Det byrået gjør:** Fjerner klienten fra systembrukeren når byrået ikke trenger klienten lenger. Til da har systembrukeren fortsatt fullmakten, fordi det kan være behov for å rapportere for klienten.
 
 <div style="max-width:720px"><a href="/images/authorization/systemuser/2026-11-09/ux-slettede.png" title="Åpne skissen i full størrelse" style="display:block"><img src="/images/authorization/systemuser/2026-11-09/ux-slettede.png" alt="Gruppen Slettede klienter med to klienter. Gamle Verksted AS har Personalportalen fortsatt, og kan fjernes"></a></div>
 
@@ -729,7 +731,7 @@ Når virksomheten bestemmer, finnes det ikke noe forslag fra leverandøren for k
 
 Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uansett om leverandøren eller virksomheten bestemmer. De står i den vanlige listen under **Brukere** når klienten slår på **Vis brukere med klienttilgang**, ikke under byrået. Linjen under navnet viser hvilket byrå fullmakten går gjennom.
 
-- Klienten kan ikke fjerne enkelte fullmakter fra en ansatt eller en systembruker hos byrået.
+- Klienten kan ikke fjerne fullmakter fra en ansatt eller en systembruker hos byrået, verken enkelte fullmakter eller alle.
 - Klienten kan fjerne en fullmakt de har gitt byrået direkte. Da mister både ansatte og systembrukere den.
 - Fullmakter fra revisor- eller regnskapsførerrollen forsvinner bare hvis klienten endrer rollen i Enhetsregisteret.
 - Er klienten knyttet til flere fullmaktssett på samme systembruker, ser klienten én rad per sett.
@@ -757,7 +759,7 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 | R1 | **Brukere** viser alle systembrukere virksomheten eier, i samme liste som personer og virksomheter. Systembrukerne står der alltid, også når **Vis brukere med klienttilgang** er slått av. |
 | R2 | **Klientadministrasjon** og klientens side viser også systembrukere med klienttilganger eller klientkrav. |
 | R3 | Det går fram at raden er en systembruker, og hvilket system og hvilken leverandør den tilhører. |
-| R3a | Alle brukerlister viser en systembruker med fullmaktssett som én rad per sett, også hos klienten. Raden heter system + navnet på settet, ellers «Alternativ N». Fullmakter for egen virksomhet har en egen rad. Når virksomheten bestemmer, er det én rad for egen virksomhet og én for klienter. |
+| R3a | Alle brukerlister viser en systembruker med fullmaktssett som én rad per sett, også hos klienten. Raden heter system + navnet på settet. Fullmakter for egen virksomhet har en egen rad. Når virksomheten bestemmer, er det én rad for egen virksomhet og én for klienter. |
 | R4 | Virksomheten oppretter ikke systembrukere med **Ny bruker**. De kommer fra en forespørsel fra leverandøren, eller fra siden **Systembrukere** når virksomheten velger et system selv. |
 
 ---
@@ -784,7 +786,7 @@ Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uan
 |---|---|
 | R13 | Virksomheten kan fjerne hver tilgangspakke og enkelttjeneste for seg. For klienter skjer det med **Slett fullmakt** og **Slett alle**, som for en ansatt i Klientadministrasjon i dag. |
 | R14 | Virksomheten kan gi nye fullmakter, men bare det de selv har lov til å gi. Siden viser resten med en forklaring. |
-| R15 | For egen virksomhet går det fram om en fullmakt kom fra leverandørens forslag, eller om virksomheten la den til. Virksomheten kan fjerne begge typene. |
+| R15 | For egen virksomhet går det fram om en fullmakt kom fra leverandørens forslag, eller om virksomheten la den til. En fullmakt virksomheten godkjenner etter en forespørsel om fullmakt, får merket «Lagt til av virksomheten». Virksomheten kan fjerne begge typene. |
 | R16 | En systembruker uten fullmakter forklarer at systemet ikke kan gjøre noe ennå, og har en tydelig inngang til å gi fullmakter. |
 | R17 | Virksomheten kan slette hele systembrukeren. |
 | R18 | For klientene er systembrukeren lik en vanlig ansatt med klienttilganger. For hver klient velger virksomheten tilgangspakker og enkelttjenester én og én, blant fullmaktene klienten har gitt. |
