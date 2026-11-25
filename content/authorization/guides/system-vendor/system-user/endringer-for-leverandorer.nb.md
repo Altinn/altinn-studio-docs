@@ -126,7 +126,7 @@ Et **fullmaktssett** er tilgangspakker og enkeltrettigheter som hører sammen. D
 | `rights` | Enkeltrettigheter for egen virksomhet | Finnes i dag |
 | `clientAccessSets` | Fullmaktssett for klienter, med id som nøkkel. Rekkefølgen bestemmer rekkefølgen på radene | Nytt, foreløpig navn |
 | `vendorLocked` | Hvem som bestemmer fullmaktene etter godkjenning | Nytt, påkrevd |
-| `name` i hvert fullmaktssett | Navnet virksomheten ser. Bokmål er påkrevd, nynorsk og engelsk er valgfrie | Nytt, påkrevd |
+| `name` i hvert fullmaktssett | Navnet virksomheten ser, på bokmål, nynorsk og engelsk. Alle tre er påkrevd | Nytt, påkrevd |
 
 Kunden godkjenner én systembruker. Fullmaktene for egen virksomhet får systembrukeren når kunden godkjenner. Fullmaktene for klienter får den når virksomheten knytter klienter til systembrukeren.
 
@@ -142,7 +142,7 @@ Tre regler gjelder:
 - Virksomheten kan bare gi videre enkelttjenester den har fått som enkelttjeneste fra klienten. Tjenester den har fått gjennom en tilgangspakke, kan den ikke gi videre én og én.
 - Altinn sammenligner tilgangspakkene i settet med pakkene klienten har gitt byrået, ikke tjenestene pakkene gir tilgang til. Skal en annen pakke også godtas, legger du til et eget sett med den pakken.
 - Du oppgir ikke `action` i fullmaktssett i første versjon. Sender du `action`, svarer Altinn 400. Trenger du finere styring, bruker du tilgangspakker.
-- Utelater du `clientAccessSets` eller sender `null`, har systembrukeren ingen fullmaktssett. Et tomt objekt, et sett uten tilganger, et sett uten navn på bokmål, samme tilgangspakke to ganger i ett sett og to sett med samme navn eller samme innhold gir 400.
+- Utelater du `clientAccessSets` eller sender `null`, har systembrukeren ingen fullmaktssett. Et tomt objekt, et sett uten tilganger, et sett som mangler navn på bokmål, nynorsk eller engelsk, samme tilgangspakke to ganger i ett sett og to sett med samme navn eller samme innhold gir 400.
 - Systembrukeren får de samme handlingene, for eksempel lese og skrive, som klienten har gitt virksomheten.
 
 ---
@@ -355,6 +355,11 @@ POST /authentication/api/v2/systemuser/request/vendor
   "vendorLocked": true,
   "clientAccessSets": {
     "regnskapsforer": {
+      "name": {
+        "nb": "Registrert regnskapsfører",
+        "nn": "Registrert rekneskapsførar",
+        "en": "Registered accountant"
+      },
       "accessPackages": [
         { "urn": "urn:altinn:accesspackage:regnskapsforer-lonn" },
         { "urn": "urn:altinn:accesspackage:lonn-personopplysninger-saerlig-kategori" },
@@ -362,6 +367,11 @@ POST /authentication/api/v2/systemuser/request/vendor
       ]
     },
     "uregistrert": {
+      "name": {
+        "nb": "Uten regnskapsførerrolle",
+        "nn": "Utan rekneskapsførarrolle",
+        "en": "No accountant role"
+      },
       "accessPackages": [
         { "urn": "urn:altinn:accesspackage:a-ordning" },
         { "urn": "urn:altinn:accesspackage:lonn" },
@@ -386,6 +396,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
   "regnskapsforer": {
     "name": {
       "nb": "Registrert regnskapsfører",
+      "nn": "Registrert rekneskapsførar",
       "en": "Registered accountant"
     },
     "accessPackages": [
@@ -399,6 +410,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
   "uregistrert": {
     "name": {
       "nb": "Uten regnskapsførerrolle",
+      "nn": "Utan rekneskapsførarrolle",
       "en": "No accountant role"
     },
     "accessPackages": [
@@ -413,7 +425,7 @@ Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da fullmak
 }
 ```
 
-Id-en er nøkkelen og ligger fast. Den kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Feltet `name` er navnet virksomheten ser, og det er påkrevd. Det er et objekt med språkene `nb`, `nn` og `en`, slik navn er i systemregisteret. `nb` må være med, og du trenger ikke oversette. Finnes ikke navnet på språket brukeren har valgt i Altinn, viser Altinn bokmål. I eksempelet ser en bruker som har valgt nynorsk, det bokmålske navnet. Navnet på feltet er foreløpig.
+Id-en er nøkkelen og ligger fast. Den kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Feltet `name` er navnet virksomheten ser, og det er påkrevd. Det er et objekt med navnet på bokmål (`nb`), nynorsk (`nn`) og engelsk (`en`), slik navn er i systemregisteret. Alle tre er påkrevd. Altinn viser navnet på språket brukeren har valgt i Altinn. Navnet på feltet er foreløpig.
 
 En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
 
@@ -585,8 +597,8 @@ Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten t
 
 Hvert fullmaktssett må ha et navn. Byrået ser navnet etter navnet på systemet, for eksempel «Personalportalen – Registrert regnskapsfører».
 
-- **Bokmål er påkrevd.** Nynorsk (`nn`) og engelsk (`en`) er valgfrie, som navn i systemregisteret. Andre språk gir 400.
-- **Du trenger ikke oversette.** Finnes ikke navnet på språket brukeren har valgt, viser Altinn bokmål.
+- **Navnet må finnes på bokmål, nynorsk og engelsk** (`nb`, `nn` og `en`), som navn i systemregisteret. Mangler ett av dem, eller sender du et annet språk, svarer Altinn 400.
+- **Altinn viser navnet på språket brukeren har valgt.**
 - **Høyst 100 tegn per språk.** Navnet er ren tekst uten linjeskift og HTML, og kan ikke være tomt.
 - **Hold navnet kort likevel.** Et langt navn kan bli kuttet i brukerlisten.
 - **To sett kan ikke ha samme navn.** Altinn skiller ikke mellom store og små bokstaver, og sammenligner hvert språk for seg.
@@ -596,6 +608,7 @@ Hvert fullmaktssett må ha et navn. Byrået ser navnet etter navnet på systemet
 ```json
 "name": {
   "nb": "Registrert regnskapsfører",
+  "nn": "Registrert rekneskapsførar",
   "en": "Registered accountant"
 }
 ```
