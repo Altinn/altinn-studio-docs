@@ -215,7 +215,7 @@ Navnet er bare til visning. Bytter du navn på en metode, endrer det ingenting i
 
 ## Arbeidssteg når en oppgave starter, avsluttes eller avbrytes
 
-Arbeidet en oppgave gjør når den starter, avsluttes eller avbrytes, setter du sammen på samme måte, av de samme arbeidsstegene. Det gjelder alle oppgavetyper: `IProcessTask` har `DefineStart`, `DefineEnd` og `DefineAbandon`, som får den samme `PipelineBuilder`. Hvert arbeidssteg får en `StageContext` og svarer med `StageResult`, akkurat som i en systemoppgave. Sammensetningen slutter med `Build()`, ikke med en avslutning: stegene kjører inne i prosessovergangen, før plattformen lagrer den, og flytter aldri prosessen videre. En postkasse kan du derfor ikke åpne her.
+Arbeidet en oppgave gjør når den starter, avsluttes eller avbrytes, setter du sammen på samme måte, av de samme arbeidsstegene. Det gjelder alle oppgavetyper: `IProcessTask` har `DefineStart`, `DefineEnd` og `DefineAbandon`, som får den samme `PipelineBuilder`. Hvert arbeidssteg får en `StageContext` og svarer med `StageResult`, akkurat som i en systemoppgave. Sammensetningen slutter med `Build()`, ikke med en avslutning: stegene kjører inne i prosessovergangen og flytter aldri prosessen videre. En postkasse kan du derfor ikke åpne her.
 
 {{< code-title >}}
 App/logic/ProcessTasks/CaseProcessTask.cs
@@ -260,6 +260,8 @@ public class CaseProcessTask : IProcessTask
     }
 }
 ```
+
+Arbeidsstegene i `DefineEnd` og `DefineAbandon` kjører før plattformen lagrer at prosessen har forlatt oppgaven, og arbeidsstegene i `DefineStart` etter at den har lagret den nye oppgaven. Et arbeidssteg kan derfor skrive data som hører til oppgaven det kjører for, men ikke data som hører til en annen oppgave.
 
 Standardimplementasjonene setter ikke sammen noen arbeidssteg, så du overstyrer bare dem oppgaven trenger. Hvert arbeidssteg kjører som sitt eget steg som lagrer for seg. Svarer et arbeidssteg `FailedRetryable`, prøver plattformen det på nytt uten å kjøre dem foran om igjen. Svarer det `FailedPermanent`, står overgangen til noen retter feilen og gjenopptar oppgaven, og da kjører bare arbeidssteget som feilet. Et arbeidssteg som venter (`Defer`), holder overgangen igjen: instansen står som `processing` til arbeidssteget er ferdig, på samme måte som når en systemoppgave venter.
 
