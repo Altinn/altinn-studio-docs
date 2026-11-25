@@ -309,6 +309,13 @@
     align-items: flex-start;
   }
 }
+/* Kortene fra kortkoden children står utenfor .studio-hub og har ingen container å måle. Derfor følger kortene også bredden på skjermen. */
+@media (max-width: 760px) {
+  .studio-grid,
+  .studio-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .studio-link-card-arrow {
     transition: none;
