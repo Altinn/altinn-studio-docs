@@ -138,23 +138,23 @@ Vedtatt 9. november 2026, og vi sender det på høring. Flagget heter `vendorLoc
 
 Vedtatt 23. november 2026. Klientlisten har én gruppe per fullmaktssett, og en klient står i gruppen for hvert sett den oppfyller fullt ut. Brukeren knytter klienter til ett sett om gangen, én og én eller med **Legg til alle** for settet. Knappen knytter bare klienter i gruppen som ikke er knyttet til settet fra før. En klient kan være knyttet til flere sett. **Legg til alle** finnes bare med `vendorLocked=true`. Se #5055, #5056 og #5057 i altinn-auth.
 
-## Vedtatt: Én rad per fullmaktssett i brukerlistene
+## Vedtatt: Én rad for systembrukeren, og en rad per sett i Klientadministrasjon
 
-Vedtatt 23. november 2026. Alle brukerlister viser en systembruker med flere fullmaktssett som én rad per sett: **Brukere**, **Klientadministrasjon** og klientens oversikt over byråets systembrukere. Har systembrukeren fullmakter for egen virksomhet, får de en egen rad. Med `vendorLocked=false` har systembrukeren én rad for egen virksomhet, hvis den har fullmakter der, og én rad for klienter.
+Vedtatt 23. november 2026, endret 25. november 2026. På **Brukere** er en systembruker én rad med systemnavnet, hos byrået og hos klienten. Siden for systembrukeren viser fullmaktene for egen virksomhet, fullmaktssettene med antall klienter og **Slett systembruker**. I **Klientadministrasjon** står hvert fullmaktssett som en rad under systembrukeren. En systembruker uten sett, for eksempel med `vendorLocked=false`, er én rad også der. Klienten ser alle fullmaktene systembrukeren har fra klienten, uten sett.
 
 {{< mermaid >}}
 graph TD
-  SU["Én systembruker, ett token, én externalRef"] --> OWNROW["Rad: fullmakter for egen virksomhet"]
-  SU --> ROW1["Rad: system + sett 1"]
-  SU --> ROW2["Rad: system + sett 2"]
+  SU["Én systembruker, ett token, én externalRef"] --> USERS["Brukere: én rad. Siden viser egen virksomhet og settene"]
+  SU --> ROW1["Klientadministrasjon: rad for sett 1"]
+  SU --> ROW2["Klientadministrasjon: rad for sett 2"]
   ROW1 --> OPEN["Åpnet rad viser bare det settet: klienter som er lagt til, klienter virksomheten kan legge til og klienter som mangler noe, og én Legg til alle"]
 {{< /mermaid >}}
 
 - Radene er bare visning. Datamodellen er uendret: én systembruker, ett token og summen av fullmaktene i settene klienten er knyttet til.
 - BFF-en i frontend deler systembrukeren i rader. Vi endrer ikke API-et i Authentication for listene.
-- Raden heter system + `name` på settet. `name` er påkrevd (vedtatt 25. november 2026).
+- Siden for et sett heter system + `name` på settet. `name` er påkrevd (vedtatt 25. november 2026).
 - Virksomheten kan knytte samme klient til flere rader. Systembrukeren får summen.
-- Sletter virksomheten fra en rad, sletter de hele systembrukeren. Bekreftelsen sier at alle radene forsvinner.
+- **Slett systembruker** sletter hele systembrukeren, med alle settene. Bekreftelsen sier det.
 - API-et for å knytte en klient viser til systembrukeren, id-en til settet og klienten.
 - Altinn vurderer «komplett» per rad.
 - Uansett hvilken rad virksomheten åpner, viser flaten på klienten fullmakter systembrukeren har fra klienten utenfor settet.

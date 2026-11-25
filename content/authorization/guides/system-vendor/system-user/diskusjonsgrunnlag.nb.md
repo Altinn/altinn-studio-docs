@@ -190,22 +190,22 @@ Flagget styrer handlingsrommet for delegering. Det er ikke et filter for hvilke 
 På **Brukere** står systembrukere i samme liste som personer og virksomheter, og alltid, også når **Vis brukere med klienttilgang** er slått av. Fanen **Brukere** i Klientadministrasjon er én liste over brukere med klienttilgang, som i dag (vedtatt 23. november 2026).
 
 ---
-## Vedtatt: Én rad per fullmaktssett
+## Vedtatt: Én rad for systembrukeren, og en rad per sett i Klientadministrasjon
 
-**Alle brukerlister viser en systembruker med flere fullmaktssett som én rad per sett.** Det gjelder **Brukere**, **Klientadministrasjon** og klientens oversikt over byråets systembrukere. Vedtatt 23. november 2026.
+**På Brukere er en systembruker én rad, og i Klientadministrasjon står hvert fullmaktssett som en rad under systembrukeren.** Det gjelder også klientens oversikt over byråets systembrukere, der klienten ser alle fullmaktene uten sett. Vedtatt 23. november 2026, endret 25. november 2026.
 
 - Radene er bare visning. Det er fortsatt én systembruker, ett token og én `externalRef`. BFF-en i frontend lager radene, og vi endrer ikke API-et i Authentication for listene.
-- Fullmakter for egen virksomhet får en egen rad. Med `vendorLocked=false` har systembrukeren én rad for egen virksomhet og én for klienter.
-- Raden heter system + `name` på settet.
+- Siden for systembrukeren viser fullmaktene for egen virksomhet og fullmaktssettene med antall klienter. Med `vendorLocked=false` har systembrukeren ingen sett, og den er én rad også i Klientadministrasjon.
+- Siden for et sett heter system + `name` på settet.
 - En åpnet rad viser bare det settet, med én **Legg til alle**.
 - Virksomheten kan knytte samme klient til flere rader. Systembrukeren får summen.
-- Sletter virksomheten fra en rad, sletter de hele systembrukeren.
+- **Slett systembruker** sletter hele systembrukeren.
 - Altinn vurderer «komplett» per rad, og flaten viser alltid fullmakter systembrukeren har fra klienten utenfor settet.
 
 ---
 ## Illustrasjon: Felles brukeroversikt
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-brukere.png" alt="Brukere for Tallmakerne AS: én liste der personer og systembrukere står sammen, med én rad per alternativ og egen virksomhet: Personalportalen – Registrert regnskapsfører og Personalportalen – Uten regnskapsførerrolle, SmartRegnskap – Egen virksomhet, Egen integrasjon – Egen virksomhet og Rapportrobot – Klienter"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" alt="Klientadministrasjon, fanen Brukere: én liste over brukere med klienttilgang, med Kari Nordmann, Ada Eksempel, Personalportalen – Registrert regnskapsfører og Personalportalen – Uten regnskapsførerrolle og Rapportrobot – Klienter. Radene for egen virksomhet står ikke her"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-brukere.png" alt="Brukere for Tallmakerne AS: én liste der personer og systembrukere står sammen. Hver systembruker er én rad med systemnavnet: Egen integrasjon, Personalportalen, Rapportrobot og SmartRegnskap"></a><a href="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-klientadm-brukere.png" alt="Klientadministrasjon, fanen Brukere: Kari Nordmann og Ada Eksempel, Personalportalen åpen med radene Registrert regnskapsfører og Uten regnskapsførerrolle under, og Rapportrobot som én rad. Fullmakter for egen virksomhet står ikke her"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -221,7 +221,7 @@ Begrunnelsen er at brukeren skal slippe å administrere denne delegeringen et eg
 ---
 ## Vedtatt: Hele fullmaktssettet eller ingen
 
-**Når leverandøren bestemmer, gir virksomheten hele fullmaktssett, og bare sett klienten oppfyller fullt ut.** Hvert sett er en egen rad i brukerlisten, med **Legg til alle** når raden er åpnet. **Legg til alle** finnes bare når leverandøren bestemmer (vedtatt 23. november 2026).
+**Når leverandøren bestemmer, gir virksomheten hele fullmaktssett, og bare sett klienten oppfyller fullt ut.** Hvert sett er en egen rad under systembrukeren i Klientadministrasjon, med **Legg til alle** når raden er åpnet. **Legg til alle** finnes bare når leverandøren bestemmer (vedtatt 23. november 2026).
 
 - Hele settet delegeres samlet, eller ingen av fullmaktene delegeres.
 - Man kan ikke velge en delmengde av settet.
@@ -252,7 +252,7 @@ Man kan ikke fjerne en enkelt tilgangspakke eller enkeltrettighet separat på de
 ---
 ## Illustrasjon: Samlet sletting fra brukersiden
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" alt="SmartRegnskap – Egen virksomhet: Eksempel Programvare AS bestemmer fullmaktene. Skattegrunnlag og Innsending av MVA-melding står uten knapper, og siden har Slett systembruker"></a><a href="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" alt="Bekreftelsen Slette systembrukeren Personalportalen? Begge radene for Personalportalen forsvinner, og Personalportalen mister alle fullmaktene for 2 klienter"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-lb-systembruker.png" alt="SmartRegnskap: Eksempel Programvare AS bestemmer fullmaktene. Skattegrunnlag og Innsending av MVA-melding står uten knapper, og siden har Slett systembruker"></a><a href="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-slett-systembruker.png" alt="Bekreftelsen Slette systembrukeren Personalportalen? Begge radene for Personalportalen forsvinner, og Personalportalen mister alle fullmaktene for 2 klienter"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
@@ -261,7 +261,7 @@ Man kan ikke fjerne en enkelt tilgangspakke eller enkeltrettighet separat på de
 
 For klientene er systembrukeren lik en ansatt som byrået har gitt klienttilganger, og siden følger siden for en ansatt i Klientadministrasjon (vedtatt 23. november 2026).
 
-<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" alt="Egen integrasjon – Egen virksomhet der virksomheten bestemmer: Skattegrunnlag fra forespørselen og A-ordningen lagt til av Tallmakerne AS, begge med knappen Fjern"></a><a href="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" alt="Rapportrobot – Klienter med Havbris Fiskeoppdrett AS åpen under Har disse klientene: Sykefravær med personopplysninger av særlig kategori og Lønn med Slett fullmakt, de to andre fullmaktene med Gi fullmakt, og knappene Gi alle og Slett alle"></a></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-systembruker.png" alt="Egen integrasjon der virksomheten bestemmer: Skattegrunnlag fra forespørselen og A-ordningen lagt til av Tallmakerne AS, begge med knappen Fjern"></a><a href="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-09/ux-vb-endre.png" alt="Rapportrobot med Havbris Fiskeoppdrett AS åpen under Har disse klientene: Sykefravær med personopplysninger av særlig kategori og Lønn med Slett fullmakt, de to andre fullmaktene med Gi fullmakt, og knappene Gi alle og Slett alle"></a></div>
 
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
