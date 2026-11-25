@@ -8,7 +8,7 @@ weight: 99
 - [Send inn data via API]({{< relref "/altinn-studio/v9/develop-a-service/integration/sbs/apis" >}})
 - [Hent ut data via API]({{< relref "/altinn-studio/v9/getting-started/receive-data" >}})
 
-## For deg som vil lage løsninger på Altinn Studio
+## For deg som vil lage tjenester med Altinn Studio
 1. [Lag en bruker]({{< relref "/altinn-studio/v9/getting-started/create-user" >}})
 2. [Bestill en organisasjon i Altinn Studio]({{< relref "/altinn-studio/v9/getting-started/create-user#opprette-en-organisasjon" >}})
 3. [Lag en tjeneste]({{< relref "/altinn-studio/v9/getting-started/development" >}})
