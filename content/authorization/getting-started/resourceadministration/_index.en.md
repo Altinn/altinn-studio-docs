@@ -23,9 +23,11 @@ Add the users who should be able to publish resources as members in the followin
 - **Resources-Publish-PROD**: Provides access to publish resources to the production environment.
 - **Resources-Publish-TT02**: Provides access to publish resources to the TT02 test environment.
 
-Teams can be added from the organization page in the Gitea section of Altinn Studio.
+Teams can be added from the organization page in the Gitea section of Altinn Studio:
+`https://altinn.studio/repos/org/<din org>/teams`
 
-![Teams](teamscreation_1.png)
+Switch out `<din org>` in the url above with your org code. Click on the relevant teams, search for the user you 
+want to add (by username), and add them to the team.
 {{< /stepcard >}}
 
 {{< stepcard step="4" title="Create a resource" >}}

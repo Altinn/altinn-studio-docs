@@ -23,9 +23,12 @@ Legg til de brukere som skal kunne publisere ressurser som medlemmer i følgende
 - **Resources-Publish-PROD**: Gir tilgang til å publisere ressurs til produksjonsmiljøet.
 - **Resources-Publish-TT02**: Gir tilgang til å publisere ressurs til testmiljøet TT02.
 
-Medlemmer legges til i team fra organisasjonssiden i Gitea-delen av Altinn Studio.
+Medlemmer legges til i team fra organisasjonssiden i Gitea-delen av Altinn Studio:
+`https://altinn.studio/repos/org/<din org>/teams`
 
-![Teams](teamscreation_1.png)
+Bytt ut `<din org>` i url'en over med din org-kode. Klikk deg inn på de relevante teamene, søk opp en eksisterende
+bruker (ved brukernavn) og legg dem til i teamet.
+
 {{< /stepcard >}}
 
 {{< stepcard step="4" title="Opprette ressurs" >}}
