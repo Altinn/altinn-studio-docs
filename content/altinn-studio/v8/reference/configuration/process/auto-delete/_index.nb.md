@@ -5,23 +5,39 @@ description: En applikasjon kan konfigureres til å slette alle spor når proses
 toc: true
 ---
 
-Dersom man ønsker å begrense sluttbrukers tilgang til en instans eller data i etterkant av innsending kan dette gjøres 
-ved å konfigurere automatisk sletting.
-I praksis vil ressursen gjøres utilgjengelig for sluttbruker etter innsending, 
-mens tjenesteeier enda har tilgang i tråd med applikasjonens autorisasjonsregler. 
+Hvis du ønsker å begrense sluttbrukerens tilgang til en instans eller data etter innsending, kan du konfigurere automatisk sletting. Tjenesteeieren har fremdeles tilgang i tråd med tjenestens autorisasjonsregler, helt til Altinn fjerner dataene fra databasen.
 
+Du konfigurerer automatisk sletting i `applicationmetadata.json` med flagget `"autoDeleteOnProcessEnd": true`. Flagget virker forskjellig avhengig av om du setter det på instansen eller på en datatype.
 
-Hvis sluttbruker forsøker å aksessere en hard deleted ressurs med en direkte lenke vil de få `404 - Not found` i respons.
-Ressursen vil heller ikke vises i meldingsboks eller listes i API-responser.
+## Slik virker de to nivåene
 
+**På instansen** (øverste nivå i `applicationmetadata.json`) markerer appen instansen som slettet når prosessen er avsluttet. Da skjer dette:
 
-Når tjenesteeier bekrefter at instansen er mottatt på deres side (complete confirmed), 
-så markeres instansen som klar for sletting og vil saneres fra Altinns database i løpet av 7 dager.
+- Instansen forsvinner fra meldingsboksen og fra lister i API-et.
+- Kvitteringssiden viser en kort tekst om at innholdet ikke vil være tilgjengelig i Altinn etterpå, uten lenke til meldingsboksen.
+- Brukeren kan fortsatt hente instansen og dataelementene med direkte oppslag i API-et, så lenge autorisasjonsreglene gir lesetilgang. Flagget på instansnivå stenger altså ikke tilgangen til dataene.
 
-Konfigurasjonen for automatisk sletting gjøres i  `applicationmetadata.json` med flagget 
-`"autoDeleteOnProcessEnd": true`.
+**På en datatype** (`appLogic.autoDeleteOnProcessEnd`) sletter appen alle dataelementer av denne typen når prosessen er avsluttet. Da skjer dette:
 
+- Brukeren får `404 - Not found` hvis de prøver å hente et slettet dataelement, også med direkte lenke.
+- Brukeren ser ikke lenger dataelementet i instansen.
+- Instansen er fortsatt synlig i meldingsboksen, med mindre du også setter flagget på instansen.
 
+Skal brukeren miste tilgangen til dataene, må du sette flagget på hver datatype du vil skjule. Sett det også på instansen hvis instansen skal forsvinne fra meldingsboksen.
+
+{{% notice info %}}
+Sletter du alle datatypene, også `ref-data-as-pdf` og vedlegg, har kvitteringssiden ingen vedlegg å vise. I app-frontend eldre enn [[FIX BEFORE MERGE: første app-frontend-versjon med Altinn/app-frontend-react#4414]] blir kvitteringssiden aldri ferdig med å laste i dette tilfellet.
+{{% /notice %}}
+
+## Når Altinn fjerner dataene
+
+Markeringen fjerner ikke dataene fra databasen med en gang. Altinn fjerner instansen og dataelementene først når alle disse punktene er oppfylt:
+
+- Tjenesteeieren har bekreftet at instansen er mottatt (complete confirmed).
+- Det har gått minst sju dager siden bekreftelsen.
+- Det har gått minst sju dager siden appen markerte slettingen.
+
+Bekrefter tjenesteeieren aldri mottak, blir dataene liggende i databasen uten tidsgrense. Du bør derfor bekrefte mottak så snart du har hentet dataene.
 
 ## Automatisk sletting av instans
 
