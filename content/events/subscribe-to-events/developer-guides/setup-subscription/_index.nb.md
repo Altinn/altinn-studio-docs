@@ -74,7 +74,7 @@ til Digdir (organisasjonsnummer 991825827) med scopet `altinn:system/events.even
 forespørselen inneholder et Maskinporten-token utstedt til Digdir med dette scopet. Tokenet er ikke bundet til
 mottakerendepunktet, så det viser ikke alene at Altinn Events sendte forespørselen.
 
-For å verifisere en forespørsel validerer du tokenet på samme måte som andre Maskinporten-tokens:
+For å verifisere en forespørsel validerer du tokenet på samme måte som i andre API endepunkter med støtte for Maskinporten autentisering:
 
 - Signaturen, med nøklene som er publisert på
   [Maskinportens well-known-endepunkt](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_token) for
