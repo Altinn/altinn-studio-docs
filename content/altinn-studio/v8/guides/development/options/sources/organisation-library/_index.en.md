@@ -14,7 +14,7 @@ See [Organisation library](/en/altinn-studio/v8/concepts/organisation-library/) 
 To use a code list published from the Altinn Studio Designer organisation library, you can
 
 * Pin a version - to make sure that the application will not change if a new version is published.
-* Use the latest version by setting version to `latest`
+* Use the latest version by setting version to `_latest`
 
 The `optionsId` field follows this syntax:
 
@@ -48,6 +48,6 @@ Example: You want to always use the latest version of the same code list, withou
   "dataModelBindings": {
     "simpleBinding": "some.field"
   },
-  "optionsId": "lib**ttd**countries**latest"
+  "optionsId": "lib**ttd**countries**_latest"
 }
 ```
