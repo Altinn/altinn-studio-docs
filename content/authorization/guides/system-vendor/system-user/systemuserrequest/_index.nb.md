@@ -157,7 +157,7 @@ En forespørsel (request) har en livssyklus definert av status:
   * **New:** Nyopprettet forespørsel, venter på brukerhandling.
   * **Accepted:** Sluttbruker har godkjent forespørselen.
   * **Rejected:** Sluttbruker har trykket «Ikke godkjenn».
-  * **TimedOut:** Forespørselen er ikke besvart innen 10 dager og er utløpt. Den er ikke lenger tilgjengelig via API.
+  * **TimedOut:** Forespørselen er ikke besvart innen 180 dager og er utløpt. Den er ikke lenger tilgjengelig via API.
   * **Denied:** Ikke i bruk.
 
 
