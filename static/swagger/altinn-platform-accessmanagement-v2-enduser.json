@@ -2327,6 +2327,132 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_WRITE",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/sent/resource": {
+      "put": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AMCoreModels.RequestedRightKeysDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AMCoreModels.RequestedRightKeysDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AMCoreModels.RequestedRightKeysDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AMCoreModels.RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3718,6 +3844,17 @@
           },
           "code": {
             "$ref": "#/components/schemas/ErrorCode"
+          },
+          "traceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "$ref": "#/components/schemas/AltinnProblemDetails"
           }
         },
         "additionalProperties": { }
@@ -4450,7 +4587,7 @@
           "Approved",
           "Rejected",
           "Withdrawn",
-          "PartialApprove"
+          "ApprovedWithAdjustments"
         ],
         "type": "string"
       },
@@ -4534,12 +4671,12 @@
             "description": "Request is withdrawn by the requester, and will not be processed"
           },
           {
-            "title": "PartialApprove",
+            "title": "ApprovedWithAdjustments",
             "enum": [
-              "PartialApprove"
+              "ApprovedWithAdjustments"
             ],
             "type": "string",
-            "description": "Request is approved, but what was granted does not match what was requested"
+            "description": "Request is approved, but what was granted differs from what was requested: fewer, other or more rights.\nNamed PartialApprove before version 2 was published; the number is unchanged."
           },
           {
             "type": "string",
@@ -4578,9 +4715,9 @@
             "description": "Request is withdrawn by the requester, and will not be processed"
           },
           {
-            "value": "PartialApprove",
-            "title": "PartialApprove",
-            "description": "Request is approved, but what was granted does not match what was requested"
+            "value": "ApprovedWithAdjustments",
+            "title": "ApprovedWithAdjustments",
+            "description": "Request is approved, but what was granted differs from what was requested: fewer, other or more rights.\nNamed PartialApprove before version 2 was published; the number is unchanged."
           }
         ]
       }
