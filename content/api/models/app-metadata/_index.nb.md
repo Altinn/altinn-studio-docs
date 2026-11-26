@@ -1,190 +1,189 @@
 ---
-title: App metadata
-description: The application metadata document holds technical information about the app and the data type requirements.
+title: App-metadata
+description: Filen applicationmetadata.json inneholder teknisk informasjon om appen og kravene til datatypene.
 toc: true
-tags: [api, translate-to-norwegian]
+tags: [api]
 weight: 20
 ---
 
 ## Application
 
-The Application model is the main model for metadata for the application.
+Application er hovedmodellen for metadata om appen.
 
-| Name                   | Description                                                                                                                                                                                                               |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                     | A gobally unique id for the application. The value has two parts separated by a '/' character. The first part is the short name of the application owner and the second part is the name of the app.                      |
-| versionId              | The current version of the application. (Currently not in use.)                                                                                                                                                           |
-| org                    | The short name of the application owner.                                                                                                                                                                                  |
-| title                  | A collection of the application title in different languages.                                                                                                                                                             |
-| validFrom              | The date and time from when the application can be used to create instances.                                                                                                                                              |
-| validTo                | The data and time for when the application will expire and can no longer be used to create new instances.                                                                                                                 |
-| processId              | The id of the process model being used by the application. (Currently not in use.)                                                                                                                                        |
-| dataTypes              | A list of all the data types associated with the application. See [DataType](#datatype).                                                                                                                                  |
-| partyTypesAllowed      | A collection of flags that controls what type of instance owners new instances can be created for. See [PartyTypesAllowed](#partytypesallowed)                                                                            |
-| autoDeleteOnProcessEnd | A value indicating whether an instance will be automatically deleted once the process ends. This can be used by highly sensitive applications to force an instance delete instead of sending the instance to the archive. |
-| preventInstanceDeletionForDays | The number of days after an instance is archived during which Altinn Storage refuses to delete it. Do not combine it with `autoDeleteOnProcessEnd: true`, because a v9 app then fails to build. See [minimum persistence lifetime](/nb/altinn-studio/v8/reference/data/persistence/#konfigurer-minimum-levetid-for-persistens). |
-| presentationFields     | A collection of presentation fields. See [PresentationField](#presentationfield).                                                                                                                                         |
-| dataFields             | A collection of data fields. See [DataField](#datafield).                                                                                                                                                                 |
-| eFormidling            | The configuration for the eFormidling integration for the application. See [eFormidlingContract](#eformidlingcontract).                                                                                                   |
-| messageBoxConfig       | A collection of configurations related to the Altinn Message box                                                                                                                                                          |
-| onEntry | What a user who opens the app without an instance sees. See [OnEntry](#onentry). |
-| copyInstanceSettings | Settings for making a new instance as a copy of an archived one. See [CopyInstanceSettings](#copyinstancesettings). |
-| apiScopes | The scopes a token must have to call the app's instance API. See [API scopes](/nb/altinn-studio/v8/reference/configuration/authorization/api-scopes/). |
-| disallowUserInstantiation | A value indicating whether only service owners can create new instances. Users can still make a copy of an archived instance. The app checks this only in production. Defaults to false. |
-| promptForParty | `always` sends users who can represent more than one party to the party selection, even when their profile says not to. `never` skips the party selection. Without the setting, the user's profile decides. |
-| onProcessEnd | v9 only. `{ "confirm": true }` makes the app confirm the instance as complete for the service owner when the process ends. The policy must give the service owner the `complete` action. |
-| logo | Shows the service owner's logo instead of the Altinn logo. See [Logo](/nb/altinn-studio/v8/reference/ux/logo/#egenskaper). |
-| description | A description of the app in different languages. Studio publishes it to the Resource Registry when the app is deployed. |
-| access | Settings for delegating access to the app: `rightDescription`, `delegable` and `visible`. Studio publishes them to the Resource Registry when the app is deployed. |
-| contactPoints | A list of contact points for the app, each with `category`, `email`, `telephone` and `contactPage`. Studio publishes them to the Resource Registry when the app is deployed. |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| id | En globalt unik ID for appen. Verdien har to deler, skilt med `/`. Den første delen er kortnavnet til app-eieren, og den andre delen er navnet på appen. |
+| versionId | Den gjeldende versjonen av appen. (Ikke i bruk nå.) |
+| org | Kortnavnet til app-eieren. |
+| title | Tittelen på appen på ulike språk. |
+| validFrom | Datoen og klokkeslettet brukerne kan begynne å opprette instanser i appen. |
+| validTo | Datoen og klokkeslettet appen utløper. Etter det kan ingen opprette nye instanser i appen. |
+| processId | ID-en til prosessmodellen appen bruker. (Ikke i bruk nå.) |
+| dataTypes | En liste over alle datatypene til appen. Se [DataType](#datatype). |
+| partyTypesAllowed | Flagg som bestemmer hvilke typer instanseiere brukerne kan opprette nye instanser for. Se [PartyTypesAllowed](#partytypesallowed). |
+| autoDeleteOnProcessEnd | Om appen sletter instansen automatisk når prosessen er ferdig. Apper med svært sensitive data kan bruke dette til å slette instansen i stedet for å sende den til arkivet. |
+| preventInstanceDeletionForDays | Hvor mange dager Altinn Storage nekter å slette en instans etter at den er arkivert. Ikke kombiner innstillingen med `autoDeleteOnProcessEnd: true`. Da kan du ikke bygge en v9-app. Se [minimum levetid for persistens](/nb/altinn-studio/v8/reference/data/persistence/#konfigurer-minimum-levetid-for-persistens). |
+| presentationFields | En samling presentasjonsfelter. Se [PresentationField](#presentationfield). |
+| dataFields | En samling datafelter. Se [DataField](#datafield). |
+| eFormidling | Oppsettet for eFormidling-integrasjonen til appen. Se [eFormidlingContract](#eformidlingcontract). |
+| messageBoxConfig | En samling innstillinger for innboksen i Altinn. |
+| onEntry | Hva brukeren ser når de åpner appen uten en instans. Se [OnEntry](#onentry). |
+| copyInstanceSettings | Innstillinger for å lage en ny instans som en kopi av en arkivert instans. Se [CopyInstanceSettings](#copyinstancesettings). |
+| apiScopes | Scopene et token må ha for å kalle instans-API-et til appen. Se [API-scopes](/nb/altinn-studio/v8/reference/configuration/authorization/api-scopes/). |
+| disallowUserInstantiation | Om bare tjenesteeiere kan opprette nye instanser. Brukerne kan fortsatt lage en kopi av en arkivert instans. Appen sjekker dette bare i produksjon. Standardverdien er false. |
+| promptForParty | `always` sender brukere som kan representere mer enn én aktør, til aktørvalget, også når de har valgt i profilen sin at de ikke vil bli spurt. `never` hopper over aktørvalget. Uten innstillingen bestemmer profilen til brukeren. |
+| onProcessEnd | Bare i v9. `{ "confirm": true }` gjør at appen bekrefter instansen som fullført for tjenesteeieren når prosessen er ferdig. Policyen må gi tjenesteeieren handlingen `complete`. |
+| logo | Viser logoen til tjenesteeieren i stedet for Altinn-logoen. Se [Logo](/nb/altinn-studio/v8/reference/ux/logo/#egenskaper). |
+| description | En beskrivelse av appen på ulike språk. Studio sender den til Ressursregisteret når du publiserer appen. |
+| access | Innstillinger for å delegere tilgang til appen: `rightDescription`, `delegable` og `visible`. Studio sender dem til Ressursregisteret når du publiserer appen. |
+| contactPoints | En liste med kontaktpunkter for appen, hvert med `category`, `email`, `telephone` og `contactPage`. Studio sender dem til Ressursregisteret når du publiserer appen. |
 
 ## DataType
 
-Data type represents the requirements for data elements. Data types representing a form will have model validation in addition to the requirements defined here.
+En datatype beskriver kravene til dataelementene. For datatyper som er et skjema, kontrollerer appen også dataene mot datamodellen.
 
-| Name                             | Description                                                                                                                                                                                 |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                               | The id of the data type. Unique for the app.                                                                                                                                                |
-| description                      | A collection of data type descriptions in different languages.                                                                                                                              |
-| allowedContentTypes              | A list of Content-Types allowed by the data type.                                                                                                                                           |
-| allowedContributors              | A list of allowed contributors. This can be used to restrict who it is that can work with the data type.                                                                                    |
-| actionRequiredToRead             | An [action](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter), in addition to `read`, which is required to read data elements of this type.                           |
-| actionRequiredToWrite            | An [action](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter), in addition to `write`, which is required to write to data elements of this type.                      |
-| appLogic                         | A complex object with information on how a data type is connected to a model. See [ApplicationLogic](#applicationlogic).                                                                    |
-| taskId                           | A reference to a task from the application process. The value indicate that the data type requirements must be fulfilled before the process can move on from the given step in the process. Used in v8. A v9 app uses `taskIds` instead. |
-| taskIds | v9 only. A list of the tasks the data type belongs to. The data type requirements must be fulfilled before the process can move on from these tasks, and the app refuses to create, change or delete data of this type in other tasks. |
-| maxSize                          | The maximum allowed size of the data element.                                                                                                                                               |
-| maxCount                         | The maximum number of data elements of this type.                                                                                                                                           |
-| minCount                         | The minimum required number of elements of this type.                                                                                                                                       |
-| grouping                         | The name of a group. This can be used to logically associate a data type to a group. E.g _Photos_ or a text resource key.                                                                   |
-| enablePdfCreation | v8 only. A value indicating whether the app makes a PDF when the task of a data type with `appLogic` ends. Defaults to true. A v9 app makes PDFs in a PDF service task, and fails to build when this is true. |
-| enableFileScan                   | A value indicating if the data type should be scanned for virus/malware. If a file is scanned and found to be infected before the process is complete, this will cause a validation error.  |
-| validationErrorOnPendingFileScan | A value indicating if a pending file scan should trigger a validation error and prevent the completion of the process before the scan is complete.                                          |
-| enabledFileAnalysers | The ids of the file analysers to run when a file of this type is uploaded. See [file validation](/nb/altinn-studio/v8/reference/logic/validation/files/). |
-| enabledFileValidators | The ids of the file validators to run when a file of this type is uploaded. A failing validator stops the upload. See [file validation](/nb/altinn-studio/v8/reference/logic/validation/files/). |
-| allowedKeysForUserDefinedMetadata | The keys allowed in the user-defined metadata of a data element. When the list is set, the app refuses other keys. Defaults to allowing all keys. |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| id | ID-en til datatypen. Unik i appen. |
+| description | En beskrivelse av datatypen på ulike språk. |
+| allowedContentTypes | En liste over innholdstyper (Content-Type) som datatypen tillater. |
+| allowedContributors | En liste over hvem som har lov til å bidra. Du kan bruke den til å begrense hvem som kan jobbe med datatypen. |
+| actionRequiredToRead | En [handling](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter) som brukeren må ha i tillegg til `read` for å lese dataelementer av denne typen. |
+| actionRequiredToWrite | En [handling](/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter) som brukeren må ha i tillegg til `write` for å skrive til dataelementer av denne typen. |
+| appLogic | Et sammensatt objekt med informasjon om hvordan datatypen er koblet til en modell. Se [ApplicationLogic](#applicationlogic). |
+| taskId | En referanse til en oppgave i prosessen til appen. Verdien betyr at kravene til datatypen må være oppfylt før prosessen kan gå videre fra denne oppgaven. Gjelder v8. En v9-app bruker `taskIds` i stedet. |
+| taskIds | Bare i v9. En liste over oppgavene datatypen hører til. Kravene til datatypen må være oppfylt før prosessen kan gå videre fra disse oppgavene, og appen nekter å opprette, endre eller slette data av denne typen i andre oppgaver. |
+| maxSize | Den største tillatte størrelsen på dataelementet. |
+| maxCount | Det største antallet dataelementer av denne typen. |
+| minCount | Det minste antallet dataelementer av denne typen som instansen må ha. |
+| grouping | Navnet på en gruppe. Du kan bruke den til å knytte datatypen logisk til en gruppe, for eksempel _Bilder_ eller en tekstnøkkel. |
+| enablePdfCreation | Bare i v8. Om appen lager en PDF når oppgaven til en datatype med `appLogic` er ferdig. Standardverdien er true. En v9-app lager PDF-er i en PDF-oppgave, og du kan ikke bygge appen når denne verdien er true. |
+| enableFileScan | Om Altinn skal skanne filer av denne typen for virus og skadevare. Finner skanningen en infisert fil før prosessen er ferdig, gir det en valideringsfeil. |
+| validationErrorOnPendingFileScan | Om en skanning som ikke er ferdig, skal gi en valideringsfeil og hindre at prosessen blir fullført før skanningen er ferdig. |
+| enabledFileAnalysers | ID-ene til analysatorene appen kjører når noen laster opp en fil av denne typen. Se [filvalidering](/nb/altinn-studio/v8/reference/logic/validation/files/). |
+| enabledFileValidators | ID-ene til validatorene appen kjører når noen laster opp en fil av denne typen. Feiler en validator, stopper appen opplastingen. Se [filvalidering](/nb/altinn-studio/v8/reference/logic/validation/files/). |
+| allowedKeysForUserDefinedMetadata | Nøklene som er tillatt i de brukerdefinerte metadataene til et dataelement. Er listen satt, nekter appen andre nøkler. Standard er at alle nøkler er tillatt. |
 
 ## ApplicationLogic
 
-ApplicationLogic holds information about how a data type representing a form is connected to a model.
+ApplicationLogic inneholder informasjon om hvordan en datatype for et skjema er koblet til en modell.
 
-| Name                      | Description                                                                                                                                 |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| autoCreate                | A value indicating whether a data element will be automatically created once an instance moves into the process step indicated by _taskId_. |
-| classRef                  | The name of the C# class used to represent the form as a model in application logic.                                                        |
-| schemaRef                 | A reference to the original schema used to define the model.                                                                                 |
-| disallowUserCreate        | A value indicating whether the a user should be able to create an elemement of the data type. Defaults to allow it (false).                 |
-| disallowUserDelete        | A value indicating whether the a user should be able to delete an elemement of the data type. Defaults to allow it (false).                 |
-| allowAnonymousOnStateless | Specifies whether or not anonymous access is allowed in stateless mode for this particular data type.                                        |
-| autoDeleteOnProcessEnd    | Specifies whether or not data of this type should be automatically marked for hard deletion on process end. Defaults to false.               |
-| shadowFields              | Contains the [shadow fields configuration](#shadowfields).                                                                                     |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| autoCreate | Om appen oppretter et dataelement automatisk når en instans går til oppgaven i _taskId_. |
+| classRef | Navnet på C#-klassen som representerer skjemaet som modell i app-logikken. |
+| schemaRef | En referanse til det opprinnelige skjemaet modellen er laget fra. |
+| disallowUserCreate | Om brukeren ikke får opprette dataelementer av denne typen. Standardverdien er false, det vil si at brukeren får det. |
+| disallowUserDelete | Om brukeren ikke får slette dataelementer av denne typen. Standardverdien er false, det vil si at brukeren får det. |
+| allowAnonymousOnStateless | Om anonym tilgang er tillatt for denne datatypen i en stateless app. |
+| autoDeleteOnProcessEnd | Om appen automatisk markerer data av denne typen for permanent sletting når prosessen er ferdig. Standardverdien er false. |
+| shadowFields | Oppsettet for [hjelpefelter](#shadowfields). |
 
 ### ShadowFields
 
-ShadowFields contains the configuration for shadow fields for a given data type.
+ShadowFields inneholder oppsettet for hjelpefelter (shadow fields) for en datatype.
 
-| Name               | Description                                                                                                         |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------|
-| prefix              | The prefix to use to filter out shadow fields. E.g. *"SF_"* or similar.                                                |
-| saveToDataType     | The data type to save filtered data (without shadow fields) to. If not set, the containing data type will be updated. |
-
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| prefix | Prefikset appen bruker for å filtrere bort hjelpefelter, for eksempel *"SF_"*. |
+| saveToDataType | Datatypen appen lagrer de filtrerte dataene (uten hjelpefelter) i. Er den ikke satt, oppdaterer appen datatypen som inneholder feltene. |
 
 ## PartyTypesAllowed
 
-PartyTypesAllowed contains a set of values indicating the type of owners an instance can have.
+PartyTypesAllowed inneholder verdier som bestemmer hvilke typer eiere en instans kan ha.
 
-| Name             | Description                                                            |
-| ---------------- | ---------------------------------------------------------------------- |
-| bankruptcyEstate | A value indicating that the instance owner can be a bancruptcy estate. |
-| organisation     | A value indicating that the instance owner can be any organisation.    |
-| person           | A value indicating that the instance owner can be a person.            |
-| subUnit          | A value indicating that the instance owner can be a sub unit.          |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| bankruptcyEstate | Instanseieren kan være et konkursbo. |
+| organisation | Instanseieren kan være en hvilken som helst organisasjon. |
+| person | Instanseieren kan være en person. |
+| subUnit | Instanseieren kan være en underenhet. |
 
 ## PresentationField
 
-PresentationField represents a form field extraction rule. Every time a form is being saved the presentation field rules will be applied and any values from the form will be stored directly on the instance. This can later be used to present instance specific data in places like the portal message box. The purpose is to make it easier to identify a specific instance in a list with many almost identical instances.
+PresentationField er en regel for å hente ut verdien av et skjemafelt. Hver gang appen lagrer skjemaet, bruker den reglene for presentasjonsfelter og lagrer verdiene fra skjemaet direkte på instansen. Andre tjenester, for eksempel innboksen, kan deretter vise verdiene. Målet er å gjøre det lettere å kjenne igjen en bestemt instans i en liste med mange nesten like instanser.
 
-| Name       | Description                                               |
-| ---------- | --------------------------------------------------------- |
-| id         | An id or key to identify the specific rule.               |
-| path       | A path to a specific field or property in the form model. |
-| dataTypeId | The name of the datatype. See [DataType](#datatype).      |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| id | En ID eller nøkkel som identifiserer regelen. |
+| path | Stien til et felt eller en egenskap i skjemamodellen. |
+| dataTypeId | Navnet på datatypen. Se [DataType](#datatype). |
 
 ## DataField
 
-DataField represents a form field extraction rule. Every time a form is being saved the data field rules will be applied and any values from the form will be stored directly on the instance. While [PresentationField](#presentationfield) will have logic applied to it with regards to where and how it's used, the use of data fields is entirely up to the application developer and the application owner. One usage scenario is to provide data fields which can be used for routing to the correct backend system.
+DataField er en regel for å hente ut verdien av et skjemafelt. Hver gang appen lagrer skjemaet, bruker den reglene for datafelter og lagrer verdiene fra skjemaet direkte på instansen. Altinn har egen logikk for hvor og hvordan [presentasjonsfelter](#presentationfield) blir vist, mens app-utvikleren og app-eieren bestemmer selv hva de bruker datafeltene til. Du kan for eksempel bruke datafelter til å sende instansen til riktig fagsystem.
 
-| Name       | Description                                               |
-| ---------- | --------------------------------------------------------- |
-| id         | An id or key to identify the specific rule.               |
-| path       | A path to a specific field or property in the form model. |
-| dataTypeId | The name of the datatype. See [DataType](#datatype).      |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| id | En ID eller nøkkel som identifiserer regelen. |
+| path | Stien til et felt eller en egenskap i skjemamodellen. |
+| dataTypeId | Navnet på datatypen. Se [DataType](#datatype). |
 
 ## eFormidlingContract
 
-This type is used by a feature still in development.
+En funksjon som fortsatt er under utvikling, bruker denne typen.
 
-eFormidlingContract holds the configuration of the eFormidling integration for the application.
-An application configured to enable eFormidling integration in combination with the eFormidling contract will send a shipment to eFormidling for every instance that is created.
+eFormidlingContract inneholder oppsettet for eFormidling-integrasjonen til appen.
+En app som har slått på eFormidling-integrasjonen og har en eFormidling-kontrakt, sender en forsendelse til eFormidling for hver instans som blir opprettet.
 
-| Name            | Description                                                                                                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| serviceId       | The service identifier of the process                                                                                                                |
-| process         | The process type to be set on the shipment                                                                                                           |
-| receiver        | The receiver of the eFormidling shipment.                                                                                                            |
-| sendAfterTaskId | The id of the last task to be completed before the shipment is sent                                                                                  |
-| type            | The document type of the shipment e.g. arkivmelding                                                                                                  |
-| typeVersion     | The version of the document type                                                                                                                     |
-| standard        | The document standard e.g. urn:no:difi:arkivmelding:xsd::arkivmelding                                                                                |
-| securityLevel   | The security level to be set on the standard business document                                                                                       |
-| dataTypes       | A list of the dataTypes to be included in the shipment. Data type for both form data and attachments should be listed to be included in the shipment |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| serviceId | Tjenesteidentifikatoren til prosessen. |
+| process | Prosesstypen appen setter på forsendelsen. |
+| receiver | Mottakeren av eFormidling-forsendelsen. |
+| sendAfterTaskId | ID-en til den siste oppgaven som må være fullført før appen sender forsendelsen. |
+| type | Dokumenttypen til forsendelsen, for eksempel arkivmelding. |
+| typeVersion | Versjonen av dokumenttypen. |
+| standard | Dokumentstandarden, for eksempel urn:no:difi:arkivmelding:xsd::arkivmelding. |
+| securityLevel | Sikkerhetsnivået appen setter på Standard Business Document. |
+| dataTypes | En liste over datatypene som skal være med i forsendelsen. Både datatyper for skjemadata og for vedlegg må stå i listen for å bli med i forsendelsen. |
 
 ## MessageBoxConfig
 
-MessageBoxConfig holds configurations related to the presentation of instances in the Altinn MessageBox.
+MessageBoxConfig inneholder innstillinger for hvordan innboksen i Altinn viser instansene.
 
-| Name         | Description                                                     |
-| ------------ | --------------------------------------------------------------- |
-| hideSettings | The settings related to hiding an instance from the message box |
-| syncAdapterSettings | Settings that turn off parts of the sync from instances to dialogs in Dialogporten. See [sync adapter settings](/nb/dialogporten/reference/front-end/altinn-apps/#innstillinger-for-sync-adapter). |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| hideSettings | Innstillingene for å skjule en instans i innboksen. |
+| syncAdapterSettings | Innstillinger som slår av deler av synkroniseringen fra instanser til dialoger i Dialogporten. Se [innstillinger for sync-adapter](/nb/dialogporten/reference/front-end/altinn-apps/#innstillinger-for-sync-adapter). |
 
 ### HideSettings
 
-Only one of the two settings should be used at a time.
+Bruk bare én av de to innstillingene om gangen.
 
-| Name       | Description                                                              |
-| ---------- | ------------------------------------------------------------------------ |
-| hideAlways | A boolean indicating that the instance should always be hidden           |
-| hideOnTask | A list of tasks where the instance should be hidden from the message box |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| hideAlways | En boolsk verdi som sier at instansen alltid skal være skjult. |
+| hideOnTask | En liste over oppgaver der instansen skal være skjult i innboksen. |
 
 ## CopyInstanceSettings
 
-Configure if copying data from an archived instance is allowed, whether attachments and the due date should be copied, what data types and data fields should be excluded, and which data values and presentation texts should be copied to the new instance.
+Her bestemmer du om brukeren kan kopiere data fra en arkivert instans, om appen skal kopiere vedlegg og fristen, hvilke datatyper og datafelter appen skal utelate, og hvilke dataverdier og presentasjonstekster appen skal kopiere til den nye instansen.
 
-| Name                      | Description                                                                                       |
-| ------------------------- | ------------------------------------------------------------------------------------------------- |
-| enabled                   | true/false if it is possible to create a copy of an instance.                                     |
-| excludedDataTypes         | List of data types that should be excluded when a new copy is made.                               |
-| excludedDataFields        | List of fields in the data model that should be excluded when a new copy is made.                 |
-| includeAttachments        | true/false indicating whether attachments should be copied. Defaults to false.                    |
-| includeDueBefore          | true/false indicating whether the due date (`dueBefore`) should be copied. Defaults to false.     |
-| includedDataValues        | List of keys in `dataValues` that should be copied from the source instance.                      |
-| includedPresentationTexts | List of keys in `presentationTexts` that should be copied from the source instance.               |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| enabled | true eller false: om brukeren kan lage en kopi av en instans. |
+| excludedDataTypes | En liste over datatyper appen utelater når den lager en ny kopi. |
+| excludedDataFields | En liste over felter i datamodellen som appen utelater når den lager en ny kopi. |
+| includeAttachments | true eller false: om appen kopierer vedlegg. Standardverdien er false. |
+| includeDueBefore | true eller false: om appen kopierer fristen (`dueBefore`). Standardverdien er false. |
+| includedDataValues | En liste over nøkler i `dataValues` som appen kopierer fra den opprinnelige instansen. |
+| includedPresentationTexts | En liste over nøkler i `presentationTexts` som appen kopierer fra den opprinnelige instansen. |
 
-Meldingsboksen i portalen vil hvise en link med teksten [Lag ny kopi](/nb/altinn-studio/v8/reference/configuration/messagebox/create_copy/) hvis brukeren velger en arkivert instans.
+Innboksen i portalen viser lenken [Lag ny kopi](/nb/altinn-studio/v8/reference/configuration/messagebox/create_copy/) når brukeren velger en arkivert instans.
 
 ## OnEntry
 
-Configure how the application behaves when a user opens the application without an instance id set
+Her bestemmer du hva appen gjør når brukeren åpner den uten en instans-ID.
 
-| Name | Description                                                                                                                                                                                                                                             |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| show | Possible values: new-instance, select-instance or the name of a stateless view. <br/>_new-instance_ : user will always get a new instance. <br/> _select-instance_ : user will be presented with a list of active instances if any, if no active instances a new one will be created. <br/> _other values_ : the app is stateless and shows the layout set (v8) or the folder under `App/ui` (v9) with that name. |
-| instanceSelection | Settings for the page where the user selects an active instance. See [instance selection page](/nb/altinn-studio/v8/reference/configuration/startup/#konfigurer-side-for-instansvalg). |
+| Navn | Beskrivelse |
+| ---- | ----------- |
+| show | Mulige verdier: new-instance, select-instance eller navnet på en stateless visning. <br/>_new-instance_: brukeren får alltid en ny instans. <br/>_select-instance_: brukeren ser en liste over aktive instanser hvis det finnes noen. Finnes det ingen, oppretter appen en ny instans. <br/>_andre verdier_: appen er stateless og viser layoutsettet (v8) eller mappen under `App/ui` (v9) med det navnet. |
+| instanceSelection | Innstillinger for siden der brukeren velger en aktiv instans. Se [siden for instansvalg](/nb/altinn-studio/v8/reference/configuration/startup/#konfigurer-side-for-instansvalg). |
 
-## Complete example
+## Fullstendig eksempel {#complete-example}
 
-This is a complete app metadata document with data types.
+Dette er en fullstendig `applicationmetadata.json` med datatyper.
 
 ```json
 {
