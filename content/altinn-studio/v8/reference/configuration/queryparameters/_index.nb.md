@@ -20,7 +20,7 @@ https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.tt02.altinn.n
 Eksempel med base64:  
 https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=aHR0cHM6Ly9mb28uYXBwcy50dDAyLmFsdGlubi5uby9mb28vZm9vYmFy
 
-Her ser man at `returnUrl` er en gyldig URL og at den peker mot samme host navn som appen.
+Her ser man at `returnUrl` er en gyldig URL og at host navnet slutter på `tt02.altinn.no`, domenet til miljøet appen kjører i.
 
 Eksemplene under inneholder ikke base64 for lesbarhet.
 

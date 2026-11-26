@@ -19,7 +19,7 @@ https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.tt02.altinn.n
 Example with base64-encoded string:  
 https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=aHR0cHM6Ly9mb28uYXBwcy50dDAyLmFsdGlubi5uby9mb28vZm9vYmFy
 
-Here one can see that `returnUrl` has a valid URL-format and it has the same host name as the app defined in the beginning.
+Here one can see that `returnUrl` has a valid URL-format and its host ends in `tt02.altinn.no`, the domain of the environment the app runs in.
 
 For readability, the examples below does not use base64-encoded strings.
 
