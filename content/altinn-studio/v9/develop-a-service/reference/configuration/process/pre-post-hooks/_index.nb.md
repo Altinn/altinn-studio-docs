@@ -24,6 +24,7 @@ Du lager en klasse som implementerer grensesnittet, og registrerer den som en tr
 - en `IInstanceDataMutator` som du leser og endrer instansdata med
 - en `CancellationToken`
 - ID-en til oppgaven, for de tre oppgave-hookene
+- `StepId` og `WorkflowId`, ID-ene til steget og arbeidsflyten hooken kjører i
 
 Endringer du gjør gjennom `context.InstanceDataMutator`, blir lagret når hooken er ferdig uten feil. Skriv alle endringer gjennom den. Mens arbeidsflyten behandler instansen, avviser Storage endringer som kommer direkte gjennom `IDataClient` eller `IInstanceClient`.
 
@@ -37,7 +38,7 @@ Hooken kjører i arbeidsflytmotoren, ikke i forespørselen fra brukeren. `IAuthe
 
 Kaster `Execute` et unntak som koden din ikke håndterer, regnes det som `FailedRetryable`. Hvor ofte og hvor lenge plattformen prøver på nytt, står i [Overstyre tidsavbrudd og gjenforsøksstrategi](#overstyre-tidsavbrudd-og-gjenforsøksstrategi).
 
-Fordi en hook kan bli kjørt flere ganger, må koden tåle det. Den skal gi samme resultat hver gang, og for eksempel ikke sende den samme e-posten eller opprette de samme dataene to ganger.
+Fordi en hook kan bli kjørt flere ganger, må koden tåle det. Den skal gi samme resultat hver gang, og for eksempel ikke sende den samme e-posten eller opprette de samme dataene to ganger. Se [Gjøre hooken trygg å kjøre om igjen](#gjøre-hooken-trygg-å-kjøre-om-igjen).
 
 ## Kjøre kode når en oppgave starter
 
@@ -124,6 +125,38 @@ Feiler hooken, er prosessen likevel avsluttet. Instansen blir værende under beh
 {{% notice info %}}
 `IProcessEnd` fra v8 finnes ikke i v9. Flytt koden til `IOnProcessEndedHandler`, eller til en `IOnTaskEndingHandler` for den siste oppgaven hvis den skal kjøre før avslutningen er lagret. `studioctl app upgrade v9` viser hvilke klasser og registreringer du må flytte.
 {{% /notice %}}
+
+## Gjøre hooken trygg å kjøre om igjen
+
+Plattformen kan kjøre en hook flere ganger. Kaller hooken et annet system som ikke skal få det samme kallet to ganger, bruker du `context.StepId` som nøkkel mot systemet (idempotency key). Verdien er den samme gjennom alle forsøk på steget, så mottakeren kan kjenne igjen et kall den allerede har fått.
+
+```csharp
+public class CreateCaseOnTaskEnd : IOnTaskEndingHandler
+{
+    // ICaseSystemClient er din egen klient mot fagsystemet.
+    private readonly ICaseSystemClient _caseSystem;
+
+    public CreateCaseOnTaskEnd(ICaseSystemClient caseSystem) => _caseSystem = caseSystem;
+
+    public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
+
+    public async Task<HandlerResult> Execute(OnTaskEndingContext context)
+    {
+        // context.StepId er den samme gjennom alle forsøk på dette steget.
+        await _caseSystem.CreateCase(context.StepId, context.InstanceDataMutator.Instance);
+
+        return HandlerResult.Success();
+    }
+}
+```
+
+Dette bør du vite om nøkkelen:
+
+- **Hele hooken er ett steg.** Et nytt forsøk kjører hele hooken på nytt, også kallene som lyktes før det som feilet. Gjør hooken flere kall, lager du én nøkkel for hvert kall, for eksempel av `StepId` og et navn på kallet. Da kan mottakerne skille kallene fra hverandre.
+- **`WorkflowId` er ikke en nøkkel.** Alle stegene i den samme prosessovergangen har samme `WorkflowId`, så verdien skiller ikke ett kall fra et annet.
+- **Et nytt besøk i oppgaven gir en ny `StepId`.** Nøkkelen hindrer bare at det samme steget gjentar kallet. Om kallet skal gå ut på nytt når prosessen kommer tilbake til oppgaven, er en faglig avgjørelse. Skal det ikke det, lagrer hooken i instansdataene at kallet er gjort, gjennom `context.InstanceDataMutator`, og sjekker det før den kaller.
+
+Må hvert kall kjøre bare én gang, for eksempel når appen først sender noe og deretter spør etter svaret, bruker du en systemoppgave med flere arbeidssteg i stedet for en hook. Et arbeidssteg som er ferdig, kjører ikke på nytt. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
 
 ## Overstyre tidsavbrudd og gjenforsøksstrategi
 
