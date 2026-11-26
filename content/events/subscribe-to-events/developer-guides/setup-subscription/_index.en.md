@@ -69,8 +69,9 @@ _Example of validation event_
 
 Altinn Events can authenticate requests to your endpoint with a Maskinporten token. When enabled, every request,
 including the validation event, carries an `Authorization: Bearer {token}` header. The token is issued to Digdir
-(organization number 991825827) with the scope `altinn:system/events.event.push`, so a valid token proves that
-the request was sent by Altinn Events.
+(organization number 991825827) with the scope `altinn:system/events.event.push`. A valid token shows that the
+request carries a Maskinporten token issued to Digdir with that scope. The token is not bound to the receiving
+endpoint, so it does not show that Altinn Events sent this request.
 
 To verify a request, validate the token the same way you would validate any Maskinporten access token:
 

@@ -70,8 +70,9 @@ _Eksempel på valideringshendelse_
 
 Altinn Events kan autentisere forespørsler til endepunktet ditt med et Maskinporten-token. Når dette er aktivert
 inneholder hver forespørsel, inkludert valideringshendelsen, headeren `Authorization: Bearer {token}`. Tokenet utstedes
-til Digdir (organisasjonsnummer 991825827) med scopet `altinn:system/events.event.push`, slik at et gyldig token viser
-at forespørselen er sendt av Altinn Events.
+til Digdir (organisasjonsnummer 991825827) med scopet `altinn:system/events.event.push`. Et gyldig token viser at
+forespørselen inneholder et Maskinporten-token utstedt til Digdir med dette scopet. Tokenet er ikke bundet til
+mottakerendepunktet, så det viser ikke alene at Altinn Events sendte forespørselen.
 
 For å verifisere en forespørsel validerer du tokenet på samme måte som andre Maskinporten-tokens:
 
