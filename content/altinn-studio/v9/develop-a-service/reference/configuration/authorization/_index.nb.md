@@ -27,7 +27,7 @@ Ressursattributtene til regler beskriver hvilken tjeneste eller del av tjenesten
 | urn:altinn:org    | Organisasjonsdelen av ressursattributtet definerer hvilken organisasjon som eier appen.                       |
 | urn:altinn:app    | Appdelen identifiserer selve appen.                                                        |
 | urn:altinn:task   | Oppgavedelen av ressursen gjør det mulig å ha egne regler for de ulike oppgavene. |
-| urn:altinn:event  | Hendelsesdelen av ressursen gjør det mulig å ha egne regler for lesing av hendelser.  |
+| urn:altinn:appresource | Med verdien `events` gjelder regelen lesing av hendelsene til appen. |
 
 ### Eksempel
 
@@ -48,8 +48,8 @@ App/config/authorization/policy.xml
     <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">instantiate</xacml:AttributeValue>
-    <xacml:AttributeDesignator AttributeId="urn:altinn:event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">events</xacml:AttributeValue>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:appresource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
 </xacml:AllOf>
 ```
