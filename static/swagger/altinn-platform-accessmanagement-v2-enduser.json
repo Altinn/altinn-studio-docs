@@ -2327,6 +2327,132 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_WRITE",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/sent/resource": {
+      "put": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AMCoreModels.RequestedRightKeysDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AMCoreModels.RequestedRightKeysDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AMCoreModels.RequestedRightKeysDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AMCoreModels.RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3718,6 +3844,17 @@
           },
           "code": {
             "$ref": "#/components/schemas/ErrorCode"
+          },
+          "traceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "$ref": "#/components/schemas/AltinnProblemDetails"
           }
         },
         "additionalProperties": { }
@@ -4272,19 +4409,6 @@
         },
         "additionalProperties": false
       },
-      "AMCoreModels.ApproveRequestDto": {
-        "type": "object",
-        "properties": {
-          "rightKeys": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "AMCoreModels.PartyEntityDto": {
         "type": "object",
         "properties": {
@@ -4311,174 +4435,6 @@
           "personIdentifier": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AMCoreModels.PartyReferenceDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AMCoreModels.ReceivedRequestCountSubunitDto": {
-        "type": "object",
-        "properties": {
-          "party": {
-            "$ref": "#/components/schemas/AMCoreModels.PartyEntityDto"
-          },
-          "count": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AMCoreModels.RequestDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "status": {
-            "$ref": "#/components/schemas/RequestStatusV2NonExhaustiveEnum"
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastUpdated": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lastUpdatedBy": {
-            "$ref": "#/components/schemas/AMCoreModels.PartyReferenceDto"
-          },
-          "resource": {
-            "$ref": "#/components/schemas/AMCoreModels.RequestResourceReferenceDto"
-          },
-          "package": {
-            "$ref": "#/components/schemas/AMCoreModels.RequestReferenceDto"
-          },
-          "links": {
-            "$ref": "#/components/schemas/AMCoreModels.RequestLinks"
-          },
-          "from": {
-            "$ref": "#/components/schemas/AMCoreModels.PartyEntityDto"
-          },
-          "to": {
-            "$ref": "#/components/schemas/AMCoreModels.PartyEntityDto"
-          },
-          "by": {
-            "$ref": "#/components/schemas/AMCoreModels.PartyEntityDto"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AMCoreModels.RequestLinks": {
-        "type": "object",
-        "properties": {
-          "detailsLink": {
-            "type": "string",
-            "nullable": true
-          },
-          "statusLink": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AMCoreModels.RequestReferenceDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "referenceId": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AMCoreModels.RequestResourceReferenceDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "referenceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "requestedRightKeys": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "approvedRightKeys": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "AMCoreModels.RequestStatusV2": {
-        "enum": [
-          "None",
-          "Draft",
-          "Pending",
-          "Approved",
-          "Rejected",
-          "Withdrawn",
-          "PartialApprove"
-        ],
-        "type": "string"
-      },
-      "AMCoreModels.RequestedRightKeysDto": {
-        "type": "object",
-        "properties": {
-          "requestedRightKeys": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RequestDtoPaginatedResult": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AMCoreModels.RequestDto"
-            },
-            "nullable": true
-          },
-          "links": {
-            "$ref": "#/components/schemas/PaginatedResultLinks"
           }
         },
         "additionalProperties": false
@@ -4534,12 +4490,12 @@
             "description": "Request is withdrawn by the requester, and will not be processed"
           },
           {
-            "title": "PartialApprove",
+            "title": "ApprovedWithAdjustments",
             "enum": [
-              "PartialApprove"
+              "ApprovedWithAdjustments"
             ],
             "type": "string",
-            "description": "Request is approved, but what was granted does not match what was requested"
+            "description": "Request is approved, but what was granted differs from what was requested: fewer, other or more rights.\nNamed PartialApprove before version 2 was published; the number is unchanged."
           },
           {
             "type": "string",
@@ -4578,11 +4534,192 @@
             "description": "Request is withdrawn by the requester, and will not be processed"
           },
           {
-            "value": "PartialApprove",
-            "title": "PartialApprove",
-            "description": "Request is approved, but what was granted does not match what was requested"
+            "value": "ApprovedWithAdjustments",
+            "title": "ApprovedWithAdjustments",
+            "description": "Request is approved, but what was granted differs from what was requested: fewer, other or more rights.\nNamed PartialApprove before version 2 was published; the number is unchanged."
           }
         ]
+      },
+      "AMCoreModels.RequestedRightKeysDto": {
+        "type": "object",
+        "properties": {
+          "requestedRightKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AMCoreModels.RequestStatusV2": {
+        "enum": [
+          "None",
+          "Draft",
+          "Pending",
+          "Approved",
+          "Rejected",
+          "Withdrawn",
+          "ApprovedWithAdjustments"
+        ],
+        "type": "string"
+      },
+      "RequestDtoPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AMCoreModels.RequestDto"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AMCoreModels.ApproveRequestDto": {
+        "type": "object",
+        "properties": {
+          "rightKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AMCoreModels.PartyReferenceDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AMCoreModels.RequestResourceReferenceDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "referenceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "requestedRightKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "approvedRightKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AMCoreModels.RequestReferenceDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "referenceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AMCoreModels.ReceivedRequestCountSubunitDto": {
+        "type": "object",
+        "properties": {
+          "party": {
+            "$ref": "#/components/schemas/AMCoreModels.PartyEntityDto"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AMCoreModels.RequestLinks": {
+        "type": "object",
+        "properties": {
+          "detailsLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AMCoreModels.RequestDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RequestStatusV2NonExhaustiveEnum"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastUpdated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedBy": {
+            "$ref": "#/components/schemas/AMCoreModels.PartyReferenceDto"
+          },
+          "resource": {
+            "$ref": "#/components/schemas/AMCoreModels.RequestResourceReferenceDto"
+          },
+          "package": {
+            "$ref": "#/components/schemas/AMCoreModels.RequestReferenceDto"
+          },
+          "links": {
+            "$ref": "#/components/schemas/AMCoreModels.RequestLinks"
+          },
+          "from": {
+            "$ref": "#/components/schemas/AMCoreModels.PartyEntityDto"
+          },
+          "to": {
+            "$ref": "#/components/schemas/AMCoreModels.PartyEntityDto"
+          },
+          "by": {
+            "$ref": "#/components/schemas/AMCoreModels.PartyEntityDto"
+          }
+        },
+        "additionalProperties": false
       }
     },
     "securitySchemes": {
