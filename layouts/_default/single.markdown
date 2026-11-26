@@ -1,1 +1,1 @@
-{{- .RawContent -}}
+{{- partial "markdown/content.html" . -}}

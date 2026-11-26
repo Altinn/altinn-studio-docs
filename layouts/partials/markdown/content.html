@@ -1,0 +1,46 @@
+{{- /*
+  Returns the page's raw Markdown for the MARKDOWN output format (index.md),
+  with each {{% insert "path" "arg 0" … %}} or {{< insert … >}} call replaced by
+  the text of the file it inserts. Without this, index.md only shows the call,
+  and AI tools that read it miss the inserted text.
+
+  Follows the insert shortcode in the theme (layouts/shortcodes/insert.html):
+  - readFile looks for the path in the project root first and then in the
+    content directory, so both "content/x.nb.md" and "x.nb.md" work.
+  - The front matter of the inserted file is removed.
+  - {0}, {1}, … are replaced by the arguments after the path.
+
+  Inserted text is indented like the call, so it stays inside a list item.
+  Inserted files can insert other files, up to $maxDepth levels. A call whose
+  file does not exist is left as it is, since the HTML build reports it.
+*/ -}}
+{{- $content := .RawContent -}}
+{{- $maxDepth := 5 -}}
+{{- $callRE := `(?m)(^[ \t]*)?\{\{[%<]\s*insert\s+(.+?)\s*[%>]\}\}` -}}
+{{- $argRE := "\"[^\"]*\"|`[^`]*`|\\S+" -}}
+{{- $frontMatterRE := `\A---[ \t]*\r?\n(?s:.*?)\r?\n---[ \t]*(?:\r?\n|\z)` -}}
+{{- range seq $maxDepth -}}
+  {{- $expanded := false -}}
+  {{- range findRESubmatch $callRE $content -}}
+    {{- $call := index . 0 -}}
+    {{- $indent := index . 1 -}}
+    {{- $args := apply (findRE $argRE (index . 2)) "strings.Trim" "." "\"`" -}}
+    {{- $path := index $args 0 -}}
+    {{- if fileExists $path -}}
+      {{- $text := readFile $path | replaceRE $frontMatterRE "" -}}
+      {{- range $i, $arg := after 1 $args -}}
+        {{- $text = replace $text (printf "{%d}" $i) $arg -}}
+      {{- end -}}
+      {{- $text = trim $text "\r\n" -}}
+      {{- with $indent -}}
+        {{- $text = replaceRE `(?m)^(.)` (printf "%s$1" .) $text -}}
+      {{- end -}}
+      {{- $content = replace $content $call $text 1 -}}
+      {{- $expanded = true -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not $expanded -}}
+    {{- break -}}
+  {{- end -}}
+{{- end -}}
+{{- return $content -}}
