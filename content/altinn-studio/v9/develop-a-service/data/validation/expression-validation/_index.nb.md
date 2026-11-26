@@ -128,7 +128,7 @@ Du kan også referere til en definert regel og deretter overstyre ett eller fler
 
 ## Kjøre valideringene i backend
 
-Som standard kjører validering med uttrykk både i appens frontend og i backend, slik at innsendinger via API også blir validert på samme måte.
+Som standard kjører validering med uttrykk både i appens frontend og i backend, slik at innsendinger via API også blir validert på samme måte. Bruker en regel en funksjon som bare finnes i frontend, som `displayValue` eller `formatNumber`, feiler valideringen i backend.
 Du kan slå av valideringen i backend ved å sette flagget `"ExpressionValidation": false` under `"AppSettings"` i `App/appsettings.json` som vist nedenfor:
 
 {{< code-title >}}

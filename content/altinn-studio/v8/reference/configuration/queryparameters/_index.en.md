@@ -23,7 +23,7 @@ Here one can see that `returnUrl` has a valid URL-format and its host ends in `t
 
 For readability, the examples below does not use base64-encoded strings.
 
-One can not link to a different environment, this will not pass query parameter validation:  
+An app in TT02 cannot link to production, this will not pass query parameter validation:  
 https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.altinn.no/foo/foobar
 
 It is important to have the correct order of query parameters and special characters in the URL.

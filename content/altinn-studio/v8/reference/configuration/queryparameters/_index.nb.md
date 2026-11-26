@@ -24,7 +24,7 @@ Her ser man at `returnUrl` er en gyldig URL og at host navnet slutter på `tt02.
 
 Eksemplene under inneholder ikke base64 for lesbarhet.
 
-Man kan derimot ikke lenke til et annet miljø:  
+En app i TT02 kan derimot ikke lenke til produksjon:  
 https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.altinn.no/foo/foobar
 
 Det er viktig med korrekt rekkefølge i URLen, og her er et eksempel som viser den korrekte rekkefølgen:
