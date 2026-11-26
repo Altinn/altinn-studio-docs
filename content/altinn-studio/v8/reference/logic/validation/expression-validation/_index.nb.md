@@ -107,9 +107,9 @@ example2.validation.json
       "severity": "error",
       "condition": [
         "or",
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "æ"],
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "ø"],
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "å"]
+        ["contains", ["lowerCase", ["dataModel", ["argv", 0]]], "æ"],
+        ["contains", ["lowerCase", ["dataModel", ["argv", 0]]], "ø"],
+        ["contains", ["lowerCase", ["dataModel", ["argv", 0]]], "å"]
       ]
     }
   }

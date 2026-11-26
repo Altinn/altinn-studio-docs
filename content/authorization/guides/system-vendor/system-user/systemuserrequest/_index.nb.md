@@ -24,6 +24,7 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
 
   * Du må kjenne organisasjonsnummeret (`partyOrgNo`) til sluttbrukerkunden.
   * Du må ha definert hvilke tilgangspakker (`accessPackages`) eller enkeltrettigheter (`rights`) systembrukeren trenger.
+  * Hver rettighet i `rights` gjelder én ressurs, så `resource`-listen har nøyaktig ett element. Trenger du flere ressurser, sender du én rettighet per ressurs. API-et svarer med `400 Bad Request` hvis en rettighet ikke har noe element eller har flere.
   * (Valgfritt) Hvis `redirectUrl` skal benyttes, må denne URL-en være forhåndsregistrert på systemet ditt.
   * (Valgfritt) Hvis du ønsker et spesifikt navn på systembrukeren som opprettes, kan `integrationTitle` settes. Hvis `integrationTitle` ikke er satt, vil systembrukeren få samme navn som systemet.
 
@@ -156,7 +157,7 @@ En forespørsel (request) har en livssyklus definert av status:
   * **New:** Nyopprettet forespørsel, venter på brukerhandling.
   * **Accepted:** Sluttbruker har godkjent forespørselen.
   * **Rejected:** Sluttbruker har trykket «Ikke godkjenn».
-  * **TimedOut:** Forespørselen er ikke besvart innen 10 dager og er utløpt. Den er ikke lenger tilgjengelig via API.
+  * **TimedOut:** Forespørselen er ikke besvart innen 180 dager og er utløpt. Den er ikke lenger tilgjengelig via API.
   * **Denied:** Ikke i bruk.
 
 

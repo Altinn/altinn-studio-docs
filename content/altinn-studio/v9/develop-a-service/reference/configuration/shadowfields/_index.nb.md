@@ -16,7 +16,7 @@ Du endrer feltnavnene i [verktøyet for datamodellering]({{< relref "/altinn-stu
 
 ## Fjerne hjelpefeltene når oppgaven er ferdig
 
-Legg til `shadowFields` under `appLogic` for datatypen i `App/config/applicationmetadata.json`. Datatypen må ha `taskId` og `classRef`, ellers fjerner ikke appen feltene.
+Legg til `shadowFields` under `appLogic` for datatypen i `App/config/applicationmetadata.json`. Datatypen må ha `classRef`, og oppgaven må stå i `taskIds`, ellers fjerner ikke appen feltene.
 
 {{< code-title >}}
 App/config/applicationmetadata.json
@@ -26,7 +26,7 @@ App/config/applicationmetadata.json
 "dataTypes": [
   {
     "id": "model",
-    "taskId": "Task_1",
+    "taskIds": ["Task_1"],
     "appLogic": {
       "autoCreate": true,
       "classRef": "Altinn.App.Models.Model",
@@ -56,7 +56,7 @@ App/config/applicationmetadata.json
 "dataTypes": [
   {
     "id": "model",
-    "taskId": "Task_1",
+    "taskIds": ["Task_1"],
     "appLogic": {
       "autoCreate": true,
       "classRef": "Altinn.App.Models.Model",

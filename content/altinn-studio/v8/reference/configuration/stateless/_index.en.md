@@ -475,7 +475,7 @@ An example use case for starting an instance from a stateless application could 
 
 To achieve this type of flow you are dependent on setting up your application as a stateless application, described under [configuration](#configuration).
 When this has been done, you can expand the stateless view to include `InstantiationButton` which can start a new instance when the user clicks the button.
-Standard behaviour for this button is to submit the entire data model that the user has used as a part of the instantiation under the field `prefill`.
+Without `mapping`, the button does not send any data from the stateless data model.
 If one wishes to pick parts of the data model which are connected in the stateless step it will also be possible to add `mapping`to the `InstantiationButton` component. For example:
 
 ```json
@@ -506,13 +506,13 @@ Example request which will be sent to the backend which can be mapped to the dat
 
 ```
 
-This prefill value can then be used in the method `DataCreation` in `InstantiationHandler.cs` to map against the fields
+This prefill value can then be used in the method `DataCreation` in your class that implements `IInstantiationProcessor` to map against the fields
 that are needed as a part of the submitting part of the application during instantiation. Example:
 
 ```c#
 public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
   {
-      if (data.GetType() == typeof(MessageV1))
+      if (prefill != null && data.GetType() == typeof(MessageV1))
       {
           string name = "";
           string id = "";

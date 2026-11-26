@@ -19,8 +19,8 @@ In the test and staging environment, the reminder will be sent out after 1 day i
 Note: The reminder timing in test and staging environments is currently set to 1 day due to limitations in the notification service. This is a temporary change, and work is in progress to restore the previous 1-hour delay.
 {{% /notice %}}
 
-Notifications can be sent via either email or SMS. While email does not have a time window, SMS notifications are sent between 9:00 AM and 5:00 PM.
-If the sending time falls outside this window, the notification will be sent the following day.
+Notifications can be sent via either email or SMS, and are sent between 9:00 AM and 5:00 PM.
+If the sending time falls outside this window, the notification will be sent the following day if the correspondence has not been read in the meantime.
 {{% notice warning  %}}
 In the test environment, you can only send SMS notifications to whitelisted phone numbers.  
 Send an email to [tjenesteeier@altinn.no](mailto:tjenesteeier@altinn.no?subject=Whitelist%20phone%20number) with the phone number that needs to be whitelisted.

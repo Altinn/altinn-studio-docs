@@ -284,7 +284,7 @@ services.AddTransient<IDataProcessor, AvsenderProsessor>();
 
 ### Slik virker det i stateless-apper
 
-En [stateless app]({{< relref "/altinn-studio/v9/develop-a-service/process/stateless" >}}) viser skjemaet uten å lagre data, for eksempel en kalkulator eller et oppslag. Der er `ProcessDataRead` den eneste dataprosesseringen som kjører. Appen lagrer ingenting, så skriveprosessorer og kalkulering med uttrykk kjører aldri.
+En [stateless app]({{< relref "/altinn-studio/v9/develop-a-service/process/stateless" >}}) viser skjemaet uten å lagre data, for eksempel en kalkulator eller et oppslag. Der er `ProcessDataRead` den eneste dataprosesseringen som kjører. Appen lagrer ingenting, så skriveprosessorer kjører aldri, og kalkulering med uttrykk kjører bare i nettleseren.
 
 Hver gang brukeren endrer noe i skjemaet, sender nettleseren alle dataene til appen. Appen kjører forhåndsutfyllingen på nytt og deretter `ProcessDataRead`, og sender de oppdaterte dataene tilbake uten å lagre dem. Tillater appen anonyme brukere, kjører appen bare `ProcessDataRead`.
 

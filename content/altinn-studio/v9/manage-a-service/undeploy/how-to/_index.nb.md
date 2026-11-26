@@ -1,6 +1,6 @@
 ---
 title: Hvordan avpublisere en app
-linktitle: 🎯 Guide
+linktitle: Guide
 description: Følg denne guiden for å avpublisere en app i Altinn Studio.
 toc: true
 weight: 10

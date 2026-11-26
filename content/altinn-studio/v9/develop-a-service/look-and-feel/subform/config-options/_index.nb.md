@@ -6,7 +6,7 @@ description: Oversikt over innstillingene for komponenten Tabell for underskjema
 tags: [needsReview]
 ---
 
-Denne siden beskriver innstillingene du kan sette på komponenten **Tabell for underskjema** (`Subform`) i layoutfilen til hovedskjemaet. Du finner en fullstendig liste over egenskaper i [komponentoversikten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Subform" >}}).
+Denne siden beskriver innstillingene du kan sette på komponenten **Tabell for underskjema** (`Subform`) i layoutfilen til hovedskjemaet. Du finner en fullstendig liste over egenskaper i [komponentoversikten]({{< relref "/altinn-studio/v9/develop-a-service/components/Subform" >}}).
 
 ## Innstillinger
 

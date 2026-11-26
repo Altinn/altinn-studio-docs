@@ -39,7 +39,7 @@ There are standard components that can be used to build a layout set for a signi
 - SigneeList:
   - Lists the signees expected to sign and their signing status.
   - As of now this list doesn't support showing roles that should sign, only people and organisations that have been delegated access rights at runtime. But as soon as a person clicks "sign", they will show up, so you can use it as a "Signatures" list, to show who has signed.
-- SigningStatusPanel: 
+- SigningActions: 
   - Determines the current status of the signing task and present relevant information and buttons to the end user, for instance the "Sign"-button.
 
 If you choose not to use the `SigningActions` to display the "Sign"-button, you must as a minimum add an action button with action `sign`, to allow the end user to sign.

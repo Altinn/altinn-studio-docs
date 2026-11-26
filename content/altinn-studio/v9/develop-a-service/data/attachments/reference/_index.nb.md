@@ -1,6 +1,6 @@
 ---
 title: Vedlegg - referanse
-linktitle: 📚 Referanse
+linktitle: Referanse
 description: Egenskaper, verdier og tekstnøkler for vedlegg og virusskanning
 tags: [needsReview]
 ---

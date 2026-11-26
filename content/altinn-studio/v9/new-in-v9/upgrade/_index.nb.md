@@ -131,7 +131,17 @@ Appen omdirigerer gamle lenker med `#/` til den nye adressen. Bruk det nye forma
 
 Tidligere laget appen PDF-kvitteringen samtidig som brukeren gikk ut av et utfyllingssteg. PDF-en var altså en del av det steget. Feilet PDF-en, kunne hele innsendingen feile, og det var ikke lett å starte prosessen på nytt fra punktet som gikk galt.
 
-Etter oppgraderingen har appen din en egen PDF-oppgave i prosessen. Det gjør både feilhåndtering og ny kjøring enklere, og du får flere valg:
+Oppgraderingen legger til en egen PDF-oppgave i prosessen der v8 laget en PDF. Det gjør både feilhåndtering og ny kjøring enklere. Vanligvis kommer PDF-oppgaven rett etter steget, men ikke alltid:
+
+- Lager ingenting i appen datatypen som PDF-en hørte til, laget heller ikke v8 noen PDF. Da legger ikke oppgraderingen til en PDF-oppgave. Det gjelder for eksempel en datatype med `autoCreate: false` som verken koden, et underskjema, et betalingssteg eller hjelpefelter (`shadowFields`) lager.
+- Kan det hende at bare koden i appen lager datatypen, legger oppgraderingen til PDF-oppgaven og gir deg en oppgave du må gjøre selv. Fjern PDF-oppgaven hvis ingenting lager datatypen.
+- Kommer det en gateway rett etter et signeringssteg, og velger den vei ut fra `gatewayAction` med én flyt for `sign` og én for `reject`, legger oppgraderingen PDF-oppgaven på `sign`-flyten. Som i v8 lager signering en PDF, men avvisning gjør det ikke.
+- Kommer det rett etter steget en annen gateway som velger vei ut fra `gatewayAction`, legger ikke oppgraderingen til en PDF-oppgave. Du får en advarsel og må selv legge PDF-oppgaven på flyten som skal lage PDF-en.
+- Legger oppgraderingen til en eFormidling-oppgave etter det samme steget, kommer den etter PDF-oppgaven, også på `sign`-flyten.
+
+Byggefeilen [ALTINNAPP1030]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1030" >}}) stopper en gateway som velger vei ut fra `gatewayAction` rett etter en `pdf`-, `subformPdf`- eller `eFormidling`-oppgave. Disse oppgavene sender ingen handling videre, så gatewayen kan for eksempel ikke se `reject`. Flytter du en PDF-oppgave, må den ikke stå rett foran en slik gateway.
+
+Du har også flere valg:
 
 - Du kan fjerne PDF-oppgaven hvis du ikke vil ha en PDF.
 - Du kan flytte PDF-oppgaven helt bakerst i større prosesser, når PDF-en skal inneholde data fra flere steg.
@@ -179,7 +189,7 @@ Tidligere sendte appen eFormidling-meldingen når prosessen gikk ut av oppgaven 
 
 Oppgraderingen gjør dette for deg:
 
-- Den legger til en eFormidling-oppgave rett etter oppgaven i `sendAfterTaskId`, med konfigurasjonen fra `applicationmetadata.json`.
+- Den legger til en eFormidling-oppgave etter oppgaven i `sendAfterTaskId`, med konfigurasjonen fra `applicationmetadata.json`. Har oppgraderingen lagt til en PDF-oppgave etter den samme oppgaven, kommer eFormidling-oppgaven etter PDF-oppgaven.
 - Den gjør `EnableEFormidling` om til `<altinn:disabled>` på oppgaven. Var flagget ulikt i ulike miljøer, får oppgaven ett `<altinn:disabled env="…">` for hvert miljø der sendingen var slått av.
 - Den fjerner `eFormidling`-seksjonen fra `applicationmetadata.json` og `EnableEFormidling` fra `appsettings`-filene.
 - Den skriver om registreringen i `Program.cs` fra `AddEFormidlingServices<...>(config)` til `AddEFormidling().WithMetadata<...>()`, med `WithReceivers<...>()` hvis appen har sin egen mottakerklasse.
@@ -204,11 +214,29 @@ Oppgraderingen skriver reglene om til dynamiske uttrykk eller C#-kode og sletter
 Gå gjennom uttrykkene oppgraderingen har laget, og test at dynamikken i skjemaet virker som den skal.
 {{% /notice %}}
 
-### Egendefinerte systemoppgaver trenger nye svarverdier
+### Egendefinerte systemoppgaver trenger ny form og nye svarverdier
 
 Har appen din en egen systemoppgave, altså en C#-klasse som implementerer `IServiceTask`, ordner oppgraderingen én del av jobben og lar deg gjøre resten selv.
 
 Oppgraderingen bytter navnerommet for deg, fra `Altinn.App.Core.Internal.Process.ProcessTasks.ServiceTasks` til `Altinn.App.Core.Features.Process`.
+
+Grensesnittet har også fått en ny form, og den må du skrive om selv. I v8 hadde `IServiceTask` metoden `Execute(ServiceTaskContext context)`. I v9 har det `DefineExecute(PipelineBuilder pipeline)`, der du setter sammen arbeidet oppgaven gjør. En oppgave som gjør én ting, beholder `Execute` som en egen metode, bytter typen på parameteren til `StageContext` og svarer `pipeline.Finally(Execute)` fra `DefineExecute`:
+
+```csharp
+// Før (v8)
+public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
+{
+    // Arbeidet oppgaven gjør
+}
+
+// Etter (v9)
+public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
+
+public async Task<ServiceTaskResult> Execute(StageContext context)
+{
+    // Arbeidet oppgaven gjør, som før
+}
+```
 
 Svarverdiene må du skrive om selv. `ServiceTaskErrorHandling` og `ServiceTaskErrorStrategy` forsvinner, sammen med `Failed(...)`, `FailedAbortProcessNext()` og `FailedContinueProcessNext(...)`. Oppgraderingen lister opp stedene i koden den fant, men lar valget stå til deg — hva en feil skal føre til, er et faglig spørsmål og ikke en mekanisk erstatning:
 

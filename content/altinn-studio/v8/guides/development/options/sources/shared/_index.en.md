@@ -52,7 +52,7 @@ This will add the latest stable version of the package to your solution.
 
 Alternatively, you can directly edit your application's App.csproj file by adding the reference below to the `<itemgroup>` where you have package references. 
 ```xml
-<PackageReference Include="Altinn.Codelists" Version="8.0.1" />     
+<PackageReference Include="Altinn.Codelists" Version="8.0.3" />     
 ```
 Note that you then need to explicitly specify the version you would like. See the link in step one for available versions.
 

@@ -27,8 +27,12 @@
   --ds-size-base: 11.25;
 }
 
-/* Innholdet bruker skrifttypen til Designsystemet. Temaet setter egne skrifttyper på overskrifter og avsnitt. */
+/*
+  Innholdet bruker skrifttypen til Designsystemet. Temaet setter egne skrifttyper på overskrifter og avsnitt.
+  Forsiden står ved siden av sidemenyen. Derfor følger brytepunktene på forsiden bredden på innholdet (@container), ikke bredden på skjermen.
+*/
 .studio-hub {
+  container-type: inline-size;
   font-family: var(--ds-font-family), system-ui, sans-serif;
   font-feature-settings: 'cv05' 1;
 }
@@ -268,7 +272,7 @@
   color: var(--ds-color-neutral-text-subtle);
 }
 
-@media (max-width: 1050px) {
+@container (max-width: 1050px) {
   .studio-hero-grid {
     grid-template-columns: 1fr;
     gap: var(--ds-size-10);
@@ -277,7 +281,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 760px) {
+@container (max-width: 760px) {
   .studio-wrap {
     width: calc(100% - 2 * var(--ds-size-4));
   }
@@ -303,6 +307,13 @@
   .studio-news {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+/* Kortene fra kortkoden children står utenfor .studio-hub og har ingen container å måle. Derfor følger kortene også bredden på skjermen. */
+@media (max-width: 760px) {
+  .studio-grid,
+  .studio-grid-2 {
+    grid-template-columns: 1fr;
   }
 }
 @media (prefers-reduced-motion: reduce) {

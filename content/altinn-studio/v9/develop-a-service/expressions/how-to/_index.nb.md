@@ -1,6 +1,6 @@
 ---
 title: Uttrykk - guider
-linktitle: 🎯 Guider
+linktitle: Guider
 description: Hvordan konfigurere uttrykk i Altinn Studio Designer?
 tags: [needsReview]
 weight: 10

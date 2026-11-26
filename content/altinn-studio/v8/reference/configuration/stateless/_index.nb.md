@@ -476,7 +476,7 @@ Et bruksområde for det å starte en instans fra et stateless view kan være at 
 
 For å få til en slik flyt er man først avhengig av å sette opp applikasjonen som en stateless appliksjon som står beskrevet under [konfigurasjon.](#konfigurasjon)
 Når dette er gjort kan man utvide stateless viewet til å inkludere `InstantiationButton` som kan vil starte en ny instans i det brukeren klikker på knappen.
-Standard oppførsel for denne knappen er å sende inn hele datamodellen som brukeren har benyttet inn som en del av instansieringn under feltet `prefill`. 
+Uten `mapping` sender ikke knappen med noe fra datamodellen i det tilstandsløse steget. 
 Om man ønsker å velge ut deler av datamodellen som er benyttet i det tilstandsløse steget vil det også være mulig ved å legge til `mapping` på `InstantiationButton`-komponenten. F.eks
 
 ```json
@@ -507,12 +507,12 @@ Eksempel request som vil gå mot backend som man kan mappe over datamodellen man
 
 ```
 
-Denne prefill verdien kan man så benytte seg av i metoden `DataCreation` i `InstantiationHandler.cs` for å mappe mot de feltene man trenger som en del av innsendsingsdelen av applikasjonen under instansieringen. Eksempel:
+Denne prefill verdien kan man så benytte seg av i metoden `DataCreation` i klassen din som implementerer `IInstantiationProcessor`, for å mappe mot de feltene man trenger som en del av innsendsingsdelen av applikasjonen under instansieringen. Eksempel:
 
 ```c#
 public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
   {
-      if (data.GetType() == typeof(MessageV1))
+      if (prefill != null && data.GetType() == typeof(MessageV1))
       {
           string name = "";
           string id = "";

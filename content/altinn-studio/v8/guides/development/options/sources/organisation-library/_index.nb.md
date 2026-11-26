@@ -14,7 +14,7 @@ Se [Organisasjonsbibliotek](/nb/altinn-studio/v8/concepts/organisation-library/)
 Når du skal bruke en publisert kodeliste, kan du
 
 * Låse en versjon for å sikre at applikasjonen ikke endres når en ny versjon av kodelisten publiseres
-* Bruke den nyeste versjonen ved å sette versjon til `latest`
+* Bruke den nyeste versjonen ved å sette versjon til `_latest`
 
 `optionsId`-feltet i koden følger denne syntaksen:
 `lib**{organisasjon}**{kodelistenavn}**{versjon}`
@@ -47,6 +47,6 @@ Hvis du alltid vil bruke den nyeste versjonen av samme kodeliste uten å måtte 
   "dataModelBindings": {
     "simpleBinding": "some.field"
   },
-  "optionsId": "lib**ttd**countries**latest"
+  "optionsId": "lib**ttd**countries**_latest"
 }
 ```

@@ -55,7 +55,7 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til 
       {
          "id": "08112113-cc3a-4d35-a8d2-bfba53a1ddfd",
          "allowedContentTypes": ["image/jpeg", "application/pdf"],
-         "taskId": "Task_1",
+         "taskIds": ["Task_1"],
          "maxSize": 25,
          "maxCount": 1,
          "minCount": 1,
@@ -157,7 +157,7 @@ Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFil
       "allowedContentTypes": [
         "image/jpeg", "application/pdf"
       ],
-      "taskId": "Task_1",
+      "taskIds": ["Task_1"],
       "maxSize": 25,
       "maxCount": 1,
       "minCount": 1,
