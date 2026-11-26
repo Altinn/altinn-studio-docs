@@ -10,7 +10,7 @@ Query parameter `returnUrl` is used by the app to redirect users to that value w
 
 **Rules:**
 - `returnUrl` must have a valid URL-format
-- The host defined in `returnUrl` must be the same host as the URL has (see example below).
+- The host defined in `returnUrl` must be the domain of the environment the app runs in, or a subdomain of it, such as `tt02.altinn.no` in TT02 (see example below).
 - The value of `returnUrl` must be a base64-encoded string
 
 Example without base64-encoded string:  
@@ -23,7 +23,7 @@ Here one can see that `returnUrl` has a valid URL-format and it has the same hos
 
 For readability, the examples below does not use base64-encoded strings.
 
-One can not link to a different host name, this will not pass query parameter validation:  
+One can not link to a different environment, this will not pass query parameter validation:  
 https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.altinn.no/foo/foobar
 
 It is important to have the correct order of query parameters and special characters in the URL.

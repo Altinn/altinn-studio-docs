@@ -397,7 +397,7 @@ Examples:
     "Ola"
   ],
   "readOnly": ["notEquals",
-    ["frontendSettings", "FormIsEditable"],
+    ["frontendSettings", "formIsEditable"],
     true
   ]
 }
@@ -422,7 +422,7 @@ is needed to _show_ the component:
   "type": "Input",
   "hidden": [
     "not",
-    ["or", ["dataModel", "ShowLastName"], ["frontendSettings", "ShowAllFields"]]
+    ["or", ["dataModel", "ShowLastName"], ["frontendSettings", "showAllFields"]]
   ]
 }
 ```
@@ -830,7 +830,7 @@ The lookup is performed within the same data source available for [language/text
 
 **Note**: The data source is named `applicationSettings` when used in language/texts, but the values must always be
 stored under the key `FrontEndSettings` in `appsettings.{environment}.json`. For this reason, the function has been named
-`frontendSettings` here to indicate that lookups cannot be performed in the rest of `appsettings.{environment}.json`.
+`frontendSettings` here to indicate that lookups cannot be performed in the rest of `appsettings.{environment}.json`. Write the key with a lower-case first letter, both in `appsettings.{environment}.json` and in the expression. The frontend makes the first letter of the keys lower-case, while the backend looks up the key as written.
 
 {{% /expandlarge %}}
 

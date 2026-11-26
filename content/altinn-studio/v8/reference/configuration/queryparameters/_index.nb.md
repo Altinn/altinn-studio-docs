@@ -11,7 +11,7 @@ brukeren trykker på avslutt-knappen i appen.
 
 **Regler:**
 - `returnUrl` må ha et gyldig URL-format
-- Host navnet definert i `returnUrl` må være det samme som appen man lenker til (se eksempelet nedenfor).
+- Host navnet definert i `returnUrl` må være domenet til miljøet appen kjører i, eller et subdomene av det, for eksempel `tt02.altinn.no` i TT02 (se eksempelet nedenfor).
 - Verdien til `returnUrl` må være en base64-streng
 
 Eksempel uten base64:  
@@ -24,7 +24,7 @@ Her ser man at `returnUrl` er en gyldig URL og at den peker mot samme host navn 
 
 Eksemplene under inneholder ikke base64 for lesbarhet.
 
-Man kan derimot ikke lenke til annet host navn:  
+Man kan derimot ikke lenke til et annet miljø:  
 https://foo.apps.tt02.altinn.no/foo/bar?returnUrl=https://foo.apps.altinn.no/foo/foobar
 
 Det er viktig med korrekt rekkefølge i URLen, og her er et eksempel som viser den korrekte rekkefølgen:

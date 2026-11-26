@@ -394,7 +394,7 @@ Eksempler:
     "John"
   ],
   "readOnly": ["notEquals",
-    ["frontendSettings", "FormIsEditable"],
+    ["frontendSettings", "formIsEditable"],
     true
   ]
 }
@@ -419,7 +419,7 @@ hva som skal til for å _vise_ komponenten:
   "type": "Input",
   "hidden": [
     "not",
-    ["or", ["dataModel", "ShowLastName"], ["frontendSettings", "ShowAllFields"]]
+    ["or", ["dataModel", "ShowLastName"], ["frontendSettings", "showAllFields"]]
   ]
 }
 ```
@@ -826,7 +826,7 @@ i detalj der](/nb/altinn-studio/v8/reference/ux/texts#datakilder).
 
 **Merk**: Datakilden heter `applicationSettings` når brukt i språk/tekster, men verdiene må alltid lagres under
 nøkkelen `FrontEndSettings` i `appsettings.{miljø}.json`). Av den grunn har funksjonen fått navnet `frontendSettings`
-her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{miljø}.json`.
+her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{miljø}.json`. Skriv nøkkelen med liten forbokstav, både i `appsettings.{miljø}.json` og i uttrykket. Frontend gjør første bokstav i nøklene liten, mens backend slår opp nøkkelen slik den står.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-countDataElements" header="countDataElements (oppslag)" %}}

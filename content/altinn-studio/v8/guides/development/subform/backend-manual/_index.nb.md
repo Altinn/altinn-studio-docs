@@ -4,7 +4,6 @@ hidden: true
 
 1. [Opprett en datamodell](/nb/altinn-studio/v8/reference/data/data-modeling/) for underskjemaet.
 2. Du skal nå se tre filer under `App/model`. Klassen i c#, json schema og xsd.
-3. Sett [appLogic.allowInSubform](/nb/api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
 4. Opprett en mappe under **App/ui** med det navnet du vil ha på underskjemaet.
 5. Naviger til underskjemamappen, legg til `Settings.json` filen og en mappe med navn **layouts**.
 6. Du kan legge til side layouts til layouts mappen slik du ville gjort for hovedskjemaet.

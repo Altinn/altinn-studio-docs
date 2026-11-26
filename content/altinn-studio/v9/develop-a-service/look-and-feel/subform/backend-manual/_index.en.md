@@ -11,7 +11,6 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
 
 1. [Create a data model](/en/altinn-studio/v8/reference/data/data-modeling/) for the subform.
 2. You should now see the three files under `App/model`. The c# class, the json schema and the xsd.
-3. Set [appLogic.allowInSubform](/en/api/models/app-metadata/#applicationlogic) to **true** in **applicationMetadata.json**.
 4. Create a folder under **App/ui** with your desired subform name.
 5. In the subform folder, add a `Settings.json` file and a folder called **layouts**. Set `defaultDataType` to the data model ID and `type` to `subform`:
 
