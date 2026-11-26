@@ -65,6 +65,27 @@ events.
 ```
 _Example of validation event_
 
+##### Verifying that requests come from Altinn Events
+
+Altinn Events can authenticate requests to your endpoint with a Maskinporten token. When enabled, every request,
+including the validation event, carries an `Authorization: Bearer {token}` header. The token is issued to Digdir
+(organization number 991825827) with the scope `altinn:system/events.event.push`, so a valid token proves that
+the request was sent by Altinn Events.
+
+To verify a request, validate the token the same way you would validate any Maskinporten access token:
+
+- The signature, using the keys published in the
+  [Maskinporten well-known endpoint](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_token) for the
+  environment (`maskinporten.no` in production, `test.maskinporten.no` in test).
+- The `iss` (issuer) and `exp` (expiry) claims.
+- The `scope` claim contains `altinn:system/events.event.push`.
+- The `consumer` claim identifies Digdir.
+
+{{% notice info %}}
+The token is sent to all subscription endpoints. Endpoints that do not verify it can ignore the header.
+Tokens are short-lived (about two minutes), so always validate the expiry.
+{{% /notice %}}
+
 #### resourceFilter
 Filter for the event source. The event resource field is an extension to the CloudEvent specification that Altinn Events is using
 to identify the event source instead of using the source field directly. 

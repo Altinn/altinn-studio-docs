@@ -66,6 +66,27 @@ normale hendelser.
 ```
 _Eksempel på valideringshendelse_
 
+##### Verifisere at forespørsler kommer fra Altinn Events
+
+Altinn Events kan autentisere forespørsler til endepunktet ditt med et Maskinporten-token. Når dette er aktivert
+inneholder hver forespørsel, inkludert valideringshendelsen, headeren `Authorization: Bearer {token}`. Tokenet utstedes
+til Digdir (organisasjonsnummer 991825827) med scopet `altinn:system/events.event.push`, slik at et gyldig token viser
+at forespørselen er sendt av Altinn Events.
+
+For å verifisere en forespørsel validerer du tokenet på samme måte som andre Maskinporten-tokens:
+
+- Signaturen, med nøklene som er publisert på
+  [Maskinportens well-known-endepunkt](https://docs.digdir.no/docs/Maskinporten/maskinporten_protocol_token) for
+  miljøet (`maskinporten.no` i produksjon, `test.maskinporten.no` i test).
+- Claimene `iss` (utsteder) og `exp` (utløpstidspunkt).
+- At `scope`-claimet inneholder `altinn:system/events.event.push`.
+- At `consumer`-claimet identifiserer Digdir.
+
+{{% notice info %}}
+Tokenet sendes til alle abonnementsendepunkter. Endepunkter som ikke verifiserer det kan ignorere headeren.
+Tokenene er kortlevde (omtrent to minutter), så valider alltid utløpstidspunktet.
+{{% /notice %}}
+
 #### resourceFilter
 Filter for hendelseskilden. Resource-feltet i en hendelse er en utvidelse av CloudEvent-spesifikasjonen som Altinn Events 
 bruker for å identifisere hendelseskilden i stedet for å bruke source-feltet direkte.
