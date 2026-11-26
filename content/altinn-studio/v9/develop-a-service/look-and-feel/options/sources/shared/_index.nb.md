@@ -51,7 +51,7 @@ Apper på v9 må bruke versjon 9 av Altinn.Codelists, som bygger på versjon 9 a
 Åpne kommandolinjen til repoet for applikasjonen din og naviger til App-mappen der App.csproj-filen ligger, og kjør følgende kommando:
 
 ```shell
-dotnet add package Altinn.Codelists --version 9.0.0-preview.1
+dotnet add package Altinn.Codelists --version 9.0.0-preview.2
 ```
 
 Du må oppgi versjonen, fordi kommandoen ellers henter den nyeste stabile versjonen, som foreløpig er versjon 8. Se [Altinn.Codelists på NuGet](https://www.nuget.org/packages/Altinn.Codelists) for den nyeste versjonen av 9.
@@ -63,7 +63,7 @@ App/App.csproj
 {{< /code-title >}}
 
 ```xml
-<PackageReference Include="Altinn.Codelists" Version="9.0.0-preview.1" />
+<PackageReference Include="Altinn.Codelists" Version="9.0.0-preview.2" />
 ```
 
 ### 2. Registrer kodelistene i appens DI-kontainer

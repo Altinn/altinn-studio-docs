@@ -52,7 +52,7 @@ Dette vil legge til den nyeste stabile versjonen av pakken i løsningen din.
 
 Som et alternativ kan du redigere applikasjonens App.csproj-fil direkte ved å legge til referansen nedenfor i `<itemgroup>` der du har pakke-referanser.
 ```xml
-<PackageReference Include="Altinn.Codelists" Version="8.0.1" />
+<PackageReference Include="Altinn.Codelists" Version="8.0.3" />
 ```
 Merk at du da må angi versjonen du ønsker eksplisitt. Se lenken i trinn én for tilgjengelige versjoner.
 
