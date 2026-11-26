@@ -74,7 +74,7 @@ Se under for eksempler.
 
 {{<content-version-container version-label="v7, v8">}}
 
-### Eksempel: Hent organisasjonsnummer og navn fra Enhetsregisteret
+### Eksempel: Sett organisasjonsnummer og navn
 
 Dette fyller ut feltet `Organisasjon.Orgnr` med et egendefinert organisasjonsnummer:
 
@@ -107,7 +107,7 @@ public class MinUtfylling : IInstantiationProcessor
 }
 ```
 
-### Eksempel: Hent personnummer og navn fra Folkeregisteret
+### Eksempel: Sett personnummer og navn
 
 Dette fyller ut feltet `Person.Personnr` med personnummer og feltet `Person.Navn` med navn.
 
