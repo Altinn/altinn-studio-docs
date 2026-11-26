@@ -108,9 +108,9 @@ example2.validation.json
       "severity": "error",
       "condition": [
         "or",
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "æ"],
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "ø"],
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "å"]
+        ["contains", ["lowerCase", ["dataModel", ["argv", 0]]], "æ"],
+        ["contains", ["lowerCase", ["dataModel", ["argv", 0]]], "ø"],
+        ["contains", ["lowerCase", ["dataModel", ["argv", 0]]], "å"]
       ]
     }
   }
@@ -128,8 +128,8 @@ Du kan også referere til en definert regel og deretter overstyre ett eller fler
 
 ## Kjøre valideringene i backend
 
-Som standard kjører validering med dynamikk bare i appens frontend, men for å sikre at dataen som sendes inn følger reglene du har satt opp, bør du også kjøre valideringene i backend slik at innsendinger via API også blir validert på samme måte.
-Det gjør du ved å sette flagget `"ExpressionValidation": true` under `"AppSettings"` i `App/appsettings.json` som vist nedenfor:
+Som standard kjører validering med uttrykk både i appens frontend og i backend, slik at innsendinger via API også blir validert på samme måte. Bruker en regel en funksjon som bare finnes i frontend, som `displayValue` eller `formatNumber`, feiler valideringen i backend.
+Du kan slå av valideringen i backend ved å sette flagget `"ExpressionValidation": false` under `"AppSettings"` i `App/appsettings.json` som vist nedenfor:
 
 {{< code-title >}}
 App/appsettings.*.json
@@ -137,7 +137,7 @@ App/appsettings.*.json
 ```json
 {
   "AppSettings": {
-    "ExpressionValidation": true
+    "ExpressionValidation": false
     ...
   },
   ...
