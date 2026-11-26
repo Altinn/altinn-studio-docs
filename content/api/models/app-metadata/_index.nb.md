@@ -13,7 +13,7 @@ Application er hovedmodellen for metadata om appen.
 | Navn | Beskrivelse |
 | ---- | ----------- |
 | id | En globalt unik ID for appen. Verdien har to deler, skilt med `/`. Den første delen er kortnavnet til app-eieren, og den andre delen er navnet på appen. |
-| versionId | Den gjeldende versjonen av appen. (Ikke i bruk nå.) |
+| versionId | Versjonen av appen i Altinn Storage. Når du publiserer appen, setter Studio den til den korte commit-ID-en for releasen. |
 | org | Kortnavnet til app-eieren. |
 | title | Tittelen på appen på ulike språk. |
 | validFrom | Datoen og klokkeslettet brukerne kan begynne å opprette instanser i appen. |
@@ -25,7 +25,7 @@ Application er hovedmodellen for metadata om appen.
 | preventInstanceDeletionForDays | Hvor mange dager Altinn Storage nekter å slette en instans etter at den er arkivert. Ikke kombiner innstillingen med `autoDeleteOnProcessEnd: true`. Da kan du ikke bygge en v9-app. Se [minimum levetid for persistens](/nb/altinn-studio/v8/reference/data/persistence/#konfigurer-minimum-levetid-for-persistens). |
 | presentationFields | En samling presentasjonsfelter. Se [PresentationField](#presentationfield). |
 | dataFields | En samling datafelter. Se [DataField](#datafield). |
-| eFormidling | Oppsettet for eFormidling-integrasjonen til appen. Se [eFormidlingContract](#eformidlingcontract). |
+| eFormidling | Bare i v8. Oppsettet for eFormidling-integrasjonen til appen. Se [eFormidlingContract](#eformidlingcontract). |
 | messageBoxConfig | En samling innstillinger for innboksen i Altinn. |
 | onEntry | Hva brukeren ser når de åpner appen uten en instans. Se [OnEntry](#onentry). |
 | copyInstanceSettings | Innstillinger for å lage en ny instans som en kopi av en arkivert instans. Se [CopyInstanceSettings](#copyinstancesettings). |
@@ -121,14 +121,11 @@ DataField er en regel for å hente ut verdien av et skjemafelt. Hver gang appen 
 
 ## eFormidlingContract
 
-En funksjon som fortsatt er under utvikling, bruker denne typen.
-
-eFormidlingContract inneholder oppsettet for eFormidling-integrasjonen til appen.
-En app som har slått på eFormidling-integrasjonen og har en eFormidling-kontrakt, sender en forsendelse til eFormidling for hver instans som blir opprettet.
+eFormidlingContract inneholder oppsettet for eFormidling-integrasjonen til appen. Bare v8 leser det: Når `EnableEFormidling` er `true` i `AppSettings`, sender appen en forsendelse til eFormidling når oppgaven i `sendAfterTaskId` er ferdig. Se [eFormidling](/nb/altinn-studio/v8/reference/configuration/eformidling/). Har en v9-app en `eFormidling`-blokk, kan du ikke bygge appen, fordi v9 setter opp eFormidling på en tjenesteoppgave i prosessen.
 
 | Navn | Beskrivelse |
 | ---- | ----------- |
-| serviceId | Tjenesteidentifikatoren til prosessen. |
+| serviceId | Tjenesteidentifikatoren til prosessen. Appen leser den ikke. |
 | process | Prosesstypen appen setter på forsendelsen. |
 | receiver | Mottakeren av eFormidling-forsendelsen. |
 | sendAfterTaskId | ID-en til den siste oppgaven som må være fullført før appen sender forsendelsen. |
@@ -256,8 +253,8 @@ Dette er en fullstendig `applicationmetadata.json` med datatyper.
       "appLogic": null,
       "taskId": "Task_1",
       "maxSize": 25,
-      "maxCount": 1,
-      "minCount": 5,
+      "maxCount": 5,
+      "minCount": 1,
       "enablePdfCreation": false,
       "enableFileScan": true,
       "validationErrorOnPendingFileScan": true,
@@ -284,3 +281,5 @@ Dette er en fullstendig `applicationmetadata.json` med datatyper.
   "lastChangedBy": "sandgrainone"
 }
 ```
+
+Eksempelet er for v8. I en v9-app bytter du ut hver `taskId` med en `taskIds`-liste, for eksempel `"taskIds": ["Task_1"]`, og fjerner `enablePdfCreation`.

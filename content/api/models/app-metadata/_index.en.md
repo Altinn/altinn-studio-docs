@@ -15,7 +15,7 @@ The Application model is the main model for metadata for the application.
 | Name                   | Description                                                                                                                                                                                                               |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | id                     | A gobally unique id for the application. The value has two parts separated by a '/' character. The first part is the short name of the application owner and the second part is the name of the app.                       |
-| versionId              | The current version of the application. (Currently not in use.)                                                                                                                                                           |
+| versionId              | The version of the app in Altinn Storage. Studio sets it to the short commit ID of the release when it deploys the app.                                                                                                                                                           |
 | org                    | The short name of the application owner.                                                                                                                                                                                  |
 | title                  | A collection of the application title in different languages.                                                                                                                                                             |
 | validFrom              | The date and time from when the application can be used to create instances.                                                                                                                                              |
@@ -27,7 +27,7 @@ The Application model is the main model for metadata for the application.
 | preventInstanceDeletionForDays | The number of days after an instance is archived during which Altinn Storage refuses to delete it. Do not combine it with `autoDeleteOnProcessEnd: true`, because a v9 app then fails to build. See [minimum persistence lifetime](/en/altinn-studio/v8/reference/data/persistence/#configure-minimum-persistence-lifetime). |
 | presentationFields     | A collection of presentation fields. See [PresentationField](#presentationfield).                                                                                                                                           |
 | dataFields             | A collection of data fields. See [DataField](#datafield).                                                                                                                                                                   |
-| eFormidling            | The configuration for the eFormidling integration for the application. See [eFormidlingContract](#eformidlingcontract).                                                                                                    |
+| eFormidling            | v8 only. The configuration for the eFormidling integration for the application. See [eFormidlingContract](#eformidlingcontract).                                                                                                    |
 | messageBoxConfig        | A collection of configurations related to the Altinn Message box                                                                                                                                                           |
 | onEntry | What a user who opens the app without an instance sees. See [OnEntry](#onentry). |
 | copyInstanceSettings | Settings for making a new instance as a copy of an archived one. See [CopyInstanceSettings](#copyinstancesettings). |
@@ -124,14 +124,11 @@ DataField represents a form field extraction rule. Every time a form is being sa
 
 ## eFormidlingContract
 
-This type is used by a feature still in development.
-
-eFormidlingContract holds the configuration of the eFormidling integration for the application.
-An application configured to enable eFormidling integration in combination with the eFormidling contract will send a shipment to eFormidling for every instance that is created.
+eFormidlingContract holds the configuration of the eFormidling integration for the application. Only v8 reads it: when `EnableEFormidling` is `true` in `AppSettings`, the app sends a shipment to eFormidling when the task in `sendAfterTaskId` ends. See [eFormidling](/en/altinn-studio/v8/reference/configuration/eformidling/). A v9 app with an `eFormidling` block fails to build, because v9 configures eFormidling on a service task in the process.
 
 | Name            | Description                                                                                                                                          |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| serviceId       | The service identifier of the process                                                                                                                 |
+| serviceId       | The service identifier of the process. The app does not read it.                                                                                                                 |
 | process         | The process type to be set on the shipment                                                                                                           |
 | receiver        | The receiver of the eFormidling shipment.                                                                                                            |
 | sendAfterTaskId | The id of the last task to be completed before the shipment is sent                                                                                  |
@@ -259,8 +256,8 @@ This is a complete app metadata document with data types.
       "appLogic": null,
       "taskId": "Task_1",
       "maxSize": 25,
-      "maxCount": 1,
-      "minCount": 5,
+      "maxCount": 5,
+      "minCount": 1,
       "enablePdfCreation": false,
       "enableFileScan": true,
       "validationErrorOnPendingFileScan": true,
@@ -287,3 +284,5 @@ This is a complete app metadata document with data types.
   "lastChangedBy": "sandgrainone"
 }
 ```
+
+The example is for v8. In a v9 app, replace each `taskId` with a `taskIds` list, such as `"taskIds": ["Task_1"]`, and remove `enablePdfCreation`.
