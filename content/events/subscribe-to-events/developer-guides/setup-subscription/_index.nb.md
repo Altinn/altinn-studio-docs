@@ -84,7 +84,7 @@ For å verifisere en forespørsel validerer du tokenet på samme måte som andre
 - At `consumer`-claimet identifiserer Digdir.
 
 {{% notice info %}}
-Tokenet sendes til alle abonnementsendepunkter. Endepunkter som ikke verifiserer det kan ignorere headeren.
+Tokenet sendes til alle abonnementsendepunkter. Det er ingen krav fra Altinn Events sin side om at token blir validert eller at man sjekker for scope. API som tillater annonyme forespørsler må ignorere headeren. 
 Tokenene er kortlevde (omtrent to minutter), så valider alltid utløpstidspunktet.
 {{% /notice %}}
 
