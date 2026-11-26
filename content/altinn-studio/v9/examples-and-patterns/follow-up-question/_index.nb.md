@@ -9,9 +9,9 @@ Noen spørsmål gjelder bare noen av brukerne. Du spør for eksempel om antall b
 
 ## Slik setter du det opp
 
-1. Legg til spørsmålet som styrer, for eksempel **Har du barn?** med svaralternativene **Ja** og **Nei**. Gi **Ja** verdien `true` og **Nei** verdien `false`. Regelen som skjuler oppfølgingsspørsmålet, sammenligner med verdien `false`.
+1. Legg til spørsmålet som styrer, for eksempel **Har du barn?** med svaralternativene **Ja** og **Nei**. Gi **Ja** verdien `true` og **Nei** verdien `false`. Regelen skjuler oppfølgingsspørsmålet så lenge svaret ikke er `true`, også før brukeren har svart.
 2. Legg til oppfølgingsspørsmålet, for eksempel **Antall barn**.
-3. Skjul oppfølgingsspørsmålet når svaret er **Nei**. Du setter det opp i **Valg for dynamikk**. Fremgangsmåten steg for steg står på siden [Dynamikk]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/dynamics" >}}).
+3. Skjul oppfølgingsspørsmålet når svaret ikke er **Ja**. Du setter det opp i **Valg for dynamikk**. Fremgangsmåten steg for steg står på siden [Dynamikk]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/dynamics" >}}).
 4. Gjør oppfølgingsspørsmålet påkrevd hvis alle som ser det, må svare.
 
 I layoutfilen ser oppfølgingsspørsmålet slik ut:
@@ -26,7 +26,7 @@ App/ui/{taskId}/layouts/{page}.json
   "type": "Input",
   "textResourceBindings": { "title": "tekst-antall-barn" },
   "required": true,
-  "hidden": ["equals", ["component", "har-barn"], false],
+  "hidden": ["notEquals", ["component", "har-barn"], true],
   "dataModelBindings": { "simpleBinding": "Person.AntallBarn" }
 }
 ```
@@ -34,7 +34,7 @@ App/ui/{taskId}/layouts/{page}.json
 ## Dette skjer med skjulte felt
 
 - Appen sjekker ikke om et skjult felt er fylt ut. Brukere som svarer **Nei**, kan derfor sende inn selv om **Antall barn** er påkrevd.
-- Appen fjerner data fra skjulte felt før den avslutter oppgaven. Svarer brukeren først **Ja** og fyller ut antall barn, og endrer svaret til **Nei** etterpå, fjerner appen svaret på **Antall barn**.
+- Med standardinnstillingene i v9 fjerner appen data fra skjulte felt før den avslutter oppgaven. Svarer brukeren først **Ja** og fyller ut antall barn, og endrer svaret til **Nei** etterpå, fjerner appen svaret på **Antall barn**.
 
 ## Spørsmål du kan stille utviklerne
 
