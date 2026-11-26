@@ -10,14 +10,14 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
 
 1. [Create a data model](/en/altinn-studio/v8/reference/data/data-modeling/) for the subform.
 2. You should now see the three files under `App/model`. The c# class, the json schema and the xsd.
-4. Create a folder under **App/ui** with your desired subform name.
-5. In the subform folder, add a `Settings.json` file and a folder called **layouts**.
-6. You can add page layouts to the layouts folder as you would for the main form.
+3. Create a folder under **App/ui** with your desired subform name.
+4. In the subform folder, add a `Settings.json` file and a folder called **layouts**.
+5. You can add page layouts to the layouts folder as you would for the main form.
    {{< notice warning >}}
    Subforms do not support attachments, and nesting subforms is not allowed (subform in subform).
    {{< /notice >}}
-7. The **Settings.json** file for the sub form is [configured as normal](/en/altinn-studio/v8/reference/ux/pages/#settings).
-8. The button which closes the subform must be a [CustomButton](/en/altinn-studio/v8/reference/ux/components/custombutton/) with a `closeSubform` action. Optionally you can also trigger validation before exiting.
+6. The **Settings.json** file for the sub form is [configured as normal](/en/altinn-studio/v8/reference/ux/pages/#settings).
+7. The button which closes the subform must be a [CustomButton](/en/altinn-studio/v8/reference/ux/components/custombutton/) with a `closeSubform` action. Optionally you can also trigger validation before exiting.
    ```json
    {
      "id": "subform-exitbutton",
@@ -38,15 +38,15 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
      ]
    }
    ```
-9. Add a layout set to `layout-sets.json` with the data type of the data model from step 1. Choose your subform folder name as the id.
+8. Add a layout set to `layout-sets.json` with the data type of the data model from step 1. Choose your subform folder name as the id.
    ```json
    {
      "id": "subform-layout-folder-name",
      "dataType": "your-subform-dataType"
    }
    ```
-10. Navigate to the layout for the page in the main form in which you want to add the sub form table.
-11. Add `Subform` with the [configuration you want](/en/altinn-studio/v8/guides/development/subform/config-options/). Example:
+9. Navigate to the layout for the page in the main form in which you want to add the sub form table.
+10. Add `Subform` with the [configuration you want](/en/altinn-studio/v8/guides/development/subform/config-options/). Example:
     ```json
     {
       "id": "subform-test",
