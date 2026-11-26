@@ -125,7 +125,7 @@ DataField represents a form field extraction rule. Every time a form is being sa
 This type is used by a feature still in development.
 
 eFormidlingContract holds the configuration of the eFormidling integration for the application.
-An application configured to enable eFormidling integration in combination with the eFormidiling contract will send a shipment to eFormidling for every instance that is created.
+An application configured to enable eFormidling integration in combination with the eFormidling contract will send a shipment to eFormidling for every instance that is created.
 
 | Name            | Description                                                                                                                                          |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -139,7 +139,7 @@ An application configured to enable eFormidling integration in combination with 
 | securityLevel   | The security level to be set on the standard business document                                                                                       |
 | dataTypes       | A list of the dataTypes to be included in the shipment. Data type for both form data and attachments should be listed to be included in the shipment |
 
-## messageBoxConfig
+## MessageBoxConfig
 
 MessageBoxConfig holds configurations related to the presentation of instances in the Altinn MessageBox.
 
@@ -148,7 +148,7 @@ MessageBoxConfig holds configurations related to the presentation of instances i
 | hideSettings | The settings related to hiding an instance from the message box |
 | syncAdapterSettings | Settings that turn off parts of the sync from instances to dialogs in Dialogporten. See [sync adapter settings](/nb/dialogporten/reference/front-end/altinn-apps/#innstillinger-for-sync-adapter). |
 
-### hideSettings
+### HideSettings
 
 Only one of the two settings should be used at a time.
 
