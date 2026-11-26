@@ -18,15 +18,20 @@ Funksjonaliteten beskrevet på denne siden krever minimum version 7.1.0 av Altin
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no/process" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
   <bpmn:process id="SingleDataTask" isExecutable="false">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_s_t1</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_s_t1" sourceRef="StartEvent_1" targetRef="Task_1" />
-    <bpmn:task id="Task_1" name="Utfylling" altinn:tasktype="data">
+    <bpmn:task id="Task_1" name="Utfylling">
       <bpmn:incoming>Flow_s_t1</bpmn:incoming>
       <bpmn:outgoing>Flow_t1_g1</bpmn:outgoing>
+      <bpmn:extensionElements>
+        <altinn:taskExtension>
+            <altinn:taskType>data</altinn:taskType>
+        </altinn:taskExtension>
+      </bpmn:extensionElements>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_t1_g1" sourceRef="Task_1" targetRef="Gateway_1" />
     <bpmn:exclusiveGateway id="Gateway_1">
@@ -36,9 +41,14 @@ Funksjonaliteten beskrevet på denne siden krever minimum version 7.1.0 av Altin
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_g1_g2" sourceRef="Gateway_1" targetRef="Gateway_2" />
     <bpmn:sequenceFlow id="Flow_g1_t2" sourceRef="Gateway_1" targetRef="Task_2" />
-    <bpmn:task id="Task_2" name="Bekreftelse" altinn:tasktype="confirmation">
+    <bpmn:task id="Task_2" name="Bekreftelse">
       <bpmn:incoming>Flow_g1_t2</bpmn:incoming>
       <bpmn:outgoing>Flow_t2_g2</bpmn:outgoing>
+      <bpmn:extensionElements>
+        <altinn:taskExtension>
+            <altinn:taskType>confirmation</altinn:taskType>
+        </altinn:taskExtension>
+      </bpmn:extensionElements>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_t2_g2" sourceRef="Task_2" targetRef="Gateway_2" />
     <bpmn:exclusiveGateway id="Gateway_2">

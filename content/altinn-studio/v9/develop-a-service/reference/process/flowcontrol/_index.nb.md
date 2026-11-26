@@ -48,7 +48,7 @@ I eksempelet ovenfor bruker gatewayen skjemadata fra datatypen _Schema_ i uttryk
 Når gatewayen er koblet til en datatype, kan du bruke uttrykksspråket til å avgjøre hvilke flyter ut av gatewayen som er tilgjengelige.
 
 {{% notice warning %}}
-Nøyaktig én flyt må være gyldig når uttrykkene er regnet ut. Hvis ingen eller flere flyter er gyldige, går ikke prosessen videre, og brukeren får en feil. Systemet regner alltid en flyt uten uttrykk som gyldig.
+Høyst én flyt kan være gyldig når uttrykkene er regnet ut. Hvis flere flyter er gyldige, går ikke prosessen videre, og brukeren får en feil. Hvis ingen er gyldige, følger prosessen standardflyten (`default`) på gatewayen, og uten den får brukeren en feil. Standardflyten skal ikke ha uttrykk, og alle de andre flytene må ha et uttrykk, ellers starter ikke appen.
 {{% /notice %}}
 
 Nå må du skrive uttrykkene i de utgående flytene fra gatewayen. Eksempelet har to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_.
@@ -204,17 +204,17 @@ Diagrammet viser BPMN-definisjonen:
 
 For at systemet skal velge riktig sekvensflyt ut av den eksklusive gatewayen basert på instansdata, må du opprette en klasse som implementerer `Altinn.App.Core.Features.IProcessExclusiveGateway`. Du må også registrere klassen som en tjeneste i avhengighetsinjeksjonen.
 
-Grensesnittet har en strengegenskap `GatewayId` og en metode `FilterAsync`.
+Grensesnittet har en strengegenskap `GatewayId` og en metode `Filter`.
 
 Du bruker `GatewayId` til å identifisere gatewayen i prosessdefinisjonen den er tilknyttet.
 
 I eksempelet setter du `GatewayId` til `Gateway_1` for den første gatewayen, fordi det er verdien i attributtet `id` på den eksklusive gatewayen i prosessdefinisjonen.
 
-I metoden `FilterAsync` skriver du den tilpassede logikken som filtrerer sekvensflytene ut av gatewayen, basert på instansdataene.
+I metoden `Filter` skriver du den tilpassede logikken som filtrerer sekvensflytene ut av gatewayen, basert på instansdataene.
 
 Du finner mer om grensesnittet i XML-dokumentasjonen:
 
-https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs
+https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs
 
 Når du har skrevet den tilpassede koden, registrerer du den i `Program.cs`, i metoden `RegisterCustomAppServices`.
 

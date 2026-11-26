@@ -19,7 +19,7 @@ Venter oppgaven, er det bare oppgaven selv som kan slippe prosessen videre, og a
 
 Advarselen kommer etter to mislykkede forsøk på rad, eller når et steg har feilet i 20 sekunder, regnet fra det første mislykkede forsøket. Feiler bare ett forsøk, og det neste lykkes innen 20 sekunder, merker brukeren altså ingenting. Plattformen holder rede på når steget feilet første gang, så alle som har instansen åpen, ser det samme, også etter at de har lastet siden på nytt. Advarselen forsvinner når et steg lykkes eller går over til å vente.
 
-**Prøv igjen** kjører steget som feilet på nytt. Knappen er aktiv for brukere med `write`, og for en egendefinert oppgavetype må brukeren i tillegg ha handlingen med samme navn som typen. Har bare tjenesteeieren handlingen, er det driften som må starte oppgaven på nytt, ikke brukeren. Se [tilgang til oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#gi-tilgang-til-oppgaven).
+**Prøv igjen** kjører steget som feilet på nytt. Knappen er aktiv for brukere med `write` på oppgaven, også for en egendefinert oppgavetype. Har brukeren ikke `write`, er det driften som må starte oppgaven på nytt, ikke brukeren. Se [tilgang til oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#gi-tilgang-til-oppgaven).
 
 Feilsiden har ingen knapp for å gå tilbake. Et steg som har gjort deler av jobben sin, kan ikke angres automatisk, så den eneste veien videre er å kjøre steget på nytt.
 

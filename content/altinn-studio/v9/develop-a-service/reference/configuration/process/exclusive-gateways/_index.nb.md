@@ -81,15 +81,15 @@ Visuell representasjon av BPMN-definisjonen over
 
 For å velge riktig sequenceflow ut av en exclusive gateway basert på instansdataene, må du skrive en klasse som bruker `Altinn.App.Core.Features.IProcessExclusiveGateway` og registrere denne med dependency injection-systemet.
 
-Grensesnittet har en string-property `GatewayId` og en metode `FilterAsync`.
+Grensesnittet har en string-property `GatewayId` og en metode `Filter`.
 
 Du bruker `GatewayId` for å identifisere gatewayen i prosessen som koden er koblet til.
 
 I eksempelet over vil en implementasjon ha propertien satt til `Gateway_1`, siden dette er verdien på attributtet _id_ i gatewayen vi ønsker å skrive logikk for (den eneste med to sequenceflows ut av seg).
 
-I metoden FilterAsync skriver du koden som velger hvilken sequenceflow prosessen skal følge ut av gatewayen, basert på instansens data. Metoden må returnere nøyaktig én flyt. Returnerer den ingen eller flere flyter, går ikke prosessen videre.
+I metoden `Filter` skriver du koden som velger hvilken sequenceflow prosessen skal følge ut av gatewayen, basert på instansens data. Metoden må returnere nøyaktig én flyt. Returnerer den flere flyter, går ikke prosessen videre. Returnerer den ingen, følger prosessen standardflyten (`default`) på gatewayen, og uten standardflyt går ikke prosessen videre.
 
-For mer dokumentasjon av grensesnittet, se xml-dokumentasjonen [her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs).
+For mer dokumentasjon av grensesnittet, se xml-dokumentasjonen [her](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs).
 
 Etter at du har skrevet logikken, må du registrere den i dependency injection-systemet. Du gjør dette i metoden `RegisterCustomAppServices` i filen `Program.cs`.
 
