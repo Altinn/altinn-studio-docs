@@ -346,4 +346,4 @@ Klikk på **Til Utforming** for å gå tilbake til utformingen.
 Del endringene dine til appens sentrale område på samme måte som tidligere. Klikk på **Del dine endringer** i menylinjen,
 beskriv endringene og klikk på **Del endringer**.
 
-Du kan lese mer i [oversikten over komponentene du kan bruke i Altinn Studio]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components" >}}).
+Du kan lese mer i [oversikten over komponentene du kan bruke i Altinn Studio]({{< relref "/altinn-studio/v9/develop-a-service/components" >}}).

@@ -57,7 +57,7 @@ For eksempel er «Personopplysninger», «Adresse» og «Oppsummering» tydelige
 
 ## 4. Bruk våre standardkomponenter
 
-- Bruk komponentene som er definert i Altinn Studio — da får du en konsekvent tjeneste som er tilgjengelig. Disse komponentene er basert på Designsystemet og blir vedlikeholdt. Se [oversikten over komponentene]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components" >}}).
+- Bruk komponentene som er definert i Altinn Studio — da får du en konsekvent tjeneste som er tilgjengelig. Disse komponentene er basert på Designsystemet og blir vedlikeholdt. Se [oversikten over komponentene]({{< relref "/altinn-studio/v9/develop-a-service/components" >}}).
 
 - Unngå å tilpasse komponentene for mye, med mindre det er helt nødvendig.
 

@@ -175,7 +175,7 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-Stien må peke på et objekt eller en liste med objekter. Peker den på noe annet, viser tabellen ingenting. En komponent kan ikke ha både `externalApi` og `dataModelBindings`. Se [SimpleTable]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SimpleTable" >}}) for alle egenskapene.
+Stien må peke på et objekt eller en liste med objekter. Peker den på noe annet, viser tabellen ingenting. En komponent kan ikke ha både `externalApi` og `dataModelBindings`. Se [SimpleTable]({{< relref "/altinn-studio/v9/develop-a-service/components/SimpleTable" >}}) for alle egenskapene.
 
 ## Kalle et API med Maskinporten
 

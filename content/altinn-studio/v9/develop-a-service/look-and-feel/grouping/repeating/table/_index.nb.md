@@ -133,7 +133,7 @@ Med `"stickyHeader": true` blir overskriftene i tabellen liggende øverst mens b
 
 ## Redigere direkte i tabellen
 
-Du kan la brukeren redigere komponenter direkte i tabellen, uten å åpne raden. Det passer for små komponenter, der det er unødvendig å åpne raden for å endre en verdi. Tabellen kan ligne på [Grid-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Grid" >}}), men brukeren kan legge til og fjerne rader. Appen lagrer dataene i listen i datamodellen.
+Du kan la brukeren redigere komponenter direkte i tabellen, uten å åpne raden. Det passer for små komponenter, der det er unødvendig å åpne raden for å endre en verdi. Tabellen kan ligne på [Grid-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Grid" >}}), men brukeren kan legge til og fjerne rader. Appen lagrer dataene i listen i datamodellen.
 
 ![Redigering i tabell](components-in-table.png "Redigering i tabell")
 
@@ -214,7 +214,7 @@ Med `rowsBefore` og `rowsAfter` kan du legge til faste rader i tabellen:
 
 Faste rader passer for innhold som bare hører hjemme i tabellen, for eksempel summer, forklaringer eller en ekstra overskriftsrad. Med `rowsAfter` kan du for eksempel lage en bunnlinje med summer eller totaler.
 
-Radene og cellene har samme oppbygning som i [Grid-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Grid" >}}). Hver rad har en liste med celler i `cells`, og du kan sette disse egenskapene på raden:
+Radene og cellene har samme oppbygning som i [Grid-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/components/Grid" >}}). Hver rad har en liste med celler i `cells`, og du kan sette disse egenskapene på raden:
 
 - `header` gjør raden til en overskriftsrad. Standardverdien er `false`.
 - `readOnly` gir raden grå bakgrunn. Brukeren kan fortsatt endre komponentene i raden. Hvis en komponent ikke skal kunne endres, setter du `readOnly` på selve komponenten. Standardverdien er `false`.
