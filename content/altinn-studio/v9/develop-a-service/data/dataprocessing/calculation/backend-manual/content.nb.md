@@ -14,13 +14,13 @@ App/models/skjema.calculation.json
 {{< /code-title >}}
 ```json
 {
-  "calculations": {}
+  "calculations": []
 }
 ```
 
 ### Skrive en regel
 
-Du legger reglene i objektet `calculations`. Nøkkelen er stien til feltet som skal få verdien, altså hvor feltet ligger i datamodellen, regnet fra toppen av modellen. Verdien er en regel med et `expression`.
+Du legger reglene i listen `calculations`. `field` er stien til feltet som skal få verdien, altså hvor feltet ligger i datamodellen, regnet fra toppen av modellen. `expression` regner ut verdien.
 
 Eksempelet under regner ut `regnskap.sum` som inntektene minus utgiftene:
 
@@ -29,15 +29,16 @@ App/models/skjema.calculation.json
 {{< /code-title >}}
 ```json
 {
-  "calculations": {
-    "regnskap.sum": {
+  "calculations": [
+    {
+      "field": "regnskap.sum",
       "expression": [
         "minus",
         ["dataModel", "regnskap.inntekter"],
         ["dataModel", "regnskap.utgifter"]
       ]
     }
-  }
+  ]
 }
 ```
 
@@ -57,15 +58,16 @@ App/models/skjema.calculation.json
 
 ```json
 {
-  "calculations": {
-    "varer.sum": {
+  "calculations": [
+    {
+      "field": "varer.sum",
       "expression": [
         "multiply",
         ["dataModel", "varer.pris"],
         ["dataModel", "varer.antall"]
       ]
     }
-  }
+  ]
 }
 ```
 
@@ -77,4 +79,4 @@ Test reglene lokalt før du publiserer appen:
 2. Endre og tøm feltene, og sjekk at verdien blir oppdatert.
 3. Har du regler i repeterende grupper, legger du til og sletter rader og sjekker at hver rad har riktig verdi.
 
-Bruker et uttrykk en funksjon som ikke finnes, eller feiler uttrykket når appen regner det ut, klarer ikke appen å lagre. Er filen ikke gyldig JSON, hopper appen over alle reglene. Mangler en regel `expression`, hopper appen over den regelen og kjører de andre. I begge disse tilfellene lagrer appen uten å si fra til brukeren. I alle tilfellene ser du feilen i loggen til appen.
+Bruker et uttrykk en funksjon som ikke finnes, eller feiler uttrykket når appen regner det ut, lar appen feltet stå uendret og lagrer uten å si fra til brukeren. Er filen ikke gyldig JSON, eller mangler en regel `field` eller `expression`, starter ikke appen. I alle tilfellene ser du feilen i loggen til appen.
