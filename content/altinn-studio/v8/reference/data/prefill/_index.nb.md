@@ -17,11 +17,11 @@ Les mer om forhåndsutfylling [her](/nb/altinn-studio/v8/concepts/prefill/), og 
 
 - **ER** her legger man inn felter fra datamodellen som skal preutfylles med data fra enhetsregisteret.
 Felt som preutfylles med ER-data vil kun få en verdi dersom man instansierer på vegne av en organisasjon.
-Instansiering vil feile dersom man forsøker å preutfylle ER-data, men ikke har en organisasjon tilgjengelig.
+Har man ikke en organisasjon tilgjengelig, hopper appen over ER-feltene og skriver en feil i loggen.
 
 - **DSF** her legger man inn felter fra datamodellen som skal preutfylles med data fra folkeregistret.
 Feltet som preutfylles med DSF-data vil kun få en verdi dersom man instansierer på vegne av en person.
-Instansiering vil feile dersom man forsøker å preutfylle DSF-data, men ikke har en person tilgjengelig.
+Har man ikke en person tilgjengelig, hopper appen over DSF-feltene og skriver en feil i loggen.
 
 - **UserProfile** her legger man inn felter fra datamodellen som skal preutfylles med data fra brukerens profil i Altinn.
 Merk at det er den innloggede brukeren som instansierer man henter ut data for.
@@ -98,7 +98,7 @@ Tilgjengelige verdier for prefill inkluderer:
 - Party.SSN
 - Party.UnitType
 - Party.Name
-- Party.isDeleted
+- Party.IsDeleted
 - Party.OnlyHierarchyElementWithNoAccess
 - Party.Person
 - Party.Organization
@@ -106,5 +106,5 @@ Tilgjengelige verdier for prefill inkluderer:
 - UserType
 - ProfileSettingPreference.Language
 - ProfileSettingPreference.PreSelectedPartyId
-- ProfileSettingsPreference.DoNotPromptForParty
+- ProfileSettingPreference.DoNotPromptForParty
 

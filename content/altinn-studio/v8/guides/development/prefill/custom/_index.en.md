@@ -21,9 +21,9 @@ or if you need any logic as part of the prefill process.
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v7">}}
+{{<content-version-container version-label="v7, v8">}}
 
-In version 7, we use [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) for custom prefilling.
+In versions 7 and 8, we use [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) for custom prefilling.
 
 ### 1. Create a new class
 
@@ -72,9 +72,9 @@ See below for examples.
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v7">}}
+{{<content-version-container version-label="v7, v8">}}
 
-### Example: Retrieve organization number and name from the Central Coordinating Register for Legal Entities
+### Example: Set organization number and name
 
 This fills in the `Organization.OrgNr` field with a custom organization number:
 
@@ -107,7 +107,7 @@ public class MyFilling : IInstantiationProcessor
 }
 ```
 
-### Example: Retrieve personal identification number and name from the National Population Register
+### Example: Set personal identification number and name
 
 This fills in the `Person.PersonalId` field with a personal identification number and the `Person.Name` field with a name.
 
