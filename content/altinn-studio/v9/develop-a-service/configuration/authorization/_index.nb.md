@@ -30,7 +30,7 @@ Ressursattributtene til regler beskriver hvilken app eller hvilken del av appen 
 | urn:altinn:org    | Organisasjonsdelen av ressursattributtet definerer hvilken organisasjon som eier appen.                       |
 | urn:altinn:app    |Appdelen som identifiserer selve appen                                                        |
 | urn:altinn:task   | Oppgavedelen av ressursen gjør det mulig å ha egne regler for de ulike oppgavene. |
-| urn:altinn:appresource | Med verdien `events` gjelder regelen lesing av hendelsene til appen. |
+| urn:altinn:appresource | Med verdien `events` og handlingen `read` gir regelen tilgang til å lese og abonnere på hendelsene til appen. |
 
 ### Eksempel
 
