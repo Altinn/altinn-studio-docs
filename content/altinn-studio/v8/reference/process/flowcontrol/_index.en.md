@@ -43,7 +43,7 @@ In the example above the gateway is adding the formdata stored in the datatype _
 
 Once the gateway is connected to a datatype we can leverage the expressions language to define if flows leading out of the gateway are available.
 
-NOTE: When at least one flow has an expression, exactly one flow must be available after filtering. A flow without an expression counts as available, the default flow included.
+NOTE: When at least one flow out of the gateway has an expression, exactly one flow must be valid. A flow is valid when its expression is true, or when it has no expression. This also applies to the default flow (`default`). Give every flow an expression.
 
 We now need to define these expressions in the outgoing flows from the gateway. In the example gateway we have two outgoing flows: _Flow_g1_t2_ and _Flow_g1_end_
 

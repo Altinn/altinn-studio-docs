@@ -43,7 +43,7 @@ I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatype _Sch
 
 Når gatewayen er koblet til en datatype, kan vi dra nytte av uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
 
-MERK: Når minst én flyt har et uttrykk, må nøyaktig én flyt være tilgjengelig etter filtreringen. Appen regner en flyt uten uttrykk som tilgjengelig, også standardflyten.
+MERK: Når minst én flyt ut av gatewayen har et uttrykk, må nøyaktig én flyt være gyldig. En flyt er gyldig når uttrykket er sant, eller når den ikke har noe uttrykk. Det gjelder også standardflyten (`default`). Gi derfor alle flytene et uttrykk.
 
 Nå må vi definere disse uttrykkene i de utgående flytene fra gatewayen. I gateway-eksempelet har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
 
