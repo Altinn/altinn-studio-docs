@@ -46,7 +46,7 @@ Alternativt kan du bruke HTML:
 Dette er en tekst.<br/>Dette er en tekst på neste linje.
 ```
 
-Du kan lage en tom linje med `<br><br role="presentation">`. Rollen på det andre linjeskiftet kan hindre at skjermleseren leser den tomme linjen som «blank» når brukeren navigerer linje for linje. Test med nettleserne og skjermleserne brukerne dine bruker.
+Du kan lage en tom linje med `<br><br role="presentation">`. Rollen på det andre linjeskiftet kan hindre at skjermleseren leser den tomme linjen som «blank» når brukeren navigerer linje for linje.
 
 ### Lenker
 
