@@ -3,8 +3,6 @@ title: Komponenter
 weight: 25
 description: Under arbeid - komponentoversikt basert på Altinn Studio GUI
 tags: [needsReview, under-construction]
-aliases:
-  - /nb/altinn-studio/v9/develop-a-service/look-and-feel/components/
 ---
 
 ## Skjema
