@@ -68,10 +68,9 @@ _Eksempel på valideringshendelse_
 
 ##### Verifisere at forespørsler kommer fra Altinn Events
 
-Altinn Events vill identifisere seg i forespørsler til endepunktet ditt med et Maskinporten-token. Alle forespørsler, inkludert valideringshendelsen, vil inneholde headeren `Authorization: Bearer {token}`. Tokenet utstedes
+Altinn Events vil identifisere seg i forespørsler til endepunktet ditt med et Maskinporten-token. Alle forespørsler, inkludert valideringshendelsen, vil inneholde headeren `Authorization: Bearer {token}`. Tokenet utstedes
 til Digdir (organisasjonsnummer 991825827) med scopet `altinn:system/events.event.push`. Et gyldig token viser at
-forespørselen inneholder et Maskinporten-token utstedt til Digdir med dette scopet. Tokenet er ikke bundet til
-mottakerendepunktet, så det viser ikke alene at Altinn Events sendte forespørselen.
+forespørselen inneholder et Maskinporten-token utstedt til Digdir med dette scopet. Tokenet er ikke unikt per abonnent, så det kan ikke brukes til å bevise at det var Altinn Events som sendte forespørselen.
 
 For å verifisere en forespørsel validerer du tokenet på samme måte som i andre API endepunkter med støtte for Maskinporten autentisering:
 
@@ -83,7 +82,7 @@ For å verifisere en forespørsel validerer du tokenet på samme måte som i and
 - At `consumer`-claimet identifiserer Digdir.
 
 {{% notice info %}}
-Tokenet sendes til alle abonnementsendepunkter. Det er ingen krav fra Altinn Events sin side om at token blir validert eller at man sjekker for scope. API som tillater annonyme forespørsler må ignorere headeren. 
+Tokenet sendes til alle abonnementsendepunkter. Det er ingen krav fra Altinn Events sin side om at token blir validert eller at man sjekker for scope. API som tillater anonyme forespørsler må ignorere headeren. 
 Tokenene er kortlevde (omtrent to minutter), så valider alltid utløpstidspunktet.
 {{% /notice %}}
 
