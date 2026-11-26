@@ -69,7 +69,7 @@ Tilgjengelige verdier for forhåndsutfylling inkluderer:
 - Party.SSN
 - Party.UnitType
 - Party.Name
-- Party.isDeleted
+- Party.IsDeleted
 - Party.OnlyHierarchyElementWithNoAccess
 - Party.Person
 - Party.Organization
