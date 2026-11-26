@@ -35,16 +35,43 @@ Dette er også **fet tekst**, men laget med stjerner!
 
 ### Linjeskift
 
-Et enkelt `\n` gir ikke synlig linjeskift. Appen viser teksten på én linje. Vil du at teksten skal fortsette på en ny linje, bruker du to linjeskift etter hverandre (`\n\n`). Da lager appen et nytt avsnitt, men uten ekstra mellomrom, så teksten ser ut som den fortsetter på neste linje:
+Et enkelt `\n` i JSON-filen gir ikke et synlig linjeskift. Bruk `\n\n` for å dele teksten i avsnitt. Appen viser avsnittene uten ekstra avstand mellom dem:
 
-```markdown
-Dette er en tekst.\n\nDette er en tekst på neste linje. 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "veiledning",
+  "value": "Dette er første avsnitt.\n\nDette er andre avsnitt."
+}
 ```
 
-Alternativt kan du bruke HTML:
-```markdown
-Dette er en tekst.<br/>Dette er en tekst på neste linje.
+Bruk `<br>` for å fortsette teksten på en ny linje i samme avsnitt: `Første linje.<br>Andre linje.`
+
+#### Ekstra avstand
+
+To `<br>`-tagger etter hverandre lager en tom linje. Noen skjermlesere kan lese denne som «blank» når brukeren navigerer linje for linje. Hvis du trenger den ekstra tomme linjen, kan du bruke `role="presentation"` på det andre linjeskiftet:
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "veiledning",
+  "value": "Første linje.<br><br role=\"presentation\">Neste linje."
+}
 ```
+
+Rollen forteller hjelpemidler at det ekstra linjeskiftet bare gir visuell avstand. La det første `<br>`-elementet stå uten rollen, slik at skjermleseren fortsatt får informasjon om linjeskiftet.
+
+Dette gir ett avsnitt med linjeskift. Bruk `\n\n` når teksten består av flere avsnitt.
+
+Skjermlesere kan håndtere tomme linjer forskjellig avhengig av nettleseren, innstillingene og hvordan brukeren navigerer. Test teksten med nettleserne og skjermleserne brukerne dine bruker.
+
+Les mer om [linjeskift og tilgjengelighet på MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/br#accessibility).
 
 ### Lenker
 
