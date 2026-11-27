@@ -131,7 +131,7 @@ I v8 kunne appen ta imot hendelser gjennom `IEventHandler` og endepunktet `event
 Hva du gjør i stedet, kommer an på hva appen brukte hendelsene til:
 
 - **Appen abonnerte på sine egne hendelser for å gjøre noe senere.** Legg arbeidet i en systemoppgave i prosessen i stedet. Se [Systemoppgaver]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}).
-- **Appen ventet på svar fra et annet system.** La systemoppgaven vente på svaret. Den kan spørre igjen etter en pause, eller sende en svaradresse med forespørselen og ta imot svaret som en melding. Svaret kommer da inn gjennom et endepunkt dere lager selv i appen. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
+- **Appen ventet på svar fra et annet system.** La systemoppgaven vente på svaret. Den kan spørre igjen etter en pause, eller sende en svaradresse med forespørselen og ta imot svaret som en melding. Svaret kommer da inn gjennom en kanal dere lager selv i appen, for eksempel et endepunkt eller en lytter på en meldingskø. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
 
 Å sende hendelser fungerer som i v8. `AddEvent(eventType, instance)` virker som før. De nye parameterne er valgfrie.
 

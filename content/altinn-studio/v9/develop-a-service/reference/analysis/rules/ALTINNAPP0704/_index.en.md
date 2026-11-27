@@ -7,9 +7,10 @@ weight: 74
 
 This diagnostic is reported when a class that implements `IProcessTask` or `IServiceTask` has a
 method named `DefineStart`, `DefineEnd`, `DefineAbandon` or `ValidateConfiguration` that does not
-implement the `IProcessTask` member of that name, and that no code in the app calls. The message
+implement the `IProcessTask` member of that name, and that no code in the project calls. The message
 names the method and the member, and shows the signature the method should have. The rule looks
-at the whole app, so it reports when the app is built.
+at the whole project the method is in, so it reports when the project is built. It does not see
+calls from other projects.
 
 `IProcessTask` has a default implementation of all four members, so the class still compiles.
 The app never calls your method, and runs the default implementation instead. The defaults for
@@ -23,8 +24,10 @@ The method does not implement the member if, for example, it
 - is not `public`
 - is `static`
 
-If the class inherits the interface from a base class, the class must also list the interface
-itself. Otherwise the app does not call the class's methods, even when the signature is right.
+If the class inherits the interface from a base class that does not have the method itself, the
+class must also list the interface. Otherwise the app does not call the class's method, even when
+the signature is right. If the base class has the method as `virtual`, the class can override it
+with `override` instead.
 
 Category `Contracts`, severity **error**. The rule therefore fails the build.
 
@@ -66,7 +69,7 @@ private Task<StageResult> Prepare(
 ```
 
 In the example below, `ArchiveTask` inherits the interface from the base class `TaskBase`, which
-implements `IServiceTask`. The signature of `DefineEnd` is right, but the app only calls the
+implements `IServiceTask` without having `DefineEnd` itself. The signature of `DefineEnd` is right, but the app only calls the
 method once the class lists the interface itself.
 
 Incorrect:

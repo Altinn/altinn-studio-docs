@@ -7,8 +7,9 @@ weight: 74
 Denne diagnostikken melder fra når en klasse som implementerer `IProcessTask` eller
 `IServiceTask`, har en metode som heter `DefineStart`, `DefineEnd`, `DefineAbandon` eller
 `ValidateConfiguration`, men som ikke implementerer medlemmet med samme navn i `IProcessTask`,
-og som ingen kode i appen kaller. Meldingen navngir metoden og medlemmet, og viser signaturen
-metoden skal ha. Regelen ser på hele appen, så den melder fra når appen bygges.
+og som ingen kode i prosjektet kaller. Meldingen navngir metoden og medlemmet, og viser signaturen
+metoden skal ha. Regelen ser på hele prosjektet metoden ligger i, så den melder fra når prosjektet
+bygges. Kall fra andre prosjekter ser den ikke.
 
 `IProcessTask` har en standardimplementasjon av alle de fire medlemmene, så klassen kompilerer
 likevel. Appen kaller aldri metoden din, men kjører standardimplementasjonen i stedet.
@@ -22,8 +23,9 @@ Metoden implementerer ikke medlemmet hvis den for eksempel
 - ikke er `public`
 - er `static`
 
-Arver klassen grensesnittet fra en baseklasse, må klassen også oppgi grensesnittet selv. Ellers
-kaller appen ikke metodene i klassen, selv om signaturen er riktig.
+Arver klassen grensesnittet fra en baseklasse som ikke har metoden selv, må klassen også oppgi
+grensesnittet. Ellers kaller appen ikke metoden i klassen, selv om signaturen er riktig. Har
+baseklassen metoden som `virtual`, kan klassen i stedet overstyre den med `override`.
 
 Kategori `Contracts`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
@@ -65,7 +67,7 @@ private Task<StageResult> Prepare(
 ```
 
 I eksempelet under arver `ArchiveTask` grensesnittet fra baseklassen `TaskBase`, som
-implementerer `IServiceTask`. Signaturen til `DefineEnd` er riktig, men appen kaller metoden
+implementerer `IServiceTask` uten å ha `DefineEnd` selv. Signaturen til `DefineEnd` er riktig, men appen kaller metoden
 først når klassen oppgir grensesnittet selv.
 
 Feil:

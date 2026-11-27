@@ -39,8 +39,8 @@ sequenceDiagram
     participant Arkiv as Arkivsystem
 
     Bruker->>App: Sender inn skjemaet
-    App->>App: Lager arkivmelding.xml og dokumentene,<br>og lagrer arkivmeldingen på instansen
     App->>App: Åpner en svaradresse med frist på 1 døgn
+    App->>App: Lager arkivmelding.xml og dokumentene,<br>og lagrer arkivmeldingen på instansen
     App->>FiksIO: arkivmelding.opprett<br>klientKorrelasjonsId = svaradressens id
     FiksIO->>Arkiv: Leverer meldingen
     Arkiv-->>FiksIO: arkivmelding.opprett.mottatt

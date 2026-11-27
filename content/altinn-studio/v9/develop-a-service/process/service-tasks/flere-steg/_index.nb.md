@@ -117,12 +117,14 @@ Et arbeidssteg svarer med `ServiceTaskResult`:
 
 | Svar | Dette skjer |
 | --- | --- |
-| `Completed()` | Arbeidssteget er ferdig, og oppgaven går videre til neste arbeidssteg. Var dette det siste, er oppgaven ferdig, og prosessen går videre langs standardflyten. Plattformen lagrer dataendringene, og et ferdig arbeidssteg kjører aldri om igjen. |
+| `Completed()` | Arbeidssteget er ferdig, og oppgaven går videre til neste arbeidssteg. Var dette det siste, er oppgaven ferdig, og prosessen går videre langs standardflyten. Plattformen lagrer dataendringene, og når den har registrert arbeidssteget som ferdig, kjører det ikke om igjen. |
 | `EndTask()` | Oppgaven er ferdig med en gang. Arbeidsstegene etter dette kjører ikke, og prosessen går videre langs standardflyten. |
 | `EndTask("reject")` | Som `EndTask()`, men prosessen går videre med handlingen du oppgir, for eksempel tilbake til utfylling. |
 | `Defer(delay, reason)` | Arbeidssteget gikk bra, men svaret det venter på har ikke kommet. Prosessen står på steget, og plattformen kjører arbeidssteget på nytt etter `delay`. |
 | `FailedRetryable("melding")` | Noe gikk galt som kan gå bedre om litt. Plattformen prøver arbeidssteget på nytt. |
 | `FailedPermanent("melding")` | Noe gikk galt som ikke retter seg selv. Plattformen gir opp. |
+
+Et arbeidssteg kan likevel kjøre to ganger, for eksempel når dataendringene er lagret, men svaret fra appen ikke når plattformen. Arbeid utenfor appens egne data må derfor tåle å kjøre på nytt. Se [Gjøre oppgaven trygg å kjøre om igjen]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#gjøre-oppgaven-trygg-å-kjøre-om-igjen).
 
 Alle arbeidssteg kan avslutte oppgaven med `EndTask`. Bruk det når et arbeidssteg finner ut at resten av oppgaven ikke trenger å kjøre, for eksempel fordi det ikke er noe å arkivere. Da beholder oppgaven den samme rekken av arbeidssteg hver gang, og avgjørelsen tar du inne i arbeidssteget. Se [Endre en oppgave mens instanser er underveis](#endre-en-oppgave-mens-instanser-er-underveis) for hvorfor det er tryggere enn å sette sammen ulike rekker.
 
