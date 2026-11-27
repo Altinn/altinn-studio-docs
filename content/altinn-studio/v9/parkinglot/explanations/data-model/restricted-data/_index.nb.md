@@ -21,7 +21,7 @@ Som standard trenger brukere handlingene `read` og/eller `write` for å få tilg
 ### Hvordan fungerer beskyttede data?
 
 Hvis appen din inneholder data som krever ekstra beskyttelse, kan du bruke
-[applicationmetadata.json-filen](/nb/api/models/app-metadata/#datatype) (kun på engelsk foreløpig) til å angi `actionRequiredToRead` og `actionRequiredToWrite` for spesifikke datatyper.
+[applicationmetadata.json-filen](/nb/api/models/app-metadata/#datatype) til å angi `actionRequiredToRead` og `actionRequiredToWrite` for spesifikke datatyper.
 
 Policyen må da inkludere disse handlingene, i tillegg til `read`/`write`, før brukere får tilgang til de beskyttede datatypene.
 
@@ -34,5 +34,5 @@ Du bør legge til ekstra tilgangskontroller hvis appen din
 
 ### Les mer
 - [Veiledning for å konfigurere beskyttede datatyper](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/)
-- [Mer om applicationmetadata.json](/nb/api/models/app-metadata/#complete-example) (kun på engelsk foreløpig)
+- [Mer om applicationmetadata.json](/nb/api/models/app-metadata/#complete-example)
 - [Mer om autorisasjonspolicy og action-attributter](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/#action-attributter)

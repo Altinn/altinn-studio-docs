@@ -13,7 +13,7 @@ Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel 
 Du må sette opp Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier. Se [integrere en Altinn-app med Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/).
 
 ## Sett opp datatyper
-Filen `applicationmetadata.json` definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) (kun på engelsk foreløpig) i en app. Her angir du hvilke [handlinger](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/#action-attributter) som kreves for den beskyttede datatypen.
+Filen `applicationmetadata.json` definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) i en app. Her angir du hvilke [handlinger](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/#action-attributter) som kreves for den beskyttede datatypen.
 
 I dette eksempelet setter du opp en ny datatype der du angir egenskapene `actionRequiredToRead` og `actionRequiredToWrite`, og deaktiverer `autoCreate`. Du bruker identifikatoren `restrictedDataModel`, men navnet i seg selv er ikke viktig.
 
