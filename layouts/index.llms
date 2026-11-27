@@ -22,7 +22,7 @@
 
 {{ end -}}
 {{- range .Site.Sections }}
-{{- if and (eq .Language.Lang $lang) (not (in .File.Path "_header")) }}
+{{- if and (eq .Language.Lang $lang) (not .Params.hidden) (not (in .File.Path "_header")) }}
 {{- if eq $lang "nb" -}}
 - [{{ .Title }}]({{ .Permalink }}index.md): {{ with .Description }}{{ . }}{{ else }}{{ .Title }} dokumentasjon{{ end }}
 {{- else -}}
@@ -41,7 +41,10 @@
 
 {{ end -}}
 {{- range .Site.Pages }}
-{{- if and (eq .Language.Lang $lang) (not .Draft) (ne .Kind "home") (or (eq .Kind "section") (and .Parent (eq .Parent.Kind "section"))) -}}
+{{- /* Leave out pages the menu hides: those with hidden: true, and everything below a hidden section. */ -}}
+{{- $hidden := .Params.hidden -}}
+{{- range .Ancestors }}{{ if .Params.hidden }}{{ $hidden = true }}{{ end }}{{ end -}}
+{{- if and (eq .Language.Lang $lang) (not .Draft) (not $hidden) (ne .Kind "home") (or (eq .Kind "section") (and .Parent (eq .Parent.Kind "section"))) -}}
 - [{{ .Title }}]({{ .Permalink }}index.md){{ with .Description }}: {{ . }}{{ end }}
 {{ end }}
 {{- end }}
