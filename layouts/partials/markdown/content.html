@@ -15,7 +15,7 @@
   file does not exist is left as it is, since the HTML build reports it.
 */ -}}
 {{- $content := .RawContent -}}
-{{- $maxDepth := 5 -}}
+{{- $maxDepth := 3 -}}
 {{- $callRE := `(?m)(^[ \t]*)?\{\{[%<]\s*insert\s+(.+?)\s*[%>]\}\}` -}}
 {{- $argRE := "\"[^\"]*\"|`[^`]*`|\\S+" -}}
 {{- $frontMatterRE := `\A---[ \t]*\r?\n(?s:.*?)\r?\n---[ \t]*(?:\r?\n|\z)` -}}
