@@ -16,7 +16,7 @@ Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave f
 
 ## Skrive systemoppgaven i C\#
 
-Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `DefineExecute`. En oppgave som gjør én ting, svarer `pipeline.Finally(Execute)` og gjør arbeidet i `Execute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen.
+Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `DefineExecute`. En oppgave som gjør én ting, setter sammen ett arbeidssteg med `pipeline.Stage(Execute)` og gjør arbeidet i `Execute`. Når `Execute` svarer at den er ferdig, er oppgaven ferdig, og prosessen går videre. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
@@ -33,7 +33,8 @@ public class ExampleServiceTask : IServiceTask
 {
     public string Type => "exampleServiceTask";
 
-    public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
+    public void DefineExecute(PipelineBuilder.ServiceTask pipeline) =>
+        pipeline.Stage(Execute);
 
     public async Task<ServiceTaskResult> Execute(StageContext context)
     {
@@ -49,7 +50,7 @@ public class ExampleServiceTask : IServiceTask
             return ServiceTaskResult.FailedPermanent("Skjemaet er ikke godkjent, og prosessen kan ikke fortsette.");
         }
 
-        return ServiceTaskResult.Success();
+        return ServiceTaskResult.Completed();
     }
 }
 ```
@@ -96,7 +97,7 @@ App/config/process/process.bpmn
 
 ## Gi tilgang til oppgaven
 
-Når plattformen kjører systemoppgaven og flytter prosessen ut av den, gjør den det som tjenesteeier, ikke som brukeren. Det gjelder også når oppgaven svarer `Success("reject")`. Tjenesteeieren trenger ingen handling for oppgavetypen eller for `reject`, bare `read` og `write`. Tilgangsfilen fra app-malen gir tjenesteeieren begge.
+Når plattformen kjører systemoppgaven og flytter prosessen ut av den, gjør den det som tjenesteeier, ikke som brukeren. Det gjelder også når oppgaven svarer `EndTask("reject")`. Tjenesteeieren trenger ingen handling for oppgavetypen eller for `reject`, bare `read` og `write`. Tilgangsfilen fra app-malen gir tjenesteeieren begge.
 
 Appen kontrollerer tilgangene til tjenesteeieren når du bygger, gjennom regelen [ALTINNAPP0800]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0800" >}}). Oppgraderingen fra v8 legger inn de reglene tjenesteeieren mangler. Se [tilgangsregler]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}) for mer om filen.
 
@@ -108,25 +109,25 @@ Brukeren kan ikke hoppe over oppgaven. Så lenge oppgaven jobber, venter eller h
 
 ## Hva oppgaven kan svare
 
-Avslutningen, `Execute` i eksempelet over, svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre. Et svar som sier at oppgaven er ferdig, flytter alltid prosessen videre:
+`Execute` svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre:
 
 | Svar | Dette skjer |
 | --- | --- |
-| `ServiceTaskResult.Success()` | Oppgaven er ferdig, og prosessen går videre langs standardflyten. |
-| `ServiceTaskResult.Success("reject")` | Oppgaven er ferdig, og prosessen går videre med handlingen `reject` — for eksempel tilbake til utfylling. |
+| `ServiceTaskResult.Completed()` | Oppgaven er ferdig, og prosessen går videre langs standardflyten. Har oppgaven flere arbeidssteg, går den først videre til neste arbeidssteg. |
+| `ServiceTaskResult.EndTask("reject")` | Oppgaven er ferdig med en gang, og prosessen går videre med handlingen `reject` — for eksempel tilbake til utfylling. Har oppgaven flere arbeidssteg, kjører ikke de som kommer etter. |
 | `ServiceTaskResult.FailedRetryable("melding")` | Noe gikk galt, men det kan gå bedre om litt. Plattformen kjører oppgaven på nytt med økende pause mellom forsøkene. |
 | `ServiceTaskResult.FailedPermanent("melding")` | Noe gikk galt som ikke retter seg selv. Plattformen gir opp med en gang, og steget står som feilet. |
 | `ServiceTaskResult.Defer(TimeSpan.FromMinutes(5), "venter på svar fra fagsystemet")` | Oppgaven gikk bra, men svaret den venter på har ikke kommet. Prosessen står på steget, og plattformen kjører oppgaven på nytt om fem minutter. |
 
 Kaster koden en feil du ikke håndterer selv, tolker plattformen det som en feil den kan prøve på nytt. Skriv derfor `FailedPermanent` selv når du vet at nye forsøk er nytteløse. Da slipper du en lang rekke forsøk som likevel ikke fører noe sted.
 
-Et forsøk som venter (`Defer`), lagrer ingenting. Endrer oppgaven data og venter i samme forsøk, avviser plattformen forsøket som et brudd på kontrakten. Skal oppgaven huske noe, må den lagre det i et forsøk som svarer `Success`, eller i et eget arbeidssteg. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
+Et forsøk som venter (`Defer`), lagrer ingenting. Endrer oppgaven data og venter i samme forsøk, avviser plattformen forsøket som et brudd på kontrakten. Skal oppgaven huske noe, må den lagre det i et forsøk som svarer `Completed` eller `EndTask`, eller i et eget arbeidssteg. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
 
 ## Vente på svar fra et annet system
 
 Venter oppgaven på et annet system, har du to mekanismer å velge mellom. Valget kommer an på om det andre systemet kan si fra selv, eller om oppgaven må gå og se etter.
 
-**Få svaret som en melding.** Oppgaven åpner en postkasse, sender adressen til postkassen med forespørselen, og venter på meldingen som kommer tilbake. Dette passer når det andre systemet kan svare. Prosessen står på steget til oppgaven har konkludert ut fra svaret, eller til fristen i `MailboxOptions.Timeout` går ut. En postkasse krever en oppgave med flere arbeidssteg. Se [Få svaret som en melding]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}#få-svaret-som-en-melding).
+**Få svaret som en melding.** Oppgaven sender forespørselen med en svaradresse og venter på meldingene som kommer tilbake. Dette passer når det andre systemet kan svare. Prosessen står på steget til oppgaven er ferdig med svarene, eller til fristen går ut, som standard etter 7 døgn. Det krever et eksternt arbeidssteg (`ExternalStage`). Se [Få svaret som en melding]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}#få-svaret-som-en-melding).
 
 **Sjekke selv.** Svar `Defer(delay, reason)`. Prosessen står på steget, og plattformen kjører oppgaven på nytt etter pausen du oppgir, så mange ganger som den trenger. Dette passer når ingenting kan kalle tilbake. `WaitBudget` setter tak på ventetiden til sammen, og steget feiler når taket er nådd. Bruk `context.Wait.IsFinalCheck` til å gi din egen forklaring på hva som aldri kom, i stedet for et generisk tidsavbrudd.
 
@@ -147,15 +148,15 @@ Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en meldi
 
 ## Styre tidsbruk og nye forsøk
 
-Trenger oppgaven andre tidsrammer enn standard, gir du et `ProcessStepOptions` til steget i `DefineExecute`, der du setter sammen oppgaven. En oppgave som gjør én ting, har bare ett steg, `Finally`:
+Trenger oppgaven andre tidsrammer enn standard, gir du et `ProcessStepOptions` til steget i `DefineExecute`, der du setter sammen oppgaven. En oppgave som gjør én ting, har bare ett steg, `Stage(Execute)`:
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
 {{< /code-title >}}
 
 ```csharp
-public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
-    pipeline.Finally(
+public void DefineExecute(PipelineBuilder.ServiceTask pipeline) =>
+    pipeline.Stage(
         Execute,
         new ProcessStepOptions
         {
@@ -176,7 +177,7 @@ Feltene betyr dette:
 - `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er. Du kan velge `Exponential`, `Linear` eller `Constant`. `ProcessStepRetryStrategy.None()` slår av nye forsøk.
 - `WaitBudget` er hvor lenge steget til sammen får vente når det svarer `Defer`. Når fristen er ute, feiler steget.
 
-Felt du ikke setter, får standardverdien. Har oppgaven flere arbeidssteg, gir du tidsrammene til `Stage`, `HandleReplies` eller `ConcludeOnReplies` på samme måte. Hvert steg får bare det du gir det, og arver ingenting fra de andre stegene.
+Felt du ikke setter, får standardverdien. Har oppgaven flere arbeidssteg, gir du tidsrammene til `Stage` eller `ExternalStage` på samme måte. Hvert steg får bare det du gir det, og arver ingenting fra de andre stegene.
 
 Standardverdiene og grensene ligger i plattformen, og kan avvike mellom miljøene:
 
@@ -186,9 +187,9 @@ Standardverdiene og grensene ligger i plattformen, og kan avvike mellom miljøen
 | `WaitBudget` | ett døgn | 14 døgn |
 | Nye forsøk etter `FailedRetryable` | økende pause fra ett sekund, maks fem minutter mellom forsøkene, i opptil ett døgn | — |
 | Pausen du oppgir i `Defer` | — | Minst ett sekund |
-| `MailboxOptions.Timeout` | — | 21 døgn |
+| `timeout` på `ExternalStage` | 7 døgn | 21 døgn |
 
-Setter du `MaxExecutionTime` eller `WaitBudget` til 0 eller lavere, starter ikke appen. Setter du dem høyere enn grensen, avviser plattformen overgangen med en gang. Det samme gjelder en postkassefrist over 21 døgn, men den avvisningen kommer først når oppgaven prøver å åpne postkassen. Oppgir du en kortere pause i `Defer` enn ett sekund, venter plattformen ett sekund likevel.
+Setter du `MaxExecutionTime` eller `WaitBudget` til 0 eller lavere, starter ikke appen. Setter du dem høyere enn grensen, avviser plattformen overgangen med en gang. En frist over 21 døgn på `ExternalStage` gjør at appen ikke starter. Oppgir du en kortere pause i `Defer` enn ett sekund, venter plattformen ett sekund likevel.
 
 ## Oppgaver med flere steg
 
