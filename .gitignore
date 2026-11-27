@@ -50,3 +50,6 @@ scripts/components/.schema-cache
 node_modules/
 /design-tokens/
 assets/designsystemet/*.d.ts
+
+# Hugo skriver filen for kodeeditorer hver gang js.Build kjører, og innholdet varierer med Hugo-versjonen
+assets/jsconfig.json
