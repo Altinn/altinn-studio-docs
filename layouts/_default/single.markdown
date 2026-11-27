@@ -1,1 +1,1 @@
-{{- partial "markdown/page.html" . -}}
+{{- partial "markdown/page.md" . -}}
