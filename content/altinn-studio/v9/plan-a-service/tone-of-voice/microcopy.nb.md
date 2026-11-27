@@ -1,5 +1,6 @@
 ---
 title: Tekster i tjenesten
+description: Slik skriver du korte tekster som ledetekster, knappetekster og hjelpetekster.
 weight: 5
 tags: [Reviewed]
 ---
