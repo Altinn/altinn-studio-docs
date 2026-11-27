@@ -38,13 +38,15 @@ Dette er også **fet tekst**, men laget med stjerner!
 Et enkelt `\n` gir ikke synlig linjeskift. Appen viser teksten på én linje. Vil du at teksten skal fortsette på en ny linje, bruker du to linjeskift etter hverandre (`\n\n`). Da lager appen et nytt avsnitt, men uten ekstra mellomrom, så teksten ser ut som den fortsetter på neste linje:
 
 ```markdown
-Dette er en tekst.\n\nDette er en tekst på neste linje. 
+Dette er en tekst.\n\nDette er en tekst på neste linje.
 ```
 
 Alternativt kan du bruke HTML:
 ```markdown
 Dette er en tekst.<br/>Dette er en tekst på neste linje.
 ```
+
+Du kan lage en tom linje med `<br><br role="presentation">`. Rollen på det andre linjeskiftet kan hindre at skjermleseren leser den tomme linjen som «blank» når brukeren navigerer linje for linje.
 
 ### Lenker
 
