@@ -1,10 +1,9 @@
 {{- /*
-  Markdown-versjonen av en side (index.md), som llms.txt viser AI-verktøy til.
-  Tar imot siden.
-  Vi lager Markdown-en fra den ferdige HTML-en, slik at den har med all tekst
-  leseren ser på siden: tittelen, ingressen og innholdet med kortkodene utført,
-  som tekst fra insert, notice og faner. HTML-kommentarer ser ikke leseren, så
-  dem tar vi ut.
+  The Markdown version of a page (index.md), which llms.txt points AI tools to.
+  It is made from the rendered HTML, so it has all the text a reader sees on
+  the page: the title, the lead text and the content with every shortcode
+  rendered, such as inserted fragments, notices and tabs. Readers don't see
+  HTML comments, so they are left out.
 */ -}}
 {{- $html := printf "<h1>%s</h1>" (.Title | htmlEscape) -}}
 {{- with .Description -}}

@@ -1,7 +1,7 @@
 {{- /*
-  Mermaid-kortkoden i Markdown-versjonen av siden (index.md).
-  Vi lager Markdown-versjonen fra HTML-en (se partials/markdown/page.html). Med
-  HTML-en til temaet blir diagramkilden én linje løpende tekst, så her lager vi
-  en kodeblokk med språket mermaid i stedet.
+  The mermaid shortcode in the Markdown version of a page (index.md).
+  That Markdown is made from the HTML (see partials/markdown/page.html), and
+  the theme's HTML would turn the diagram source into one line of text, so
+  this makes it a mermaid code block instead.
 */ -}}
 <pre><code class="language-mermaid">{{ trim .Inner "\n" | htmlEscape }}</code></pre>
