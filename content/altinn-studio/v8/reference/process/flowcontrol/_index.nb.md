@@ -27,7 +27,7 @@ Eksempel:
 ...
 <bpmn:exclusiveGateway id="Gateway_1">
     <bpmn:incoming>Flow_t1_g1</bpmn:incoming>
-    <bpmn:incoming>Flow_g1_t2</bpmn:incoming>
+    <bpmn:outgoing>Flow_g1_t2</bpmn:outgoing>
     <bpmn:outgoing>Flow_g1_end</bpmn:outgoing>
     <bpmn:extensionElements>
         <altinn:gatewayExtension>
@@ -43,7 +43,7 @@ I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatype _Sch
 
 Når gatewayen er koblet til en datatype, kan vi dra nytte av uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
 
-MERK: Det må være bare én flyt tilgjengelig etter filtrering av flyter, med mindre det er en standardflyt, og den er en del av de mulige flytene ut av gatewayen.
+MERK: Når minst én flyt ut av gatewayen har et uttrykk, må nøyaktig én flyt være gyldig. En flyt er gyldig når uttrykket er sant, eller når den ikke har noe uttrykk. Det gjelder også standardflyten (`default`). Gi derfor alle flytene et uttrykk.
 
 Nå må vi definere disse uttrykkene i de utgående flytene fra gatewayen. I gateway-eksempelet har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
 
@@ -168,7 +168,7 @@ Hvis kravene for gatewayen din ikke kan oppfylles gjennom uttrykk, har du muligh
 {{<content-version-container version-label="v8">}}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no/process" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
   <bpmn:process id="SingleDataTask" isExecutable="false">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_s_t1</bpmn:outgoing>

@@ -55,13 +55,15 @@ Når appen er opprettet og lastet inn, kommer du til en oversiktsside for appen.
 
 ![Endre tittel på appen](./Kurs-skjermbilder-Oppgave-Endre-tittel-på-appen.jpg)
 
----
+Skriv inn app-tittelen på både bokmål og nynorsk.
 
 Legg inn tittelen på appen både på bokmål og nynorsk.
 
 Når du kommer tilbake til oversiktssiden, ser du at tittelen er oppdatert der også.
 
 ![bg right:60% contain](./Kurs-skjermbilder-Konsept-Oversikt-i-appen-med-tittel.jpg)
+
+---
 
 ### Lagre og dele endringer
 
@@ -73,9 +75,9 @@ Når du jobber med en app i Altinn Studio, er det to hovedområder:
 
 Du må dele endringene fra ditt eget område til appens sentrale område før du kan publisere dem.
 
----
-
 ![Lagre og dele endringer](./Kurs-skjermbilder-Konsept-Endringer-og-lagring.jpg)
+
+Illustrasjonen viser hvordan de ulike arbeidsområdene henger sammen.
 
 ---
 
@@ -85,7 +87,6 @@ Nå som du har endret tittelen på appen, kan du dele endringen til appens sentr
 3. Se gjennom endringene, og klikk på **X** for å lukke vinduet og gå tilbake til vinduet for å dele endringer.
 4. Beskriv endringene i tekstboksen og klikk på **Del endringer**.
 
----
 ![Dele endringer](./Kurs-skjermbilder-Oppgave-Del-endringer.jpg)
 
 ### Lage en informasjonsside
@@ -345,4 +346,4 @@ Klikk på **Til Utforming** for å gå tilbake til utformingen.
 Del endringene dine til appens sentrale område på samme måte som tidligere. Klikk på **Del dine endringer** i menylinjen,
 beskriv endringene og klikk på **Del endringer**.
 
-Du kan lese mer i [oversikten over komponentene du kan bruke i Altinn Studio]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components" >}}).
+Du kan lese mer i [oversikten over komponentene du kan bruke i Altinn Studio]({{< relref "/altinn-studio/v9/develop-a-service/components" >}}).

@@ -275,60 +275,6 @@
         }
       }
     },
-    "/dashboard/organizations/notificationaddresses/email/{emailAddress}": {
-      "get": {
-        "tags": [
-          "Dashboard"
-        ],
-        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given email address",
-        "parameters": [
-          {
-            "name": "emailAddress",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": true
-      }
-    },
     "/dashboard/organizations/notificationaddresses/email": {
       "get": {
         "tags": [
@@ -466,70 +412,6 @@
         }
       }
     },
-    "/dashboard/organizations/notificationaddresses/phonenumber/{phoneNumber}": {
-      "get": {
-        "tags": [
-          "Dashboard"
-        ],
-        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given phone number",
-        "parameters": [
-          {
-            "name": "phoneNumber",
-            "in": "path",
-            "description": "The phone number to retrieve notification addresses for",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "countrycode",
-            "in": "query",
-            "description": "The country code for the phone number (default: +47)",
-            "schema": {
-              "type": "string",
-              "default": "+47"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": true
-      }
-    },
     "/dashboard/organizations/{organizationNumber}/contactinformation": {
       "get": {
         "tags": [
@@ -592,71 +474,6 @@
             }
           }
         }
-      }
-    },
-    "/dashboard/organizations/contactinformation/email/{emailAddress}": {
-      "get": {
-        "tags": [
-          "DashboardUserContactInformation"
-        ],
-        "summary": "Endpoint that can retrieve a list of all user contact information for the given email address.\r\nReturns the contact details that users have registered with the specified email address.",
-        "parameters": [
-          {
-            "name": "emailAddress",
-            "in": "path",
-            "description": "The email address to retrieve contact information for",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified email address (empty array if no contacts found)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request parameters (model validation failed).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": true
       }
     },
     "/dashboard/organizations/contactinformation/email": {
@@ -786,70 +603,6 @@
         }
       }
     },
-    "/dashboard/organizations/contactinformation/phonenumber/{phoneNumber}": {
-      "get": {
-        "tags": [
-          "DashboardUserContactInformation"
-        ],
-        "summary": "Endpoint that can retrieve a list of all user contact information for the given phone number.\r\nReturns the contact details that users have registered with the specified phone number.",
-        "parameters": [
-          {
-            "name": "phoneNumber",
-            "in": "path",
-            "description": "The phone number to retrieve contact information for",
-            "required": true,
-            "schema": {
-              "pattern": "^[0-9]{5,15}$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "countrycode",
-            "in": "query",
-            "description": "The country code for the phone number",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified phone number (empty array if no contacts found)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request parameters (model validation failed).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        },
-        "deprecated": true
-      }
-    },
     "/dashboard/users/contactinformation": {
       "get": {
         "tags": [
@@ -955,6 +708,62 @@
           },
           "403": {
             "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/users/contactinformation/phonenumber": {
+      "get": {
+        "tags": [
+          "DashboardUserPrivateContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given phone number from KRR.",
+        "description": "Country code was left out as a separate field on purpose. This method is used for profile search\r\n            and country code doesn't add enough distinction.",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "header",
+            "description": "The phone number of the user to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9]{8,15}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactPointResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -2322,21 +2131,23 @@
           "countryCode": {
             "pattern": "(^\\+([0-9]{1,3}))",
             "type": "string",
-            "description": "Country code for phone number",
+            "description": "Country code for phone number.",
             "nullable": true,
             "example": "+47"
           },
           "email": {
+            "maxLength": 254,
             "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
             "type": "string",
-            "description": "Email address",
+            "description": "Email address.",
             "nullable": true,
             "example": "user@example.com"
           },
           "phone": {
+            "maxLength": 14,
             "pattern": "(^[0-9]+$)",
             "type": "string",
-            "description": "Phone number",
+            "description": "Phone number.",
             "nullable": true,
             "example": "98765432"
           }
@@ -2350,21 +2161,23 @@
           "countryCode": {
             "pattern": "(^\\+([0-9]{1,3}))",
             "type": "string",
-            "description": "Country code for phone number",
+            "description": "Country code for phone number.",
             "nullable": true,
             "example": "+47"
           },
           "email": {
+            "maxLength": 254,
             "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
             "type": "string",
-            "description": "Email address",
+            "description": "Email address.",
             "nullable": true,
             "example": "user@example.com"
           },
           "phone": {
+            "maxLength": 14,
             "pattern": "(^[0-9]+$)",
             "type": "string",
-            "description": "Phone number",
+            "description": "Phone number.",
             "nullable": true,
             "example": "98765432"
           },

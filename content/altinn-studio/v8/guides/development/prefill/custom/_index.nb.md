@@ -21,9 +21,9 @@ for annen logikk som del av forhåndsutfyllingen.
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v7">}}
+{{<content-version-container version-label="v7, v8">}}
 
-I versjon 7 bruker vi [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) for egendefinert forhåndsutfylling.
+I versjon 7 og 8 bruker vi [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) for egendefinert forhåndsutfylling.
 
 ### 1. Lag en ny klasse
 
@@ -72,9 +72,9 @@ Se under for eksempler.
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="v7">}}
+{{<content-version-container version-label="v7, v8">}}
 
-### Eksempel: Hent organisasjonsnummer og navn fra Enhetsregisteret
+### Eksempel: Sett organisasjonsnummer og navn
 
 Dette fyller ut feltet `Organisasjon.Orgnr` med et egendefinert organisasjonsnummer:
 
@@ -107,7 +107,7 @@ public class MinUtfylling : IInstantiationProcessor
 }
 ```
 
-### Eksempel: Hent personnummer og navn fra Folkeregisteret
+### Eksempel: Sett personnummer og navn
 
 Dette fyller ut feltet `Person.Personnr` med personnummer og feltet `Person.Navn` med navn.
 

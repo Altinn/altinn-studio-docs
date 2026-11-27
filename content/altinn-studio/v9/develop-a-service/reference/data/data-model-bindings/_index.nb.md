@@ -8,7 +8,7 @@ tags: [needsReview]
 
 En datamodellbinding kobler en komponent til et felt i en datamodell. Komponenten bruker bindingen til å lese eller lagre data.
 
-Du angir bindingene i `dataModelBindings` på komponenten. Hvilke bindinger en komponent støtter, står i [oversikten over komponentens egenskaper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components" >}}). En `Input` bruker for eksempel `simpleBinding`, mens en `RepeatingGroup` bruker `group`.
+Du angir bindingene i `dataModelBindings` på komponenten. Hvilke bindinger en komponent støtter, står i [oversikten over komponentens egenskaper]({{< relref "/altinn-studio/v9/develop-a-service/components" >}}). En `Input` bruker for eksempel `simpleBinding`, mens en `RepeatingGroup` bruker `group`.
 
 ## Kort format
 

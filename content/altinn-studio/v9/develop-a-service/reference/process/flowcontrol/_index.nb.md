@@ -204,17 +204,17 @@ Diagrammet viser BPMN-definisjonen:
 
 For at systemet skal velge riktig sekvensflyt ut av den eksklusive gatewayen basert på instansdata, må du opprette en klasse som implementerer `Altinn.App.Core.Features.IProcessExclusiveGateway`. Du må også registrere klassen som en tjeneste i avhengighetsinjeksjonen.
 
-Grensesnittet har en strengegenskap `GatewayId` og en metode `FilterAsync`.
+Grensesnittet har en strengegenskap `GatewayId` og en metode `Filter`.
 
 Du bruker `GatewayId` til å identifisere gatewayen i prosessdefinisjonen den er tilknyttet.
 
 I eksempelet setter du `GatewayId` til `Gateway_1` for den første gatewayen, fordi det er verdien i attributtet `id` på den eksklusive gatewayen i prosessdefinisjonen.
 
-I metoden `FilterAsync` skriver du den tilpassede logikken som filtrerer sekvensflytene ut av gatewayen, basert på instansdataene.
+I metoden `Filter` skriver du den tilpassede logikken som filtrerer sekvensflytene ut av gatewayen, basert på instansdataene.
 
 Du finner mer om grensesnittet i XML-dokumentasjonen:
 
-https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs
+https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs
 
 Når du har skrevet den tilpassede koden, registrerer du den i `Program.cs`, i metoden `RegisterCustomAppServices`.
 

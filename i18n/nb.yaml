@@ -206,6 +206,15 @@
 - id: write-us
   translation: Skriv til oss
 
+# Veiledninger som går over flere sider
+- id: guide-nav
+  translation: Navigasjon i veiledningen
+- id: guide-next
+  translation: Neste
+- id: guide-previous
+  translation: Forrige
+- id: guide-start
+  translation: Kom i gang
 # Dokumentasjonssider med Designsystemet (layouts/_default/designsystemet-docs.html)
 - id: docs-menu
   translation: "Sider i {{ .Label }}"

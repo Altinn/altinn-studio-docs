@@ -68,12 +68,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.Validation;
 
 namespace Altinn.App.AppLogic.DataProcessing
 {
     public class ValidateQueryParamPrefill : IValidateQueryParamPrefill
     {
-        public async Task PrefillFromQueryParamsIsValid(Dictionary<string, string> prefill)
+        public async Task<ValidationIssue?> PrefillFromQueryParamsIsValid(Dictionary<string, string> prefill)
         {
             // For example, only "Developer", "Manager", or "Tester" are allowed for JobTitle
             if (prefill.TryGetValue("JobTitle", out var jobTitle))
@@ -81,12 +82,12 @@ namespace Altinn.App.AppLogic.DataProcessing
                 var allowedJobTitles = new HashSet<string> { "Developer", "Manager", "Tester" };
                 if (!allowedJobTitles.Contains(jobTitle))
                 {
-                    throw new Exception($"Invalid JobTitle '{jobTitle}'.");
+                    return new ValidationIssue { Severity = ValidationIssueSeverity.Error, Description = $"Invalid JobTitle '{jobTitle}'." };
                 }
             }
 
             // No issues found
-            await Task.CompletedTask;
+            return null;
         }
     }
 }

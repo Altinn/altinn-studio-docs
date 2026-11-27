@@ -20,7 +20,7 @@ Her er de viktigste valgene:
 
 ![Vedleggskomponenten med nedtrekksliste for merking av en opplastet fil](./fileupload-tagging-app.png "Vedleggskomponenten med nedtrekksliste for merking av en opplastet fil")
 
-Du finner alle egenskapene på siden om [`FileUpload`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/FileUpload" >}}).
+Du finner alle egenskapene på siden om [`FileUpload`]({{< relref "/altinn-studio/v9/develop-a-service/components/FileUpload" >}}).
 
 {{% notice warning %}}
 Komponenten `FileUploadWithTag` finnes ikke lenger. Du bruker `FileUpload` også når brukeren skal merke filene.

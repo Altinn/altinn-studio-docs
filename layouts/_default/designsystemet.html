@@ -3,16 +3,24 @@
   Layout for sider som bruker Designsystemet, foreløpig forsiden for Altinn Studio v9 (layout: designsystemet).
   Topplinjen og bunnteksten er de samme som på resten av nettstedet (topbar.html og footer-content.html).
   Innholdet bruker komponentene i Designsystemet. Se head.html for hvordan CSS-en er lagt i lag.
+
+  Forsiden har den samme sidemenyen som dokumentasjonssidene (designsystemet-docs.html), med versjonsvelgeren øverst.
+  Den har ikke brødsmuler, sidehode eller «På denne siden». Innholdet fyller hele kolonnen ved siden av menyen
+  (docs-layout--landing i designsystemet-docs.css).
 */ -}}
+{{- $ctx := partial "designsystemet/docs/context.html" . -}}
 <html lang="{{ .Language.Lang }}" data-color-scheme="light" data-size="sm">
   <head>
     {{- partial "designsystemet/head.html" . }}
   </head>
   <body class="a-page ds-site" data-url="{{ .RelPermalink }}">
     {{- partial "topbar.html" . }}
-    <main id="content"{{ if not .Params.disablepagefind }} data-pagefind-body{{ end }}>
-      {{ .Content }}
-    </main>
+    <div class="docs-layout docs-layout--landing">
+      {{ partial "designsystemet/docs/sidebar.html" (dict "page" . "ctx" $ctx) }}
+      <main class="docs-main docs-landing" id="content"{{ if not .Params.disablepagefind }} data-pagefind-body{{ end }}>
+        {{ .Content }}
+      </main>
+    </div>
     {{- partial "footer-content.html" . }}
     <script src="{{ "js/altinninfoportal.js" | relURL }}"></script>
     <script src="{{ "js/altinndocs.js" | relURL }}"></script>

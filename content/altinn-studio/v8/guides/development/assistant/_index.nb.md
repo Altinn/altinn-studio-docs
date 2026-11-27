@@ -21,6 +21,12 @@ Assistenten har tilgang til Studio-dokumentasjonen og kan også svare på spørs
 Assistenten er spesielt tilpasset Altinn og apputvikling, og egner seg ikke for andre bruksområder. Den kan gi svar som ikke alltid er helt presise, så kontroller alltid endringene før du publiserer appen.
 {{% /notice %}}
 
+## Tilgang
+
+Du kan bruke assistenten hvis du er medlem av en tjenesteeier som er med i den lukkede betaen. Da kan du bruke den i appene til tjenesteeieren og i apper du eier selv.
+
+Har du ikke tilgang, viser Studio en melding om det når du åpner **Assistent**.
+
 ## Slå på assistenten
 
 Assistenten er skjult bak et funksjonsflagg mens den er i lukket beta. Slik slår du den på:
@@ -38,6 +44,16 @@ Når **Tillat endringer i appen** er av, fungerer assistenten som en chatbot og 
 Når **Tillat endringer i appen** er på, gjør assistenten endringer i appen ut fra instruksjonene dine. Jo tydeligere instruksjonene er, desto bedre blir resultatet.
 
 Assistenten lagrer alle endringene i en egen gren. Du må flette grenen inn i `master`-grenen før du kan publisere endringene. Les mer om [hvordan du jobber med grener i Altinn Studio]({{< relref "../branching" >}}).
+
+## Legge ved filer
+
+Du kan legge ved filer i meldingene til assistenten, for eksempel et PDF-skjema du vil lage en app av. Klikk på **Last opp vedlegg** og velg filene. Assistenten godtar
+
+- PDF-filer (`.pdf`)
+- tekstfiler (`.md` og `.txt`)
+- bilder (`.png`, `.jpg`, `.jpeg`, `.gif` og `.webp`)
+
+Andre filtyper kan du ikke legge ved. Hver fil kan være på opptil 20 MB, og alle vedleggene i én melding kan til sammen være på opptil 45 MB.
 
 ## Tråder
 

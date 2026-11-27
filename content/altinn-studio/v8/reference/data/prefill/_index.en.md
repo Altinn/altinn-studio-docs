@@ -16,12 +16,12 @@ Read more about prefill [here](/en/altinn-studio/v8/concepts/prefill/), and see 
 
 - **ER** here you enter fields from the data model that are to be prefilled with data from the Central Coordinating Register.
 Fields that are prefilled with ER-data will only have a value if you instantiate on behalf of an organization.
-Instantiation will fail if you attempt to prefill ER-data, but do not have an organization available.
+If no organization is available, the app skips the ER fields and logs an error.
 
 - **DSF** here you enter fields from the data model that are to be prefilled with data from the National Population
   Register.
   The field that is prefilled with DSF-data will only have a value if you instantiate on behalf of a person.
-  Instantiation will fail if you attempt to prefill DSF-data, but do not have a person available.
+  If no person is available, the app skips the DSF fields and logs an error.
 
 - **UserProfile** here you enter fields from the data model that are to be prefilled with data from the users profile in Altinn.
 Note that it is the logged in user who instantiates the app the data is collected for.
@@ -100,7 +100,7 @@ Available values for prefill includes:
 - Party.SSN
 - Party.UnitType
 - Party.Name
-- Party.isDeleted
+- Party.IsDeleted
 - Party.OnlyHierarchyElementWithNoAccess
 - Party.Person
 - Party.Organization
@@ -108,6 +108,6 @@ Available values for prefill includes:
 - UserType
 - ProfileSettingPreference.Language
 - ProfileSettingPreference.PreSelectedPartyId
-- ProfileSettingsPreference.DoNotPromptForParty
+- ProfileSettingPreference.DoNotPromptForParty
 
 

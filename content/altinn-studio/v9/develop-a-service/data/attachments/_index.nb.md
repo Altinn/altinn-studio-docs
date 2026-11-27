@@ -7,7 +7,7 @@ tags: [needsReview]
 
 Et vedlegg er en fil som en bruker eller et system laster opp til en instans, for eksempel en attest, et bilde eller en PDF. Du kan ta imot vedlegg på to måter:
 
-- Brukerne laster opp filer i skjemaet med komponenten [`FileUpload`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/FileUpload" >}}).
+- Brukerne laster opp filer i skjemaet med komponenten [`FileUpload`]({{< relref "/altinn-studio/v9/develop-a-service/components/FileUpload" >}}).
 - Systemer laster opp filer via API, uten at brukerne ser det i skjemaet.
 
 Du kan bruke begge måtene i samme app. Det er ingen grense for hvor mange vedleggstyper appen kan ha.

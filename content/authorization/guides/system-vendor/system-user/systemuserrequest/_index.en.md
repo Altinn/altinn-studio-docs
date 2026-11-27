@@ -156,7 +156,7 @@ A request has a lifecycle defined by its status:
   * **New:** Newly created request, awaiting user action.
   * **Accepted:** The end-user has approved the request.
   * **Rejected:** The end-user has clicked "Do not approve".
-  * **TimedOut:** The request was not answered within 10 days and has expired. It is no longer available via the API.
+  * **TimedOut:** The request was not answered within 180 days and has expired. It is no longer available via the API.
   * **Denied:** Not in use.
 
 

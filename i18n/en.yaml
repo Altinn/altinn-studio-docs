@@ -208,6 +208,15 @@
   translation: Write us
 
 
+# Multi-page guides
+- id: guide-nav
+  translation: Guide navigation
+- id: guide-next
+  translation: Next
+- id: guide-previous
+  translation: Previous
+- id: guide-start
+  translation: Get started
 # Documentation pages with Designsystemet (layouts/_default/designsystemet-docs.html)
 - id: docs-menu
   translation: "Pages in {{ .Label }}"
