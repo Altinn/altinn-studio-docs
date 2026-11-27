@@ -37,8 +37,8 @@ Slik retter du feilen:
 - Er metoden ment for noe annet, gir du den et annet navn.
 
 `DefineStart`, `DefineEnd` og `DefineAbandon` tar `PipelineBuilder.Lifecycle`, også i en
-systemoppgave, der `DefineExecute` tar `PipelineBuilder.ServiceTask`. I eksempelet under skal en
-systemoppgave kjøre arbeidssteget `Prepare` når den starter.
+systemoppgave, der `DefineExecute` tar `PipelineBuilder.ServiceTask`. Arbeidsstegene der svarer med
+`StageResult`. I eksempelet under skal en systemoppgave kjøre arbeidssteget `Prepare` når den starter.
 
 Feil:
 
@@ -46,6 +46,10 @@ Feil:
 public void DefineStart(
     PipelineBuilder.ServiceTask pipeline
 ) => pipeline.Stage(Prepare);
+
+private Task<ServiceTaskResult> Prepare(
+    StageContext context
+) => /* ... */;
 ```
 
 Riktig:
@@ -54,6 +58,10 @@ Riktig:
 public void DefineStart(
     PipelineBuilder.Lifecycle pipeline
 ) => pipeline.Stage(Prepare);
+
+private Task<StageResult> Prepare(
+    StageContext context
+) => /* ... */;
 ```
 
 I eksempelet under arver `ArchiveTask` grensesnittet fra baseklassen `TaskBase`, som
@@ -90,7 +98,7 @@ privat hjelpemetode med flere parametere.
 
 Regelen melder heller ikke fra om en metode som overstyrer en metode i en baseklasse (`override`), eller
 som implementerer et medlem med samme navn i et annet grensesnitt. Signaturen til en slik metode
-er bestemt et annet sted. Overstyrer du en metode i en baseklasse som er en del av appen, melder
-regelen fra om metoden i baseklassen i stedet.
+er bestemt et annet sted. Overstyrer du en metode i en baseklasse i appen som selv implementerer
+`IProcessTask` eller `IServiceTask`, melder regelen fra om metoden i baseklassen i stedet.
 
 Se [hvordan du lager en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).

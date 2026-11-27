@@ -239,11 +239,12 @@ public async Task<ServiceTaskResult> Execute(StageContext context)
 }
 ```
 
-Svarverdiene må du skrive om selv. `ServiceTaskErrorHandling` og `ServiceTaskErrorStrategy` forsvinner, sammen med `Success()`, `Failed(...)`, `FailedAbortProcessNext()` og `FailedContinueProcessNext(...)`. Oppgraderingen lister opp stedene i koden den fant, men lar valget stå til deg — hva en feil skal føre til, er et faglig spørsmål og ikke en mekanisk erstatning:
+Svaret som betyr at oppgaven er ferdig, heter `Completed()` i v9, der det het `Success()` i v8.
+
+Svarverdiene må du skrive om selv. `ServiceTaskErrorHandling` og `ServiceTaskErrorStrategy` forsvinner, sammen med `Failed(...)`, `FailedAbortProcessNext()` og `FailedContinueProcessNext(...)`. Oppgraderingen lister opp stedene i koden den fant, men lar valget stå til deg — hva en feil skal føre til, er et faglig spørsmål og ikke en mekanisk erstatning:
 
 | Slik svarte oppgaven i v8 | Slik svarer den i v9 |
 | --- | --- |
-| `Success()` | `Completed()`. Oppgaven er ferdig, og prosessen går videre langs standardflyten. |
 | `FailedAbortProcessNext()` | `FailedPermanent("melding")` når feilen ikke retter seg selv. Kan den gå bort av seg selv, for eksempel et system som er nede akkurat nå, bruker du `FailedRetryable("melding")`, så prøver plattformen på nytt før den gir opp. |
 | `FailedContinueProcessNext("reject")` | `EndTask("reject")`. Oppgaven er ferdig, og prosessen går videre med handlingen du oppgir. |
 | `Failed(new ServiceTaskErrorHandling(...))` | Velg blant svarene over, ut fra hva strategien din faktisk skulle oppnå. |

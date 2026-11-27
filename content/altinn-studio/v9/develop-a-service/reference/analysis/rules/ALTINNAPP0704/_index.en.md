@@ -38,8 +38,8 @@ To fix it:
 - If the method is meant for something else, give it a different name.
 
 `DefineStart`, `DefineEnd` and `DefineAbandon` take `PipelineBuilder.Lifecycle`, in a service
-task too, where `DefineExecute` takes `PipelineBuilder.ServiceTask`. In the example below, a
-service task should run the stage `Prepare` when it starts.
+task too, where `DefineExecute` takes `PipelineBuilder.ServiceTask`. Their stages return
+`StageResult`. In the example below, a service task should run the stage `Prepare` when it starts.
 
 Incorrect:
 
@@ -47,6 +47,10 @@ Incorrect:
 public void DefineStart(
     PipelineBuilder.ServiceTask pipeline
 ) => pipeline.Stage(Prepare);
+
+private Task<ServiceTaskResult> Prepare(
+    StageContext context
+) => /* ... */;
 ```
 
 Correct:
@@ -55,6 +59,10 @@ Correct:
 public void DefineStart(
     PipelineBuilder.Lifecycle pipeline
 ) => pipeline.Stage(Prepare);
+
+private Task<StageResult> Prepare(
+    StageContext context
+) => /* ... */;
 ```
 
 In the example below, `ArchiveTask` inherits the interface from the base class `TaskBase`, which
@@ -91,7 +99,7 @@ method with more parameters.
 
 The rule does not report a method that overrides a method in a base class (`override`) either, or
 one that implements a member of the same name in another interface, as the signature of such a
-method was chosen elsewhere. If you override a method in a base class that is part of the app,
-the rule reports the method in the base class instead.
+method was chosen elsewhere. If you override a method in a base class in the app that itself
+implements `IProcessTask` or `IServiceTask`, the rule reports the method in the base class instead.
 
 See [Lage en egendefinert systemoppgave](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/custom/) (documentation available in Norwegian only).

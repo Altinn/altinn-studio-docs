@@ -156,7 +156,7 @@ public void DefineExecute(PipelineBuilder.ServiceTask pipeline) =>
         onTimeout: HandleNoAnswer
     );
 
-// _partner, TryLesSvar og Svar er dine egne, på samme måte som IArchiveClient over.
+// _partner, LesSvar og Svar er dine egne, på samme måte som IArchiveClient over.
 private async Task<ServiceTaskResult> SendOrder(StageContext context, ReplyAddress replyAddress)
 {
     // Send replyAddress.Id med bestillingen, i det feltet mottakeren sender tilbake.
@@ -169,7 +169,9 @@ private async Task<ServiceTaskResult> SendOrder(StageContext context, ReplyAddre
 private Task<ServiceTaskReplyResult> HandleAnswer(StageContext context, ServiceTaskReply reply)
 {
     // reply.Payload kommer utenfra. Kontroller innholdet før du bruker det.
-    if (!TryLesSvar(reply.Payload, out Svar? svar))
+    Svar? svar = LesSvar(reply.Payload);
+
+    if (svar is null)
     {
         return Task.FromResult(
             ServiceTaskReplyResult.FailedPermanent("Kunne ikke lese svaret fra samarbeidspartneren.")
@@ -189,8 +191,8 @@ Slik henger delene sammen:
 
 - **Sendingen** får svaradressen og må publisere `replyAddress.Id` i det feltet mottakeren svarer tilbake i. Id-en er adressen, og ingenting annet finner veien tilbake. Prøver plattformen sendingen på nytt, får den den samme svaradressen. `Completed()` fra sendingen betyr «sendt, vent på svar».
 - **Kanalen som tar imot svaret** hos dere, for eksempel en lytter på en meldingskø eller et endepunkt, sender meldingen videre med `IServiceTaskReplyForwarder.ForwardReply(replyAddressId, serviceTaskType, payload, idempotencyKey)`, og gjør ikke noe arbeid selv. Bruk avsenderens egen meldings-id som `idempotencyKey`, siden samme melding kan komme flere ganger. Kommer en melding før oppgaven er klar for den, venter meldingen på tur.
-- **Svarbehandleren**, `HandleAnswer` i eksempelet, kjører én gang per svar, ett svar om gangen og i den rekkefølgen svarene kom. Den svarer med `ServiceTaskReplyResult`, som har de samme svarene som et arbeidssteg, og i tillegg `AwaitNextReply()`, som betyr «dette svaret er håndtert, vent på neste». `Completed()` betyr at oppgaven er ferdig med svarene og går videre til neste arbeidssteg. Plattformen lukker svaradressen først, slik at ingen senere melding lander etter at oppgaven har gått videre.
-- **Fristen**, `timeout`, løper fra plattformen åpner svaradressen, og ingen melding forlenger den. Oppgir du ingen frist, er den 7 døgn. Plattformen godtar ikke mer enn 21 døgn, og en lengre frist gjør at appen ikke starter.
+- **Svarbehandleren**, `HandleAnswer` i eksempelet, kjører som et eget steg for hvert svar, ett svar om gangen og i den rekkefølgen svarene kom. Den kan kjøre flere ganger for det samme svaret, for eksempel etter en feil, så bruk `reply.IdempotencyKey` som nøkkel for arbeid som ikke skal skje to ganger. Den svarer med `ServiceTaskReplyResult`, som har de samme svarene som et arbeidssteg, og i tillegg `AwaitNextReply()`, som betyr «dette svaret er håndtert, vent på neste». `Completed()` betyr at oppgaven er ferdig med svarene og går videre til neste arbeidssteg. Plattformen lukker svaradressen først, slik at ingen senere melding lander etter at oppgaven har gått videre.
+- **Fristen**, `timeout`, løper fra plattformen åpner svaradressen, og ingen melding forlenger den. Oppgir du ingen frist, er den 7 døgn. Plattformen godtar ikke mer enn 21 døgn, og en lengre frist gjør at appen ikke starter. Er arbeidsflytmotoren satt opp med en lavere grense, feiler steget som åpner svaradressen, før sendingen kjører.
 - **Behandleren for tidsavbrudd**, `onTimeout`, kjører når svaradressen er lukket før svarbehandleren er ferdig, fordi fristen gikk ut eller fordi noen lukket den. Der bestemmer du hva som skal skje: `Completed()` går videre uten svaret, og `FailedPermanent` lar oppgaven feile. Uten `onTimeout` feiler oppgaven når fristen går ut.
 - **Feil lukker ikke svaradressen.** Svarer sendingen eller svarbehandleren med en feil, står svaradressen åpen. Når noen har rettet feilen og gjenopptatt oppgaven, kjører steget som feilet på nytt, og svar som har kommet i mellomtiden, venter på tur. Fristen løper videre mens oppgaven står feilet, så rett feilen og gjenoppta oppgaven før fristen går ut.
 - **Id-en er umulig å gjette, men den er ikke en hemmelighet.** Den er en adresse, ikke bevis for hvem som sendte meldingen.
@@ -224,7 +226,7 @@ Bruk `EndTask` bare når sendingen alene avgjør saken, for eksempel når mottak
 
 ## Navn på stegene
 
-Der noen følger med på oppgaven, for eksempel i administrasjonspanelet i Altinn Studio, får hvert steg navnet på metoden du sendte inn som arbeidet, skrevet som ord: `SendToArchive` blir «Send to archive», og `StoreReceipt` blir «Store receipt». Et eksternt arbeidssteg kjører sendingen som ett steg og hvert svar som et eget steg. Steget for et svar kjører én av to metoder, avhengig av om det kom et svar eller om fristen gikk ut, og får navnet på begge: «Handle answer / Handle no answer». Sender du inn en lambda i stedet for en metode, får steget ikke noe navn. Det får heller ikke `Execute` i en oppgave med bare ett arbeidssteg, siden navnet ikke sier mer enn oppgavetypen gjør.
+Der noen følger med på oppgaven, for eksempel i administrasjonspanelet i Altinn Studio, får hvert steg navnet på metoden du sendte inn som arbeidet, skrevet som ord: `SendToArchive` blir «Send to archive», og `StoreReceipt` blir «Store receipt». Et eksternt arbeidssteg kjører sendingen som ett steg og hvert svar som et eget steg. Foran sendingen kommer et steg uten navn som åpner svaradressen. Steget for et svar kjører én av to metoder, avhengig av om det kom et svar eller om fristen gikk ut, og får navnet på begge: «Handle answer / Handle no answer». Sender du inn en lambda i stedet for en metode, får steget ikke noe navn. Det får heller ikke en metode som heter `Execute`, siden navnet ikke sier mer enn oppgavetypen gjør.
 
 Navnet er bare til visning. Bytter du navn på en metode, endrer det ingenting i hvordan steget kjører, heller ikke for instanser som er underveis, fordi plattformen kjenner igjen stegene på plasseringen i rekken.
 
@@ -281,7 +283,7 @@ Standardimplementasjonene setter ikke sammen noen arbeidssteg, så du lager bare
 
 Metodene må ha akkurat denne formen. En metode som heter `DefineStart`, men tar `PipelineBuilder.ServiceTask`, kompilerer, men appen kaller den aldri. Regelen [ALTINNAPP0704]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0704" >}}) stopper bygget når det skjer.
 
-En systemoppgave er også en oppgavetype, så den kan sette sammen disse i tillegg til `DefineExecute`. Den innebygde signeringsoppgaven gjør det slik: når oppgaven starter, finner den dem som skal signere, delegerer rettigheter til dem og varsler dem, i hvert sitt arbeidssteg.
+Alle oppgavetyper kan sette sammen disse. En systemoppgave gjør det i tillegg til `DefineExecute`. Den innebygde signeringsoppgaven bruker `DefineStart` slik: når oppgaven starter, finner den dem som skal signere, delegerer rettigheter til dem og varsler dem, i hvert sitt arbeidssteg.
 
 En egen oppgavetype registrerer du på `IProcessTask`:
 
@@ -296,7 +298,7 @@ services.AddTransient<IProcessTask, CaseProcessTask>();
 
 ## Endre en oppgave mens instanser er underveis
 
-Plattformen kjenner igjen arbeidsstegene og svarene på et eksternt arbeidssteg på plasseringen i rekken. Det gjelder både dem i `DefineExecute` og arbeidsstegene i `DefineStart`, `DefineEnd` og `DefineAbandon`. Ruller du ut en ny versjon som setter inn, fjerner eller bytter om på arbeidssteg, mister instansene som er underveis sporet. De feiler, eller de hopper over arbeid uten å feile.
+Plattformen kjenner igjen arbeidsstegene og svarene på et eksternt arbeidssteg på plasseringen i rekken. Det gjelder både dem i `DefineExecute` og arbeidsstegene i `DefineStart`, `DefineEnd` og `DefineAbandon`. Ruller du ut en ny versjon som setter inn, fjerner eller bytter om på arbeidssteg, mister instansene som er underveis sporet. Noen feiler, og andre hopper over arbeid eller gjør det om igjen uten å feile.
 
 Dette er samme problem som å endre en BPMN-fil mens instanser er i gang, og det er utviklerne som må håndtere det: la instansene som er underveis, bli ferdige på koden de startet på, eller avslutt dem bevisst før utrullingen.
 
