@@ -29,7 +29,7 @@ The resource attributes of rules describe which application or part of the rules
 | urn:altinn:org    | The org part of the resource attribute defines which org that owns the app.                           |
 | urn:altinn:app    | The app part that identifies the app itself.                                                          |
 | urn:altinn:task   | The task part of the resource makes it possible to have separate rules for the different tasks. |
-| urn:altinn:event  | The event part of the resource makes it possible to have separate  rules for reading events.   |
+| urn:altinn:appresource | With the value `events` and the action `read`, the rule gives permission to read and subscribe to the app's events. |
 
 ### Example
 
@@ -46,8 +46,8 @@ The below example shows a part of the XACML 3.0 Policy where a resource is defin
     <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">instansiate</xacml:AttributeValue>
-    <xacml:AttributeDesignator AttributeId="urn:altinn:event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">events</xacml:AttributeValue>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:appresource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
 </xacml:AllOf>
 ```
