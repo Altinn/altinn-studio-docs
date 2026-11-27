@@ -1,0 +1,16 @@
+{{- /*
+  Markdown-versjonen av en side (index.md), som llms.txt viser AI-verktøy til.
+  Tar imot siden.
+  Vi lager Markdown-en fra den ferdige HTML-en, slik at den har med all tekst
+  leseren ser på siden: tittelen, ingressen og innholdet med kortkodene utført,
+  som tekst fra insert, notice og faner. HTML-kommentarer ser ikke leseren, så
+  dem tar vi ut.
+*/ -}}
+{{- $html := printf "<h1>%s</h1>" (.Title | htmlEscape) -}}
+{{- with .Description -}}
+  {{- $html = printf "%s<p>%s</p>" $html (. | htmlEscape) -}}
+{{- end -}}
+{{- $html = print $html (.Content | replaceRE `(?s)<!--.*?-->` "") -}}
+{{- $markdown := $html | transform.HTMLToMarkdown -}}
+{{- with $markdown }}{{ $markdown = print . "\n" }}{{ end -}}
+{{- return $markdown -}}
