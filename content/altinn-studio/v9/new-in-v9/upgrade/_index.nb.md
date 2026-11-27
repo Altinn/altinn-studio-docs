@@ -220,7 +220,7 @@ Har appen din en egen systemoppgave, altså en C#-klasse som implementerer `ISer
 
 Oppgraderingen bytter navnerommet for deg, fra `Altinn.App.Core.Internal.Process.ProcessTasks.ServiceTasks` til `Altinn.App.Core.Features.Process`.
 
-Grensesnittet har også fått en ny form, og den må du skrive om selv. I v8 hadde `IServiceTask` metoden `Execute(ServiceTaskContext context)`. I v9 har det `DefineExecute(PipelineBuilder pipeline)`, der du setter sammen arbeidet oppgaven gjør. En oppgave som gjør én ting, beholder `Execute` som en egen metode, bytter typen på parameteren til `StageContext` og svarer `pipeline.Finally(Execute)` fra `DefineExecute`:
+Grensesnittet har også fått en ny form, og den må du skrive om selv. I v8 hadde `IServiceTask` metoden `Execute(ServiceTaskContext context)`. I v9 har det `DefineExecute(PipelineBuilder.ServiceTask pipeline)`, der du setter sammen arbeidet oppgaven gjør. En oppgave som gjør én ting, beholder `Execute` som en egen metode, bytter typen på parameteren til `StageContext` og setter sammen `pipeline.Stage(Execute)` i `DefineExecute`:
 
 ```csharp
 // Før (v8)
@@ -230,7 +230,8 @@ public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
 }
 
 // Etter (v9)
-public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
+public void DefineExecute(PipelineBuilder.ServiceTask pipeline) =>
+    pipeline.Stage(Execute);
 
 public async Task<ServiceTaskResult> Execute(StageContext context)
 {
@@ -238,12 +239,13 @@ public async Task<ServiceTaskResult> Execute(StageContext context)
 }
 ```
 
-Svarverdiene må du skrive om selv. `ServiceTaskErrorHandling` og `ServiceTaskErrorStrategy` forsvinner, sammen med `Failed(...)`, `FailedAbortProcessNext()` og `FailedContinueProcessNext(...)`. Oppgraderingen lister opp stedene i koden den fant, men lar valget stå til deg — hva en feil skal føre til, er et faglig spørsmål og ikke en mekanisk erstatning:
+Svarverdiene må du skrive om selv. `ServiceTaskErrorHandling` og `ServiceTaskErrorStrategy` forsvinner, sammen med `Success()`, `Failed(...)`, `FailedAbortProcessNext()` og `FailedContinueProcessNext(...)`. Oppgraderingen lister opp stedene i koden den fant, men lar valget stå til deg — hva en feil skal føre til, er et faglig spørsmål og ikke en mekanisk erstatning:
 
 | Slik svarte oppgaven i v8 | Slik svarer den i v9 |
 | --- | --- |
+| `Success()` | `Completed()`. Oppgaven er ferdig, og prosessen går videre langs standardflyten. |
 | `FailedAbortProcessNext()` | `FailedPermanent("melding")` når feilen ikke retter seg selv. Kan den gå bort av seg selv, for eksempel et system som er nede akkurat nå, bruker du `FailedRetryable("melding")`, så prøver plattformen på nytt før den gir opp. |
-| `FailedContinueProcessNext("reject")` | `Success("reject")`. Oppgaven er ferdig, og prosessen går videre med handlingen du oppgir. |
+| `FailedContinueProcessNext("reject")` | `EndTask("reject")`. Oppgaven er ferdig, og prosessen går videre med handlingen du oppgir. |
 | `Failed(new ServiceTaskErrorHandling(...))` | Velg blant svarene over, ut fra hva strategien din faktisk skulle oppnå. |
 
 I tillegg kjører plattformen systemoppgaver på en ny måte i v9. I v8 kjørte oppgaven én gang, som en del av `process/next`. Nå kjører den for seg: plattformen prøver på nytt hvis noe utenfor appen svikter, og kan holde prosessen i steget mens oppgaven venter på svar. Det stiller et nytt krav til koden: oppgaven må tåle å kjøre flere ganger uten å sende samme melding eller opprette samme sak to ganger.
