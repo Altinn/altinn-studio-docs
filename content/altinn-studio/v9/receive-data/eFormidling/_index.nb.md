@@ -360,7 +360,7 @@ Det er `EformidlingDeliveryException` som gjør at en mottaker du ikke klarer å
 {{</content-version-selector>}}
 
 ### Vente på leveringsbekreftelsen {#eFormidling-oppsett-process}
-Systemoppgaven er ikke ferdig når meldingen er overlevert til integrasjonspunktet. Den er ferdig når integrasjonspunktet bekrefter at meldingen er levert. Oppgaven sender, og sjekker deretter leveringsstatusen selv – først etter 15 sekunder, så hvert minutt, så hvert femte minutt, og til slutt hvert kvarter. Prosessen går videre til neste steg først når leveringen er bekreftet. Samtidig bekrefter oppgaven på vegne av tjenesteeieren at dataene er mottatt, så du trenger ikke kalle `complete`-endepunktet selv. Se [Bekrefte at dataene er mottatt]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-mottak).
+Systemoppgaven er ikke ferdig når meldingen er overlevert til integrasjonspunktet. Den er ferdig når integrasjonspunktet bekrefter at meldingen er levert. Oppgaven sender, og sjekker deretter leveringsstatusen selv – først etter 15 sekunder, så hvert minutt, så hvert femte minutt, og til slutt hvert kvarter. Prosessen går videre til neste steg først når leveringen er bekreftet. Oppgaven bekrefter ikke mottak på vegne av tjenesteeieren. Skal appen gjøre det når prosessen er ferdig, slår du på `onProcessEnd.confirm`. Se [La appen bekrefte når prosessen er ferdig]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-ved-prosessslutt).
 
 Oppgaven venter i om lag to og en halv time til sammen. En melding har en egen levetid på to timer, og oppgaven venter med hensikt litt lenger enn det. Slik feiler en melding som går ut på tid, med integrasjonspunktets egen dom i stedet for et generisk tidsavbrudd.
 

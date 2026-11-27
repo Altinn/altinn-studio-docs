@@ -33,9 +33,25 @@ Endepunktet er beskrevet i [appens OpenAPI-spesifikasjon]({{< relref "/altinn-st
 
 Endepunktet svarer `409 Conflict` mens arbeidsflytmotoren jobber med instansen, for eksempel mens en systemoppgave kjører. Da prøver du igjen senere. Det svarer `403 Forbidden` hvis organisasjonen din mangler handlingen `complete` i `App/config/authorization/policy.xml`. App-malen gir organisasjonen denne handlingen, så det skjer bare hvis noen har fjernet den.
 
-### La eFormidling eller Fiks Arkiv bekrefte for deg
+### La appen bekrefte når prosessen er ferdig {#bekrefte-ved-prosessslutt}
 
-eFormidling-oppgaven bekrefter når integrasjonspunktet melder at meldingen er levert. Fiks Arkiv-oppgaven bekrefter når arkivet har kvittert for saken, så lenge `MarkInstanceComplete` står på, og det gjør den som standard. Da trenger du ikke kalle endepunktet selv.
+Leverer appen dataene til deg, for eksempel med eFormidling eller Fiks Arkiv, kan appen bekrefte for deg. Slå på `confirm` under `onProcessEnd`:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
+```json
+{
+  "onProcessEnd": {
+    "confirm": true
+  }
+}
+```
+
+Appen bekrefter da hver instans når prosessen er ferdig. Det skjer etter `IOnProcessEndedHandler` og etter at datatypene med `autoDeleteOnProcessEnd` er slettet. Prosess-hooker og systemoppgaver kan ikke bekrefte selv.
+
+Organisasjonen din trenger handlingen `complete` i `policy.xml` også her. Storage sjekker den etter at prosessen er ferdig, så en regel som bare gir `complete` i en bestemt oppgave, gjelder ikke. Avgrenser regelen handlingen til en sluttilstand, må det være den prosessen ender i. Mangler handlingen, stopper bygget med [ALTINNAPP0800]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0800" >}}).
 
 ### Referanse
 
