@@ -28,7 +28,7 @@ Før du setter opp Fiks Arkiv i appen, må du ha dette på plass:
 ![fiks-arkiv-flyt.png](fiks-arkiv-flyt.png "Prinsippet for meldingsutveksling gjennom Fiks Arkiv. Fagsystemet i skissen er i dette tilfellet en Altinn-app.")
 Kilde: [KS Digital](https://github.com/ks-no/fiks-arkiv-specification)
 
-Plattformen kjører oppgaven på serveren som tjenesteeier når prosessen kommer til steget. Oppgaven er delt i to: et arbeidssteg som sender arkivmeldingen, og en postkasse som tar imot svarene fra arkivet. Mekanismen er den samme som for andre [systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
+Plattformen kjører oppgaven på serveren som tjenesteeier når prosessen kommer til steget. Oppgaven er ett eksternt arbeidssteg: det sender arkivmeldingen med en svaradresse, og tar imot svarene fra arkivet på den adressen. Mekanismen er den samme som for andre [systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
 
 {{< mermaid >}}
 sequenceDiagram
@@ -40,8 +40,8 @@ sequenceDiagram
 
     Bruker->>App: Sender inn skjemaet
     App->>App: Lager arkivmelding.xml og dokumentene,<br>og lagrer arkivmeldingen på instansen
-    App->>App: Åpner en postkasse med frist på 7 døgn
-    App->>FiksIO: arkivmelding.opprett<br>klientKorrelasjonsId = postkassens id
+    App->>App: Åpner en svaradresse med frist på 1 døgn
+    App->>FiksIO: arkivmelding.opprett<br>klientKorrelasjonsId = svaradressens id
     FiksIO->>Arkiv: Leverer meldingen
     Arkiv-->>FiksIO: arkivmelding.opprett.mottatt
     FiksIO-->>App: Mottaksbekreftelse, oppgaven venter videre
@@ -53,10 +53,10 @@ sequenceDiagram
 
 Slik går det steg for steg:
 
-1. **Appen sender.** Arbeidssteget henter mottakeren, lager `arkivmelding.xml` med hoveddokument og vedlegg fra instansdataene, og lagrer arkivmeldingen på instansen som datatypen i `Receipt.ArchiveRecord`. Så åpner det en postkasse og sender meldingen til mottakerkontoen gjennom Fiks IO. Postkassens id følger med som `klientKorrelasjonsId`, og det er den som gjør at svaret finner tilbake til riktig oppgave. Feiler noe underveis, prøver plattformen steget på nytt med samme innhold.
+1. **Appen sender.** Arbeidssteget henter mottakeren, lager `arkivmelding.xml` med hoveddokument og vedlegg fra instansdataene, og lagrer arkivmeldingen på instansen som datatypen i `Receipt.ArchiveRecord`. Så sender det meldingen til mottakerkontoen gjennom Fiks IO. Id-en til svaradressen følger med som `klientKorrelasjonsId`, og det er den som gjør at svaret finner tilbake til riktig oppgave. Feiler noe underveis, prøver plattformen steget på nytt med samme innhold.
 2. **Arkivet svarer.** Arkivsystemet sender først en mottaksbekreftelse (`arkivmelding.opprett.mottatt`) og deretter en kvittering (`arkivmelding.opprett.kvittering`) når saken er opprettet. Kan det ikke opprette saken, sender det en feilmelding i stedet.
-3. **Lytteren sender svaret videre.** Appen lytter på Fiks IO-kontoen sin, leser `klientKorrelasjonsId` fra hver melding og leverer den til postkassen som venter. Meldinger uten korrelasjons-id blir logget og forkastet, siden ingen oppgave venter på dem.
-4. **Oppgaven konkluderer.** Mottaksbekreftelsen holder oppgaven ventende. Kvitteringen lagres på instansen som datatypen i `Receipt.ConfirmationRecord`, instansen markeres som fullført med mindre du har slått det av, og prosessen går videre med handlingen i `SuccessHandling.Action`, som standard uten handling. En feilmelding fra arkivet sender prosessen videre med handlingen i `ErrorHandling.Action`, som standard `reject`. Gatewayen etter oppgaven skiller de to veiene. Kommer det ingen kvittering på 7 døgn, feiler oppgaven.
+3. **Lytteren sender svaret videre.** Appen lytter på Fiks IO-kontoen sin, leser `klientKorrelasjonsId` fra hver melding og leverer den til svaradressen oppgaven venter på. Meldinger uten korrelasjons-id blir logget og forkastet, siden ingen oppgave venter på dem.
+4. **Oppgaven konkluderer.** Mottaksbekreftelsen holder oppgaven ventende. Kvitteringen lagres på instansen som datatypen i `Receipt.ConfirmationRecord`, instansen markeres som fullført med mindre du har slått det av, og prosessen går videre med handlingen i `SuccessHandling.Action`, som standard uten handling. En feilmelding fra arkivet sender prosessen videre med handlingen i `ErrorHandling.Action`, som standard `reject`. Gatewayen etter oppgaven skiller de to veiene. Kommer det ingen kvittering på 1 døgn, feiler oppgaven.
 
 Mens oppgaven venter, ser brukeren lastevisningen. Ingen bruker eller tjenesteeier trenger å gjøre noe, og ingenting spør arkivet om status. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}) for hvordan du tilpasser ventingen og feilsiden.
 
@@ -632,7 +632,7 @@ Fire ting å vite om handleren:
 | Mottakerkontoen finnes ikke                                      | Samme som når arkivet avviser meldingen.                                                                            |
 | Fiks IO avviser integrasjons-ID-en eller passordet               | Oppgaven feiler straks. Rett opp verdiene og gjenoppta oppgaven. `ErrorHandling` brukes ikke, siden ingen handling fra brukeren hjelper. |
 | Midlertidig feil, for eksempel mot Maskinporten eller nettverket | Plattformen prøver sendingen på nytt. Gir det seg ikke, feiler oppgaven.                                            |
-| Ingen kvittering på 7 døgn                                       | Oppgaven feiler. Saken kan likevel være arkivert, så sjekk hos arkivet før du sender på nytt.                        |
+| Ingen kvittering på 1 døgn                                       | Oppgaven feiler. Saken kan likevel være arkivert, så sjekk hos arkivet før du sender på nytt.                        |
 | Kvitteringen kan ikke leses                                      | Oppgaven feiler. Saken er sannsynligvis arkivert, men appen har ingen kvittering å lagre.                           |
 | Din `IFiksArkivMessageHandler` kaster en feil                    | Meldingen prøves på nytt til handleren lykkes.                                                                      |
 
@@ -649,7 +649,7 @@ Dette er endret fra v8:
 - **Klassifikasjon av eieren er valgfri.** Den legges ikke lenger på automatisk. Legg inn `{ "Source": "InstanceOwner" }` i `Metadata.CaseFileClassifications` for å beholde den. Systemene heter nå `PNR` og `ORGNR`, og eieren av instansen klassifiseres, ikke den som sendte inn.
 - **`IFiksArkivResponseHandler` er erstattet av `IFiksArkivMessageHandler`**, og `.WithResponseHandler<T>()` av `.WithMessageHandler<T>()`. Handleren kalles for hver melding arkivet sender, og skal ikke flytte prosessen.
 - **`IFiksArkivHost` er fjernet.** Meldinger sendes bare gjennom systemoppgaven.
-- **`klientKorrelasjonsId` er postkassens id**, ikke lenken til instansen. Lenken ligger fortsatt i arkivmeldingen, som referansen på mottakerens korrespondansepart.
+- **`klientKorrelasjonsId` er id-en til svaradressen**, ikke lenken til instansen. Lenken ligger fortsatt i arkivmeldingen, som referansen på mottakerens korrespondansepart.
 - **Tidspunktene i arkivmeldingen er i UTC**, og `dokumentobjekt` har ikke lenger en `systemID`.
 
 `studioctl app upgrade v9` legger inn tilgangsreglene tjenesteeieren trenger, fjerner `MoveToNextTask` fra Fiks Arkiv-konfigurasjonen og sier fra hvis verdien var `false` eller oppgaven mangler gatewayen. Resten av Fiks Arkiv-konfigurasjonen lar den stå.
