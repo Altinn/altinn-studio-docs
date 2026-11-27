@@ -99,7 +99,7 @@ Et **fullmaktssett** er tilgangspakker og enkeltrettigheter som hører sammen. D
 **Det betyr for deg som bruker API-et:**
 
 - Du sender fullmaktssettene i `clientAccessSets` i forespørselen. Hvert sett har en id du velger selv, og id-en er nøkkelen til settet.
-- Rekkefølgen på settene bestemmer rekkefølgen på radene i brukerlisten. Du oppgir ikke noe tall.
+- Rekkefølgen på settene bestemmer rekkefølgen på radene under systembrukeren i Klientadministrasjon. Du oppgir ikke noe tall.
 - Du kan ikke endre eller slette et sett etter at kunden har godkjent forespørselen. Du kan legge til nye sett.
 - Altinn bruker id-en når virksomheten knytter en klient til systembrukeren. Da er det klart hvilket sett klienten har fått.
 - Du henter token på samme måte for alle klienter.
@@ -177,14 +177,14 @@ POST /authentication/api/v2/systemuser/vendor/{systemUserId}/clientaccesssets
 - **Du kan endre navnet på et sett.** Send samme id med de samme tilgangene og det nye navnet. Altinn endrer navnet og svarer 200.
 - **Du kan trygt sende samme kall på nytt.** Sender du en id som finnes fra før, med likt innhold, svarer Altinn 200 og endrer ingenting. Er tilgangene ulike, svarer Altinn 409.
 - **Et nytt sett kan ikke ha samme navn eller samme innhold som et sett du har fra før.** Da svarer Altinn 409. Det gjelder også når du endrer navnet.
-- **Det nye settet blir en ny rad i brukerlisten,** etter radene for settene du har fra før.
-- **Det er ingen grense for hvor mange sett du kan legge til.** Men hvert sett er en rad i brukerlisten hos byrået, og mange rader gjør listen tung å bruke. Legg derfor bare til et nytt sett når du må.
+- **Det nye settet blir en ny rad under systembrukeren i Klientadministrasjon,** etter radene for settene du har fra før.
+- **Det er ingen grense for hvor mange sett du kan legge til.** Men hvert sett er en rad i Klientadministrasjon hos byrået, og mange rader gjør listen tung å bruke. Legg derfor bare til et nytt sett når du må.
 - **Kunden trenger ikke godkjenne det nye settet.** Settet gir ingen fullmakt før virksomheten knytter klienter til det.
-- **Du kan ikke stoppe et sett for bruk.** Alle settene står i brukerlisten så lenge systembrukeren finnes, og byrået kan fortsatt knytte nye klienter til et gammelt sett. Gi derfor settene navn som viser hvilket byrået bør bruke.
+- **Du kan ikke stoppe et sett for bruk.** Alle settene står i Klientadministrasjon så lenge systembrukeren finnes, og byrået kan fortsatt knytte nye klienter til et gammelt sett. Gi derfor settene navn som viser hvilket byrået bør bruke.
 - **Du kan ikke si at et nytt sett erstatter et gammelt.** Altinn har ingen kobling mellom settene, så bare navnene kan vise byrået hvilket sett som er det nye.
 - **Altinn knytter ingen klienter til det nye settet.** Virksomheten åpner raden og legger klientene til, én og én eller med **Legg til alle**.
 - **Klientene i de gamle settene beholder det de har.** Altinn verken gir eller fjerner fullmakter. Virksomheten kan selv fjerne klienter fra et gammelt sett.
-- **Byrået får ikke varsel om nye sett eller endrede navn i første versjon.** Det nye settet står som en ny rad i brukerlisten.
+- **Byrået får ikke varsel om nye sett eller endrede navn i første versjon.** Det nye settet står som en ny rad under systembrukeren i Klientadministrasjon.
 - **Endepunktet gjelder bare når leverandøren bestemmer.** Med `vendorLocked: false` gir det valideringsfeil. Endringsforespørselen virker heller ikke på fullmaktssett. Når virksomheten bestemmer og systemet trenger nye fullmakter for klienter, må du selv gi virksomheten beskjed. Virksomheten gir fullmaktene i Tilgangsstyring.
 - **Systemet ditt må tåle at klientene står i ulike sett.** Til virksomheten har lagt klienten til i det nye settet, kan kall til den nye tjenesten bli avvist for klienten.
 - **Du kan ikke be klientene om fullmaktene gjennom API-et.** Det er ikke planlagt i denne endringen. Virksomheten må be klientene om det som mangler.
@@ -554,7 +554,7 @@ Siden for systembrukeren viser fullmaktene for egen virksomhet og fullmaktssette
 ---
 ## Klienter når leverandøren bestemmer
 
-Byrået åpner raden for ett alternativ i brukerlisten. Siden viser bare det alternativet, med tre grupper: **Har disse klientene**, **Kan få disse klientene** og **Du mangler fullmakter fra disse klientene**. Den siste gruppen skiller ikke mellom en rolle som mangler og en fullmakt som mangler. Altinn krysser ikke av for noe alternativ på forhånd.
+Byrået åpner raden for ett alternativ i Klientadministrasjon. Siden viser bare det alternativet, med tre grupper: **Har disse klientene**, **Kan få disse klientene** og **Du mangler fullmakter fra disse klientene**. Den siste gruppen skiller ikke mellom en rolle som mangler og en fullmakt som mangler. Altinn krysser ikke av for noe alternativ på forhånd.
 
 - Byrået legger en klient til alternativet, eller bruker **Legg til alle**.
 - Systembrukeren får alle fullmaktene i alternativet, både tilgangspakker og enkelttjenester, eller ingen av dem.
@@ -595,14 +595,14 @@ Fjellvik Bygg AS oppfyller begge alternativene, så byrået kan legge klienten t
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
-## Alternativene kan ha navn
+## Fullmaktssettene må ha navn
 
-Hvert fullmaktssett må ha et navn. Byrået ser navnet etter navnet på systemet, for eksempel «Personalportalen – Registrert regnskapsfører».
+Hvert fullmaktssett må ha et navn. I Klientadministrasjon står navnet på settet som en rad under systembrukeren, og siden for settet heter systemet og navnet, for eksempel «Personalportalen – Registrert regnskapsfører».
 
 - **Navnet må finnes på bokmål, nynorsk og engelsk** (`nb`, `nn` og `en`), som navn i systemregisteret. Mangler ett av dem, eller sender du et annet språk, svarer Altinn 400.
 - **Altinn viser navnet på språket brukeren har valgt.**
 - **Høyst 100 tegn per språk.** Navnet er ren tekst uten linjeskift og HTML, og kan ikke være tomt.
-- **Hold navnet kort likevel.** Et langt navn kan bli kuttet i brukerlisten.
+- **Hold navnet kort likevel.** Et langt navn kan bli kuttet i Klientadministrasjon.
 - **To sett kan ikke ha samme navn.** Altinn skiller ikke mellom store og små bokstaver, og sammenligner hvert språk for seg.
 - **To sett kan ikke ha det samme innholdet.** Har to sett de samme tilgangspakkene og enkeltrettighetene, svarer Altinn 400 i forespørselen og 409 når du legger til et sett. Rekkefølgen spiller ingen rolle.
 - **Du kan endre navnet senere.** Send samme id med de samme tilgangene og det nye navnet.

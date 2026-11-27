@@ -34,7 +34,7 @@ Synlig system i opprettelsesvalget er et annet begrep enn synlighet for opprette
 
 Vi lager `POST /authentication/api/v2/systemuser/request/vendor` med den utvidede forespørselen og kaller brukeren systembruker. Versjon 1 virker som før og får ingen nye felt. Vi varsler minst seks måneder før vi slutter å støtte versjon 1 (vedtatt 25. november 2026). Leverandørene får god dokumentasjon, men ikke annen hjelp til overgangen. Systembrukere fra versjon 1 får `vendorLocked=true`. Autentisering ligger nå i `altinn-auth`.
 
-Forespørselen har to lister for egen virksomhet, pakker og enkeltrettigheter, og fullmaktssett for klienter. Fullmaktssettene er et objekt der nøkkelen er en id leverandøren velger, og rekkefølgen i objektet bestemmer rekkefølgen på radene i brukerlisten. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026). Navnet på det nye klientfeltet er ikke endelig fastsatt.
+Forespørselen har to lister for egen virksomhet, pakker og enkeltrettigheter, og fullmaktssett for klienter. Fullmaktssettene er et objekt der nøkkelen er en id leverandøren velger, og rekkefølgen i objektet bestemmer rekkefølgen på radene under systembrukeren i Klientadministrasjon. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026). Navnet på det nye klientfeltet er ikke endelig fastsatt.
 
 Systembruker for eget system uten systemregisteret skal være uten forhåndsdefinerte rettigheter, og kunne brukes for både egen virksomhet og klienter. Den skal dermed ha `vendorLocked=false`, typisk uten krav i forespørselen. Direkte Maskinporten-tilknytning er fortsatt et eget teknisk arbeidspunkt.
 
@@ -87,7 +87,7 @@ graph TD
   OPEN["Åpne systembrukeren på vanlig bruker- eller klientflate"] --> MODE{"vendorLocked?"}
   MODE -->|false| CHOOSE["Velg pakker og enkeltrettigheter innenfor virksomhetens fullmakter. Ingen fullmaktssett"]
   MODE -->|true| CONTEXT{"Hvilke forhåndsdefinerte fullmakter håndteres?"}
-  CONTEXT -->|Klient| SET["Brukeren åpner raden for ett fullmaktssett i brukerlisten og knytter klienter som oppfyller settet"]
+  CONTEXT -->|Klient| SET["Brukeren åpner raden for ett fullmaktssett i Klientadministrasjon og knytter klienter som oppfyller settet"]
   SET --> ALL["Deleger hele settet samlet"]
   SET --> NONE["Velg ingen av fullmaktene"]
   CONTEXT -->|Egen virksomhet| VIEW["Se forhåndsdefinerte fullmakter på vanlig brukerside"]
@@ -105,7 +105,7 @@ For forhåndsdefinerte fullmakter for egen virksomhet kan enkeltpakker eller enk
 {{< mermaid >}}
 graph TD
   ADD["Leverandøren legger til et nytt fullmaktssett med eget endepunkt"] --> STORED["Altinn lagrer settet på systembrukeren"]
-  STORED --> ROW["Settet blir en ny rad i brukerlisten, uten klienter"]
+  STORED --> ROW["Settet blir en ny rad under systembrukeren i Klientadministrasjon, uten klienter"]
   ROW --> CLIENTS["Virksomheten legger klientene til selv"]
 {{< /mermaid >}}
 
