@@ -72,7 +72,7 @@ Leverandøren angir kravene i forespørselen, uavhengig av rettighetskravene på
 - Klienten må oppfylle alt innenfor ett sett. Det holder å oppfylle ett av settene.
 - `clientAccessSets` er et objekt der nøkkelen er id-en til settet. Leverandøren velger id-en, og den må være unik på systembrukeren. Når virksomheten knytter en klient til systembrukeren, viser vi til settet med id-en (vedtatt 18. november 2026).
 - Id-en ligger fast. Det påkrevde feltet `name` er teksten virksomheten ser, og navnet kan endres (vedtatt 25. november 2026). Leverandøren kan ikke endre tilgangene i et sett eller slette det, bare legge til nye med ny id (vedtatt 23. november 2026).
-- Rekkefølgen i objektet bestemmer rekkefølgen på radene i brukerlisten, uten indeksfelt (vedtatt 23. november 2026). Nye sett kommer etter dem som finnes. Klienten står i en gruppe for hvert sett den oppfyller, og virksomheten knytter den til ett sett om gangen. En klient kan være knyttet til flere sett.
+- Rekkefølgen i objektet bestemmer rekkefølgen på radene under systembrukeren i Klientadministrasjon, uten indeksfelt (vedtatt 23. november 2026, endret 25. november 2026). Nye sett kommer etter dem som finnes. Klienten står i en gruppe for hvert sett den oppfyller, og virksomheten knytter den til ett sett om gangen. En klient kan være knyttet til flere sett.
 - Vi lagrer settene på systembrukeren etter opprettelsen.
 - Fullmaktssett er bare lov med `vendorLocked=true`. Med `false` gir de valideringsfeil, og når leverandøren fjerner låsen, sletter Altinn settene uten å fjerne fullmakter (vedtatt 23. november 2026).
 
@@ -104,11 +104,11 @@ Id-en kan ha små bokstaver, tall og bindestrek, og høyst 50 tegn. Utelatt `cli
 
 **Leverandøren får et eget endepunkt for å legge til nye fullmaktssett på en systembruker, for eksempel når det kommer nye tilgangspakker.**
 
-Leverandøren kan ikke endre eller slette et sett, bare legge til nye (vedtatt 23. november 2026). Et nytt sett blir en ny rad i brukerlisten, og virksomheten legger klientene til selv. Det som er delegert, endrer seg ikke. Altinn vurderer «komplett» per sett. Endepunktet gir valideringsfeil når `vendorLocked=false` (vedtatt 23. november 2026).
+Leverandøren kan ikke endre eller slette et sett, bare legge til nye (vedtatt 23. november 2026). Et nytt sett blir en ny rad under systembrukeren i Klientadministrasjon, og virksomheten legger klientene til selv. Det som er delegert, endrer seg ikke. Altinn vurderer «komplett» per sett. Endepunktet gir valideringsfeil når `vendorLocked=false` (vedtatt 23. november 2026).
 
 Altinn sammenligner tilgangspakkene i settet med pakkene klienten har gitt byrået, ikke tjenestene pakkene gir tilgang til. En annen pakke som gir tilgang til de samme tjenestene, teller ikke. Enkelttjenester i settet må klienten ha gitt som enkelttjenester. Grunnen er at Altinn gir klientfullmakter videre per pakke, og at innholdet i pakkene kan endre seg over tid (vedtatt 24. november 2026).
 
-Kunden trenger ikke godkjenne et nytt sett, og et sett kan ikke stoppes for bruk. Alle settene står i brukerlisten så lenge systembrukeren finnes. Modellen har ingen måte å si at et nytt sett erstatter et gammelt, så bare navnene kan vise det. En id som finnes på systembrukeren fra før, gir 200 uten endring når innholdet er likt, og 409 når innholdet er ulikt. Det er ingen grense for hvor mange sett en systembruker kan ha, men mange rader gjør brukerlisten tung, og det må UX ta høyde for (vedtatt 24. november 2026).
+Kunden trenger ikke godkjenne et nytt sett, og et sett kan ikke stoppes for bruk. Alle settene står i Klientadministrasjon så lenge systembrukeren finnes. Modellen har ingen måte å si at et nytt sett erstatter et gammelt, så bare navnene kan vise det. En id som finnes på systembrukeren fra før, gir 200 uten endring når innholdet er likt, og 409 når innholdet er ulikt. Det er ingen grense for hvor mange sett en systembruker kan ha, men mange rader gjør listen i Klientadministrasjon tung, og det må UX ta høyde for (vedtatt 24. november 2026).
 
 Uansett hvilket sett virksomheten åpner, viser flaten på klienten fullmakter systembrukeren har fra klienten gjennom andre sett.
 
