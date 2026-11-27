@@ -75,6 +75,10 @@
 :where(.docs-content) :where(ul, ol):where(:not([role='list'], .ds-list--unstyled)) > li {
   margin-block: var(--ds-size-2);
 }
+/* Temaet gir kulepunktene Altinn-blå farge. Kulepunktene får samme farge som teksten, slik som numrene i nummererte lister. */
+:where(.docs-content) :where(ul):where(:not([role='list'], .ds-list--unstyled)) > li::before {
+  color: var(--ds-color-neutral-text-default);
+}
 /* Nummererte lister er som regel steg i en fremgangsmåte. Hvert steg får mer luft, så stegene ikke flyter sammen. */
 :where(.docs-content) :where(ol):where(:not([role='list'], .ds-list--unstyled)) > li {
   margin-block: var(--ds-size-6);
